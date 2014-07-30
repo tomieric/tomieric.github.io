@@ -1,0 +1,835 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>迅雷新闻-demo by分享园</title>
+	<style>
+	html,body,form,input,button,ul,ol,p,dl,dt,dd,table,input,h1,h2,h3{margin:0;padding:0;}
+	body{color:#535353;font:14px/24px \5b8b\4f53;-webkit-text-size-adjust:none}ul,ol{list-style:none;} 
+	i,em{font-style:normal;} 
+	img{border:0;}
+	input,button{vertical-align:middle;font-size:12px;}
+	a{text-decoration:none;}
+	a:hover{text-decoration:none;}
+	.clearfix:after,.block:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+	.clearfix,.block{zoom:1}
+	.block,.ad{ margin-bottom: 10px }
+
+	.wrap{ width: 900px; margin: 0 auto }
+	.addFv,.wb_sina,.wb_tc,.wb_sh,.nav,.nav a,.r_list li i{ background: url(i.png) no-repeat }
+
+	.header{ height: 105px; margin-bottom: 10px; position: relative; z-index: 2}
+	.logo{ float: left; width: 162px; height: 60px; padding: 6px 0 0 8px }
+	.logo a{ display: block; width: 162px; height: 60px; text-indent: -9999em; background: url(logo.png) no-repeat; text-decoration: none }
+	.header_r{ float: right; color: #929292; margin-top: 30px; font-size: 12px; line-height: 16px }
+	.header_r a{ display: inline-block; position: relative; z-index: 1; color: #929292; }
+	.addFv{ padding-left: 22px; background-position: -138px -83px }
+	.wb_sina,.wb_tc,.wb_sh{ width: 16px; height: 16px; vertical-align: middle; margin: -5px 6px 0 2px; _margin-top: 0 }
+	.wb_sina{ background-position: -84px -83px}
+	.wb_tc{ background-position: -101px -83px }
+	.wb_sh{ background-position: -118px -83px }
+	.span_line{ margin: 0 5px }
+	.nav{ width: 898px; position: absolute; top: 66px; left: 0; height: 39px; background-position: 0 -41px; background-repeat: repeat-x; border-width: 0 1px; border-color: #e5e5e5; border-style: solid }
+	.nav li{ /*display: inline;*/ float: left; width: 55px; font:15px/39px "微软雅黑";/* margin-right: 0.5px*/ }
+	.nav li a{ display: block; height: 39px; text-align: center; color: #535353; background-position: 0 -41px }
+	.nav li a:hover{ background-color: #CBE4F9; background-position: 0 -124px; color: #535353; text-decoration: none; border-color: #A3CEED; border-width: 0 1px; border-style: solid }
+	.nav li a.on,.nav li a.on:hover{ background-color: #237CD8; background-position: 0 -83px; color: #fff; border-style: solid; border-width: 0 1px; border-color: #1F76D0}
+
+	/*.content a:link{ color: #535353 }*/
+	.block_a{ float: left; width: 618px }
+	.block_b{ float: right; width: 272px; background: #F6F9FE }
+	.news{ border: 1px solid #E6E6E6; height: 323px }
+	.news h2{ border-bottom: 1px solid #e6e6e6; background: #F3F5F7; color: #2075CC; font:14px/22px '微软雅黑'; text-indent: 10px }
+
+	.col_l{ float: left; overflow: hidden; padding: 10px 0 10px 10px; width: 316px }
+	.col_r{ float: right; overflow: hidden; padding: 10px 0 10px 10px; width: 278px }
+	.col_l h3{ font:18px/22px "微软雅黑"; text-align: center }
+	.col_l h3 a{ color: #b00!important}
+
+	.r_list{ margin: 6px 10px}
+	.r_list li{ height: 24px; overflow: hidden; }
+	.r_list li a{ color: #535353}
+	.r_list li i{ float: left; display: block; color: #fff; text-align: center; width: 17px; font:12px/15px "微软雅黑"; height: 15px; margin: 5px 8px 0 0; background-position: -84px -103px }
+	.r_list li i.top{ background-position: -102px -103px}
+
+	.focus{ position: relative; width: 269px; height: 169px; overflow: hidden}
+	.focus_pic li{ display: none;}
+	.focus_pic li.on{ display: block }
+	.focus_pic li a{ display: block; position: relative;}
+	.focus_pic img{ display: block }
+	.focus_pic li a span{ position: absolute; bottom: 0; left: 0; width: 250px; padding: 0 10px; line-height: 20px; height: 20px;background: rgba(0,0,0,.3); color: #fff }
+	.focus_num{ position: absolute; right: 0; bottom: 0; float: left; }
+	.focus_num li{ float: left; margin-left: 1px; width: 20px; height: 20px; }
+	.focus_num li a{ display: block; float: left; background: rgba(0,0,0,.5); color: #fff; font:12px/20px Arial; width: 20px; text-align: center }
+	.focus_num li a.on{ color: #6A9FC7 }
+
+	#goTop{ background: url(i.png) no-repeat -71px -164px; width: 70px; height: 47px; position: fixed; /*bottom:0;*/ right: 5% }
+	#goTop:hover{ background-position: 0 -164px }
+	</style>
+	<!--[if IE 6]>
+	<style>
+		html{ background: url(about:_blank) fixed;}
+	</style>
+	<![endif]-->
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<h1 class="logo"><a href="#">迅雷新闻</a></h1>
+			<p class="header_r">
+				<a href="#" class="addFv" onclick="addFav();return false;">加入收藏</a><span class="span_line">|</span>关注迅雷新闻 一起来微博 <a href="#" class="wb_sina"> </a><a href="#" class="wb_tc"> </a><a href="#" class="wb_sh"> </a>
+			</p>
+			<ul class="nav" id="nav">	
+				<li><a class="on" href="#newsBlock1" title="头条">头条</a></li>
+				<li><a href="#newsBlock2" title="资讯">资讯</a></li>
+				<li><a href="#newsBlock3" title="图片">图片</a></li>
+				<li><a href="#newsBlock4" title="娱乐">娱乐</a></li>
+				<li><a href="#newsBlock5" title="时尚">时尚</a></li>
+				<li><a href="#newsBlock6" title="乐活">乐活</a></li>
+                <li><a href="#newsBlock7" title="优客">优客</a></li>
+				<li><a href="#newsBlock8" title="视频">视频</a></li>
+				<li><a href="#newsBlock9" title="军事">军事</a></li>
+                <li><a href="#newsBlock10" title="汽车">汽车</a></li>
+				<li><a href="#newsBlock11" title="科技">科技</a></li>
+                <li><a href="#newsBlock12" title="猎奇">猎奇</a></li>
+				<li><a href="#newsBlock13" title="财经">财经</a></li>
+				<li><a href="#newsBlock14" title="体育">体育</a></li>
+				<li><a href="#newsBlock15" title="历史">历史</a></li>
+				<li><a href="#newsBlock16" title="彩票">彩票</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<div id="newsBlock1"></div>
+			<!--block 1-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>头条</h2>
+						<div class="col_l">
+							<h3><a href="#">国防部称军舰驶向日冲绳训练正当合法</a></h3>
+						</div>
+						<div class="col_r">
+							<div class="focus" id="focus">
+								<ul class="focus_pic">
+									<li class="on"><a href="#"><img src="1.jpg" /><span>1国防部称军舰驶向</span></a></li>
+									<li><a href="#"><img src="2.jpg" /><span>2国防部称军舰驶向</span></a></li>
+									<li><a href="#"><img src="3.jpg" /><span>3国防部称军舰驶向</span></a></li>
+									<li><a href="#"><img src="4.jpg" /><span>4国防部称军舰驶向</span></a></li>
+									<li><a href="#"><img src="5.jpg" /><span>5国防部称军舰驶向</span></a></li>
+								</ul>
+								<ul class="focus_num">
+									<li><a href="#" class="on">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>一周热点排行榜</h2>
+						<ul class="r_list">
+							<li><i class="top">1</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i class="top">2</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i class="top">3</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>4</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>5</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>6</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>7</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>8</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>9</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>10</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>11</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+							<li><i>12</i><a href="#">新交规引卖分黄牛捞金 法规不完善</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="ad"><img src="n1350908144336.jpg" /></div>
+			<div id="newsBlock2"></div>
+			<!--block 2-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>资讯</h2>
+						<div class="col_l">
+						</div>
+						<div class="col_r">
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>热点专题</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="newsBlock3"></div>
+			<!--block 3-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>图片</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>美图大赏</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="newsBlock4"></div>
+
+			<!--block 4-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>娱乐</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>娱乐大事件</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ad"><img src="n1350908144336.jpg" /></div>
+
+			<div id="newsBlock5"></div>
+
+			<!--block 5-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>时尚</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>潮人广场</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="newsBlock6"></div>
+			<!--block 6-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>乐活</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>活色生香</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="newsBlock7"></div>
+			<!--block 7-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>优客</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>型男沙龙</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ad"><img src="n1350908144336.jpg" /></div>
+
+
+			<div id="newsBlock8"></div>
+			<!--block 8-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>视频</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>大家都在看</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="newsBlock9"></div>
+			<!--block 9-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>军事</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>军事历史</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="newsBlock10"></div>
+			<!--block 10-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>汽车</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>车友生活</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ad"><img src="n1350908144336.jpg" /></div>
+
+			<div id="newsBlock11"></div>
+
+			<!--block 11-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>科技</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>创意酷品</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="newsBlock12"></div>
+			<!--block 12-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>猎奇</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>奇趣天下</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<div id="newsBlock13"></div>
+
+			<!--block 13-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>财经</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>数字时代</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="newsBlock14"></div>
+
+			<!--block 14-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>体育</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>酷玩地带</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="newsBlock15"></div>
+			<!--block 15-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>历史</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>轶闻秘史</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="newsBlock16"></div>
+			<!--block 16-->
+			<div class="block">
+				<div class="block_a">
+					<div class="news">
+						<h2>彩票</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+				<div class="block_b">
+					<div class="news">
+						<h2>购彩宝典</h2>
+						<div class="news_content">
+							啊啊啊
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- <a href="#" id="goTop"> </a> -->
+</body>
+<script>
+/*Core库支持*/
+var Core = {};
+/*工具对象*/
+var Util = {};
+
+(function($,window){
+	var core = {
+		id: function(id){
+			return document.getElementById(id);
+		},
+		tagName: function(tag,obj){
+			var srcElement = obj || document;
+			return srcElement.getElementsByTagName(tag);
+		},
+		className: function(clsName,obj){
+			var srcElement = obj || document;
+			if(document.getElementsByClassName){
+				return srcElement.getElementsByClassName(clsName);
+			}else{
+				var elems = [];
+				var elements = srcElement.getElementsByTagName("*");
+				for(var i = 0, len = elements.length; i < len; i++){
+					if(elements[i].className){
+						if(elements[i].className.indexOf(className) != -1) elems.push(elements[i]);
+					}
+				}
+				return elems;
+			}
+		},
+		element: function(tag){
+			return document.createElement(tag);
+		},
+		preventDefault : function(event){
+			if(event && event.preventDefault){
+				event.preventDefault();
+			}else{
+				window.event.returnValue = false;
+			}
+			return false;
+		},
+		offset: function(element){   //参考 http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html
+			var actualLeft = element.offsetLeft || 0;
+			var actualTop = element.offsetTop || 0;
+			var current = element.offsetParent;
+			while(current !== null){
+				actualLeft += current.offsetLeft;
+				actualTop += current.offsetTop;
+				current = current.offsetParent;
+			}
+			return {left: actualLeft, top: actualTop}
+		},
+		index: function(arr,value){
+			for(var i = 0, len = arr.length; i < len; i++){
+				if(arr[i] == value) return i;
+			}	
+			return null;
+		}
+	};
+	$ = window.Core = core;
+})(Core || undefined,window);
+
+(function(U,$,W){
+	U.goTop = function(id,height,title){
+		var elemId = id || "goTop";
+		var parentObj = $.tagName("body")[0];
+		var topElement = $.id(elemId);
+		var showHeight = (isNaN(height) ? 0 : parseInt(height)) || 200;
+		var pageHeight = document.body.clientHeight;
+		var viewHeight = document.documentElement.clientHeight;
+		var scrollTop = document.documentElement.scrollTop;
+		var UA = navigator.userAgent.toLowerCase();
+
+		/*创建回到顶部元素*/
+		this.create = function(){
+			topElement = $.element("a");
+			topElement.href = "#";
+			topElement.id = id || "goTop";
+			topElement.title = title || "回到顶部";
+			topElement.style.display = "none";
+			parentObj.appendChild(topElement);
+		}
+
+		/*判断页面是否已创建，无该元素则调用创建*/
+		if(!topElement) this.create();
+
+		/*绑定页面滚动条滚动事件*/
+		window.onscroll = function(){
+
+			scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			if(scrollTop >= showHeight){ /*是否超出设置值，判断是否隐藏*/
+				topElement.style.display = "block";
+				fixedIe6(topElement);
+			}else{
+				topElement.style.display = "none";
+			}
+			//if(scrollTop > pageHeight) return;
+		}
+
+		/*回到顶部元素点击回到顶部事件*/
+		topElement.onclick = function(ev){
+			if(/webkit/.test(UA)){
+				document.body.scrollTop = 0;
+			}else{
+				document.documentElement.scrollTop = 0;
+			}
+			$.preventDefault(ev);
+		}
+
+		function fixedIe6(obj){
+			if(typeof(document.body.style.maxHeight) === "undefined"){ // ie6
+				obj.style.position = "absolute";
+				obj.style.top = (viewHeight + scrollTop - obj.clientHeight)+"px";
+			}else{
+				obj.style.bottom = "0";
+			}
+		}
+	}
+
+	U.lockNav = function(obj,hlClass,posTop,posLeft){
+		var offset = $.offset(obj);
+		var scrollTop = document.documentElement.scrollTop;
+		var navItemObj = $.tagName("a",obj);
+		var blockOffsetY = [];
+		var UA = navigator.userAgent.toLowerCase();
+
+		for(var i = 0, niLen = navItemObj.length; i < niLen; i++){
+			var href = navItemObj[i].href;
+			var thisId = href.split("#")[1];
+			var thisObj = $.id(thisId);
+			var thisOffsetY = thisObj.offsetTop;
+			blockOffsetY.push(thisOffsetY);
+		}
+	
+		//首次
+		lockFixed(scrollTop,offset.left);
+
+		/*判断是否锁定*/
+		function lockFixed(a,b){
+			if(a >= b){
+				setFixed();
+			}else{
+				resetObjStyle();
+			}
+		}
+
+		/*锁定函数*/
+		function setFixed(){
+			if(typeof(document.body.style.maxHeight) === "undefined"){ // ie6
+				obj.style.position = "absolute";
+				obj.style.top = scrollTop+"px";
+				obj.style.left = 0;
+			}else{
+				obj.style.position = "fixed";
+				obj.style.top = 0;
+				obj.style.left = offset.left+"px";
+			}
+		}
+
+		/*解锁函数，样式还原*/
+		function resetObjStyle(){
+			obj.style.position = "absolute";
+			obj.style.top = offset.top+"px";
+			obj.style.left = 0;
+		}
+
+		/*滚动事件*/
+		var oldOnScorll = window.onscroll;
+
+		function scrollTo(value){
+			if(/webkit/.test(UA)){
+				document.body.scrollTop = value;
+			}else{
+				document.documentElement.scrollTop = value;
+			}
+		}
+
+		window.onscroll = function(){
+			oldOnScorll();
+			scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			lockFixed(scrollTop,offset.top);
+			//autoHighLight(scrollTop)
+		}
+
+		/*获取滚动位置索引*/
+		function getIndex(arr,value){
+			for(var i = 0, len = arr.length; i < len; i++){
+				if(arr[i] >= value && i == 0) return 0;
+				if(arr[i-1] <= value && arr[i] > (value + 50) && i > 0) return i;
+			}	
+			return null;
+		}
+
+		/*自动高亮*/
+		function autoHighLight(scHeight){
+			if(getIndex(blockOffsetY,scHeight) != null){
+				var index = getIndex(blockOffsetY,scHeight);
+				addClass(navItemObj,navItemObj[index],hlClass);
+			}
+		}
+
+		/*导航高亮*/
+		function addClass(objs,obj,clsName){
+			for(var j = 0, objLen = objs.length; j < objLen; j++){
+				if(objs[j] == obj){
+					objs[j].className = clsName;
+				}else{
+					objs[j].className = "";
+				}
+			}
+		}
+
+		/*切换导航*/
+		for(var i = 0, len = navItemObj.length; i < len; i++){
+			navItemObj[i].onclick = function(ev){
+				addClass(navItemObj,this,hlClass);
+				var idStr = this.href;
+				var idArr = idStr.split("#");
+				//var id = idStr.replace(/#/,"");
+				var id = idArr[1];
+				var srcElement = $.id(id);
+				var offsetY = srcElement.offsetTop;
+				var thisHeight = this.clientHeight;
+				//document.documentElement.scrollTop = (offsetY - thisHeight - 10); 
+				slide(offsetY - thisHeight - 10);
+				$.preventDefault(ev);
+			}
+		}
+
+		/*滑动定位*/
+		function slide(value){
+			var currentTop = document.documentElement.scrollTop || document.body.scrollTop;
+			var inc = (currentTop >= value) ? 1 : 0;
+			var scrollHeight = Math.abs(value - currentTop);
+			var scrollUnit = scrollHeight / 20;
+			var timer = setInterval(function(){
+				if(inc == 0){
+					currentTop += scrollUnit;
+					if(currentTop > value){
+						//document.documentElement.scrollTop = value;
+						scrollTo(value);
+						clearInterval(timer);
+						return;
+					}
+				}else{
+					currentTop -= scrollUnit;
+					if(currentTop < value){
+						//document.documentElement.scrollTop = value;
+						scrollTo(value);
+						clearInterval(timer);
+						return;
+					}
+				}
+				//document.documentElement.scrollTop = currentTop;
+				scrollTo(currentTop);
+			},10);
+		}
+	}
+
+	U.focus = function(id){
+		var thisObj = $.id(id);
+		var picObj = $.className("focus_pic",thisObj)[0];
+		var numObj = $.className("focus_num",thisObj)[0];
+		var picItemObj = $.tagName("li",picObj);
+		var numItemObj = $.tagName("a",numObj);
+		var autoTimer,currentIndex = 0;
+
+		for(var i = 0, len = numItemObj.length; i < len; i++){
+			numItemObj[i].onclick = function(){
+				var index = $.index(numItemObj,this);
+				currentIndex = index;
+				show(numItemObj,this,"on");
+				show(picItemObj,picItemObj[index],"on");
+			}
+			numItemObj[i].onmouseover = numItemObj[i].onclick;
+		}
+
+		picObj.onmouseover = function(){
+			clearInterval(autoTimer);
+		}
+
+		picObj.onmouseout = function(){
+			autoTab();
+		}
+
+		autoTab();
+		function autoTab(){
+			autoTimer = setInterval(function(){
+				if(currentIndex >= numItemObj.length) currentIndex = 0;
+				numItemObj[currentIndex].onclick();
+				currentIndex++;
+			},1200);
+		}
+
+		function show(objs,obj,clsName){
+			for(var j = 0, objLen = objs.length; j < objLen; j++){
+				if(objs[j] == obj){
+					objs[j].className = clsName;
+				}else{
+					objs[j].className = "";
+				}
+			}
+		}
+	}
+})(Util,Core,window);
+
+/*页面加载后处理*/
+window.onload = function(){
+	Util.goTop();
+	var navObj = Core.id("nav");
+	Util.lockNav(navObj,"on");
+	Util.focus("focus");
+}
+
+/*http://news.xunlei.com*/
+function addFav() {
+    var ctrl = (navigator.userAgent.toLowerCase()).indexOf('mac') != -1 ? 'Command/Cmd': 'CTRL';
+    try{
+        if (document.all) { //IE类浏览器
+            try {
+                window.external.toString(); //360浏览器不支持window.external，无法收藏
+                window.alert("国内开发的360浏览器等不支持主动加入收藏。\n您可以尝试通过浏览器菜单栏 或快捷键 ctrl+D 试试。");
+            }
+            catch (e){
+                try{
+                    window.external.addFavorite("http://www.fenxiangyuan.com/", document.title);
+                }
+                catch (e){
+                    window.external.addToFavoritesBar("http://www.fenxiangyuan.com/", document.title);  //IE8
+                }
+            }
+        }
+        else if (window.sidebar) { //firfox等浏览器
+            window.sidebar.addPanel(document.title, "http://www.fenxiangyuan.com/", "");
+        }
+        else {
+            alert('您可以尝试通过快捷键' + ctrl + ' + D 加入到收藏夹~');
+        }
+    }
+    catch (e){
+       window.alert("添加收藏失败！\n解决办法：在注册表中查找\n HKEY_CLASSES_ROOT\\TypeLib\\{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}\\1.1\\0\\win32 \n将 C:\\WINDOWS\\system32\\shdocvw.dll 改为 C:\\WINDOWS\\system32\\ieframe.dll ");
+    }
+}
+</script>
+</html>

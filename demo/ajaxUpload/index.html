@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="gb2312">
+    <title></title>
+    <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .ajaxUploader-wrapper{ padding: 10px; position: absolute; top: 0; left: 0; width: 150px; background: #fff; background: rgba(255,255,255,.95); border: 1px solid #dadada; border-radius: 5px; }
+        .ajaxUploader-close{ width: 20px; height: 20px; background: #fff; border-radius: 50%/50%; border: 1px solid #dadada; position: absolute; top: -10px; right: -10px; text-align: center; text-decoration: none; color: #ccc; font:bold 16px/20px simsun; }
+        .ajaxUploader-close:hover{ color: #ff9000; border-color: #ff9000; }
+        .ajaxUploader-btn{ display: block; margin: 0 auto; }
+        /*.ajaxUploader-img-wrapper{ position: relative; margin: 0 auto; width: 120px; height: 30px; background: url('upload.png') no-repeat; overflow: hidden; cursor: pointer }
+        .ajaxUploader-img-wrapper input{ position: absolute; right: 0; top: 0; font-size: 100px; opacity: 0; filter: alpha(opacity=0); }*/
+        .ajaxUploader-btn{ margin: 10px auto 0; width: 120px; height: 30px; background: url('btn.png') no-repeat; border: none; font-size: 0; line-height: 0; content: ''; cursor: pointer }
+    </style>
+</head>
+<body>
+    <form action="upload.php" method="post" id="up_form" target="up_iframe" enctype="multipart/form-data">
+        <input type="text" name="pic" id="pic" /><a href="javascript:void(0);" id="upload-pic">上传图片</a>
+        <p><button type="submit">提交</button></p>
+    </form>
+    <div id="pic_show">
+
+    </div>
+
+    <script>
+        (function($){
+            /*
+            * iFrame 操作类
+            * loaded (fn) 判断iframe是否载入完成
+            *           element iframe Dom对象
+            *           fn 载入完成回调函数
+            *           context 回调函数执行上下文
+            * getDocument 获取iframe内部document对象
+            *           element iframe Dom对象
+            */
+            var Util = {
+                loaded : function(element, fn, context){
+                    if(element.attachEvent){ // ie
+                        element.attachEvent("onload", function(){
+                            fn.call(context, element);
+                        });
+                    }else{
+                        element.onload = function(){
+                            fn.call(context, element);
+                        };
+                    }
+                }
+                ,getDocument : function(element){
+                    return element.contentDocument || element.contentWindow.document;
+                }
+            };
+
+            var AjaxUploader = function(obj, option){
+                this.obj = obj;
+                this.option = option;
+                this.guid = + new Date();
+                this.init();
+            };
+
+            AjaxUploader.prototype = {
+                constructor: AjaxUploader,
+                init: function(){
+                    this.render();
+                    this.upload();
+                    this.fireEvent();
+                },
+                render: function(){
+
+                    var pos = this.obj.getBoundingClientRect(), objH = this.obj.offsetHeight, objW = this.obj.offsetWidth;
+
+                    var iframeObj = document.createElement('iframe');
+                    iframeObj.id = iframeObj.name = "ajaxUploader_iframe_" + this.guid;
+                    iframeObj.style.display = 'none';
+
+                    var wrapper = document.createElement('div');
+                    wrapper.className = 'ajaxUploader-wrapper';
+
+                    var form = document.createElement('form');
+                    form.action = this.option.url;
+                    form.method = 'post';
+                    form.id = 'ajaxUploader_form_'+ this.guid;
+                    form.target = "ajaxUploader_iframe_" + this.guid;
+                    form.enctype = "multipart/form-data";
+
+                    var picInputWrapper = document.createElement('div');
+                    picInputWrapper.className = 'ajaxUploader-img-wrapper';
+
+                    var picInput = document.createElement('input');
+                    picInput.type = 'file';
+                    picInput.name = this.option.inputName;
+
+                    var btn = document.createElement('button');
+                    btn.setAttribute('type', 'submit');
+                    btn.innerHTML = '上传';
+                    btn.className = 'ajaxUploader-btn';
+
+                    var closeBtn = document.createElement('a');
+                    closeBtn.id = 'ajaxUploader_close_' + this.guid;
+                    closeBtn.title = 'close';
+                    closeBtn.innerHTML = '×';
+                    closeBtn.href = 'javascript:void(0);';
+                    closeBtn.className = 'ajaxUploader-close';
+                    closeBtn.onfocus = function(){ this.blur(); };
+
+                    picInputWrapper.appendChild(picInput);
+                    form.appendChild(picInputWrapper);
+                    form.appendChild(btn);
+
+                    wrapper.appendChild(form);
+                    wrapper.appendChild(iframeObj);
+                    wrapper.appendChild(closeBtn);
+
+                    wrapper.style.display = 'none';
+                    wrapper.style.position = 'absolute';
+                    wrapper.style.top = pos.top + objH+'px';
+                    wrapper.style.left = pos.left + 'px';
+
+                    document.body.appendChild(wrapper);
+
+                    this.iframeObj = iframeObj;
+                    this.formObj = form;
+                    this.wrapper = wrapper;
+                    this.closeObj = closeBtn;
+                },
+                beforeSend: function(o, w, i){
+                    this.option.beforeSend && this.option.beforeSend.apply(this, arguments);
+                },
+                complete: function(res){
+                    if(this.option.complete && typeof this.option.complete === "function"){
+                        this.option.complete.apply(this, arguments);
+                    }else{
+                        this.obj.value = res.file;
+                    }
+                },
+                upload: function(){
+                    var that = this;
+                    that.formObj.onsubmit = function(){
+                        that.beforeSend(that.obj, that.wrapper, that.iframeObj);
+                        Util.loaded(that.iframeObj, function(obj){
+                            var doc = Util.getDocument(obj);
+                            var result = doc.body || doc.documentElement;
+                            var data = result.childNodes[0].nodeValue;
+                            var resData = eval("("+data+")");
+                            that.complete(resData);
+                        })
+                    };
+                },
+                fireEvent: function(){
+                    var that = this;
+                    this.closeObj.onclick = function(){
+                        that.hide();
+                    };
+                },
+                hide: function(){
+                    this.wrapper.style.display = 'none';
+                },
+                show: function(){
+                    this.wrapper.style.display = 'block';
+                }
+            };
+
+            /* ajaxUploader jQuery插件 */
+            $.fn.ajaxUploader = function(options){
+                var defaults = { url: 'upload.html', inputName: 'img' };
+                var opt = $.extend({}, defaults, options);
+                return this.each(function(){
+                    var $this = $(this), au = $(this).data('ajaxUploader');
+                    if(!au){
+                        $(this).data('ajaxUploader', (au = new AjaxUploader($this[0], opt)));
+                    }
+
+                    if(typeof options === 'string'){
+                        au[options]();
+                    }
+                })
+            };
+        })(jQuery);
+
+
+
+
+        $(function(){
+            $("#pic").ajaxUploader({
+                beforeSend: function(){
+                    this.hide();
+                    $('#pic_show').html('正在上传中');
+                },
+                complete: function(res){
+                    this.obj.value = res.file;
+                    this.hide();
+                    $('#pic_show').html('<img src="'+res.file+'" />');
+                }
+            });
+
+            $("#upload-pic").on("click", function(){
+                $("#pic").ajaxUploader('show');
+            });
+        });
+    </script>
+</body>
+</html>

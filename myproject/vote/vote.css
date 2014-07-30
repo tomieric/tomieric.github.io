@@ -1,0 +1,198 @@
+/*
+*  Í¶Æ±
+*/
+.vote-left,.vote-right{ position: fixed; top: 200px; width: 230px; height: 210px; -webkit-transition: all 1s linear; -moz-transition: all 1s linear; -ms-transition: all 1s linear; transition: all 1s linear; cursor: pointer; z-index: 100 }
+
+.vote-left{ left: 20px;}
+.vote-right{ top: 300px; right: 20px; }
+
+.left-star,.left-sqaure,.left-fish,.right-star,.right-plane,.right-fish{ position: absolute; background: url('vote.png?t=20131107') no-repeat; }
+
+/* ÐÇÐÇ */
+.left-star{ width: 105px; height: 103px; background-position: 0 -320px; -webkit-animation: star 3s ease infinite; -moz-animation: star 3s ease infinite; -ms-animation: star 3s ease infinite; animation: star 3s ease infinite }
+.right-star{ width: 105px; height: 103px; background-position: -230px -320px; -webkit-animation: star 3s ease infinite; -moz-animation: star 3s ease infinite; -ms-animation: star 3s ease infinite; animation: star 3s ease infinite }
+
+.left-sqaure{ top: 100px; left: 50px; width: 118px; height: 103px; background-position: 0 -210px; -webkit-animation: turn 3s linear; -moz-animation: turn 3s linear; -ms-animation: turn 3s linear; animation: turn 3s linear; }
+.right-plane{ top: 74px; right: 0; background-position: -230px -210px; width: 120px; height: 80px; -webkit-animation: fly 3s linear; -moz-animation: fly 3s linear; -ms-animation: fly 3s linear; animation: fly 3s linear; }
+
+.left-fish{ top:0; right: 0; width: 200px; height: 146px; -webkit-animation: swining 2s linear; -moz-animation: swining 2s linear; -ms-animation: swining 2s linear; animation: swining 2s linear;}
+
+.right-fish{ top:0; left: 0; width: 200px; height: 146px; background-position: -230px 0; -webkit-animation: fadeIn 2s linear; -moz-animation: fadeIn 2s linear; -ms-animation: fadeIn 2s linear; animation: fadeIn 2s linear;}
+
+/* ÐÇÐÇÉÁ¶¯ */
+@-webkit-keyframes star
+{
+    0%{ opacity:0.5;}
+    12.5%{ opacity:0.6;}
+    32.5%{ opacity:0.7}
+    70%{opacity:1}
+    90%{opacity:0.9}
+    100%{opacity:0.8;}
+}
+
+@-moz-keyframes star
+{
+    0%{ opacity:0.5;}
+    12.5%{ opacity:0.6;}
+    32.5%{ opacity:0.7}
+    70%{opacity:1}
+    90%{opacity:0.9}
+    100%{opacity:0.8;}
+}
+
+@-ms-keyframes star
+{
+    0%{ opacity:0.5;}
+    12.5%{ opacity:0.6;}
+    32.5%{ opacity:0.7}
+    70%{opacity:1}
+    90%{opacity:0.9}
+    100%{opacity:0.8;}
+}
+
+@keyframes star
+{
+    0%{ opacity:0.5;}
+    12.5%{ opacity:0.6;}
+    32.5%{ opacity:0.7}
+    70%{opacity:1}
+    90%{opacity:0.9}
+    100%{opacity:0.8;}
+}
+
+/* ¾ØÐÎÐý×ª */
+@-webkit-keyframes turn {
+    from { -webkit-transform: rotateY(180deg); }
+    to   { -webkit-transform: rotateY(0); }
+}
+
+@-moz-keyframes turn {
+    from { -webkit-transform: rotateY(180deg); }
+    to   { -webkit-transform: rotateY(0); }
+}
+
+@-ms-keyframes turn {
+    from { -webkit-transform: rotateY(180deg); }
+    to   { -webkit-transform: rotateY(0); }
+}
+
+@keyframes turn {
+    from { -webkit-transform: rotateY(180deg); }
+    to   { -webkit-transform: rotateY(0); }
+}
+
+/* ·É»ú·ÉÐÐ */
+@-webkit-keyframes fly {
+    from {
+        top: 300px;
+        right: 200px;
+        -webkit-transform: scale(0.7,0.7);
+        -moz-transform: scale(0.7,0.7);
+        -ms-transform: scale(0.7,0.7);
+        transform: scale(0.7,0.7);
+    }
+    to   {
+        top: 74px;
+        right: 0;
+        -webkit-transform: scale(1,1);
+        -moz-transform: scale(1,1);
+        -ms-transform: scale(1,1);
+        transform: scale(1,1);
+    }
+}
+@-moz-keyframes fly {
+    from {
+        top: 300px;
+        right: 200px;
+        -webkit-transform: scale(0.7,0.7);
+        -moz-transform: scale(0.7,0.7);
+        -ms-transform: scale(0.7,0.7);
+        transform: scale(0.7,0.7);
+    }
+    to   {
+        top: 74px;
+        right: 0;
+        -webkit-transform: scale(1,1);
+        -moz-transform: scale(1,1);
+        -ms-transform: scale(1,1);
+        transform: scale(1,1);
+    }
+}
+@-ms-keyframes fly {
+    from {
+        top: 300px;
+        right: 200px;
+        -webkit-transform: scale(0.7,0.7);
+        -moz-transform: scale(0.7,0.7);
+        -ms-transform: scale(0.7,0.7);
+        transform: scale(0.7,0.7);
+    }
+    to   {
+        top: 74px;
+        right: 0;
+        -webkit-transform: scale(1,1);
+        -moz-transform: scale(1,1);
+        -ms-transform: scale(1,1);
+        transform: scale(1,1);
+    }
+}
+@keyframes fly {
+    from {
+        top: 300px;
+        right: 200px;
+        -webkit-transform: scale(0.7,0.7);
+        -moz-transform: scale(0.7,0.7);
+        -ms-transform: scale(0.7,0.7);
+        transform: scale(0.7,0.7);
+    }
+    to   {
+        top: 74px;
+        right: 0;
+        -webkit-transform: scale(1,1);
+        -moz-transform: scale(1,1);
+        -ms-transform: scale(1,1);
+        transform: scale(1,1);
+    }
+}
+
+/* ÓãÓÎÓ¾ */
+@-webkit-keyframes swining {
+    from { opacity: 0; right: 30px; }
+    to   { opacity: 1; right: 0; }
+}
+@-moz-keyframes swining {
+    from { opacity: 0; right: 30px; }
+    to   { opacity: 1; right: 0; }
+}
+@-ms-keyframes swining {
+    from { opacity: 0; right: 30px; }
+    to   { opacity: 1; right: 0; }
+}
+@keyframes swining {
+    from { opacity: 0; right: 30px; }
+    to   { opacity: 1; right: 0; }
+}
+
+/* ½¥±ä */
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; left: -50px; }
+    to   { opacity: 1; left: 0; }
+}
+@-moz-keyframes fadeIn {
+    from { opacity: 0; left: -50px; }
+    to   { opacity: 1; left: 0; }
+}
+@-ms-keyframes fadeIn {
+    from { opacity: 0; left: -50px; }
+    to   { opacity: 1; left: 0; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; left: -50px; }
+    to   { opacity: 1; left: 0; }
+}
+
+/* ie6 */
+* html .vote-left{ position: absolute; top: expression(eval(document.documentElement.scrollTop+200)); left: 20px;  width: 227px; height: 203px; background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="vote_left_ie6.png"); }
+* html .vote-right{ position: absolute; top: expression(eval(document.documentElement.scrollTop+200)); right: 20px; width: 243px; height: 175px; background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="vote_right_ie6.png"); }
+* html .vote-left span{ display: none; }
+* html .vote-right span{ display: none; }

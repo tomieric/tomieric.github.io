@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin: 0; padding: 0;}
+body{ font-size: 12px }
+ul,ol{ list-style: none }
+a{ text-decoration: none; color:#222 }
+.wrapper{ width: 960px; margin: 0 auto }
+.header{ position: relative; z-index: 2/*ie6 被下面定位层遮盖*/;  background: #eee; border: 1px solid #ccc; display: inline-block; zoom: 1; width: 938px; padding: 10px; margin-top: 50px }
+.drop{ position: relative; float: right; }
+.drop li{ display: block;}
+.drop span{ display:block; color: #fff; padding: 5px 20px;background: #C30025 url(left_menu_openClose.png) no-repeat 90%  -20px; cursor:pointer }
+.drop span.droped{ background-position: 90% 10px}
+/*.drop:hover .droplist{ display: block;} 此方法不兼容IE6，所以于下面另写js控制hover事件*/
+.droplist{ display: none; position: absolute; top: 20px; left: 0; background: #fff; border: 1px solid #C30025 }
+.droplist a{ text-decoration: none; outline: none; display: block; width: 86px; text-align: center; color: #777; padding: 5px 0 }
+.droplist a:hover{ background: #f3f3f3 }
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>
+$(function(){
+	$("#drop").hover(function(){
+		$(this).find("ul").show().end().find("span").addClass("droped");
+	},function(){
+		$(this).find("ul").hide().end().find("span").removeClass("droped");
+	});
+	
+	/*$("#drop").toggle(function(){
+		$(this).find("ul").slideDown().addClass("droped");
+	},function(){
+		$(this).find("ul").slideUp().removeClass("droped");
+	});
+	*/
+	/*$("#drop li span").click(function(e){
+		$("#droplist").slideDown();
+		e.preventDefault();
+		return false;
+	});
+	$(document).click(function(){
+		$("#droplist").slideUp();
+	});*/
+});
+</script>
+</head>
+<body>
+<div class="wrapper">
+		
+    	<div class="header">
+		<ul class="drop" id="drop">
+			<li><span>我的账户</span>
+				<ul class="droplist" id="droplist">
+				<li>
+					<a href="#">账户首页</a>
+				</li>
+				<li>
+					<a href="#">我的收藏</a>
+				</li>
+				<li>
+					<a href="#">我的订单</a>
+				</li>
+			</ul>
+			</li>
+		</ul>
+		</div>
+</div>		
+</body>
+</html>

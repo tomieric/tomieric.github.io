@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> CSS3制作日历样式 -HTML5 DEMO</title>
+	<meta name="description" content="名店城首页,demo,www.fenxiangyuan.com分享园,CSS3制作日历样式" />
+	<meta name="keywords" content="分享园,博客,web前端,css,jQuery,demo页面,学习,html,css3,CSS3制作日历样式" />
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		background-image: url(images/pink-bg.png);
+		font-family: 微软雅黑;
+	}
+
+	/* 日历样式
+	-----------------------------*/
+
+	.calendar {
+		margin: 100px auto;
+		width: 270px;
+		height: 220px;
+		background-color: #fff;
+		border-radius: 50px;
+		box-shadow: 2px 1px 7px rgb(178,96,118);
+	}
+	.cal-hd {
+		position: relative;
+		height: 60px;
+		border-radius: 50px 50px 0 0;
+		background: -webkit-linear-gradient(top,#e0061e,#d6071b) 1px 1px no-repeat,
+               -webkit-linear-gradient(top,#e0061e,#d6071b) left top no-repeat;
+		z-index: 2;
+	}
+	.cal-hd:before {
+		position: absolute;
+		top: 3px; 
+		left: 0;
+		content: "";
+		box-shadow: inset 0 5px 1px #e84e08;
+		border-radius: 80px 80px 0 0;
+		width: 270px;
+		height: 50px;
+		z-index: 1;
+	}
+	/* 月份 */
+	.month {
+		position: absolute;
+		bottom: 7px;
+		left: 20px;
+		color: #fff;
+		font-size: 24px;
+		line-height: 100%;
+		text-shadow: 1px 1px 2px #6d141c;
+		z-index: 2;
+	}
+
+	/* 铁线条 */
+	.ring {
+		position: absolute;
+		top: 8px;
+		width: 20px;
+		height: 20px;
+		border-radius: 20px;
+		background-color: #510205;
+		box-shadow: inset 0 -2px 2px #440104;
+		z-index: 10;
+	}
+	/* 铁线 */
+	.ring:before {
+		content: "";
+		position: absolute;
+		bottom: 35px;
+		left: 0;
+		width: 20px;
+		height: 20px;
+		border-radius: 20px;
+		background-color: #510205;
+		box-shadow: inset 0 -2px 2px #440104;
+	}
+	/* 墙上的洞 */
+	.ring:after {
+		content: "";
+		position: absolute;
+		bottom: 1px;
+		left: 0;
+		height: 50px;
+		width: 18px;
+		background-color: #eaebef;
+		border: 1px solid #bfc0c2;
+		border-radius: 18px;
+		box-shadow: inset 1px 1px 0 #d0e1db, inset 3px 1px 0 #d0e1db, inset 5px 1px 0 #d0e1db, inset 7px 1px 0 #d0e1db;
+	}
+	.left-hole {
+		left: 60px; 
+	}
+	.right-hole {
+		right: 60px;
+	}
+	/* 小圆点 */
+	.dot-wrapper {
+		position: absolute;
+		right: 30px;
+		bottom: 8px;
+		width: 40px;
+		line-height: 10px;
+		overflow: hidden;
+		z-index: 10;
+	}
+	.dot{
+		position: relative;
+		float: left;
+		display: inline-block;
+		margin: 1px 1px 1px 12px;
+		width: 5px;
+		height: 5px;
+		background-color: #fff;
+		border-radius: 5px;
+	}
+	.dot:before,.dot:after {
+		content: "";
+		position: absolute;
+		display: inline-block;
+		width: 5px;
+		height: 5px;
+		background-color: #fff;
+		border-radius: 5px;
+		top: 0;
+	}
+	.dot:before {
+		left: -12px;
+	}
+	.dot:after {
+		left: -6px;
+	}
+	.dot:last-child {
+		margin-left: 0;
+		margin-right: 12px;
+	}
+	/* 首尾两点不可见 */
+	.dot:first-child:before,
+	.dot:first-child:after,
+	.dot:last-child:before,
+	.dot:last-child:after {
+		visibility: hidden;
+	}
+
+	/*背景渐变参考：http://www.cnblogs.com/PeunZhang/archive/2013/02/17/2883395.html*/
+	.cal-content {
+		background:-webkit-gradient(radial,50% 50%,0,50% 50%,100,from(#f7f7f9),to(#e1e2e6));
+		width: 270px;
+		height: 160px;
+		line-height: 150px;
+		border-radius: 0 0 50px 50px;
+		text-align: center;
+		color: #4a0404;
+		font-size: 100px;
+		font-weight: bold;
+		letter-spacing: 10px;
+		box-shadow: 0 1px 0 rgb(255,255,255), 0 5px 0 rgb(197,200,204), 0 7px 0 rgb(255,255,255), 0 10px 0 rgb(197,200,204);
+	}
+	</style>
+</head>
+<body>
+	<div class="calendar">
+		<div class="cal-hd">
+			<span class="month">MARCH</span>
+			<div class="dot-wrapper">
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+				<span class="dot"></span>
+			</div>
+			<span class="ring left-hole"></span>
+			<span class="ring right-hole"></span>
+		</div>
+		<div class="cal-content">29</div>
+	</div>
+	<div style="display: none">
+	<script type="text/javascript">
+	//统计代码
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fade0a88f5ca23da9d879cb76c376cf6b' type='text/javascript'%3E%3C/script%3E"));
+	</div>
+</body>
+</html>

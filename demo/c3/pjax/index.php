@@ -1,0 +1,97 @@
+<?php
+    $pjax = isset($_GET['pjax']) ? $_GET['pjax'] : '';
+?>
+
+<?php
+if(empty($pjax)){
+?>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>教室大厅</title>
+	<link rel="stylesheet" href="http://v3.bootcss.com/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+	<header class="navbar navbar-fixed-top">
+		<a href="/" class="navbar-brand logo"><span class="glyphicon glyphicon-qrcode"></span></a>
+		<h1>PhotoShop学习教室 - index</h1>
+	</header>
+	<nav class="navbar navbar-default navbar-fixed-left">
+		<div class="navbar-inner">
+			<ul class="nav navbar-nav" id="J_nav">
+				<li>
+					<a href="index.php" class="current" title="教室大厅">
+						<span class="glyphicon glyphicon-home"></span>
+						<div>教室大厅</div>
+					</a>
+				</li>
+				<li>
+					<a href="live.php" title="直播区">
+						<span class="glyphicon glyphicon-facetime-video"></span>
+						<div>直播区</div>
+					</a>
+				</li>
+				<li>
+					<a href="bbs.php" title="交流区">
+						<span class="glyphicon glyphicon-comment"></span>
+						<div>交流区</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<main class="main">
+		<div class="main-inner">
+			<div class="container">
+				<div id="content" class="content">
+<?php } ?>
+				<div class="content-txt right-bottom">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;翼虎网(www.yiihuu.com)-广州冠岳网络科技有限公司旗下网站,致力于打造全球领先的数字艺术在线教育平台,为用户提供最专业、体验最好的在线教育培训服务,包括实时在线培训服务、视频教程学习服务、实时互动答疑服务等。<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前,翼虎网已与逾100家培训机构、工作室及培训讲师达成了签约合作,并建立了庞大的专业教程库,拥有近30000个视频教程,内容覆盖了3Dsmax、Maya、Photoshop、Painter、Zbrush、Bodypaint、Realflow、Houdini、AfterEffects、Premiere、Vray等所有主流应用软件和插件工具,涵盖3D动画、模型、材质、渲染、特效、影视后期及2D概念设计、插画、漫画等所有创作主题,囊括了当今电脑时代中所有的视觉艺术创作活动,如三维动画、影视特效、游戏制作、平面设计、多媒体技术、建筑设计、工业及产品设计等行业。
+					<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旗下“翼虎学院”是翼虎网倾力打造的在线培训服务平台,通过整合培训机构及培训讲师资源,为用户提供优质的在线培训服务。翼虎网将利用自身的品牌影响力、技术优势、资源优势及强大宣传推广体系为合作伙伴提供全方位的支持。翼虎网将致力于把“翼虎学院”打造成CG领域人气最旺、口碑最好、品质最佳的在线培训平台！翼虎网也欢迎国内外各大培训机构和优秀讲师加入到与翼虎的合作中来,一起为中国的数字艺术发展做出贡献！<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经过翼虎团队的共同努力,翼虎网(www.yiihuu.com)已经成为数字艺术领域最受用户欢迎的学习网站之一。ALEXA全球及国内排名显示,翼虎网跃居同类网站第一位。<br>          
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;翼虎网(www.yiihuu.com)-广州冠岳网络科技有限公司旗下网站,致力于打造全球领先的数字艺术在线教育平台,为用户提供最专业、体验最好的在线教育培训服务,包括实时在线培训服务、视频教程学习服务、实时互动答疑服务等。<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前,翼虎网已与逾100家培训机构、工作室及培训讲师达成了签约合作,并建立了庞大的专业教程库,拥有近30000个视频教程,内容覆盖了3Dsmax、Maya、Photoshop、Painter、Zbrush、Bodypaint、Realflow、Houdini、AfterEffects、Premiere、Vray等所有主流应用软件和插件工具,涵盖3D动画、模型、材质、渲染、特效、影视后期及2D概念设计、插画、漫画等所有创作主题,囊括了当今电脑时代中所有的视觉艺术创作活动,如三维动画、影视特效、游戏制作、平面设计、多媒体技术、建筑设计、工业及产品设计等行业。
+					<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旗下“翼虎学院”是翼虎网倾力打造的在线培训服务平台,通过整合培训机构及培训讲师资源,为用户提供优质的在线培训服务。翼虎网将利用自身的品牌影响力、技术优势、资源优势及强大宣传推广体系为合作伙伴提供全方位的支持。翼虎网将致力于把“翼虎学院”打造成CG领域人气最旺、口碑最好、品质最佳的在线培训平台！翼虎网也欢迎国内外各大培训机构和优秀讲师加入到与翼虎的合作中来,一起为中国的数字艺术发展做出贡献！<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经过翼虎团队的共同努力,翼虎网(www.yiihuu.com)已经成为数字艺术领域最受用户欢迎的学习网站之一。ALEXA全球及国内排名显示,翼虎网跃居同类网站第一位。<br>          
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;翼虎网(www.yiihuu.com)-广州冠岳网络科技有限公司旗下网站,致力于打造全球领先的数字艺术在线教育平台,为用户提供最专业、体验最好的在线教育培训服务,包括实时在线培训服务、视频教程学习服务、实时互动答疑服务等。<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前,翼虎网已与逾100家培训机构、工作室及培训讲师达成了签约合作,并建立了庞大的专业教程库,拥有近30000个视频教程,内容覆盖了3Dsmax、Maya、Photoshop、Painter、Zbrush、Bodypaint、Realflow、Houdini、AfterEffects、Premiere、Vray等所有主流应用软件和插件工具,涵盖3D动画、模型、材质、渲染、特效、影视后期及2D概念设计、插画、漫画等所有创作主题,囊括了当今电脑时代中所有的视觉艺术创作活动,如三维动画、影视特效、游戏制作、平面设计、多媒体技术、建筑设计、工业及产品设计等行业。
+					<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旗下“翼虎学院”是翼虎网倾力打造的在线培训服务平台,通过整合培训机构及培训讲师资源,为用户提供优质的在线培训服务。翼虎网将利用自身的品牌影响力、技术优势、资源优势及强大宣传推广体系为合作伙伴提供全方位的支持。翼虎网将致力于把“翼虎学院”打造成CG领域人气最旺、口碑最好、品质最佳的在线培训平台！翼虎网也欢迎国内外各大培训机构和优秀讲师加入到与翼虎的合作中来,一起为中国的数字艺术发展做出贡献！<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经过翼虎团队的共同努力,翼虎网(www.yiihuu.com)已经成为数字艺术领域最受用户欢迎的学习网站之一。ALEXA全球及国内排名显示,翼虎网跃居同类网站第一位。<br>          
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;翼虎网(www.yiihuu.com)-广州冠岳网络科技有限公司旗下网站,致力于打造全球领先的数字艺术在线教育平台,为用户提供最专业、体验最好的在线教育培训服务,包括实时在线培训服务、视频教程学习服务、实时互动答疑服务等。<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前,翼虎网已与逾100家培训机构、工作室及培训讲师达成了签约合作,并建立了庞大的专业教程库,拥有近30000个视频教程,内容覆盖了3Dsmax、Maya、Photoshop、Painter、Zbrush、Bodypaint、Realflow、Houdini、AfterEffects、Premiere、Vray等所有主流应用软件和插件工具,涵盖3D动画、模型、材质、渲染、特效、影视后期及2D概念设计、插画、漫画等所有创作主题,囊括了当今电脑时代中所有的视觉艺术创作活动,如三维动画、影视特效、游戏制作、平面设计、多媒体技术、建筑设计、工业及产品设计等行业。
+					<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;旗下“翼虎学院”是翼虎网倾力打造的在线培训服务平台,通过整合培训机构及培训讲师资源,为用户提供优质的在线培训服务。翼虎网将利用自身的品牌影响力、技术优势、资源优势及强大宣传推广体系为合作伙伴提供全方位的支持。翼虎网将致力于把“翼虎学院”打造成CG领域人气最旺、口碑最好、品质最佳的在线培训平台！翼虎网也欢迎国内外各大培训机构和优秀讲师加入到与翼虎的合作中来,一起为中国的数字艺术发展做出贡献！<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经过翼虎团队的共同努力,翼虎网(www.yiihuu.com)已经成为数字艺术领域最受用户欢迎的学习网站之一。ALEXA全球及国内排名显示,翼虎网跃居同类网站第一位。<br>          
+          		</div>
+          		<script>
+          			$(function(){
+          				alert('我是首页');
+          			});
+          		</script>
+<?php if(empty($pjax)){ ?>
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="jquery.pjax.js"></script>
+	<script>
+		$(function(){
+			$.pjax({
+				selector: '#J_nav li a',
+				container: '#content',
+				show: 'fade',
+				titleSuffix: ' - PhotoShop学习教室'
+			});
+		});
+	</script>
+</body>
+</html>
+<?php }?>

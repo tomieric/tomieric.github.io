@@ -1,0 +1,73 @@
+<?php
+	$pjax = isset($_GET['pjax']) ? $_GET['pjax'] : '';
+?>
+
+<?php
+if(empty($pjax)){
+?>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>SPA</title>
+	<link rel="stylesheet" href="http://v3.bootcss.com/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+	<header class="navbar navbar-fixed-top">
+		<a href="/" class="navbar-brand logo"><span class="glyphicon glyphicon-qrcode"></span></a>
+		<h1>PhotoShop学习教室 - Live</h1>
+	</header>
+	<nav class="navbar navbar-default navbar-fixed-left">
+		<div class="navbar-inner">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="index.php">
+						<span class="glyphicon glyphicon-home"></span>
+						<div>教室大厅</div>
+					</a>
+				</li>
+				<li>
+					<a href="live.php" class="current">
+						<span class="glyphicon glyphicon-facetime-video"></span>
+						<div>直播区</div>
+					</a>
+				</li>
+				<li>
+					<a href="bbs.php">
+						<span class="glyphicon glyphicon-comment"></span>
+						<div>交流区</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<main class="main">
+		<div class="main-inner">
+			<div class="container">
+				<div id="content" class="content">
+
+<?php } ?>
+					<embed type='application/x-shockwave-flash' src='http://www.yiihuu.com/v665/player.swf' width='100%' height='500' id='player' name='player' tabindex='0' allowscriptaccess='always' allowfullscreen='true' flashvars='id=player&vdstr=cb45f6Qfi93boe_d76JdA133mfobn4adXw4hsW1QgvyEtiylEUYddrOY2zlrSDJnOmU5Ht_gKJEXbXEtiw5ktCbNT4r-JF-5L2E3hQ===&file=null.flv&controlbar.position=bottom&type=http&streamer=start'></embed>
+<?php if(empty($pjax)){ ?>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script>
+		/*$(function(){
+			var content = $("#content");
+			
+			var auto = function(){
+				var winH = $(window).height();
+				content.css('height', (winH - 80) +'px');
+			};
+
+			auto;
+			$(window).on("resize", auto);
+		});*/
+	</script>
+</body>
+</html>
+<?php }?>

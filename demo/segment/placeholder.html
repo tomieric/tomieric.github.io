@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>placeholder</title>
+	<style>
+	.text{ border: 1px solid #ccc; padding: 10px; width: 200px; border-radius: 4px; }
+	.placeholder{ color: #ccc; }
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script>
+	(function($){
+		/**
+		 * [placeholder 占位符插件]
+		 * @authot tomieric
+		 * @website http://www.fenxiangyuan.com
+		 * @param  {string} phCls 占位符样式
+		 * @description 兼容所有浏览器，对不支持placeholder属性浏览器进行js处理
+		 */
+		$.fn.placeholder = function(phCls){
+			//需处理的所有文本对象
+			var self = $(this);
+			//定义d是否为input的属性
+			var d = "placeholder" in document.createElement("input");
+			//浏览器不支持placeholder属性，js处理
+			if(!d){
+				self.each(function(){ //遍历初始化文本框
+					$(this).val($(this).attr("placeholder")).addClass(phCls);
+				}).bind("focus",function(){  //聚焦时隐藏占位符
+					if($(this).val() == $(this).attr("placeholder")){
+						$(this).val("").removeClass(phCls);
+					}
+				}).bind("blur",function(){ //失焦时且文本框为空显示占位符
+					if($(this).val() == ""){
+						$(this).val($(this).attr("placeholder")).addClass(phCls);
+					}
+				});
+			}
+		}
+	})(jQuery);
+
+	$(function(){
+		//绑定占位符效果
+		$(".text").placeholder("placeholder");
+	});
+	</script>
+</head>
+<body>
+	<input type="text" class="text" placeholder="请输入密码" />
+</body>
+</html>

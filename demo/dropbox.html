@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标拖动</title>
+	<style type="text/css">
+		div{ border: 1px solid #faa; background: #fcc; float: left; margin: 50px; padding: 50px }
+		.item-1 { position: absolute; top: 50px; left: 50px; cursor: move }
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var Ismove = false;
+			$("div").mousedown(function(e){
+				Ismove = true;
+				var _x = e.pageX - $(this).position().left;
+				var _y = e.pageY - $(this).position().top;
+				//console.log(_x);
+				$(this).mousemove(function(e){
+					if(Ismove){
+						var x = e.pageX - _x;
+						var y = e.pageY - _y;
+						$(this).css({ left : x, top : y, opacity: 0.7 });
+					}
+				});
+			}).mouseup(function(){
+				Ismove = false;
+				$(this).css({ opacity : 1});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="item-1">aaa</div>
+	<div class="item-2">bbb</div>
+</body>
+</html>

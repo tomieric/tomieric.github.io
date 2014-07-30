@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>安悦家-切图demo</title>
+	<meta author="www.fenxiangyuan.com分享园" />
+	<style type="text/css">
+	*{ margin: 0; padding: 0; }
+	html,body{ width: 100%; height: 100%; font-size: 12px }
+	.header,.footer{ position: relative; }
+	.inner{ width: 1000px; margin: 0 auto; position: relative; z-index: 10 }
+	.bg{ position: relative; z-index: 1; width: 100%; height: 100%; overflow: hidden }
+	.bg-r{ position: relative; left: 50%; width: 50%; height: 100% }
+
+	/*顶部*/
+	.header{ height: 106px; }
+	.header .bg,.logo{ background: url(bg-header-l.png) repeat-x;}
+	.header .inner,.header .bg-r{ background: url(bg-header-r.png) repeat-x;}
+	.header .inner{ margin-top: -106px; height: 106px  }
+	.logo{ position: absolute; top: 0; left: 0; width: 150px; height: 50px; padding: 35px 22px 21px 28px; }
+	.logo a{ display: block; width: 100%; height: 100%; text-indent: -9999em; background: url(logo.png) no-repeat; outline: none }
+	.top{ margin-left: 200px; padding-top: 14px; color: #585f02 }
+	.top p{ height: 42px; line-height: 42px; padding-top: 1px;   }
+	.top p span{ float: left; margin-left: 45px; }
+	.logout{ float: right; margin-top: 6px; color: #fff; border: 1px solid #fff; width: 70px; height: 28px; line-height: 28px; text-align: center; background-color: #004715; text-decoration: none }
+	.logout:hover{ background-color: #f60}
+
+	/*内容*/
+	.main{ width: 1000px; margin: 10px auto 20px }
+
+	/*底部*/
+	.footer{ height: 38px; line-height: 38px; padding-bottom: 30px }
+	.footer-logo,.footer .bg{ background: url(bg-footer-l.png) repeat-x;}
+	.footer .inner,.footer .bg-r{ background: url(bg-footer-r.png) repeat-x;}
+	.footer .inner{ margin-top: -38px; height: 38px;  }
+	.footer-logo{ position: absolute; top: 0; left: 0; width: 200px; height: 38px; text-align: center }
+	.footer-logo img{ margin-top: 7px; }
+	.copyright-info{ padding: 0 30px; margin-left: 200px; color: #585f02 }
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="bg">
+			<div class="bg-r"></div>
+		</div>
+		<div class="inner">
+			<h1 class="logo"><a href="#">安悦家</a></h1>
+			<div class="top">
+				<p>
+					<span>职业顾问：马云</span><span>联系电话：13412345678</span><span>所在门店：海定区</span>
+				</p>
+				<p>
+					<span>登陆次数：18次</span><span>累计下载：13次</span><span>所在门店：海定区</span>
+					<a href="#" class="logout">退出登陆</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<img src="main.jpg" />
+	</div>
+	<div class="footer">
+		<div class="bg">
+			<div class="bg-r"></div>
+		</div>
+		<div class="inner">
+			<p class="footer-logo"><img src="footer-logo.png" /></p>
+			<p class="copyright-info">版权所有 demo制作：<a href="http://www.fenxiangyuan.com">分享园</a></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+	//统计代码
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fade0a88f5ca23da9d879cb76c376cf6b' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+</body>
+</html>

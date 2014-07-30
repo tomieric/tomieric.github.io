@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>新闻无缝滚动</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0 }
+		ul,ol{ list-style: none }
+		a{ text-decoration: none; color: #666}
+		a:hover{ text-decoration: underline; color: #f90 }
+		.box{ width: 300px; height: 100px; margin: 50px auto; border: 1px solid #dedede; padding: 10px }
+		.box h5{ margin-bottom: 10px }
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		/*无缝新闻滚动
+		* author:by tomieric
+		* blog: www.fenxiangyuan.com
+		*/
+(function(){
+	$.fn.scrollNews=function(options){
+			var defaults={
+				mvDiv:"ul", //滚动的对象
+				mvCdDiv:"li",  //移动对象
+				mvTimer:1000,   //过渡效果时间
+				timer:3000		//滚动时间间隔
+			};
+			options=$.extend(defaults,options);
+			return this.each(function(){
+				var $this=$(this);
+				var scrollTimer;
+				
+				var $ul=$(this).find(options.mvDiv);
+				$this.css({"height":$ul.height()+"px","overflow":"hidden"});
+				$ul.css({"position":"relative"});
+				
+				$this.hover(function(){
+					clearInterval(scrollTimer);
+				},function(){
+					scrollTimer=setInterval(function(){
+						scrollNews($this);
+					},options.timer);
+				}).trigger("mouseleave");
+			});
+			
+			function scrollNews(obj){
+				var _self=obj.find(options.mvDiv).eq(0);
+				var _li=_self.find(options.mvCdDiv).eq(0);
+				var lineHeight=_li.height();
+				_li.animate({"opacity":0},options.mvTimer);
+				_self.animate({"marginTop":-lineHeight+"px"},options.mvTimer,function(){
+					_self.css({marginTop:0});
+					_li.appendTo(_self).animate({"opacity":1},options.mvTimer);
+				});
+			}
+	}
+})(jQuery);
+
+	//实例化
+	$(function(){
+		$("#scrollNews").scrollNews();
+	});
+	</script>
+</head>
+<body>
+	<div class="box">
+        	<h5>通知公告</h5>
+            <div class="content" id="scrollNews">
+                                <ul>
+					                    <li> ·<a href="http://www.fenxiangyuan.com">影视网demo</a></li>
+
+					                    <li> ·<a href="http://www.fenxiangyuan.com">无缝新闻jquery类</a></li>
+										<li> ·<a href="http://www.fenxiangyuan.com">影视网demo</a></li>
+
+					                    <li> ·<a href="http://www.fenxiangyuan.com">无缝新闻jquery类</a></li>
+					                </ul>
+                            </div>
+        </div>
+</body>
+</html>

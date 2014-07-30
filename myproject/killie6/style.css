@@ -1,0 +1,85 @@
+*html{background-image:url(about:blank);background-attachment:fixed;}
+/* kill ie6 */
+.kill-ie6-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: alpha(opacity=70);
+    z-index: 9998;
+}
+.kill-ie6-layer{
+    position: absolute;
+    top: expression(eval((document.documentElement.clientHeight  - this.offsetHeight)/ 2 + document.documentElement.scrollTop ));
+    left: 50%;
+    width: 550px;
+    margin: 0 0 0 -275px;
+    padding: 20px;
+    z-index: 9999;
+    background: #fff;
+    font-family: simsun, Arial, Helvetica, sans-serif;
+    color: #666;
+}
+.kill-ie6 ul{
+    padding: 20px 10px;
+    overflow: hidden;
+    zoom: 1;
+}
+.kill-ie6 li {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.kill-ie6-info{
+    margin-bottom: 10px;
+    color: #41a128;
+    font-size: 16px;
+    text-indent: 2em;
+}
+.kill-ie6-info b{
+    color: #ff7200;
+}
+
+.kill-ie6 li a{
+    display: block;
+    margin: 0 auto 5px;
+    width: 48px;
+    height: 48px;
+    background: url("browser.png") no-repeat;
+}
+.kill-ie6 li a.firefox{
+    background-position: -48px 0;
+}
+.kill-ie6 li a.chrome{
+    background-position: 0 0;
+}
+.kill-ie6 li a.opera{
+    background-position: -144px 0;
+}
+.kill-ie6 li a.safari{
+    background-position: -196px 0;
+}
+.kill-ie6 li a.ie8{
+    background-position: -96px 0;
+}
+
+
+.kill-ie6-btn{
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #41a128;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+.kill-ie6-btn:hover{
+    background: #ff7200;
+}

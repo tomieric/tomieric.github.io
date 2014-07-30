@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>诺金制药</title>
+	<meta name="description" content="诺金制药,demo,www.fenxiangyuan.com分享园" />
+	<meta name="keywords" content="分享园,IT博客,web前端,css,jQuery,demo页面,学习," />
+	<style>
+		.allbody{ width: 1003px; margin: 0 auto;}
+		.top{ background: url(header.png) no-repeat; height: 95px;}
+		.navList{ list-style: none; font-family: '微软雅黑'; font-size: 12px; margin: 0; padding: 0 35px; height: 31px; background: url(nav_bg.png) repeat-x; }
+		.navList li{ display: inline; float: left; position: relative; background: url(nav_line.png) no-repeat top right; padding-right: 2px;}
+		.navList li.navNoLine{ background: none; }
+		.navList .navItem{ float: left; padding: 1px 28px 0 30px; height: 30px; line-height: 30px; color: #FFFFFF; text-decoration: none; }
+		.navList .navItem:hover,.navList .navItemHover{ background: url(nav_hover.png) repeat-x;}
+		/*.navList li:hover .subnavList{ display: block; }*/
+		.subnavList{ display: none; position: absolute; top: 31px; left: 5px; /*margin-left: -50%; */background: url(subnav_bg.png) no-repeat right bottom; white-space: nowrap; height: 23px; padding-right: 5px; }
+		.subnavList_m{ height: 23px; line-height: 24px; background: url(subnav_bg.png) no-repeat left bottom; padding-left: 5px; position: relative; margin-left: -5px; }
+		.subnavList a{ display: inline-block; *display: inline; *zoom: 1; background: url(subnav_arrow.png) no-repeat 0 10px;color: #666; text-decoration: none; padding-left: 8px; margin: 0 5px; }
+		.subnavList a:hover{ color: #f30; }
+
+		/* 下载 */
+		.download{ margin: 400px auto 0; width: 1000px; text-align: center }
+		.btn{ display: inline-block; *display: inline; *zoom: 1; margin: 0 10px; color: #333; text-decoration: none; background-position .1s linear; background: #E6E6E6; padding: 11px 19px; border-radius: 6px; font-size: 16px; line-height: 20px; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),0 1px 2px rgba(0, 0, 0, 0.05); background-image: -webkit-linear-gradient(top,white,#E6E6E6); background-image: -o-linear-gradient(top,white,#E6E6E6); background-image: linear-gradient(to bottom,white,#E6E6E6); border: 1px solid #ccc;}
+		.blueBtn{ border-color: #04C #04C #002A80; background: #04C; color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); background-image: -moz-linear-gradient(top,#08C,#04C); background: -webkit-gradient(linear,0 0,0 100%,from(#08C),to(#04C)); background-image: -o-linear-gradient(top,#08C,#04C); background-image: linear-gradient(to bottom,#08C,#04C); }
+	</style>
+</head>
+<body>
+	<div class="allbody">
+		<div class="top"></div>
+		<div class="top22">
+			<ul class="navList" id="navList">
+				<li>
+					<a href="http://www.knockim.com" class="navItem">网站首页</a>
+				</li>
+				<li>
+					<a href="#" class="navItem">关于诺金</a>
+					<div class="subnavList">
+						<div class="subnavList_m">
+							<a href="#">企业简介</a>
+							<a href="#">企业文化</a>
+							<a href="#">企业荣誉</a>
+							<a href="#">管理理念</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="navItem">新闻中心</a>
+					<div class="subnavList">
+						<div class="subnavList_m">
+							<a href="#">公司新闻</a>
+							<a href="#">行业新闻</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="navItem">产品展示</a>
+				</li>
+				<li>
+					<a href="#" class="navItem">销售网络</a>
+				</li>
+				<li>
+					<a href="#" class="navItem">健康小知识</a>
+				</li>
+				<li>
+					<a href="#" class="navItem">业务管理</a>
+				</li>
+				<li class="navNoLine">
+					<a href="#" class="navItem">人才招聘</a>
+					<div class="subnavList">
+						<div class="subnavList_m">
+							<a href="#">工厂招聘职位</a>
+							<a href="#">营销中心招聘职位</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="download">
+		<a href="knockim-nav.rar" class="btn blueBtn">下载knockim-nav.rar</a>
+		<a href="http://www.fenxiangyuan.com/archives/category/works" class="btn">查看更多实例</a>
+		<p>&copy; by <a href="http://www.fenxiangyuan.com">分享园</a></p>
+	</div>
+	<script>
+	/**
+	 * 二级导航处理函数
+	 * by tomieric
+	 * http://www.fenxiangyuan.com
+	 */
+	(function(d){
+		// 获取导航Dom对象 ul#navList
+		var navList = d.getElementById("navList");
+		// 获取导航子项对象 ul#navList li
+		var navListItem = navList.children;
+
+		/* 循环遍历 导航子项对象 ul#navList li */
+		for(var i = 0; i < navListItem.length; i++){
+			/* 鼠标经过时 */
+			navListItem[i].onmouseover = function(){
+				// 第一个节点 ul#navList li>a
+				var firstChild = this.children[0];
+				// 子导航对象 ul#navList li(当前鼠标位置) div.subnavList
+				var subnavList = this.children[1];
+				// 没子导航的直接返回不执行后面代码
+				if(!subnavList) return;
+				// 一级导航高亮样式
+				firstChild.className = 'navItem navItemHover';
+				// 显示二级导航
+				subnavList.style.display = "block";
+				/* 判断是否已经设置居中位置 */
+				if(!this.posLeft){
+					// 二级导航的宽度
+					var subWidth = subnavList.clientWidth;
+					// 一级导航的宽度
+					var width = this.clientWidth;
+					// 居中布局显示
+					subnavList.style.left = - Math.abs((width-subWidth) / 2) +"px";
+					// 设置已经居中定位过了
+					this.posLeft = true;					
+				}
+			}
+			/* 鼠标离开时 */
+			navListItem[i].onmouseout = function(){
+				// 第一个节点 ul#navList li>a
+				var firstChild = this.children[0];
+				// 子导航对象 ul#navList li(当前鼠标位置) div.subnavList
+				var subnavList = this.children[1];
+				// 没子导航的直接返回不执行后面代码
+				if(!subnavList) return;
+				// 一级导航去除高亮样式
+				firstChild.className = 'navItem';
+				// 隐藏二级导航
+				subnavList.style.display = "none";
+			}
+		}
+	})(document);
+	</script>
+
+	<div style="display: none">
+	<script type="text/javascript">
+		//统计代码
+		var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+		document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fade0a88f5ca23da9d879cb76c376cf6b' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	</div>
+</body>
+</html>

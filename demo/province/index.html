@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh">
+<head>
+	<title>省级二级级联 jQuery插件--分享园|Share Garden 软件分享,音乐分享，相册分享，分享从这里开始</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="title" content="分享园|Share Garden 一切分享从这里开始" />
+	<meta name="keywords" content="分享,软件分享,音乐分享,相册分享,前端开发,页编程等" />
+	<meta name="description" content="分享园是个人分享的" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Ege" />
+	<style type="text/css">
+		body,div,label,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,p,blockquote,th,td{margin:0;padding:0;border:0;outline:0;}
+		body{ font:12px/150% "微软雅黑",simsun; color: #666; background: #EAEAEA }
+		a{text-decoration: none;color:#666}
+		.line{ border-bottom: 1px solid #828282; box-shadow: 0 1px 0 #fff }
+		
+		.content{ width: 950px; margin: 0 auto}
+		
+		.header{ padding: 20px 0; }
+		.header h1{ padding-top: 20px; color: #515151; text-shadow: 0 1px 0 #fff; cursor: pointer }
+		.header h1:hover,.header h1:hover span{ color: #3673B4 }
+		.header h1 span{ display:block; font-size: 10px; padding-top: 10px; color: #636363 }
+		
+		.main{ padding: 20px 0; height: 450px; height: auto!important; min-height: 450px }
+		.bk30{ clear: both; height: 30px }
+		
+		/*说明*/
+		.explain{ margin-bottom: 20px }
+		.explain h2{ margin-bottom: 20px; color: #3673B4 }
+		.explain p{ line-height: 1.8em; text-indent: 2em; margin-bottom: 10px }
+		
+		/*表单*/
+		.form{ width: 500px; font-size: 14px }
+		.form fieldset{ border-top: 1px solid #ababab;  padding: 5px 20px;   }
+		.form legend{font-size: 18px; font-weight: bold; color: #3673B4 }
+		.tr{ display: inline-block; width: 100%; zoom: 1; padding: 10px 0 }
+		.c1,.c2{ float: left }
+		.c1{ width: 80px; text-align: right }
+		
+		.footer{ padding: 10px 0; text-align:center }
+	</style>
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-27867252-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	<!--[if lt IE 8]>
+    <script type="text/javascript">
+	(function(){
+		alert('您用浏览器欧特曼了,赶紧升级吧！');
+		window.location.href='http://www.sucerbeta.com';
+	})();
+	</script>
+	<![endif]-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//使用省市级联插件
+		sucerbeta.selectCity('#province');
+		sucerbeta.selectCity('#setting-province');
+		sucerbeta.selectCity('#custom-province',{
+			url : 'js/district.js',   
+			ref : '#custom-city'
+		});
+	});
+	
+	/*Author : tomieric
+	* E-mail : tomieric@gmail.com
+	* Home   : http://www.fenxiangyuan.com  
+	* 前端新人,贵在模仿,所谓的微创新
+	*/
+	sucerbeta=window.sucerbeta||{};
+	//扩展插件
+	jQuery.extend(sucerbeta,{
+		
+		/*Plugin: 二级省市级联
+		* @Param: url  {Obj}     $.getJSON请求url[url:'http://www.sucerbeta.com']
+		* @Param: ref  {String}  改变刷新列表对象id,最好用id不要用class  
+		*/
+		selectCity : function(element,config){
+			var defaults={          //默认参数
+				url : 'js/area.js',  //json 数据地址
+				ref : null			//城市下拉框对象
+			};
+			var config=$.extend(defaults,config);
+			var _this=typeof element=="object"?element:$(element);
+			var _next=config.ref==null?_this.next('select'):$(config.ref);
+			_this.each(function(){
+				var select=$(this);
+				//初始化
+				init(select,1);
+				//下拉绑定改变事件
+				select.bind("change",function(){
+					init($(this));
+				});
+			});
+			
+			/*
+			*Function: {Function} 初始化
+			*/
+			function init(obj,load){
+				var defVal=obj.attr("rel")?obj.attr("rel"):"";
+				defVal=load==1?defVal:obj.val();
+				$.getJSON(config.url,function(data){
+						var _option="";
+						$.each(data.provinces,function(i,j){
+							if(j.id==defVal){
+								resetList(j,obj,load);
+							}
+							_option+="<option value='"+j.id+"'>"+j.name+"<\/option>";
+						});
+						if(load==1){
+							obj.append(_option);
+							obj.val(defVal);
+						}
+					});			
+			}
+			
+			/*Function: {Function} 重置下拉列表
+			* @Param:   {Obj}      json或数组对象
+			* @Param:   {Obj}      绑定的列表对象
+			*/
+			function resetList(arr,obj,load){
+				var option="";
+				var defVal=_next.attr("rel")?_next.attr("rel"):"";
+				$.each(arr.citys,function(m,n){
+					$.each(n,function(k,v){
+						option+="<option value='"+k+"'>"+v+"<\/option>";
+					});
+				});		
+				_next.html(option);
+				load==1?_next.val(defVal):"";
+			}
+		}
+	});
+	</script>
+</head>
+<body>
+	<div class="content">
+		<div class="header line">
+			<h1>分享园┊ShareGarden<span>www.fenxiangyuan.com</span></h1>
+		</div>
+		<div class="main">
+			<div class="explain">
+				<h2>省市二级级联 jQuery插件V1.0</h2>
+				<p>selectCity是一个很简单的jQuery插件，它可以满足表单填写是需要的省市级别的关联特性，使用json数据解析，改变以往通过Ajax操作数据库对加重数据库服务器的方法<strong>{本人在上家公司维护的内部查询系统的“城市与分店关联”就是这种方式，内部网不会考虑请求数和服务器问题}</strong>。而且在使用上极其简便，只需绑定省市下拉选择框元素。</p>
+				<p>selectCity(element,config),element表示绑定对象的选择器class或ID。config的值分别为url和ref.其中url主要用来配置地区json路径地址,ref用来绑定城市对象(class或ID),默认为省份select下拉框后面紧跟的select下拉元素。对于修改表单，只需将值绑定在select元素的rel属性即可。</p>
+				<p>此demo总下拉框的值跟数据库匹配。如果修改利用PHP等按json格式输出。</p>
+			</div>
+			<form action="/" method="post" name="register-form" class="form">
+				<fieldset>
+					<legend>默认形式</legend>
+					<div class="tr">
+						<div class="c1">用户名：</div>
+						<div class="c2">
+							<input type="text" name="username" value="Sucer-Beta" />
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">性别：</div>
+						<div class="c2">
+							<input type="radio" name="sex" value="1" checked="checked" /> 男
+							<input type="radio" name="sex" value="0" /> 女
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">所在地区：</div>
+						<div class="c2">
+							<select name="province" id="province"><option>请选择</option></select>省 <select name="city" id="city"><option>请选择省份</option></select> 市
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">&nbsp;</div>
+						<div class="c2">
+							<button> 提 交 </button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<div class="bk30"></div>
+			<form action="/" method="post" name="setting-form" class="form">
+				<fieldset>
+					<legend>默认选中形式</legend>
+					<div class="tr">
+						<div class="c1">用户名：</div>
+						<div class="c2">
+							<input type="text" name="username" value="Sucer-Beta" />
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">性别：</div>
+						<div class="c2">
+							<input type="radio" name="sex" value="1" checked="checked" /> 男
+							<input type="radio" name="sex" value="0" /> 女
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">所在地区：</div>
+						<div class="c2">
+							<select name="province" id="setting-province" rel="19"><option>请选择</option></select>省 <select name="city" id="setting-city" rel="1901"><option>请选择省份</option></select> 市
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">&nbsp;</div>
+						<div class="c2">
+							<button> 提 交 </button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<div class="bk30"></div>
+			<form action="/" method="post" name="setting-form" class="form">
+				<fieldset>
+					<legend>自定义配置方式</legend>
+					<div class="tr">
+						<div class="c1">用户名：</div>
+						<div class="c2">
+							<input type="text" name="username" value="Sucer-Beta" />
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">性别：</div>
+						<div class="c2">
+							<input type="radio" name="sex" value="1" checked="checked" /> 男
+							<input type="radio" name="sex" value="0" /> 女
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">出生地：</div>
+						<div class="c2">
+							<select name="province" id="custom-province" rel="19"><option>请选择</option></select>省 <select name="city" id="custom-city" rel="1909"><option>请选择省份</option></select> 市
+						</div>
+					</div>
+					<div class="tr">
+						<div class="c1">&nbsp;</div>
+						<div class="c2">
+							<button> 提 交 </button>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="line"></div>
+		<div class="footer">
+			<p>&copy; copyright by www.fenxiangyuan.com</p>
+		</div>
+	</div>
+</body>
+</html>

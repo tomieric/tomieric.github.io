@@ -1,0 +1,56 @@
+/*css reset*/
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+textarea{ resize: none }
+img{ border: none; vertical-align: middle; }
+:focus { outline:0; }
+
+/*--Layout--*/
+body{color:#000; background: #16145F;font:12px/1.4 simsun,arial,Helvetica,sans-serif;-webkit-text-size-adjust: none;}
+a{ color: #000; text-decoration: none }
+a:hover{ text-decoration: none}
+.clearfix{zoom:1 }
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden; }
+.fl{ float: left; }
+.fr{ float: right; }
+
+/*wrapper*/
+.wrapper{ width: 1024px; height: 700px; margin: 0 auto; background: url(../images/bg.jpg) no-repeat top center;}
+.header{ padding: 188px 0 70px }
+.logo a{ display: block; margin: 0 auto; background: url(../images/logo.png) no-repeat; width: 354px; height: 41px; text-indent: -9999em}
+.content{width: 512px; margin: 0 auto}
+.login{ height: 142px; margin: 0 auto; padding: 34px; background: url(../images/login-bg.png) no-repeat;}
+.login-item{ margin: 0 auto 15px; width: 274px; overflow: hidden }
+.login-item dt,.login-item dd{ float: left}
+.login-item dt{ margin-right: 20px; line-height: 22px}
+/*.input{ border: none; background: url(../images/ico.png) no-repeat; width: 200px; height: 16px; padding: 3px 3px 4px; line-height: 16px }
+.input-s{ border: none; background: url(../images/ico.png) no-repeat 0 -23px; width: 70px; height: 16px; padding: 3px 3px 4px; line-height: 16px }
+*/
+.input-wrap,.input-inner,.button,.tips-info,.lb-username,.lable,.input-text{ background: url(../images/ico.png) no-repeat;}
+.input-wrap{ background-position: 0 0 ;height: 22px; padding-left: 2px}
+.input-inner{ background-position: right top; height: 100%; padding: 2px 3px 0 0; position: relative; }
+.input-text{ height: 18px; line-height: 18px; border: none; background-position: -3px -2px }
+.w160{width: 160px;}
+.w120{width: 120px}
+.mgl20{ margin-left: 20px }
+.v-code{ margin: 2px 0 0 8px }
+.lable{ position: absolute; left: 0; top: 3px;  width: 18px; height: 18px}
+.lb-username{ background-position: 0 -50px; }
+.lb-password{ background-position: -22px -50px;  }
+.login-action{ /*text-align: center;*/ margin: 15px 0 0 155px}
+.button{ border: none; background-position: left bottom; width: 83px; height: 29px; color: #fff; cursor: pointer;}
+.margin-r18{ margin-right: 18px}
+
+.tips-info{ margin: 15px 20px; background-position: -50px -50px; padding: 0 18px; text-align: center; color: #fff }
+
+.footer{ margin-top: 80px; /*background:#fff; opacity: 0.8; *filter:alpha(opacity=80);*/ text-align: center; line-height: 28px; color: #fff }

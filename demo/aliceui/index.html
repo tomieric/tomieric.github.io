@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>我的支付宝 - 支付宝</title>
+	<link rel="stylesheet" href="aliceui.css" midea="all">
+	<style>
+	a{
+		color: #08C;
+		text-decoration: none;
+	}
+	.wrapper{
+		width: 990px;
+		margin: 0 auto;
+	}
+	.fn-c-blue{
+		color: #08c;
+	}
+	.fn-pos-r{
+		position: relative;
+	}
+	.fn-ml6{
+		margin-left: 6px;
+	}
+	.alipay-logo a{
+		display: block;
+		width: 128px;
+		height: 56px;
+		background: url(alipay.png) no-repeat;
+		text-indent: -9999em;
+	}
+	.ui-grid-row{
+		margin-bottom: 15px;
+	}
+	.ui-grid-row-nomb{
+		margin-bottom: 0;
+	}
+	.ui-list{
+		list-style: square inside;
+		color: #08C;
+	}
+	.ui-list a{
+		color: #08C;
+	}
+	.ui-nav-item > a:hover{
+		text-decoration: none;
+	}
+	.member-safe-img{
+		position: absolute;
+		top: -15px;
+		right: 0;
+	}
+	.ui-nav-line{
+		float: left;
+		margin: 18px 0 0 0;
+		height: 12px;
+		border-left: 2px dashed #fdf2e7;
+	}
+	.ui-nav-other-item{
+		float: left;
+		margin: 7px 5px 0 0;
+		padding-left: 15px;
+		height: 35px;
+		line-height: 34px;
+	}
+	.ui-nav-other-item a{
+		color: #FFFFFF;
+		margin-left: 5px;
+	}
+	.ui-nav-subitem-title{
+		float: left;
+		margin: 5px 10px 0 10px;
+		height: 26px;
+		line-height: 26px;
+		color: #808080;
+	}
+	.ui-nav-subitem a{
+		color: #0088CC;
+	}
+	.ui-nav-subitem a:hover{
+		border:1px solid transparent;
+		color: #0088CC;
+	}
+	.ui-nav-split{
+		float: left;
+		color: #D8CCD2;
+		margin-top: 10px;
+	}
+	.app-list-item a{
+		display: block;
+		height: 37px;
+		line-height: 36px;
+		overflow: hidden;
+		color: #666A72;
+	}
+	.app-list-item a:hover{
+		background: #F5F5F5;
+	}
+	.app-icon,.app-name{
+		float: left;
+		margin-left: 10px;
+	}
+	.app-icon{
+		height: 24px;
+		width: 24px;
+		margin-top: 6px;
+		overflow: hidden;
+	}
+	.app-text-right{ 
+		float: right; 
+		margin-right: 15px;
+		display: none;
+	}
+	.app-list-item a:hover .app-text-right{
+		display: block;
+	}
+	.app-list-page-container{
+		margin: 0 10px 10px;
+	}
+	.app-list-page-l .iconfont,.app-list-page-r .iconfont{
+		font-size: 16px;
+	}
+	.app-list-page-l:hover .iconfont,.app-list-page-r:hover .iconfont{
+		color: #F59600;
+	}
+	.app-list-page-l{
+		float: left;
+	}
+	.app-list-page-r{
+		float: right;
+	}
+	.app-list-page{
+		text-align: center;
+		margin: 0 20px;
+	}
+	.app-list-page span{
+		display: inline-block;
+		vertical-align: middle;
+		width: 10px;
+		height: 10px;
+		background: #E6E6E6;
+		border-radius: 10px;
+		margin: 0 3px;
+	}
+	.app-list-page span.app-list-page-current{
+		background: #B3B3B3;
+	}
+	.ui-footer{
+		margin-top: 30px;
+		border-top: 1px solid #cccccc;
+		height: 100px;
+		color: #808080;
+	}
+	.ui-footer-ctn{
+		padding-top: 15px;
+		text-align: center;
+	}
+	.ui-footer-ctn a{
+		color: #08c;
+	}
+	.ui-table td{
+		line-height: 30px;
+	}
+	.pay-in,.pay-out{
+		font-weight: bold;
+	}
+	.pay-in{
+		color: #53a000;
+	}
+	.pay-out{
+		color: #FF9000;
+	}
+	.recent-record{
+		padding: 10px;
+		line-height: 30px;
+		text-align: right;
+	}
+	.mycount-info{
+		border: 1px solid #cccccc;
+		background: #f5f5f5;
+		position: relative;
+	}
+	.cq-button,.tx-button,.zz-button{
+		position: absolute;
+		top: 81px;
+	}
+	.cq-button{
+		left: 344px;
+	}
+	.tx-button{
+		left: 430px;
+	}
+	.zz-button{
+		left: 514px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="ui-grid-row ui-grid-25">
+			<div class="fn-clear">
+				<h1 class="alipay-logo"><a href="/">支付宝</a></h1>
+			</div>
+		</div>
+		<div class="ui-grid-row ui-grid-25">
+			<div class="ui-nav">
+				<ul class="ui-nav-main">
+					<li class="ui-nav-item ui-nav-item-current">
+						<a href="#">我的支付宝</a>
+						<ul class="ui-nav-submain">
+							<li class="ui-nav-subitem-title">
+								<strong>常用功能：</strong>
+							</li>
+							<li class="ui-nav-subitem">
+								<a href="#">手机服务</a>
+							</li>
+							<li class="ui-nav-split">|</li>
+							<li class="ui-nav-subitem"><a href="#">实名验证</a></li>
+							<li class="ui-nav-split">|</li>
+							<li class="ui-nav-subitem"><a href="#">收支明细</a></li>
+							<li class="ui-nav-split">|</li>
+							<li class="ui-nav-subitem"><a href="#">充提记录</a></li>
+							<li class="ui-nav-split">|</li>
+							<li class="ui-nav-subitem"><a href="#">找回支付密码</a></li>
+							<li class="ui-nav-split">|</li>
+							<li class="ui-nav-subitem"><a href="#">数字证书</a></li>
+							<li class="ui-nav-split">|</li>
+							<li class="ui-nav-subitem"><a href="#">更多</a></li>
+						</ul>
+					</li>
+					<li class="ui-nav-item">
+						<a href="#">账户管理</a>
+						<ul class="ui-nav-submain">
+                        <li class="ui-nav-subitem"><a href="#">二级导航 2-1</a></li>
+                        <li class="ui-nav-subitem ui-nav-subitem-current"><a href="#">二级导航 2-2</a></li>
+                        <li class="ui-nav-subitem"><a href="#">二级导航 2-3</a></li>
+                    </ul>
+					</li>
+					<li class="ui-nav-item">
+                    <a href="#">交易记录</a>
+                    <ul class="ui-nav-submain">
+                        <li class="ui-nav-subitem"><a href="#">二级导航 3-1</a></li>
+                        <li class="ui-nav-subitem"><a href="#">二级导航 3-2</a></li>
+                        <li class="ui-nav-subitem ui-nav-subitem-current"><a href="#">二级导航 3-3</a></li>
+                    </ul>
+                    </li>
+                    <li class="ui-nav-item fn-pos-r"><a href="#">会员保障</a><img src="https://i.alipayobjects.com/e/201209/GXzKAiZTg.png" alt="敢用敢赔" class="member-safe-img"></li>
+                    <li class="ui-nav-item"><a href="#">应用中心</a></li>
+                    <li class="ui-nav-line"></li>
+                    <li class="ui-nav-other-item">
+                    	<a href="#">转账</a> 
+						 <a href="#">缴费</a> 
+						 <a href="#">还款</a> 
+						 <a href="#">担保</a> 
+						 <a href="#">理财</a>
+                    </li>
+				</ul>
+				<div class="ui-nav-subcontainer"></div>
+			</div>
+		</div>
+		<div class="ui-grid-row">
+			<div class="ui-grid-25">
+				<div class="mycount-info">
+					<img src="4.png" alt="">
+					<a href="#" class="ui-button ui-button-morange cq-button">充 值</a>
+					<a href="#" class="ui-button ui-button-mwhite tx-button">提 现</a>
+					<a href="#" class="ui-button ui-button-mwhite zz-button">转 账</a>
+				</div>
+			</div>
+		</div>
+		<div class="ui-grid-row">
+			<div class="ui-grid-5">
+				<div class="ui-box ui-grid-row">
+					<div class="ui-box-head">
+						<div class="ui-box-head-border">
+							<h3 class="ui-box-head-title">我的应用（10）</h3>
+							<span href="#" class="ui-box-head-more icon"><i class="iconfont" title="设置">j</i></span>
+						</div>
+					</div>
+					<div class="ui-box-container">
+						<ul class="app-list">
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -48px"></span>
+									<span class="app-name">转账付款</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+                            <li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt=""></span>
+									<span class="app-name">信用卡还款</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -168px"></span>
+									<span class="app-name">转账到银行卡</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -24px"></span>
+									<span class="app-name">水电煤缴费</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -72px"></span>
+									<span class="app-name">手机充值</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -216px"></span>
+									<span class="app-name">话费转让</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -192px"></span>
+									<span class="app-name">医院挂号</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -96px"></span>
+									<span class="app-name">AA收款</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+							<li class="app-list-item">
+								<a href="#">
+									<span class="app-icon"><img src="combo.jpg" alt="" style="margin-top: -120px"></span>
+									<span class="app-name">爱心捐款</span>
+									<span class="app-text-right icon"><i class="iconfont" title="单箭头右">å</i></span>
+								</a>
+							</li>
+						</ul>
+						<div class="app-list-page-container fn-clear">
+							<span class="app-list-page-l icon"><i class="iconfont" title="单箭头左">Ä</i></span>
+							<span class="app-list-page-r icon"><i class="iconfont" title="单箭头右">å</i></span>
+							<div class="app-list-page"><span class="app-list-page-current"></span></span><span></span></span></div>
+						</div>
+					</div>
+				</div>
+				<div class="ui-box">
+					<div class="ui-box-head">
+						<div class="ui-box-head-border">
+							<h3 class="ui-box-head-title">常见问题</h3>
+							<a href="#" class="ui-box-head-more">更多</a>
+						</div>
+					</div>
+					<div class="ui-box-container">
+						<div class="ui-box-content">
+							<ul class="ui-list">
+							    <li class="ui-list-item"><a href="#">什么是快捷支付？</a></li>
+							    <li class="ui-list-item"><a href="#">如何申请认证？</a></li>
+							    <li class="ui-list-item"><a href="#">支付宝数字证书有什么作用？</a></li>
+							    <li class="ui-list-item"><a href="#">如何申请认证？</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui-grid-20">
+				<div class="ui-grid-row fn-clear">
+					<div class="ui-box ui-grid-14">
+						<div class="ui-box-head">
+							<div class="ui-box-head-border">
+								<h3 class="ui-box-head-title">近一年消费走势</h3>
+								<a href="#" class="ui-box-head-more">查看本月对账单</a>
+							</div>
+						</div>
+						<div class="ui-box-container">
+							<div class="ui-box-content">
+								<img src="1.png" alt="" width="530" height="81">
+							</div>
+						</div>
+					</div>
+					<div class="ui-box ui-grid-6 fn-ml6">
+						<div class="ui-box-head">
+							<div class="ui-box-head-border">
+								<h3 class="ui-box-head-title">下载支付宝客户端</h3>
+							</div>
+						</div>
+						<div class="ui-box-container">
+							<div class="ui-box-content">
+								<img src="2.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+
+					<div class="ui-box">
+							<div class="ui-box-head">
+								<div class="ui-box-head-border">
+									<h3 class="ui-box-head-title">最近交易列表</h3>
+									<div class="ui-box-head-text">
+										<a href="#">收支明细</a>
+										<span>|</span>
+										<a href="#">充值记录</a>
+										<span>|</span>
+										<a href="#">提现记录</a>
+										<span>|</span>
+										<a href="#">退款记录</a>
+									</div>
+									<a href="#" class="ui-box-head-more icon"><i class="iconfont fn-c-blue" title="回收站">\</i> 回收站</a>
+								</div>
+							</div>
+							<div class="ui-box-container">
+								<table class="ui-table ui-table-inbox">
+									<tbody>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-in">+100,000,000</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+										<tr>
+											<td>2012.03.12</td>
+											<td>生活助手彩票_新浪爱彩网_双色球_4元代购方案</td>
+											<td><span class="pay-out">-40</span></td>
+											<td>交易成功</td>
+											<td><a href="#">详情</a></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="recent-record">
+									<a href="#">&gt;&gt;查看所有消费记录</a>
+								</div>
+							</div>
+					</div>
+			</div>
+		</div>
+
+		<div class="ui-footer fn-clear" coor="footer">
+		    <div class="ui-footer-ctn">
+		       <div class="ui-footer-link">
+		      <a href="http://ab.alipay.com/i/index.htm" target="_blank" seed="foot-1">关于支付宝</a>  
+		           <em class="ui-separator">|</em>
+		       <a seed="foot-3" href="http://ue.alipay.com/" title="体验计划" target="_blank">体验计划</a>
+		           <em class="ui-separator">|</em>
+		       <a seed="foot-4" href="http://blog.alipay.com/" title="官方博客" target="_blank">官方博客</a>
+		           <em class="ui-separator">|</em>
+		       <a seed="foot-5" href="http://job.alipay.com/index.php" title="诚征英才" target="_blank">诚征英才</a>
+		           <em class="ui-separator">|</em>
+		       <a seed="foot-6" href="http://ab.alipay.com/i/lianxi.htm" title="联系我们" target="_blank">联系我们</a>
+		           <em class="ui-separator">|</em>
+		       <a seed="foot-9" href="https://open.alipay.com/index.htm" title="开放平台" target="_blank">开放平台</a>
+		           <em class="ui-separator">|</em>
+		       <a seed="foot-7" href="http://global.alipay.com/" title="International Business" target="_blank">International Business</a>
+		           <em class="ui-separator">|</em>
+		       <a seed="foot-8" href="http://ab.alipay.com/i/jieshao.htm#en" title="About Alipay" target="_blank">About Alipay</a>
+		      </div><!-- CMS:支付宝全站/全站底部/底部链接结束:alipay/foot/links.vm -->
+		        <div class="ui-footer-copyright">
+		            <!-- CMS:支付宝全站/全站底部/alipay_foot_copyright_vm开始:alipay/foot/copyright.vm --><style>
+		.copyright,.copyright a,.copyright a:hover{color:#808080;}
+		</style>
+		<div class="copyright">
+		  支付宝版权所有 2004-2013 
+		  <a href="https://i.alipayobjects.com/e/201201/2PFHAJCn91.jpg" target="_blank">ICP证：浙B2-20100257</a>
+		</div>
+     </div>
+    </div>
+</div>
+
+	</div>
+</body>
+</html>

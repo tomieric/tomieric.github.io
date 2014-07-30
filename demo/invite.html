@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Invite邀请盒JS类</title>
+	<style>
+		*{ margin: 0; padding: 0}
+		.clearfix{ zoom: 1}
+		.clearfix:after{ content:".";display:block;height:0;clear:both;visibility:hidden; }
+		#myform{ margin: 30px 0 0 30px; }
+		.memberList{ width: 660px;}
+		.memberList li{ display: inline; float: left; margin: 0 20px 20px 0; width: 200px }
+		.mcard{ border: 1px solid #ababab; border-radius: 2px; padding: 20px }
+		.mcard p{ margin-left: 60px }
+		.myhead{ float: left; width: 60px; height: 50px }
+		.myhead img{ display: block }
+		.mcard_r{ text-align: right;}
+		.op_div{ width: 640px; text-align: right;}
+	</style>
+	<script type="text/javascript" src="http://www.fenxiangyuan.com/demo/yingshi/js/jquery.min.js"></script>
+</head>
+<body>
+	<form action="./doInvite" method="post" id="myform" onsubmit="return false;">
+			<input type="hidden" name="groupid" value="100" />
+			<ul class="memberList clearfix">
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+				<li>
+					<div class="mcard clearfix">
+						<a href="http://t.qq.com/Tomi-Eric"  class="myhead"><img src="http://t2.qlogo.cn/mbloghead/cc9f23acdb4a5e46e49e/100"  width="50" height="50" alt="tomieric" /></a>
+						<p>tomieric</p>
+						<p>广东 广州</p>
+						<p class="mcard_r"><input type="checkbox" name="uid[]" value="100" /></p>
+					</div>
+				</li>
+			</ul>
+			<div class="op_div">
+				<input type="submit"  value="邀请好友" onclick="Invite.Do.sendInvite();" id="invite-button" />
+				<label><input type="checkbox" name="selectAll" id="all" onclick="Invite.Do.allSelect(this)" /> 全选</label>
+			</div>
+		</form>
+
+	<script type="text/javascript">
+	var CHECKBOXS = "input[type='checkbox'][name='uid[]']";
+	var INVITEFORM = "#myform";
+	var MCARD = ".mcard";
+	var HIGHTLIGHTSTYLE = { "background" : "#d0d0d0" };
+	var DEFAULTSTYLE = { "background" : "#fff" };
+
+	//圈子邀请对象
+	var Invite = {};
+	//扩展
+	(function(){ 
+		Invite.version = 'v1.0';
+		Invite.tips = window.alert;
+		//配置
+		Invite._cache = {
+			inviteForm: INVITEFORM,                    //邀请表单
+			checkbox: CHECKBOXS,  //复选框选择器
+			card: MCARD,                               //名片选择器
+			hightLightStyle: HIGHTLIGHTSTYLE, //名片选中高亮样式
+			defaultStyle: DEFAULTSTYLE        //名片选中默认样式
+		};
+		//动作入口
+		Invite.Do = {
+			/*全选*/
+			allSelect : function(obj){
+				if(typeof(obj) == undefined) return;
+				var $checkboxs = $(Invite._cache.checkbox);
+				var _checked = $(obj).is(":checked");
+				//调用高亮
+				Invite.Do.highLightChecked($checkboxs,_checked)
+			},
+			/*绑定*/
+			bindChecked : function(){
+				var $checkboxs = $(Invite._cache.checkbox);
+				var $card = $(Invite._cache.card);
+				/*复选框绑定点击*/
+				$checkboxs.bind("click",function(e){
+					var $self = $(this);
+					//调用高亮
+					Invite.Do.checkIsChecked($self);
+					e.stopPropagation()
+				});
+
+				/*firefox记住选中复选框*/
+				Invite.Do.checkIsChecked($checkboxs);
+
+				/*名片绑定点击*/
+				$card.bind("click",function(e){
+					var $self = $(this);
+					var $checkbox = $self.find(":checkbox");
+					var _checked = $checkbox.is(":checked");
+					//调用高亮
+					Invite.Do.highLightChecked($checkbox,!(_checked && true));
+					e.stopPropagation()
+				})
+			},
+			/*遍历选中*/
+			checkIsChecked : function(obj){
+				obj.each(function(){
+					var $self = $(this);
+					var _checked = $self.is(":checked");
+					//调用高亮
+					Invite.Do.highLightChecked($self,_checked && true);
+				})
+			},
+			/*高亮选中*/
+			highLightChecked : function(obj,ck){
+				obj.each(function(){
+					var $self = $(this);
+					var $parent = $self.parents(Invite._cache.card);
+					$self.attr("checked",ck && true);
+					if(ck){
+						$parent.css(Invite._cache.hightLightStyle)
+					}else{
+						$parent.css(Invite._cache.defaultStyle)
+					}
+				});
+			},
+			/*发送邀请*/
+			sendInvite : function(){
+				var $self = $(Invite._cache.inviteForm);
+				var url = $self.attr("action"),data = $self.serializeArray();
+
+				var _checkFormRes = Invite.Do.checkForm();
+
+				if(_checkFormRes.status == 1){  //验证通过
+					if(url !="" && data != null){  //异步路径及数据不为空
+						//$.post(url,data,function(res){
+							//ui.tips(res.info);
+							//if(res.status == 1){
+								_checkFormRes.checkboxs.each(function(){    //更新状态
+										$(this).before("已发送邀请").remove();
+								});
+							//}
+						//},"json");
+					} 
+				}else{
+					Invite.tips(_checkFormRes.msg);
+				}
+			},
+			/*验证是否选中玩友*/
+			checkForm : function(){
+				var $checkboxs = $(Invite._cache.checkbox);
+				var $checkedBoxs = $checkboxs.filter(":checked");
+				var _return = {status: 1, msg: '成功', checkboxs: $checkedBoxs };
+
+				if($checkboxs.length == 0){
+					_return.status = 0;
+					_return.msg = "没有可邀请好友"
+				}
+				if($checkedBoxs.length == 0){
+					_return.status = 0;
+					_return.msg = "请选择好友"
+				}
+				return _return;
+			},
+			/*异步交换数据*/
+			ajaxSend : function(url,data){
+				$.post(url,data,function(res){
+					return res;
+				},"json");
+			},
+			/*初始化*/
+			init : function(){
+				Invite.Do.bindChecked()
+			}
+		};
+
+		Invite.Do.init()
+	})();
+	</script>
+
+	<!--  我是统计代码	-->
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-27867252-1']);
+	  _gaq.push(['_setDomainName', 'fenxiangyuan.com']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+</body>
+</html>

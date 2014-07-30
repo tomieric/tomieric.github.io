@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.main{ background: #eee; width: 980px; margin: 0 auto}
+	</style>
+	<link rel="stylesheet" href="vote.css" />
+</head>
+<body>
+	<div class="main" id="J_main">
+	</div>
+	
+	<script src="http://cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+		$(function(){
+		var newImage = new Image();
+		newImage.onload = function(){
+			var vote = $('<div class="vote"><a href="http://www.yiihuu.com/event/vote" class="vote-left" target="_blank" title="为翼虎投票"><span class="left-fish"></span><span class="left-star"></span><span class="left-sqaure"></span></a><a href="http://www.yiihuu.com/event/vote" class="vote-right"  target="_blank" title="为翼虎投票"><span class="right-fish"></span><span class="right-star"></span><span class="right-plane"></span></a></div>');
+		
+			var pos = document.getElementById('J_main').getBoundingClientRect();
+			vote.appendTo($(document.body));
+			
+			var _left = vote.find('.vote-left'), _right = vote.find('.vote-right'), animate = false;
+			
+			_left.css('left', (pos.left - 195)+'px');
+			_right.css({'left': (pos.left+ 990 -60)+'px', 'right': 'auto'});
+			
+			$(window).on('scroll.vote', function(){
+				if(!animate){
+					animate = true;
+					_left.animate({ top: '300px'}, 400, function(){
+						$(this).animate({ top: '200px'}, 200);
+					});
+					_right.animate({ top: '400px'}, 400, function(){
+						$(this).animate({ top: '300px'}, 200, function(){
+							animate = false;
+						});
+					});
+				}
+			});
+		};
+		newImage.src='vote.png?t=20131107';
+	});
+	</script>
+</body>
+</html>

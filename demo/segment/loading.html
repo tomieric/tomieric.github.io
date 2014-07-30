@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery 动画进度条</title>
+	<meta name="keywords" content="分享园,前端技术,前端技术博客,jquery插件,网页重构" />
+	<meta name="description" content="分享前端技术,解决技术难点" />
+
+	<style type="text/css">
+	@-webkit-keyframes animate-stripes{
+		from{
+			background-position: 0 0;
+		}
+		to{
+			background-position: 44px 0;
+		}
+	}
+	.ui-progress-bar{
+		position: relative;
+		height: 15px;
+		padding-right: 2px;
+		background-color: #abb2bc;
+		border-radius: 35px;
+		background: -webkit-gradient(linear,left bottom, left top, color-stop(0,#b6bcc6), color-stop(1,#9da5b0));
+		background: -moz-linear-gradient(#9da5b0 0%, #b6bcc6 100%);
+		box-shadow: inset 0 1px 2px 0px rgba(0,0,0,0.5), 0px 1px 0px 0px #fff;
+		width: 200px;
+		margin: 50px auto;
+	}
+	.ui-progress{
+		position: relative;
+		display: block;
+		overflow: hidden;
+		height: 13px;
+		border-radius: 35px;
+		-webkit-background-size: 44px 44px;
+		background-color: #74d04c;
+		background: -webkit-gradient(linear, 0 0, 44 44,color-stop(0.00, rgba(255,255,255,0.17)),
+	    color-stop(0.25, rgba(255,255,255,0.17)),
+	    color-stop(0.26, rgba(255,255,255,0)),
+	    color-stop(0.50, rgba(255,255,255,0)),
+	    color-stop(0.51, rgba(255,255,255,0.17)),
+	    color-stop(0.75, rgba(255,255,255,0.17)),
+	    color-stop(0.76, rgba(255,255,255,0)),
+	    color-stop(1.00, rgba(255,255,255,0))
+	    ), -webkit-gradient(linear, left bottom, left top, color-stop(0, #74d04c), color-stop(1, #9bdd62));
+		background: -moz-repeating-linear-gradient(top left -30deg,
+	    rgba(255,255,255,0.17),
+	    rgba(255,255,255,0.17) 15px,
+	    rgba(255,255,255,0) 15px,
+	    rgba(255,255,255,0) 30px
+	    ), -moz-linear-gradient(#710300 0%, #0073BA 100%);
+
+		box-shadow: inset 0 1px 0 0 #dbf383, inset 0 -1px 1px #58c43a;
+		border: 1px solid #4c8932;
+		-webkit-animation: animate-stripes 2s linear infinite;
+	}
+	.ui-progress span.ui-label{
+		font-size: 1em;
+		position: absolute;
+		right: 0;
+		line-height: 13px;
+		padding-right: 12px;
+		color: rgba(0,0,0,.6);
+		*color: #666;
+		text-shadow: rgba(255,255,255,0.45) 0 1px 0px;
+		white-space: nowrap;
+	}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script>
+	(function($){
+		/**
+		 * 动画进度条
+		 * @param  {int}   progress 进度数
+		 * @param  {Function} callback 回调函数
+		 */
+		$.fn.animateProgress = function(progress,callback){
+			return this.each(function(){
+			   //进度自增动画
+               $(this).animate({
+                   width: progress+"%"
+               },{
+               	   duration: 2000,   //动画时间段
+               	   easing: "swing",  //动画类型
+               	   step: function(progress){    //每帧处理事件
+               	   		var labelEl = $(".ui-label",this),  //label进度数字
+               	   		valueEl = $(".value",labelEl);
+
+               	   		//大于20%时显示进度数
+               	   		if(Math.ceil(progress) < 20 && $(".ui-label",this).is(":visible")){
+               	   			labelEl.hide();
+               	   		}else{
+               	   			if(labelEl.is(":hidden")){
+               	   				labelEl.fadeIn();
+               	   			}
+               	   		}
+
+               	   		//判断是否完成100%
+               	   		if(Math.ceil(progress) == 100){
+               	   			labelEl.text("Done");
+               	   			setTimeout(function(){
+               	   				labelEl.fadeOut();  //隐藏文字
+               	   			},1000);
+               	   		}else{
+               	   			labelEl.text(Math.ceil(progress) +"%");  //逐帧显示数字
+               	   		}
+               	   },
+               	   complete: function(scope, i, elem){  //动画完成回调函数
+               	   		if(callback){
+               	   			callback.call(this, i, elem);
+               	   		}
+               	   }
+               });   
+			});
+		}
+	})(jQuery);
+	$(function(){
+		 /*预设初始化*/
+         $("#progress_bar .ui-label").hide();
+         $("#progress_bar .ui-progress").css({width: "7%"});
+
+         //使用动画进度插件
+         $("#progress_bar .ui-progress").animateProgress(43,function(){
+         		$(this).animateProgress(79,function(){
+         			setTimeout(function(){
+         				$("#progress_bar .ui-progress").animateProgress(100,function(){
+         					alert("加载完成");
+         				});
+         			},2000);
+         		});
+         });
+	});
+	</script>
+</head>
+<body>
+	<div class="ui-progress-bar ui-containter" id="progress_bar">
+	 	<div class="ui-progress">
+	 		<span class="ui-label">Done</span>
+	 	</div>
+	 </div> 
+
+	 <p>原文:<a href="http://www.w3cplus.com/blog/39.html">Jquery和CSS3打造靓丽的动画进度条 
+</a></p>
+	 <script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fade0a88f5ca23da9d879cb76c376cf6b' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

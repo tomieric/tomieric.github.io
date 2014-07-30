@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="description" content="名店城首页,demo,www.fenxiangyuan.com分享园" />
+	<meta name="keywords" content="分享园,博客,web前端,css,jQuery,demo页面,学习," />
+	<meta name="author" content="tomieric" />
+	<title>名店城</title>
+	<style type="text/css">
+	/* reset */
+	*{ margin: 0; padding: 0 }
+	body{ font:12px/150% 宋体,arial,sans-serif; color: #333; background: url(images/bg.png) repeat-x; }
+	a{ color: #333; text-decoration: none; }
+	a:visited,a:hover{ color: #333 }
+	ul{ list-style: none }
+	img{ border: none; vertical-align: middle; }
+    /* layout */
+    .header,.nav_wrap,.slide,.content,.footer{ width: 800px; margin: 0 auto }
+    /* box */
+    .box{ background: url(images/box.png) no-repeat; margin-bottom: 7px }
+    /* sprite */
+    .search_btn,.biz_name,.side_link li,.gotop,.box_t,.box_t h2,.box_t a,.dic_list li{ background: url(images/index_icon.png) no-repeat; }
+    /* header */
+    .header{ padding-top: 8px; overflow: hidden; }
+    .logo{ float: left; }
+    .logo a{ display: block; background: url(images/logo.png) no-repeat; width: 210px; height: 63px; text-indent: -9999em }
+    .side_link{ float: right; margin-top: 40px; list-style: square; list-style-position: inside; }
+	    .side_link li{ display: inline; float: left; margin-right: 10px; height: 12px; line-height: 12px; background-position: -168px -168px; padding-left: 12px }
+	    .side_link li a:hover{ text-decoration: underline; color: #e02015 }
+    /* nav */ 
+    .nav_con{ background: url(images/nav_bg.png) repeat-x; height: 36px; }
+    .nav_wrap,.nav{ background: url(images/nav_wrap.png) no-repeat; height: 36px; }
+    .nav{ background-position: top right; margin-left: 25px; padding-right: 8px; overflow: hidden; }
+	    .nav li{ display: inline; float: left; padding: 0 18px; margin-top: 12px; border-left: 1px solid #7a7a7a;  height: 12px; line-height: 12px; margin-left: -1px }
+	    .nav a{ float: left; color: #fff;  }
+	    .nav a:hover{ text-decoration: underline; }
+	    .nav_con_b{ background: url(images/nav_con_b.png) no-repeat center bottom; width: 831px; height: 7px; margin: 0 auto }
+    /* slide */
+    .slide{ margin-top: 7px; margin-bottom: 7px; height: 215px; overflow: hidden; position: relative; }
+	    .slide_num{ position: absolute; right: 10px; bottom: 10px }
+	    .slide_num li{ display: inline; float: left; margin-right: 3px; }
+	    .slide_num li a{ float: left; width: 20px; height: 20px; line-height: 20px; text-align: center; color: #fff; background: #000; opacity: 0.8; filter: alpha(opacity=80); font-family: 微软雅黑,Tahoma,Verdana, Geneva, Arial, Helvetica, sans-serif }
+	    .slide_num li a.cur,.slide_num li a:hover{ background: #d33741 }
+    /* content */
+    .content,.main,.box_t{ zoom: 1 }
+    .content:after,.main:after,.box_t:after{ content: '.'; display: block; visibility: hidden; height: 0; clear: both; }
+    .box_t{ padding-left: 26px; height: 28px; line-height: 28px }
+    	.box_t h2{ float: left; text-indent: -9999em; margin-top: 5px; height: 18px; overflow: hidden; }
+    	.box_t a{ float: right; background-position: -70px -142px; width: 40px; height: 12px; overflow: hidden; text-indent: -9999em; margin: 8px 10px 0 0 }
+    .aside .box_t{ background-position: -156px -119px; }
+    .aside{ float: left; width: 220px; }
+    	.biz_name_q{ background-position: -283px -425px; width: 220px; height: 132px }
+    		.biz_name_q .box_t h2{ width: 107px }
+    		.search_form{ margin: 14px 10px 0 }
+    			.biz_name{ position: relative; background-position: 180px -142px; height: 18px; line-height: 18px; cursor: pointer; }
+    				.biz_name span{ display: block; width: 100% }
+    				.biz_name ul{ display: none; position: absolute; top: 18px; left: -1px; border: 1px solid #d7d7d7; background: #fff; width: 100%;  }
+    				.biz_name ul.active{ display: block }
+    				.biz_name li{ padding: 2px 5px }
+    				.biz_name li:hover,.biz_name li.hover{ background-color: #fbfbfb; font-weight: bold }
+    			.search_input{ border: 1px solid #d7d7d7; margin-bottom: 8px; padding: 0 5px; color: #848484 }
+    				.search_input input{ border: none; background: #fbfbfb; width: 100%; height: 18px; line-height: 18px; color: #848484 }
+    			.form_bt{ line-height: 22px; overflow: hidden; }
+    			.search_btn{ float: right; *float: none; border: none; background-position: 0 -112px; width: 53px; height: 21px; vertical-align: middle; cursor: pointer; }
+    	.biz_name_dic{ background-position: 0 -425px; width: 220px; height: 358px }
+    		.biz_name_dic .box_t h2{ background-position: 0 -18px; width: 162px }
+    		.dic_list{ padding: 7px 10px 0 10px }
+    		.dic_list li{ vertical-align: middle; line-height: 24px; background-position: -168px -162px; padding-left: 12px }
+    		.dic_list li a:hover{ text-decoration: underline; color: #e02015 }
+    	.hotline{ margin-bottom: 7px }
+    .main{ float: right; width: 570px }
+    	.main .box_t{ background-position: -158px -99px; }
+    	.news{ width: 570px; height: 203px }
+    		.news .box_t h2{ background-position: 0 -36px; width: 125px }
+    		.news .box_m{ margin: 10px 10px 0; overflow: hidden;  }
+    			.news_thumb{ float: left; }
+    			.news_list{ float: right; width: 312px;  }
+    			.news_list li{ height: 56px; overflow: hidden; background: url(images/news_item_bg.jpg) no-repeat; padding: 10px }
+    			.news_list h3 a:hover{ color: #e02015 }
+    	.brand{ background-position: 0 -212px; width: 570px; height: 199px }
+    		.brand .box_t h2{ background-position: 0 -52px; width: 164px }
+    		.brand .box_t a{ background-position: -70px -124px; }
+    		.brand .box_m{ overflow: hidden; }
+    		.brand_list{ width: 580px }
+    		.brand_list li{ display: inline; float: left; width: 145px; height: 91px; overflow: hidden; }
+    		.brand_list li a{ float: left; border: 2px solid #7b7b79; margin: 14px 10px 19px 10px }
+    	.biz_center,.job{ background-position: -283px -567px; width: 283px; height: 156px }
+    	.biz_center{ float: left; }
+    		.biz_center .box_t h2{ background-position: 0 -70px; width: 160px }
+    	.job{ float: right; }
+    		.job .box_t h2{ background-position: 0 -88px; width: 142px }
+    /* tlist */
+    .tlist{ width: 280px; margin: 0 1px 0 2px; border-collapse: collapse; text-align: center }
+    	.tlist tr{ height: 20px; line-height: 20px }
+    	.tlist tr.even{ background-color: #f6f6f6 }
+    	.tlist tr:nth-child(2n){ background-color: #f6f6f6 }
+    	.tlist th{ border-bottom: 1px solid #f0f0f0; font-weight: bold; background-color: #fff }
+    /* footer */
+    .footer{}
+    	.footer p{ text-align: center; line-height: 180% }
+    	.ft_bar{ background: url(images/ft_bar.png) no-repeat; height: 31px; color: #7a7a7a; position: relative; margin-bottom: 10px }
+    	.friend_link { text-align: center; padding-top: 2px; line-height: 30px; }
+    	.friend_link a{ color: #fff; padding: 0 10px }
+    .gotop{ position: absolute; right: 18px; top: 15px; background-position: -71px -160px; width: 27px; height: 6px; overflow: hidden; text-indent: -9999em }
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1 class="logo"><a href="#">名店城</a></h1>
+		<ul class="side_link">
+			<li><a href="http://www.fenxiangyuan.com/" onclick="javscript:SetHome(this);return false;">设为首页</a></li>
+			<li><a href="http://www.fenxiangyuan.com/" onclick="javascript:addFav();return false;">收藏本站</a></li>
+		</ul>
+	</div>
+	<div class="nav_con">
+		<div class="nav_wrap">
+			<ul class="nav">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">关于名店城</a></li>
+				<li><a href="#">品牌世界</a></li>
+				<li><a href="#">招商中心</a></li>
+				<li><a href="#">快讯资讯</a></li>
+				<li><a href="#">商家名录</a></li>
+				<li><a href="#">人才招聘</a></li>
+				<li><a href="#">商家查找</a></li>
+				<li><a href="#">联系我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="nav_con_b"></div>
+	<div class="slide" id="slide">
+		<ul id="slide_img">
+			<li><a href="#"><img src="images/banner_01.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="images/banner_01.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="images/banner_01.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="images/banner_01.jpg" alt="" /></a></li>
+			<li><a href="#"><img src="images/banner_01.jpg" alt="" /></a></li>
+		</ul>
+		<ul class="slide_num" id="slide_num">
+			<li><a href="javascript:void(0);" class="cur">1</a></li>
+			<li><a href="javascript:void(0);">2</a></li>
+			<li><a href="javascript:void(0);">3</a></li>
+			<li><a href="javascript:void(0);">4</a></li>
+			<li><a href="javascript:void(0);">5</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	(function(d){
+		//轮播包裹对象
+		var oSlide = d.getElementById("slide");
+		//图片包裹对象
+		var oSlideImg = d.getElementById("slide_img");
+		//图片对象集
+		var oSlideImgs = oSlideImg.getElementsByTagName("li");
+		//轮播索引对象
+		var oSlideNum = d.getElementById("slide_num");
+		//轮播索引集
+		var oSlideNums = oSlideNum.getElementsByTagName("a");
+		//图片个数，当前索引，自动切换器
+		var imgLen = oSlideNums.length,currentIndex = 0,autoTimer = null;
+		//轮播容器高度
+		var wrapHeight = oSlide.clientHeight;
+		//图片滚动切换器
+		oSlideImg.timer = null;
+		//索引鼠标延迟器
+		oSlideNum.delayTimer = null;
+
+		//设置position为相对定位，兼容浏览器对margin-top负值起效
+		oSlideImg.style.position = "relative";
+
+		/* 遍历为索引项绑定鼠标事件 */
+		for(var i=0, len = oSlideNums.length; i < len; i++){
+			(function(index){  //闭包，保证i不受影响
+				//索引项点击切换
+				oSlideNums[index].onclick = function(){
+					//清除自动切换
+					clearInterval(autoTimer);
+					//切换函数
+					tab(index);
+				}
+				/*
+				//索引项鼠标滑过
+				 oSlideNums[index].onmouseover = function(){
+				 	//鼠标停留索引项没变不处理
+					if(currentIndex == index) return;
+					//获取当前对象
+					var _self = this;
+					//清除上次延迟事件
+					clearTimeout(oSlideNum.delayTimer);
+					//执行鼠标停留0.2s执行切换
+					oSlideNum.delayTimer = setTimeout(function(){
+						//触发当前对象点击事件
+						_self.onclick();
+					},200);
+				}
+				//鼠标离开清除延迟器
+				oSlideNums[index].onmouseout = function(){
+					clearTimeout(oSlideNum.delayTimer);
+				}*/
+				/*鼠标停留容器不自动切换*/
+				oSlideImgs[i].onmouseover = function(){
+					clearInterval(autoTimer);
+				}
+				/*鼠标移开再次使用自动切换*/
+				oSlideImgs[i].onmouseout = function(){
+					autoTab();
+				}
+			})(i);
+		}
+
+		//默认自动切换
+		autoTab();
+		//自动切换函数
+		function autoTab(){
+			//自动器赋值，每3s自动切换
+			autoTimer = setInterval(function(){
+				//最后一个则重新开始
+				if(currentIndex >= imgLen) currentIndex = 0;
+				//触发索引currentIndex的索引项点击切换动作
+				oSlideNums[currentIndex].onclick();
+				//预备下一个索引位置
+				currentIndex++;
+			},3000);
+		}
+
+		/**
+		 * 切换函数
+		 * @param  {int} index 当前索引值
+		 * @return 
+		 */
+		function tab(index){
+			for(var i=0, len = oSlideNums.length; i < len; i++){
+				if(index == i){ //当前元素高亮
+					oSlideNums[i].className = 'cur';
+				}else{
+					oSlideNums[i].className = '';
+				}
+			}
+			//轮播动作函数(移动位置，当前索引，回调函数)
+			move(-index * wrapHeight,index,function(){
+				//自动切换
+				autoTab();
+			});
+		}
+
+		/**
+		 * 轮播动作函数
+		 * @param  {numeric}   h       移动目的位置
+		 * @param  {int}   index       当前索引
+		 * @param  {Function} callback 回调函数
+		 * @return 
+		 */
+		function move(h,index,callback){
+			//清除图片移动动作控制器
+			clearInterval(oSlideImg.timer);
+			//获取图片容器距包裹容器top的高度
+			var currentMt = oSlideImg.offsetTop;
+			//定义动画速度
+			var iSpeed = (currentMt < h) ? 10 : -10;
+			//定义每帧时间
+			var timer = (index - currentIndex == 0) ? 30 : (30 / Math.abs(index - currentIndex));
+			oSlideImg.timer = setInterval(function(){
+				//当前margin-top值
+				currentMt = oSlideImg.offsetTop;
+				//判断是否已达到目的位置
+				if(Math.abs(currentMt - h) < 10) {
+					//清除动画控制器
+					clearInterval(oSlideImg.timer);
+					//设置margin-top在目的位置
+					oSlideImg.style.marginTop = h+"px";
+				}else{
+					//动画自增高度
+					oSlideImg.style.marginTop = (currentMt+iSpeed)+"px";
+				}
+			},timer);
+			//动画完成，当前索引赋值
+			currentIndex = index;
+			//使用回调函数
+			callback.call(this);
+		}
+
+	})(document);
+	</script>
+	<div class="content">
+		<div class="aside">
+			<div class="box biz_name_q">
+				<div class="box_t">
+					<h2>商家查询</h2>
+				</div>
+				<div class="box_m">
+					<form action="#" class="search_form" name="search_form" id="search_form">
+					<div class="search_input biz_name" id="drop_list">
+						<span>商家名称</span>
+                        <ul>
+                        	<li>卡玛</li>
+                        	<li>华伦天奴</li>
+                        	<li>艾格</li>
+                        	<li>以纯</li>
+                        	<li>美特斯邦威</li>
+                        </ul>
+					</div>
+					<div class="search_input">
+						<input type="text" name="biz_name" id="biz_name" value="输入关键字" placeholder="输入关键字" />
+					</div>
+					<div class="form_bt">
+						<strong>如：</strong><a href="?biz_name=卡玛">卡玛</a> <a href="?biz_name=华伦天奴">华伦天奴</a> <a href="?biz_name=艾格">艾格</a> <input type="button" class="search_btn" name="search_btn" id="submit_btn" value="" />
+				    </div>
+					</form>
+					<script type="text/javascript">
+					(function(d){
+						var oDrop = d.getElementById("drop_list");  //下拉框对象
+						var oDropText = oDrop.getElementsByTagName("span")[0];  //下拉框文本对象
+						var oDropList = oDrop.getElementsByTagName("ul")[0];    //下拉框列表
+						var oDropListItem = oDropList.getElementsByTagName("li"); //下拉框列表项
+					    var oForm = d.getElementById("search_form");      //查询表单
+						var oSubmit = d.getElementById("submit_btn");     //提交按钮
+						var oSearchText = d.getElementById("biz_name");   //搜索输入框
+						var placeholder = oSearchText.getAttribute("placeholder");   //输入框占位符
+
+						/**
+						 * 下拉框文本点击出现下拉列表，并可以显示隐藏切换
+						 * 
+						 */
+						oDropText.onclick = function(){
+							//判断当前显示状态
+							var display = (oDropList.style.display == "block") ? "none" : "block";
+							//设置响应状态
+							oDropList.style.display = display;
+						}
+
+						/**
+						 * 遍历所有列表项，为每项鼠标事件进行绑定函数操作
+						 * @type {Number}
+						 */
+						for(var i = 0, len = oDropListItem.length; i < len; i++){
+							//鼠标滑过高亮
+							oDropListItem[i].onmouseover = function(){
+								this.className = "hover";
+							}
+							//鼠标滑出移除高亮
+							oDropListItem[i].onmouseout = function(){
+								this.className = "";
+							}
+							//点击选中操作
+							oDropListItem[i].onclick = function(){
+								//获取文本字符
+								var oTemp = this.firstChild;
+								if(oTemp.nodeType == 3){  //文本节点
+									oDropList.style.display = "none";  //隐藏下拉列表
+									oDropText.innerHTML = oTemp.nodeValue;  //改变下拉框文本文字
+								}
+							}
+						}
+
+						//输入框聚焦
+						oSearchText.onfocus = function(){
+							var thisVaule = this.value;
+							//判断当前值是否为占位符，占无输入操作
+							if(thisVaule.replace(/\s/g,"") == placeholder){
+								//设置内容为空
+								this.value = "";
+							}
+						}
+						//输入框失焦
+						oSearchText.onblur = function(){
+							var thisVaule = this.value;
+							//判断输入内容是否为空
+							if(thisVaule.replace(/\s/g,"") == ""){
+								//还原文本提示内容
+								this.value = placeholder;
+							}
+						}
+						//提交表单
+						oSubmit.onclick = function(){
+							oForm.submit();
+						}
+						/**
+						 * 点击页面任意处，当前响应对象不是下拉框文本，则隐藏下拉框
+						 * @param  {object} event 鼠标事件
+						 * @return 
+						 */
+						d.onclick = function(event){
+							//兼容event
+							var ev = event || window.event;
+							//兼容响应对象
+							var target = ev.target || ev.srcElement;
+							//判断是否为下拉框文本对象
+							if(target != oDropText){
+								oDropList.style.display = "none";  //隐藏下拉框
+							}
+						}
+					})(document);
+					</script>
+				</div>
+			</div>
+			<div class="box biz_name_dic">
+				<div class="box_t">
+					<h2>商家实录</h2>
+				</div>
+				<div class="box_m">
+					<ul class="dic_list">
+						<li><a href="#">成为虎门最有品味媒体</a></li>
+						<li><a href="#">成为虎门最有品味媒体...</a></li>
+						<li><a href="#">成为sss虎门最有品味媒体</a></li>
+						<li><a href="#">成为虎门最ww有品味媒体</a></li>
+						<li><a href="#">成为虎wer门最有品味媒体</a></li>
+						<li><a href="#">成为虎门最有品味媒体</a></li>
+						<li><a href="#">成为虎门最dfd有品味媒体</a></li>
+						<li><a href="#">成为虎门最有品味媒体asd</a></li>
+						<li><a href="#">成为虎门最dfdf有品味媒体</a></li>
+						<li><a href="#">成为虎门最sdf有品味媒体</a></li>
+						<li><a href="#">成为虎门最有品味媒体eree</a></li>
+						<li><a href="#">成为虎门最有品味媒体...</a></li>
+						<li><a href="#">成为虎门bbbe最有品味媒体</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="hotline">
+				<img src="images/hotline.jpg" alt="招商热线 0769-5125419" />
+			</div>
+		</div>
+		<div class="main">
+			<div class="box news">
+				<div class="box_t">
+					<h2>动态资讯</h2>
+					<a href="#">更多</a>
+				</div>
+				<div class="box_m">
+					<a href="#" class="news_thumb" title="虎门名店城"><img src="images/hot_news.jpg" alt="" /></a>
+					<ul class="news_list">
+						<li>
+							<h3><a href="#">随着汽车普及，人们安全意识增强</a></h3>
+							<p>了开始就打开了房间了卡速度快放假的开始发了空间上东方上当了放空间速度快放假</p>
+						</li>
+						<li>
+							<h3><a href="#">随着汽车普及，人们安全意识增强</a></h3>
+							<p>了开始就打开了房间了卡速度快放假的开始发了空间上东方上当了放空间速度快放假</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="box brand">
+				<div class="box_t">
+					<h2>品牌推荐</h2>
+					<a href="#">更多</a>
+				</div>
+				<div class="box_m">
+					<ul class="brand_list">
+						<li><a href="#"><img src="images/brand/1.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="images/brand/1.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="images/brand/1.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="images/brand/1.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="images/brand/2.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="images/brand/2.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="images/brand/2.jpg" alt="" /></a></li>
+						<li><a href="#"><img src="images/brand/2.jpg" alt="" /></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="box biz_center">
+				<div class="box_t">
+					<h2>招商中心</h2>
+					<a href="#">更多</a>
+				</div>
+				<div class="box_m">
+					<table class="tlist">
+						<thead>
+						<tr>
+							<th>单元</th>
+							<th>面积</th>
+							<th>租金</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>2010-1100号</td>
+							<td>1799平方</td>
+							<td>100元/平方</td>
+						</tr>
+						<tr  class="even">
+							<td>2010-1100号</td>
+							<td>1799平方</td>
+							<td>100元/平方</td>
+						</tr>
+						<tr>
+							<td>2010-1100号</td>
+							<td>1799平方</td>
+							<td>100元/平方</td>
+						</tr>
+						<tr  class="even">
+							<td>2010-1100号</td>
+							<td>1799平方</td>
+							<td>100元/平方</td>
+						</tr>
+						<tr>
+							<td>2010-1100号</td>
+							<td>1799平方</td>
+							<td>100元/平方</td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="box job">
+				<div class="box_t">
+					<h2>人才招聘</h2>
+					<a href="#">更多</a>
+				</div>
+				<div class="box_m">
+					<table class="tlist">
+						<thead>
+						<tr>
+							<th>职位</th>
+							<th>人数</th>
+							<th>日期</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>前台</td>
+							<td>2</td>
+							<td>2012-12-11</td>
+						</tr>
+						<tr class="even">
+							<td>前台</td>
+							<td>2</td>
+							<td>2012-12-11</td>
+						</tr>
+						<tr>
+							<td>前台</td>
+							<td>2</td>
+							<td>2012-12-11</td>
+						</tr>
+						<tr class="even">
+							<td>前台</td>
+							<td>2</td>
+							<td>2012-12-11</td>
+						</tr>
+						<tr>
+							<td>前台</td>
+							<td>2</td>
+							<td>2012-12-11</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="ft_bar">
+			<div class="friend_link">
+				<a href="#">名店城首页</a> | <a href="#">法律声明</a> | <a href="#">网站地图</a> | <a href="#">招商中心</a> | <a href="#">人才招聘</a> | <a href="#">联系我们</a>
+			</div>
+			<a href="#" class="gotop" onclick="javascript:goTop();return false;">回到顶部</a>
+		</div>
+		<p>版权所有 ·2007 - 名店服装商场  咨询电话：0769-5125491 技术支持：<a href="http://www.fenxiangyuan.com">分享园</a></p>
+		<p>地址：东莞市虎门镇银龙路20-22号 粤ICP备05128922号</p>
+	</div>
+	<script type="text/javascript">
+	/* 设为主页 */
+	function SetHome(ele) {
+		if (document.all) {
+			ele.style.behavior = "url(#default#homepage)";
+			ele.setHomePage(window.location.href)
+		} else {
+			alert("您的浏览器不支持自动设置主页，请使用浏览器菜单手动设置")
+		}
+	};
+
+	/*http://news.xunlei.com*/
+	function addFav() {
+	    var ctrl = (navigator.userAgent.toLowerCase()).indexOf('mac') != -1 ? 'Command/Cmd': 'CTRL';
+	    try{
+	        if (document.all) { //IE类浏览器
+	            try {
+	                window.external.toString(); //360浏览器不支持window.external，无法收藏
+	                window.alert("国内开发的360浏览器等不支持主动加入收藏。\n您可以尝试通过浏览器菜单栏 或快捷键 ctrl+D 试试。");
+	            }
+	            catch (e){
+	                try{
+	                    window.external.addFavorite("http://www.fenxiangyuan.com/", document.title);
+	                }
+	                catch (e){
+	                    window.external.addToFavoritesBar("http://www.fenxiangyuan.com/", document.title);  //IE8
+	                }
+	            }
+	        }
+	        else if (window.sidebar) { //firfox等浏览器
+	            window.sidebar.addPanel(document.title, "http://www.fenxiangyuan.com/", "");
+	        }
+	        else {
+	            alert('您可以尝试通过快捷键' + ctrl + ' + D 加入到收藏夹~');
+	        }
+	    }
+	    catch (e){
+	       window.alert("添加收藏失败！\n解决办法：在注册表中查找\n HKEY_CLASSES_ROOT\\TypeLib\\{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}\\1.1\\0\\win32 \n将 C:\\WINDOWS\\system32\\shdocvw.dll 改为 C:\\WINDOWS\\system32\\ieframe.dll ");
+	    }
+	}
+
+	//回到顶部
+	function goTop(){
+		//浏览器版本字符
+		var UA = navigator.userAgent.toLowerCase();
+		if(/webkit/.test(UA)){ //webkit浏览器
+			document.body.scrollTop = 0;  //回到顶部
+		}else{ // FF & IE & etc.
+			document.documentElement.scrollTop = 0; //回到顶部
+		}
+	}
+	</script>
+	<div style="display: none">
+	<script type="text/javascript">
+	//统计代码
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fade0a88f5ca23da9d879cb76c376cf6b' type='text/javascript'%3E%3C/script%3E"));
+	</div>
+</script>
+
+</body>
+</html>

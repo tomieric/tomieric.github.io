@@ -1,0 +1,104 @@
+/*css reset*/
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+textarea{ resize: none }
+img{ border: none; vertical-align: middle; }
+:focus { outline:0; }
+
+/*--Layout--*/
+body{color:#333; background: #fff;font:12px/1.5 微软雅黑,arial,Helvetica,sans-serif;-webkit-text-size-adjust: none;}
+input,button{ font:12px 微软雅黑,arial,Helvetica,sans-serif; }
+a{ color: #333; text-decoration: none }
+a:hover{ text-decoration: none}
+.clearfix{zoom:1 }
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden; }
+
+/*wrapper*/
+.container{ width: 960px; margin: 0 auto }
+.inputBg,.button,.tit,.kefuList li div,.shouce a,.qsButton,.moreLnk,.newsList li{ background: url(../images/a-1.png) no-repeat;}
+.menuList a,.kefuList li,.shouce,.tel{ background: url(../images/a-2.png) no-repeat;}
+
+/*header*/
+.header{ height: 254px; background: #99CBE6; background: url(../images/banner.jpg) no-repeat top center;}
+.header .container{ padding-top: 25px }
+.logo{ float: left; margin-left: 28px }
+.logo a{ display: block; background: url(../images/logo.png) no-repeat; width: 181px; height: 35px; text-indent: -9999em }
+.userInfo{ float: right; margin-top: 8px }
+.formList{ margin-right: 10px; color: #fff }
+.formList li{ display: inline; float: left; height: 20px; line-height: 20px; margin-right: 5px; vertical-align: middle; }
+.inputBg{ background-position: 0 0; width: 128px; height: 20px; }
+.formList li.inputBg{ margin-right: 15px }
+.inputText{ width: 120px; margin: 0 4px; *margin-top: -1px; border: 0 none; height: 20px; line-height: 20px;}
+.button{ background-position: 0 -25px; width: 65px; height: 20px; color: #fff; border: none; cursor: pointer; margin-right: 15px; vertical-align: middle; }
+/*navigator*/
+.navigator{ background: url(../images/nav-bg.png) repeat-x; height: 43px;}
+
+.nav{ margin-left: 39px }
+.nav li{ display: inline; float: left; width: 107px; height: 43px; line-height: 43px; text-align: center;}
+.nav li a{ display: block; font-size: 14px; color: #fff }
+.nav li a.current{ background: url(../images/a-1.png) no-repeat -8px -57px; }
+
+/*content*/
+.content{ width: 940px; margin: 20px auto }
+.tit{ height: 40px; padding-left: 27px; line-height: 40px; font-size: 14px; color: #174985; background-position: -380px 16px }
+.btline{ border-bottom: 1px solid #cacaca}
+.aside{ float: left; width: 300px }
+	.menuList{ margin-bottom: 18px; }
+	.menuList a{ display: block; height: 36px; line-height: 36px; margin-bottom: 2px; color: #fff; text-align: center; font-family: 宋体; font-weight: bold; }
+	.menuList a i{ display: block; font-style: normal; color: #86bfee; font-size: 10px; line-height: 10px }
+	.quickSearch{ background: url(../images/search-bg.png) no-repeat;width: 303px; height: 339px; margin-bottom: 10px }
+		.qsTitle{ margin: 0 12px; padding-top: 3px; border-bottom: 2px solid #f4f4f4}
+		.qsForm{ margin: 15px 20px; color: #237da4 }
+		.qsForm dt,.qsForm dd{ float: left; margin-bottom: 10px; line-height: 24px }
+		.qsForm dt{ width: 65px }
+		.qsForm dd{ width: 196px }
+			.qsText{ border: 1px solid #d2d2d2; border-radius: 1px; width: 170px; height: 22px; line-height: 22px; padding: 0 4px; vertical-align: middle; }
+			.w60{ width: 60px; border-right: 1px solid #d2d2d2}
+			.qsButton{ border: 0 none; width: 128px; height: 22px; background-position: -140px -44px; cursor: pointer;}
+		.qsForm dd.ls{ padding-top: 10px }
+		.qsForm select{ width: 180px; border:1px solid #d2d2d2 }
+	.menuList a.lastChild{ line-height: 24px }
+	.kefuList{ margin-bottom: 17px; }
+		.kefuList li{ width: 295px; height: 53px; background-position: 0 -189px; margin-top: 2px }
+		.kefuList li div{ padding: 6px 0  0 110px; color: #06466c; background-position: -320px -56px }
+		.kefuList p{ line-height: 1.2 }
+		.kefuList p strong{ color: #ed2c2c }
+	.shouce{ width: 243px; height: 27px; padding: 33px 0 0 52px; background-position: 0 -128px; margin-bottom: 17px }
+	.shouce a{ display: block; text-indent: -9999em; width: 94px; height: 19px; background-position: -140px -20px }
+	.tel{ margin-bottom: 17px; background-position: 0 -39px; width: 295px; height: 87px }
+.main{ float: right; width: 600px }
+	.datalist{ width: 100%; margin-bottom: 10px; border-bottom: 1px solid #c9c9c9; }
+	.datalist th{ border-bottom: 1px solid #c9c9c9; background: #f8f8f8; color: #1a1a1a; font-size: 14px }
+	.datalist tr{ height: 40px; line-height: 40px }
+	.datalist .first{ width: 145px; padding-left: 35px }
+	.datalist .last{ width: 130px }
+	/*.datalist tbody{  }*/
+	.datalist td{ border-bottom: 1px dotted #c9c9c9 }
+
+	.blockT .tit{ float: left; }
+	.moreLnk{ float: right; width: 43px; height: 16px; background-position: -139px 0; text-indent: -9999em }
+	.blockT .moreLnk{ margin: 14px 10px 0 0 }
+	.blockT .mr0 { margin-right: 0 }
+	.blockMain{ margin-right: 245px; overflow: hidden; }
+		.newsList{ padding: 10px 0 }
+		.newsList li{ overflow: hidden; height: 40px; line-height: 40px; vertical-align: middle; background-position: -390px -104px; padding-left: 20px }
+		.newsList li a{ overflow: hidden; }
+		.newsList li a:hover{ color: #f60;  }
+		.newsList li span{ float: right; cursor: pointer; /*width: 25%;*/ /*text-align: right*/ }
+	.blockSide{ float: right; width: 220px; }
+	.business{ background: url(../images/hexinyewu.png) no-repeat; width: 220px; height: 300px }
+		.inner{ padding: 104px 20px 0; color: #096485; line-height: 2.4 }
+		.inner p{ margin-bottom: 10px }
+/*footer*/
+.footer{ background: url(../images/footer.png) repeat-x; height: 86px}
+.footer p{ background: url(../images/footer-logo.png) no-repeat; padding: 28px 0 0 250px; height: 54px; color: #5b5b5b }

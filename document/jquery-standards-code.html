@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+	<html class="no-js">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>jQuery编程最佳实践</title>
+		<meta name="description" content="jQuery编程最佳实践，中文版">
+		<meta name="keywords" content="jQuery Coding Standards and Best Practices, jQuery Coding Standards, jQuery Standards, jQuery Best Practices">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="author" href="https://plus.google.com/114876854659262878601">
+		<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://cdn.staticfile.org/font-awesome/4.0.3/css/font-awesome.min.css">
+		<style>
+			/*prettify*/
+			.com{color:#93a1a1}.lit{color:#195f91}.pun,.opn,.clo{color:#93a1a1}.fun{color:#dc322f}.str,.atv{color:#D14}.kwd,.prettyprint .tag{color:#1e347b}.typ,.atn,.dec,.var{color:teal}.pln{color:#48484c}.prettyprint{padding:8px;background-color:#f7f7f9;border:1px solid #e1e1e8}.prettyprint.linenums{-webkit-box-shadow:inset 40px 0 0 #fbfbfc,inset 41px 0 0 #ececf0;-moz-box-shadow:inset 40px 0 0 #fbfbfc,inset 41px 0 0 #ececf0;box-shadow:inset 40px 0 0 #fbfbfc,inset 41px 0 0 #ececf0}ol.linenums{margin:0 0 0 33px}ol.linenums li{padding-left:12px;color:#bebec5;line-height:20px;text-shadow:0 1px 0 #fff}
+		</style>
+		
+		<!--[if lt IE 9]>
+			<script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+			<script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body onload="prettyPrint()" data-spy="scroll" data-offset="200" data-target="#nav">
+		<div class="container">
+			<header class="row">
+				<h1 class="col-lg-12">
+					<img src="http://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg" alt="jQuery" style="height:40px;width:auto;" />
+					编程最佳实践
+				</h1>
+				<div class="col-lg-12 hidden-print">
+					<div class="navbar navbar-inverse hidden-print" role="navigation">
+						<nav class="navbar-inner" id="navbar">
+							<ul class="nav navbar-nav" id="nav"></ul>
+						</nav>
+					</div>
+				</div>
+				<div class="col-lg-12 hidden-print">
+					<div class="well well-sm">
+						这里一些<a href="http://jquery.com/" class="external-link" rel="nofollow">jQuery</a>编程最佳实践的标准思想。这些编程标准并不涵盖JavaScript标准或实践。 如果有什么问题或建议，欢迎来<a href="http://web3o.blogspot.com/2014/03/jquery-coding-standards-and-best.html" class="external-link" rel="nofollow">作者博客</a>留言评论。
+						<h4 style="margin-bottom:0;">最后更新: 03/17/2014 1:15PM America/Chicago(CDT)</h4>
+						<h4 style="margin-bottom:0;">原文地址: <a href="http://lab.abhinayrathore.com/jquery-standards/" class="external-link">http://lab.abhinayrathore.com/jquery-standards/</a></h4>
+					</div>
+				</div>
+				<div class="col-lg-12 hidden-print">
+					<div class="well well-sm">
+						<a class="alert-link btn btn-primary" href="javascript:window.print()"><i class="fa fa-print fa-fw"></i> 打印</a> 自行调整打印纸张外边距和页头页脚。
+					</div>
+				</div>
+			</header>
+			<div class="row std" id="Loading-jQuery">
+				<h2 class="col-lg-12">加载jQuery</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>我们经常通过CDN技术方式加载jQuery。<a href="http://www.sitepoint.com/7-reasons-to-use-a-cdn/" class="external-link" rel="nofollow">CDN 的优势</a>
+							<pre class="prettyprint">&lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">&lt;/script>
+&lt;script>window.jQuery || document.write('&lt;script src="js/jquery-1.11.0.min.js" type="text/javascript">&lt;\/script>')&lt;/script></pre>
+							<a data-toggle="modal" href="#jQueryCND">点击这里查看</a> 推荐流行的CDN服务.
+							<!-- Modal -->
+							<div class="modal fade" id="jQueryCND" tabindex="-1" style="" role="dialog" aria-hidden="true">
+								<div class="modal-dialog modal-lg">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+											<h4 class="modal-title">比较好的jQuery CDNs</h4>
+										</div>
+										<div class="modal-body">
+											Google: <a href="https://developers.google.com/speed/libraries/devguide#jquery" class="external-link" rel="nofollow">https://developers.google.com/speed/libraries/devguide</a><br>
+											Microsoft: <a href="http://www.asp.net/ajaxlibrary/cdn.ashx#jQuery_Releases_on_the_CDN_0" class="external-link" rel="nofollow">http://www.asp.net/ajaxlibrary/cdn.ashx</a><br>
+											jQuery: <a href="http://jquery.com/download/" class="external-link" rel="nofollow">http://jquery.com/download/</a><br>
+											cdnjs: <a href="http://cdnjs.com/libraries/jquery/" class="external-link" rel="nofollow">http://cdnjs.com</a><br>
+											OSSCdn: <a href="http://osscdn.com/#/jquery" class="external-link" rel="nofollow">http://osscdn.com</a><br>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+										</div>
+									</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
+						</li>
+						<li>
+							同时我们可以像上面代码使用一个本地同版本库备份文件。 <a href="http://css-tricks.com/snippets/jquery/fallback-for-cdn-hosted-jquery/" class="external-link" rel="nofollow">更多信息</a>
+						</li>
+						<li>
+							上面文件引入路径使用<a href="http://www.paulirish.com/2010/the-protocol-relative-url/" class="external-link" rel="nofollow">协议相对/协议独立URL</a>（注意URL中去除<code>http:</code> 或 <code>https:</code>）
+						</li>
+						<li>
+							如果可能尽量将jQuery引入script标签放在页面的底部。<a href="http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html" class="external-link" rel="nofollow">更多信息</a> 基于 <a href="https://github.com/h5bp/html5-boilerplate/blob/master/index.html" class="external-link" rel="nofollow">HTML5 Boilerplate模板</a>.
+						</li>
+						<li>
+							版本的使用情况？
+							<ul>
+								<li>如果要支持IE6/7/8时请不要用jQuery 2.X版本。</li>
+								<li>当我们开发webapp时，并不需要考虑太多兼容性问题就尽量使用更高版本的jQuery。</li>
+								<li>使用jQuery的CDN服务时，要注意区分jQuery的引入版本。 (比如: <em>1.11.0</em> 跟 <em>1.11</em> 一样都是 <em>jQuery1.x</em>最高版本).</li>
+								<li>千万不要使用多个jQuery版本共存。</li>
+							</ul>
+						</li>
+						<li>
+							如果你同时使用了Prototype, MooTools, Zepto等库时，最好使用<code>jQuery</code>替代<code>$</code>。在jquery函数内部使用时记得调用<code>$.noConflict()</code>。
+						</li>
+						<li>
+							要检测现代浏览器更高版本功能，请使用 <a href="http://modernizr.com/" class="external-link" rel="nofollow">Modernizr</a>库。
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Variables">
+				<h2 class="col-lg-12">jQuery变量</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							所有的变量应该定义一个<code>$</code>开头的变量名储存jQuery对象。
+						</li>
+						<li>
+							用变量存储经常使用的jQuery对象。
+							<pre class="prettyprint lang-javascript">var $myDiv = $("#myDiv");
+$myDiv.click(function(){...});</pre>
+						</li>
+						<li>
+							变量名最好使用<a href="//en.wikipedia.org/wiki/CamelCase" class="external-link" rel="nofollow">驼峰</a>方式。
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Selectors">
+				<h2 class="col-lg-12">选择器</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							无论什么地方使用ID选择器时我们可以直接使用<code>document.getElementById()</code>获取对象，这样执行效率更高。
+						</li>
+						<li>
+							无论什么时候使用类选择器时不要加上元素的类型（标签） <a href="http://jsperf.com/jqeury-selector-test" class="external-link" rel="nofollow">表达式的执行效率</a>
+							<pre class="prettyprint">var $products = $("div.products"); // 慢
+var $products = $(".products"); // 快</pre>
+						</li>
+						<li>
+							在ID-子潜逃类型选择器时尽量用<code>find()</code>函数。<code>.find()</code>函数执行速度更快因为不用经过Sizzle引擎调用。<a href="http://learn.jquery.com/performance/optimize-selectors/" class="external-link" rel="nofollow">更多Sizzle性能信息</a>
+							<pre class="prettyprint">// 糟糕的，需经过Sizzle库选择器混合处理
+var $productIds = $("#products div.id");
+
+// 不错的，#productst通过原生document.getElementById()获取上下文范文后再去使用Sizzle库获取类选择器匹配
+var $productIds = $("#products").find("div.id");</pre>
+						</li>
+						<li>
+							遵从右边选择器更详细原则，左边选择器尽量简单。 <a href="http://learn.jquery.com/performance/optimize-selectors/" class="external-link" rel="nofollow">选择器优化</a>
+							<pre class="prettyprint">// 没有优化的
+$("div.data .gonzalez");
+
+// 优化了的
+$(".data td.gonzalez");</pre>
+						</li>
+						<li>
+							避免复杂的选择器表达式。<a href="http://learn.jquery.com/performance/optimize-selectors/" class="external-link" rel="nofollow">选择器优化</a>, <a href="http://jsperf.com/avoid-excessive-specificity" class="external-link" rel="nofollow">表达式性能</a>
+							<pre class="prettyprint">$(".data table.attendees td.gonzalez");
+ 
+// 更好的方式，减少中间匹配过程
+$(".data td.gonzalez");</pre>
+						</li>
+						<li>
+							给定选择器的上下文执行环境（作用作用域）
+							<pre class="prettyprint">// 比较慢的，引文要变量DOM所有匹配.class的元素
+$('.class');
+
+// 更快的，只需在ID class-container元素子元素中查找
+$('.class', '#class-container');</pre>
+						</li>
+						<li>
+							避免通用选择符。 <a href="http://learn.jquery.com/performance/optimize-selectors/" class="external-link" rel="nofollow">选择器优化</a>
+							<pre class="prettyprint">$('div.container > *'); // 糟糕的
+$('div.container').children(); // 更好的</pre>
+						</li>
+						<li>
+							避免不明的伪类选择器，当少了标签是通配符一直不明确<a href="http://learn.jquery.com/performance/optimize-selectors/" class="external-link" rel="nofollow">选择器优化</a>
+							<pre class="prettyprint">$('div.someclass :radio'); // 糟糕的
+$('div.someclass input:radio'); // 更好的</pre>
+						</li>
+						<li>
+							不要使用多个ID选择器或组合的ID选择器。因为ID选择是通过原生的<code>document.getElementById()</code>方法获取，性能更快更好
+							<pre class="prettyprint">$('#outer #inner'); // 糟糕的
+$('div#inner'); // 糟糕的
+$('.outer-container #inner'); // 糟糕的
+$('#inner'); // 更好的, 只是调用了document.getElementById()方法</pre>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Dom-Manipulation">
+				<h2 class="col-lg-12">DOM操作</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							在操作DOM元素之前将其从页面分离。 <a href="http://learn.jquery.com/performance/detach-elements-before-work-with-them/" class="external-link" rel="nofollow">元素分离</a>
+							<pre class="prettyprint">var $myList = $("#list-container > ul").detach();
+// 一连串对$myList进行操作
+$myList.appendTo("#list-container");</pre>
+							<p>我的理解是该函数将DOM元素拷贝一份出来，然后在该对象上进行操作</p>
+						</li>
+						<li>
+							在做字符串的连接是使用数组的<code>array.join()</code> 的方法替换 <code>.append()</code>函数操作。<a href="http://learn.jquery.com/performance/append-outside-loop/" class="external-link" rel="nofollow">append在循环外部的优势</a>
+							<br>性能比较: <a href="http://jsperf.com/jquery-append-vs-string-concat" class="external-link" rel="nofollow">http://jsperf.com/jquery-append-vs-string-concat</a>
+							<pre class="prettyprint">// 糟糕的
+var $myList = $("#list");
+for(var i = 0; i &lt; 10000; i++){
+    $myList.append("&lt;li>"+i+"&lt;/li>");
+}
+ 
+// 不错的
+var $myList = $("#list");
+var list = "";
+for(var i = 0; i &lt; 10000; i++){
+    list += "&lt;li>"+i+"&lt;/li>";
+}
+$myList.html(list);
+ 
+// 最快最好的
+var array = []; 
+for(var i = 0; i &lt; 10000; i++){
+    array[i] = "&lt;li>"+i+"&lt;/li>"; 
+}
+$myList.html(array.join(''));</pre>
+						</li>
+						<li>
+							不要跟不存在的DOM元素使用动画函数<a href="http://learn.jquery.com/performance/dont-act-on-absent-elements/" class="external-link" rel="nofollow">更多信息</a>
+							<pre class="prettyprint">// 糟糕的: 执行了三次，还元素不存在报错
+$("#nosuchthing").slideUp();
+ 
+// 不错的
+var $mySelection = $("#nosuchthing");
+if ($mySelection.length) {
+    $mySelection.slideUp();
+}</pre>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Events">
+				<h2 class="col-lg-12">事件处理</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							每个页面应该只有一个Dom ready回调操作，利于我们测试和bug跟踪。
+						</li>
+						<li>
+							不要使用为事件绑定匿名函数，因为匿名函数不利我们的调试和不能够重用代码。<a href="http://learn.jquery.com/code-organization/beware-anonymous-functions/" class="external-link" rel="nofollow">More Info</a>
+							<pre class="prettyprint">$("#myLink").on("click", function(){...}); // 糟糕的
+ 
+// 不错的
+function myLinkClickHandler(){...}
+$("#myLink").on("click", myLinkClickHandler);</pre>
+						</li>
+						<li>
+							同样的，Dom Ready不建议使用匿名函数绑定
+							<pre class="prettyprint">$(function(){ ... }); // 不能为dom ready写
+ 一个测试案例
+// GOOD
+$(initPage); // 或者 $(document).ready(initPage);
+function initPage(){
+    // 页面初始化，可以还调用其他的函数.
+}</pre>
+						</li>
+						<li>
+							页面DOM ready就绪操作应该放到外部js文件。
+							<pre class="prettyprint">&lt;script src="my-document-ready.js">&lt;/script>
+&lt;script>
+	// 配置变量全局
+	$(document).ready(initPage); // or $(initPage);
+&lt;/script></pre>
+						</li>
+						<li>
+							不要在html标签内使用事件标签，通过jQuery绑定我们更多容易绑定或解除事件
+							<pre class="prettyprint">&lt;a id="myLink" href="#" onclick="myEventHandler();">my link&lt;/a> &lt;!-- BAD --&gt;</pre>
+							<pre class="prettyprint">$("#myLink").on("click", myEventHandler); // GOOD</pre>
+						</li>
+						<li>
+							尽量可能使用为事件绑定使用事件<a href="http://api.jquery.com/event.namespace/" class="external-link" rel="nofollow">命名空间</a>。这样更简单移除DOM元素特定的事件操作。
+							<pre class="prettyprint">$("#myLink").on("click.mySpecialClick", myEventHandler); // GOOD
+
+// 只移除click.mySpecialClick事件，并不影响该元素其他的click事件
+$("#myLink").unbind("click.mySpecialClick");</pre>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Ajax">
+				<h2 class="col-lg-12">Ajax</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							避免使用<em>.getJson()</em> 或者<em> </em>.get()，虽然是$.ajax()函数简写方式。
+						</li>
+						<li>
+							不要在<em>https</em>的页面使用<em>http</em>请求。
+						</li>
+						<li>
+							不要在请求URL中添加参数，尽量使用data配置参数。
+							<pre class="prettyprint">// 可读性差
+$.ajax({
+    url: "something.php?param1=test1&amp;param2=test2",
+    ....
+});
+ 
+// 更好的可读性
+$.ajax({
+    url: "something.php",
+    data: { param1: test1, param2: test2 }
+});</pre>
+						</li>
+						<li>
+							尽量指定dataType的类型，这样更快执行回调的数据。
+						</li>
+						<li>
+							使用委托方式绑定加载ajax内容，更利于子元素的处理过程。 <a href="http://api.jquery.com/on/#direct-and-delegated-events" class="external-link" rel="nofollow">More Info</a>
+							<pre class="prettyprint">$("#parent-container").on("click", "a", delegatedClickHandlerForAjax);</pre>
+						</li>
+						<li>
+							使用Promise延时接口: <a href="http://www.htmlgoodies.com/beyond/javascript/making-promises-with-jquery-deferred.html" class="external-link" rel="nofollow">更多例子</a>
+							<pre class="prettyprint">$.ajax({ ... }).then(successHandler, failureHandler);
+ 
+// OR
+var jqxhr = $.ajax({ ... });
+jqxhr.done(successHandler);
+jqxhr.fail(failureHandler);</pre>
+						</li>
+						<li>
+							Ajax使用模板: <a href="https://api.jquery.com/jQuery.ajax/" class="external-link" rel="nofollow">更多信息</a>
+							<pre class="prettyprint">var jqxhr = $.ajax({
+    url: url,
+    type: "GET", // 默认是GET
+    cache: true, // 默认是TRUE，但当dataType是'script' 和 'jsonp'是false
+    data: {}, // 请求参数
+    dataType: "json", // 返回处理数据类型
+    jsonp: "callback", // 指定jsonp的回调函数名
+    statusCode: { // ajax状态处理
+        404: handler404,
+        500: handler500
+    }
+});
+jqxhr.done(successHandler);
+jqxhr.fail(failureHandler);</pre>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Animations">
+				<h2 class="col-lg-12">动画特效</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							使用动画的方式尽量统一一致。
+						</li>
+						<li>
+							不要为了用户体验重写一遍动画效果。
+							<ul>
+								<li>为元素做toggle开关使用show/hide, toggle 和 slideUp/slideDown 函数。</li>
+								<li>使用动画时间过渡为 "slow", "fast" 或 400 。</li>
+							</ul>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Plugins">
+				<h2 class="col-lg-12">插件</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>通常选择一个具有好的技术，文档，测试和社区支持的插件。</li>
+						<li>要考虑插件与你使用的jQuery版本兼容性问题。</li>
+						<li>
+							按照jQuery公用模板方式编写你的插件。<a data-toggle="modal" href="https://gist.github.com/tomieric/9703999">插件模板</a>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Chaining">
+				<h2 class="col-lg-12">链式定义</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							使用链式方式能缓存选择器对象
+							<pre class="prettyprint">$("#myDiv").addClass("error").show();</pre>
+						</li>
+						<li>
+							无论什么时候超过3个链式时换行并对齐，这样更好的代码可读性。
+							<pre class="prettyprint">$("#myLink")
+    .addClass("bold")
+    .on("click", myClickHandler)
+    .on("mouseover", myMouseOverHandler)
+    .show();</pre>
+						</li>
+						<li>
+							更长的链式能只是缓存了一个对象变量。
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row std" id="Miscellaneous">
+				<h2 class="col-lg-12">其他</h2>
+				<div class="col-lg-12">
+					<ol>
+						<li>
+							参数尽量用对象字面量
+							<pre class="prettyprint">$myLink.attr("href", "#").attr("title", "my link").attr("rel", "external"); // 糟糕的，调用了3次attr()
+// 不错的，只调用了一次attr()
+$myLink.attr({
+    href: "#",
+    title: "my link",
+    rel: "external"
+});</pre>
+						</li>
+						<li>
+							不建议用jQuery的css函数定义样式
+							<pre class="prettyprint">$("#mydiv").css({'color':red, 'font-weight':'bold'}); // 糟糕的</pre>
+							<pre class="prettyprint lang-css">.error { color: red; font-weight: bold; } /* 不错的 */</pre>
+							<pre class="prettyprint">$("#mydiv").addClass("error"); // 不错的，通过增加和移除样式名来改变dom样式</pre>
+						</li>
+						<li>
+							不要使用废弃的jQuery方法。 <a href="http://api.jquery.com/category/deprecated/" class="external-link" rel="nofollow">查看</a> 废弃方法。
+						</li>
+						<li>
+							必要时考虑使用原生javascript语法，性能更快一些。 <a href="http://jsperf.com/document-getelementbyid-vs-jquery/3" class="external-link" rel="nofollow">http://jsperf.com/document-getelementbyid-vs-jquery/3</a>
+							<pre class="prettyprint">$("#myId"); // 始终比原生的稍慢...
+document.getElementById("myId");</pre>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row hidden-print">
+				<h2 class="col-lg-12">资料</h2>
+				<div class="col-lg-12">
+					<ul>
+						<li>
+							jQuery Performance: <a href="http://learn.jquery.com/performance/" class="external-link" rel="nofollow">http://learn.jquery.com/performance/</a>
+						</li>
+						<li>
+							jQuery Learn: <a href="http://learn.jquery.com" class="external-link" rel="nofollow">http://learn.jquery.com</a>
+						</li>
+						<li>
+							jQuery API Docs: <a href="http://api.jquery.com/" class="external-link" rel="nofollow">http://api.jquery.com/</a>
+						</li>
+						<li>
+							jQuery Coding Standards and Best Practice: <a href="http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/" class="external-link" rel="nofollow">http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/</a>
+						</li>
+						<li>
+							jQuery Plugin Boilerplate: <a href="http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/" class="external-link" rel="nofollow">http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row hidden-print">
+				<h2 class="col-lg-12">评论</h2>
+				<div class="col-lg-12">
+					任何建议和问题反馈，可以到作者博客评论: <a href="http://web3o.blogspot.com/2014/03/jquery-coding-standards-and-best.html" class="external-link" rel="nofollow">http://web3o.blogspot.com/2014/03/jquery-coding-standards-and-best.html</a>
+				</div>
+			</div>
+			<footer class="row text-center hidden-print">
+				<div class="col-lg-12">
+					<div class="well well-sm">
+						<h4>&copy; <a href="http://www.abhinayrathore.com" target="_blank">Abhinay Rathore</a></h4>
+					</div>
+				</div>
+			</footer>
+		</div>
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="http://cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="http://cdn.staticfile.org/prettify/r298/prettify.min.js"></script>
+		<script>
+			$(initPage);
+			function initPage(){
+				$("a.external-link").attr("target", "_blank").append(" <i class='fa fa-external-link'></i>");
+				
+				try{
+					var menu = [], item = '';
+					$("div.std").each(function(){
+						var id = $.trim($(this).attr("id"));
+						var name = id.replace(/-/g, ' ');
+						item = $(this).find("h2").text();
+						menu.push("<li><a href=\"#"+id+"\">"+ item +"</a></li>");
+					});
+					$("#nav").html(menu.join(''));
+				} catch(e){}
+			}
+		</script>
+		  <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-27867252-2', 'tomieric.github.io');
+		  ga('send', 'pageview');
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+/*css reset*/
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul,li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;font-variant:normal;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+legend{color:#000;}
+textarea{ resize: none }
+img{ border: none; vertical-align: middle; }
+:focus { outline:0; }
+
+/*--Layout--*/
+body{color:#000; background: #fff;font:12px/1.4 "宋体",arial,Helvetica,sans-serif;-webkit-text-size-adjust: none;}
+a{ color: #000; text-decoration: none }
+a:hover{ text-decoration: none}
+.clearfix{zoom:1 }
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden; }
+
+.top-info,.top-main,.footer-in,.content{ width: 960px; margin: 0 auto }
+
+/*header*/
+.header{ background: url(../images/t-bg.png) repeat-x;}
+.top-info{ overflow:  hidden }
+.top-info-c{ float: right; background: url(../images/t-info.png) no-repeat; width: 300px; height: 24px; line-height: 22px; margin-right: 5px; padding:0 16px }
+.top-info-c img{ position: relative; margin-top: -5px}
+.top-info-c a:hover{ color: #A32522; text-decoration: underline;}
+
+.top-main{ margin-top: 33px; margin-bottom: 20px }
+.logo{ float: left; margin-left: 15px }
+.logo a{ display: block; background: url(../images/logo.png) no-repeat; width: 147px; height: 33px; text-indent: -9999em}
+
+.nav{ float: right; background: url(../images/nav-bg.png) no-repeat; height: 13px; line-height: 200em; overflow: hidden }
+.nav li{ display: inline; float: left;  }
+.nav li a{ float: left; width: 60px }
+.nav li a.last{ width: 50px }
+.nav li em{ float: left; width: 40px }
+
+.banner{ background: #eee; text-align: center; position: relative; z-index: -1; margin-top: -6px;}
+/*content*/
+.content{ padding: 10px 0}
+.content-m,.products,.more,.news-t h2{ background: url(../images/c-bg.png) no-repeat;}
+.more{ float: right; background-position:  -380px -225px; width: 45px; height: 13px; text-indent: -9999em}
+
+.news{ float: left; margin: 20px 0 20px 20px; padding-right: 20px; width: 220px; border-right: 1px solid #C7D3DF }
+.news-t h2{ float: left; background-position:  -340px -200px; width: 90px; height: 22px; text-indent: -9999em; position: relative; margin-top: -3px}
+.news-list{ width: 220px}
+.news-list li{ border-bottom: 1px dotted #A9ABA0; padding: 4px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #006496}
+.news-list li a{ color: #006496}
+.news-list li a:hover{ text-decoration: underline; color: #f60}
+
+.content-m{ height: 193px; background-position: left bottom}
+
+.products{ float: right; position: relative; margin-top: -1px; width:650px; padding: 20px; background-position: top right; height: 153px}
+.product-list{ margin-top: 20px; text-align: center}
+.product-list li{ display: inline; float: left;  margin: 0 10px}
+.product-list li p{ line-height: 18px }
+.product-list li p a:hover{ color: #f60; text-decoration: underline; }
+.flink{ margin-top: 20px; overflow: hidden}
+.flink a{ float: left; width: 20%; overflow: hidden}
+
+/*footer*/
+.footer{ background: url(../images/footer.png) repeat-x; height: 76px;}
+.footer-in{ padding-top: 20px; text-align: center; color: #5b5b5b}
+.footer-in li{ display: inline }
+.footer-in li a{ font-weight: bold; color: #5b5b5b; font-family: '微软雅黑' }
+.footer-in li span{ margin: 0 11px 0 14px}
+.footer-in p{ margin-top: 5px }

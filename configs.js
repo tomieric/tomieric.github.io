@@ -11,8 +11,8 @@ var airpubConfigs = {
   upyun: {
     bucket: 'getf2e',
     uri: 'http://getf2e.b0.upaiyun.com',
-    endpoint: 'http://v0.api.upyun.com/getf2e',
-    form_api_secret: 'FIwZlbr8pEG3Qc8Fl3ZusdxG+aQ='
+    endpoint: '',
+    form_api_secret: 'WYmiNqFWGcfngZWXzQi6c4IAl+g='
   }
 }
 

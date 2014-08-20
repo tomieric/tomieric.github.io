@@ -8,7 +8,7 @@ function initScrollTop(obj){
 	var win = main.selector === 'html,body' ? $(window) : main;
 	
 	var addCss = function(){
-		var cssText = "#scrollTop{ position: fixed; right: 0; top: 80%; width: 72px; height: 180px; background: url('/static/images/classroom/rocket_up.png') no-repeat -40px 0; cursor: pointer; z-index: 8; }#scrollTop div{ display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }#scrollTop .level-2{ background: url('images/rocket_up.png') no-repeat -189px 0; opacity: 1; filter: alpha(opacity=100); }";
+		var cssText = "#scrollTop{ position: fixed; right: 0; top: 80%; width: 72px; height: 180px; background: url('images/rocket_up.png') no-repeat -40px 0; cursor: pointer; z-index: 8; }#scrollTop div{ display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }#scrollTop .level-2{ background: url('images/rocket_up.png') no-repeat -189px 0; opacity: 1; filter: alpha(opacity=100); }";
 		var oHead = document.getElementsByTagName('head')[0];
 		var oStyle = document.createElement('style');
 		if(document.all){ //ie
@@ -69,4 +69,6 @@ function initScrollTop(obj){
 	addCss = null;
 }
 
-initScrollTop();
+$(function(){
+	initScrollTop($('html,body'));
+});

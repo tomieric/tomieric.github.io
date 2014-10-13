@@ -7,7 +7,7 @@
 - **姓名：** 邵金洪
 - **性别：** 男
 - **出生年日：** 1988年09月
-- **工作经验：** 4年
+- **工作经验：** 5年
 - **工作职位：** web前端工程师
 - **毕业院校：** 东华理工大学
 - **专业：** 软件技术
@@ -16,6 +16,7 @@
 - **E-mail：** [tomieric@gmail.com](mailto:tomieric@gmail.com)
 - **微博：** [http://weibo.com/tomieric](http://weibo.com/tomieric)
 - **主页：** [http://tomieric.github.io](http://tomieric.github.io)
+- **作品集地址**[https://github.com/tomieric/tomieric.github.io/wiki/项目](https://github.com/tomieric/tomieric.github.io/wiki/%E9%A1%B9%E7%9B%AE)
 - **github：** [https://github.com/tomieric](https://github.com/tomieric)
 - **案例：** [http://tomieric.github.io/myproject](http://tomieric.github.io/myproject)
 
@@ -28,6 +29,7 @@
 + <span style="display: inline-block;width: 150px;">javascript</span> <span style="color:#ff9000">★★★★☆</span>
 + <span style="display: inline-block;width: 150px;">jQuery</span> <span style="color:#ff9000">★★★★★</span>
 + <span style="display: inline-block;width: 150px;">seajs,requirejs</span> <span style="color:#ff9000">★★★★☆</span>
++ <span style="display: inline-block;width: 150px;">grunt,glup</span> <span style="color:#ff9000">★★★☆☆</span>
 + <span style="display: inline-block;width: 150px;">angularjs</span> <span style="color:#ff9000">★★★★☆</span>
 + <span style="display: inline-block;width: 150px;">photoshop</span> <span style="color:#ff9000">★★★★★</span>
 + <span style="display: inline-block;width: 150px;">php</span> <span style="color:#ff9000">★★☆☆☆</span>
@@ -47,6 +49,11 @@
 
 
 ##工作经历##
+
++ 2014.05 - 至今 **广州票量商务有限公司**
+	+ **部门：** 电商技术支持部
+	+ **职位：** 高级前端工程师（架构）
+	+ **工作职责：** 负责网站前端架构、开发、优化。
 
 + 2013.02 - 至今 **广州冠岳网络科技有限公司**
 	+ **部门：** 翼虎网
@@ -68,7 +75,21 @@
 
 ##项目经历##
 
-+ 2014.02- 至今 **移动端App项目**
++ 2014.09- 2014.09 **pin.marryla.cn项目**
+	+ **职位：** web前端工程师
+	+ **所在公司：** 票量网
+	+ **项目描述：** 
+		+ pin.marryla.cn是一个可分享的在线C2C婚纱网站，用户可分享发布商品或通过采集插件将淘宝，天猫等商品数据采集分享到网站上。网站前台采用瀑布流方式展现商品。
+	+ **项目职责：** 主要负责商品chrome采集插件开发。负责pin.marryla.cn的前端页面主题风格开发。 
+	
++ 2014.05- 至今 **[星美电影B2C官网](http://ixingmei.com)**
+	+ **职位：** 高级前端工程师
+	+ **所在公司：** 广州市票量商务有限公司
+	+ **项目描述：** 
+		+ 星美电影B2C官网作为星美集团在线B2C网站的一个重要改版，提供了快捷遍历的在线购买影票，支持在线支付方便了用户的体验。同时不定期发布星美影院最新活动专题，抽奖，影票秒杀游戏等。
+	+ **项目职责：** 负责网站前端架构，采用了jquery，requirejs模块化，引入grunt，gulpfile等前端自动化工具大大提升前端开发效率。 
+
++ 2014.02- 2014.05 **移动端App项目**
 	+ **职位：** web前端工程师
 	+ **所在公司：** 广州冠岳网络科技有限公司 翼虎网
 	+ **项目描述：** 
@@ -135,20 +156,6 @@
 		
 + 2003 / 9 — 2006 / 07 **水东中学** **高中**
 
-##语言能力##
-
-+ 国语(良)
-+ 粤语(良)
-+ 英语（一般）
-	+ 听说（一般）
-	+ 阅读（良）
-	+ 手写（一般）
-##兴趣爱好##
-+ 运动
-+ 音乐
-+ 电影
-+ 摄影
-+ 动漫
 
 ##附加信息##
 + 《软件测试助理工程师证书》
@@ -156,4 +163,8 @@
 	+ jquery-SimpleTip - [https://github.com/tomieric/jquery-SimpleTip](https://github.com/tomieric/jquery-SimpleTip)
 	+ 简信(simple-message) - [https://github.com/tomieric/simple-message](https://github.com/tomieric/simple-message)
 		+ 基于nodejs、sokect.io在线实时聊天
+	+ [iui组件库](https://github.com/tomieric/iui)
 + 此简历采用 `markdown` 编写
+
+##致谢
+感谢您花时间阅读我的简历，期待能有机会和您共事。

@@ -1,0 +1,28 @@
+{
+  "name": "chill",
+  "version": "0.2.0",
+  "homepage": "https://github.com/airpub/chill",
+  "authors": [
+    "Guo Yu <o.u.turing@gmail.com>"
+  ],
+  "description": "the very first theme for Airpub",
+  "main": "index.html",
+  "keywords": [
+    "blog",
+    "cms",
+    "angular",
+    "airpub",
+    "theme"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.1.0"
+  }
+}

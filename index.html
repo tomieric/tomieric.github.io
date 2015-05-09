@@ -7,102 +7,36 @@
     <meta name="fragment" content="!" />
     <meta name="description" content="{{description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- dependencies stylesheets -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/nprogress/nprogress.css">
-    <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css">
+    <!-- dependencies stylesheets and scripts -->
+    <link rel="stylesheet" href="http://cdn.airpub.io/0.4.0-unstable/airpub-dependencies.min.css?v=0.4.0_2">
+    <script src="http://cdn.airpub.io/0.4.0-unstable/airpub-dependencies.min.js?v=0.4.0_2"></script>
     <!-- default theme: chill -->
-    <link rel="shortcut icon" type="image/x-icon" href="bower_components/chill/favicon.ico" />
-    <link rel="stylesheet" href="bower_components/chill/css/chill.min.css" />
-    <style>
-    .header .logo h1 a,.header .logo h1 span{ color: #fff;}
-    </style>
-    <!-- dependencies scripts -->
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/nprogress/nprogress.js"></script>
-    <script src="bower_components/angular-base64/angular-base64.min.js"></script>
-    <script src="bower_components/angular-md5/angular-md5.min.js"></script>
-    <script src="bower_components/duoshuo/dist/duoshuo.min.js"></script>
-    <script src="bower_components/upyun/dist/upyun.min.js"></script>
-    <script src="bower_components/node-uuid/uuid.js"></script>
-    <script src="bower_components/marked/lib/marked.js"></script>
-    <script src="bower_components/highlightjs/highlight.pack.js"></script>
-    <!-- gotop -->
-    <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="javascripts/scrollTop.js"></script>
+    <link rel="stylesheet" href="themes/chill/0.3.0/css/chill.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="themes/chill/0.3.0/favicon.ico" />
   </head>
   <body ng-controller="base" ng-class="state.current.controller">
-    <header ng-class="state.current.controller">
-      <nav>
-        <div class="options pull-right">
-          <a ui-sref="create" class="avatar" ng-show="user" ng-cloak>
-            <img ng-src="{{user.avatar_url}}" alt="{{user.name}}" class="img-circle"/>
-          </a>
-          <!-- why this funcking `ng-cloak` does not work ?! -->
-          <a id="signin-btn" ng-href="http://duoshuo.com/login?redirect_uri={{location.$$absUrl}}" ng-show="!user" ng-cloak>
-            <span class='glyphicon glyphicon-off'></span>
-          </a>
-        </div>
-      </nav>
-      <div class="container">
-        <div class="logo">
-          <h1>
-            <a ui-sref="index" ng-bind="configs.name"></a>
-            <span class="description" ng-bind="configs.description"></span>
-          </h1>
-        </div>
-      </div>
-    </header>
-    <section id="content" class="content">
-      <div ui-view>
-        <div class="loading container">loading...</div>
-      </div>
-    </section>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            &copy; <span class="copyright-year" ng-bind="copyrightYear"></span> <a ng-href="{{configs.url}}"><span class="copyright-name" ng-bind="configs.name"></span></a>. Powered by <a href="http://github.com/duoshuo/airpub">airpub</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- ui modules -->
-    <div class="alert-module">
-      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" ng-bind="alert.msg"></alert>
-    </div>
-
-    <!-- airpub config file -->
-    <script src="configs.js"></script>
-    <!-- duoshuo embed js -->
-    <script src="http://static.duoshuo.com/embed.unstable.js"></script>
-
-    <!-- for production: -->
-    <script src="dist/airpub.min.js"></script>
-
-    <!-- TODO: duoshuo CDN -->
-    <!-- <script src="http://static.duoshuo.com/airpub/airpub-0.1.0.min.js"></script> -->
-
-    <!-- for development: -->
-    <!-- core editor -->
-    <!-- <script src="src/lib/editor.js"></script> -->
-    <!-- airpub angular.js app -->
-    <!-- <script src="src/airpub.js"></script> -->
-    <!-- airpub directives -->
-    <!-- <script src="src/directives/editor.js"></script> -->
-    <!-- airpub filters -->
-    <!-- <script src="src/filters/marked.js"></script> -->
-    <!-- airpub built-in addons -->
-    <!-- <script src="src/addons/meta.js"></script> -->
-    <!-- airpub controllers -->
-    <!-- <script src="src/controllers/global.js"></script> -->
-    <!-- <script src="src/controllers/meta.js"></script> -->
-    <!-- <script src="src/controllers/base.js"></script> -->
-    <!-- <script src="src/controllers/archive.js"></script> -->
-    <!-- <script src="src/controllers/single.js"></script> -->
-    <!-- <script src="src/controllers/admin.js"></script> -->
+    <div ui-view="layout"></div>
+    <script>
+      var airpubConfigs = {
+        name: '前端 - 分享园', // blog name        
+        description: '前端|css|html5|css3|jquery|javascript|nodejs|angular|angularjs|backbone|移动开发', // just a little description
+        url: 'http://getf2e.com', // blog uri
+        theme: 'chill/0.3.0', // current theme
+        themePath: 'themes', // theme Path
+        staticPath: 'http://cdn.airpub.io/', // static file path
+        upyun: { // for images upload
+          bucket: 'getf2e',
+          form_api_secret: 'WYmiNqFWGcfngZWXzQi6c4IAl'
+        }
+      }
+      var duoshuoQuery = {
+        short_name: 'getf2e' // for backend service
+      };
+    </script>
+    <script src="http://static.duoshuo.com/embed.js"></script> 
+    <script src="http://cdn.airpub.io/0.4.0-unstable/airpub.min.js?v=0.4.0_2"></script>
+    <!-- gotop -->
+    <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="static/scrollTop/scrollTop.js"></script>
   </body>
 </html>

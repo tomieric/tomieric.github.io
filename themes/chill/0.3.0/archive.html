@@ -1,5 +1,5 @@
 <div id="articles" class="archive articles clearfix">
-  <div class="article" ng-repeat="article in articles" ng-hide="article.title == ''" ng-style="{'background-image': 'url(' + article.meta.background + ')'}" ng-class="{'has-thumbnail': article.meta.background}">
+  <div class="article" ng-repeat="article in articles"  ng-style="{'background-image': 'url(' + article.meta.background + ')'}">
     <h3 class="title container">
       <div class="row">
           <a ui-sref="layout.single({uri: article.thread_id })" ng-bind="article.title"></a>

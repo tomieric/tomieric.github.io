@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta content="maximum-dpr=2" name="flexible" />
+	<title>h5自适应</title>
+	<script>
+	  // flexible
+     !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+	</script>
+	<link rel="stylesheet" type="text/css" href="./css/main.debug.css">
+</head>
+<body>
+	<header id="header" class="header">
+		<div class="header-left">
+			<a href="#" title=""><i class="iconfont">&#xe619;</i> 返回</a>
+		</div>
+		<div class="header-title">
+			<div class="logo"></div>
+		</div>
+		<div class="header-right">
+			<a href="#" title="" class="iconfont">&#xe656;</a>
+		</div>
+	</header><!-- /header -->
+	<section class="banner">
+		<img src="./images/banner.jpg" class="image" alt="">
+	</section>
+	<section class="chapter">
+		<h2>关于钱沿</h2>
+		<p>钱沿支付，是由广东钱途互联商务服务有限公司顺应互联网的发展，以实现支付场景的丰富性、突破解决网银和第三方支付的支付局限性为出发点，创新打造的全新支付工具。</p>
+		<p>广东钱途互联商务服务有限公司位于深圳市福田区深南大道富春东方大厦7层，目前共有4个部门，员工近百人。钱途互联致力于打造创新型支付解决方案，构建支付新生态。自建立伊始，钱途互联始终以“拓展支付场景丰富性、打破网银和第三方支付的局限性，提供更丰富的应用场景”为业务核心，致力于通过支付场景的创新、构造，让客户在便捷支付的基础上，实现资金增值和拥有特权的消费应用。</p>
+		<p>目前，钱途互联已形成并成功运营含投融资平台、垂直电商、预付费电商、供应链集团等涵盖各行业的多种成熟的支付解决方案。</p>
+		<p>钱途互联期待联手有实力的、拥有广泛目标客户的线上线下合作伙伴，通过支付合作，共同参与支付应用场景的打造，实现共赢。</p>
+		<p>享增值，惠支付，钱途互联会不断在创新支付领域深耕、努力，与各领域伙伴一起，开创美好未来。</p>
+	</section>
+	<footer class="footer">
+		<ul>
+			<li>
+				<a href="http://www.frontpay.cn" title="">关于钱沿</a>
+			</li>
+			<li>
+				<a href="http://www.frontpay.cn" title="">媒体报道</a>
+			</li>
+			<li>
+				<a href="http://www.frontpay.cn" title="">客户服务</a>
+			</li>
+			<li>
+				<a href="http://www.frontpay.cn" title="">合作伙伴</a>
+			</li>
+			<li>
+				<a href="http://www.frontpay.cn" title="">法律声明</a>
+			</li>
+		</ul>
+	</footer>
+</body>
+</html>

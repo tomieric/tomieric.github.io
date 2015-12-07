@@ -1,0 +1,701 @@
+@charset "utf-8";
+
+html {
+  color: #000;
+  background: #fff;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html * {
+  outline: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+  font-family: sans-serif;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+
+/* 去掉各 Table  cell 的边距并让其边重合 */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 去除默认边框 */
+
+fieldset,
+img {
+  border: 0;
+}
+
+/* 去掉 firefox 下此元素的边框 */
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* 一致的 del 样式 */
+
+del {
+  text-decoration: line-through;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* 去掉列表前的标识, li 会继承 */
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+
+caption,
+th {
+  text-align: left;
+}
+
+/* 来自 yahoo, 让标题都自定义, 适应多个系统应用 */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+
+q:before,
+q:after {
+  content: '';
+}
+
+/* 统一上标和下标 */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* 正常链接 未访问 */
+
+/* 鼠标悬停 */
+
+a:hover {
+  text-decoration: none;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+
+ins,
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "iconfont";
+  src: url('../iconfont/iconfont.eot');
+  /* IE9*/
+  src: url('../iconfont/iconfont.eot?#iefix') format('embedded-opentype'),  url('../iconfont/iconfont.woff') format('woff'),  url('../iconfont/iconfont.ttf') format('truetype'),  url('../iconfont/iconfont.svg#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 0.213333rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.002667rem;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-appreciate:before {
+  content: "\e600";
+}
+
+.icon-check:before {
+  content: "\e601";
+}
+
+.icon-close:before {
+  content: "\e602";
+}
+
+.icon-edit:before {
+  content: "\e603";
+}
+
+.icon-emoji:before {
+  content: "\e604";
+}
+
+.icon-favorfill:before {
+  content: "\e605";
+}
+
+.icon-favor:before {
+  content: "\e606";
+}
+
+.icon-loading:before {
+  content: "\e607";
+}
+
+.icon-locationfill:before {
+  content: "\e608";
+}
+
+.icon-location:before {
+  content: "\e609";
+}
+
+.icon-phone:before {
+  content: "\e60a";
+}
+
+.icon-roundcheckfill:before {
+  content: "\e60b";
+}
+
+.icon-roundclose:before {
+  content: "\e60c";
+}
+
+.icon-roundrightfill:before {
+  content: "\e60d";
+}
+
+.icon-roundright:before {
+  content: "\e60e";
+}
+
+.icon-search:before {
+  content: "\e60f";
+}
+
+.icon-timefill:before {
+  content: "\e610";
+}
+
+.icon-time:before {
+  content: "\e611";
+}
+
+.icon-unfold:before {
+  content: "\e612";
+}
+
+.icon-warnfill:before {
+  content: "\e613";
+}
+
+.icon-warn:before {
+  content: "\e614";
+}
+
+.icon-commentfill:before {
+  content: "\e615";
+}
+
+.icon-comment:before {
+  content: "\e616";
+}
+
+.icon-likefill:before {
+  content: "\e617";
+}
+
+.icon-like:before {
+  content: "\e618";
+}
+
+.icon-back:before {
+  content: "\e619";
+}
+
+.icon-cascades:before {
+  content: "\e61a";
+}
+
+.icon-list:before {
+  content: "\e61b";
+}
+
+.icon-more:before {
+  content: "\e61c";
+}
+
+.icon-myfill:before {
+  content: "\e61d";
+}
+
+.icon-my:before {
+  content: "\e61e";
+}
+
+.icon-scan:before {
+  content: "\e61f";
+}
+
+.icon-settings:before {
+  content: "\e620";
+}
+
+.icon-questionfill:before {
+  content: "\e621";
+}
+
+.icon-question:before {
+  content: "\e622";
+}
+
+.icon-form:before {
+  content: "\e623";
+}
+
+.icon-pic:before {
+  content: "\e624";
+}
+
+.icon-top:before {
+  content: "\e625";
+}
+
+.icon-pulldown:before {
+  content: "\e626";
+}
+
+.icon-pullup:before {
+  content: "\e627";
+}
+
+.icon-right:before {
+  content: "\e628";
+}
+
+.icon-refresh:before {
+  content: "\e629";
+}
+
+.icon-moreandroid:before {
+  content: "\e62a";
+}
+
+.icon-deletefill:before {
+  content: "\e62b";
+}
+
+.icon-cart:before {
+  content: "\e62c";
+}
+
+.icon-qrcode:before {
+  content: "\e62d";
+}
+
+.icon-delete:before {
+  content: "\e62e";
+}
+
+.icon-profile:before {
+  content: "\e62f";
+}
+
+.icon-home:before {
+  content: "\e630";
+}
+
+.icon-cartfill:before {
+  content: "\e631";
+}
+
+.icon-homefill:before {
+  content: "\e632";
+}
+
+.icon-message:before {
+  content: "\e633";
+}
+
+.icon-addressbook:before {
+  content: "\e634";
+}
+
+.icon-link:before {
+  content: "\e635";
+}
+
+.icon-lock:before {
+  content: "\e636";
+}
+
+.icon-unlock:before {
+  content: "\e637";
+}
+
+.icon-weibo:before {
+  content: "\e638";
+}
+
+.icon-friendaddfill:before {
+  content: "\e639";
+}
+
+.icon-friendfamous:before {
+  content: "\e63a";
+}
+
+.icon-friend:before {
+  content: "\e63b";
+}
+
+.icon-attention:before {
+  content: "\e63c";
+}
+
+.icon-present:before {
+  content: "\e63d";
+}
+
+.icon-squarecheckfill:before {
+  content: "\e63e";
+}
+
+.icon-square:before {
+  content: "\e63f";
+}
+
+.icon-squarecheck:before {
+  content: "\e640";
+}
+
+.icon-round:before {
+  content: "\e641";
+}
+
+.icon-roundaddfill:before {
+  content: "\e642";
+}
+
+.icon-roundadd:before {
+  content: "\e643";
+}
+
+.icon-add:before {
+  content: "\e644";
+}
+
+.icon-notificationforbidfill:before {
+  content: "\e645";
+}
+
+.icon-attentionfill:before {
+  content: "\e646";
+}
+
+.icon-fold:before {
+  content: "\e647";
+}
+
+.icon-appreciatefill:before {
+  content: "\e648";
+}
+
+.icon-infofill:before {
+  content: "\e649";
+}
+
+.icon-info:before {
+  content: "\e64a";
+}
+
+.icon-forwardfill:before {
+  content: "\e64b";
+}
+
+.icon-forward:before {
+  content: "\e64c";
+}
+
+.icon-vipcard:before {
+  content: "\e64d";
+}
+
+.icon-voice:before {
+  content: "\e64e";
+}
+
+.icon-voicefill:before {
+  content: "\e64f";
+}
+
+.icon-friendfavor:before {
+  content: "\e650";
+}
+
+.icon-wifi:before {
+  content: "\e651";
+}
+
+.icon-wefill:before {
+  content: "\e652";
+}
+
+.icon-we:before {
+  content: "\e653";
+}
+
+.icon-searchlist:before {
+  content: "\e654";
+}
+
+.icon-service:before {
+  content: "\e655";
+}
+
+.icon-sort:before {
+  content: "\e656";
+}
+
+body {
+  font-family: 'Microsoft Yahei';
+  color: #666666;
+  line-height: 1.5;
+}
+
+.header {
+  position: relative;
+  height: 1.173333rem;
+  line-height: 1;
+  background: #371d49;
+  color: #fff;
+}
+
+.header a {
+  color: #fff;
+}
+
+[data-dpr="1"] .header .iconfont {
+  font-size: 20px;
+}
+
+[data-dpr="2"] .header .iconfont {
+  font-size: 40px;
+}
+
+[data-dpr="3"] .header .iconfont {
+  font-size: 60px;
+}
+
+.header-left {
+  position: absolute;
+  left: 0.4rem;
+  top: 0;
+  height: 1.173333rem;
+  line-height: 1.173333rem;
+}
+
+[data-dpr="1"] .header-left {
+  font-size: 12px;
+}
+
+[data-dpr="2"] .header-left {
+  font-size: 24px;
+}
+
+[data-dpr="3"] .header-left {
+  font-size: 36px;
+}
+
+.header-right {
+  position: absolute;
+  right: 0.4rem;
+  top: 0;
+  height: 1.173333rem;
+  line-height: 1.173333rem;
+}
+
+.header-title {
+  margin: 0 30%;
+  height: 1.173333rem;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  -wekit-box-pack: center;
+}
+
+.logo {
+  margin: 0 auto;
+  width: 2.346667rem;
+  height: 0.853333rem;
+  background: url('../images/logo.png') no-repeat;
+  background-size: 100% auto;
+}
+
+.banner {
+  position: relative;
+  padding-top: 31.25%;
+  background: #eee;
+}
+
+.banner > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chapter {
+  padding: 0.4rem;
+  line-height: 1.75;
+}
+
+.chapter > h2 {
+  position: relative;
+  margin-bottom: 0.066667rem;
+  padding-left: 0.266667rem;
+  color: #333333;
+}
+
+[data-dpr="1"] .chapter > h2 {
+  font-size: 14px;
+}
+
+[data-dpr="2"] .chapter > h2 {
+  font-size: 28px;
+}
+
+[data-dpr="3"] .chapter > h2 {
+  font-size: 42px;
+}
+
+.chapter > h2:before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  content: '';
+  width: 0.053333rem;
+  height: 0.373333rem;
+  transform: translateY(-50%);
+  background: #333333;
+}
+
+.chapter p {
+  margin-bottom: 0.533333rem;
+  text-indent: 2em;
+}
+
+.footer {
+  background: #371d49;
+  padding: 0.266667rem;
+}
+
+.footer > ul {
+  display: -webkit-box;
+  width: 100%;
+}
+
+.footer > ul > li {
+  margin: 0.266667rem 0;
+  -webkit-box-flex: 1;
+  padding: 0 0.186667rem;
+  line-height: 1;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  border-right: 0.013333rem solid #fff;
+}
+
+.footer > ul > li > a {
+  color: #fff;
+}
+
+.footer > ul > li:last-child {
+  border-right: none;
+}

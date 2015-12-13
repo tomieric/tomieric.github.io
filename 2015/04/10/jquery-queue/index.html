@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="前端 - 分享园">
+    <title>jQuery核心函数队列 - 前端 - 分享园</title>
+    <meta name="author" content="TommyShao">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="首先先说个例子
+之前在做一个多个进度条动画时写了个东西
+http://sandbox.runjs.cn/show/ytyxhtib">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="jQuery核心函数队列">
+<meta property="og:url" content="http://tomieric.github.io/2015/04/10/jquery-queue/index.html">
+<meta property="og:site_name" content="前端 - 分享园">
+<meta property="og:description" content="首先先说个例子
+之前在做一个多个进度条动画时写了个东西
+http://sandbox.runjs.cn/show/ytyxhtib">
+<meta property="og:updated_time" content="2015-12-13T10:11:44.070Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery核心函数队列">
+<meta name="twitter:description" content="首先先说个例子
+之前在做一个多个进度条动画时写了个东西
+http://sandbox.runjs.cn/show/ytyxhtib">
+<meta name="twitter:creator" content="@tomieric">
+    
+        <meta rel="publisher" content="https://plus.google.com/+tomieric"/>
+    
+    
+    
+        <meta property="og:image" content="/assets/images/avatar.jpg"/>
+    
+    
+        <meta property="og:image" content="/2015/04/10/jquery-queue/http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://tomieric.github.io/2015/04/10/jquery-queue/http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg" />
+    
+    
+        <meta property="og:image" content="/2015/04/10/jquery-queue/assets/images/cover-v1.2.0.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://tomieric.github.io/2015/04/10/jquery-queue/assets/images/cover-v1.2.0.jpg" />
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-71323455-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">前端 - 分享园</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="/#about">
+        
+        
+            <img class="header-picture" src="/assets/images/avatar.jpg"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar.jpg"/>
+            </a>
+            <span class="sidebar-profile-name">TommyShao</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">首页</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">分类</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">标签</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">归档</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="/#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">搜索</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/tomieric" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://weibo.com/tomieric" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-weibo"></i>
+                    <span class="sidebar-button-desc">微博</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+        <div class="post-header-cover
+                    text-left
+                    "
+             style="background-image:url('/2015/04/10/jquery-queue/assets/images/cover-v1.2.0.jpg');"
+             data-behavior="3">
+            
+                <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            jQuery核心函数队列
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Fri Apr 10 2015 00:00:00 GMT+0800">
+	
+		    4月 10, 2015
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+
+
+    
+</div>
+</div>
+            
+        </div>
+
+            <div id="main" data-behavior="3"
+                 class="hasCover
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>首先先说个例子</p>
+<p>之前在做一个多个进度条动画时写了个东西</p>
+<p><a href="http://sandbox.runjs.cn/show/ytyxhtib" target="_blank" rel="external">http://sandbox.runjs.cn/show/ytyxhtib</a></p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">* progress bar</span><br><span class="line">* by tomieric</span><br><span class="line">* http://getf2e.com</span><br><span class="line">*/</span></span><br><span class="line">$.fn.extend(&#123;</span><br><span class="line">	<span class="string">'progressbar'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> opt = $.extend(&#123;</span><br><span class="line">			parent: <span class="literal">null</span>,</span><br><span class="line">			callback: $.noop,</span><br><span class="line">			duration: <span class="number">200</span></span><br><span class="line">		&#125;, config ||&#123;&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> $(<span class="keyword">this</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> $self = $(<span class="keyword">this</span>), data = $self.data();</span><br><span class="line"></span><br><span class="line">					<span class="keyword">var</span> per = data.per;</span><br><span class="line">					(per = per  || <span class="number">0</span>) &amp;&amp; (per = per &gt; <span class="number">100</span> ? <span class="number">100</span> : per);</span><br><span class="line">					$self.animate(&#123; width: per+<span class="string">'%'</span>&#125;, opt.duration, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">						opt.callback();</span><br><span class="line">						fnDequeue();</span><br><span class="line">					&#125;)</span><br><span class="line"></span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$(<span class="string">'.percent-bar'</span>).progressbar();</span><br></pre></td></tr></table></figure>
+<p>我们可以看到所有进度条是一个同步的动画，那如果我们想有一个队列的效果，第一个动画执行完后再执行第二个有什么方法呢？</p>
+<ul>
+<li>css3动画transition-delay</li>
+<li>js队列</li>
+</ul>
+<p>这里不讨论css3的写法，因为老板们想兼容更多的浏览器</p>
+<h2 id="u961F_u5217"><a href="#u961F_u5217" class="headerlink" title="队列"></a>队列</h2><blockquote>
+<p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。</p>
+</blockquote>
+<p>这是百度百科上的解释。</p>
+<p>我的理解是一个同步的动作，必需上一个任务者完成任务后再到当前动作，比如800米接力赛跑。</p>
+<p>之前也写过队列的对象，在<a href="http://project.tomieric.com/christmas/" target="_blank" rel="external">圣诞倒计时</a>中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> AnimQueque = &#123;</span><br><span class="line">	list: [],</span><br><span class="line">	add: <span class="function"><span class="keyword">function</span>(<span class="params">obj, cls, fn</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.list.push(&#123; obj: obj, cls: cls, fn: fn&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	resolve: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> cache = <span class="keyword">this</span>.list.shift();</span><br><span class="line">		<span class="keyword">if</span>(!cache) <span class="keyword">return</span>;</span><br><span class="line">		<span class="keyword">this</span>.to(cache.obj, cache.cls, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">typeof</span> cache.fn === <span class="string">"function"</span> &amp;&amp; cache.fn();</span><br><span class="line">			AnimQueque.resolve();</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	to: <span class="function"><span class="keyword">function</span>(<span class="params">obj,cls, fn</span>) </span>&#123;</span><br><span class="line">		$(obj).addClass(cls).one(<span class="string">'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'</span>, fn);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>利用队列数组将要改变的css变量存放起来，然后每次从数组顶部拿出一个css变量，监听每个css3动画结束回调函数，每次动画完成再执行第二个步骤形成一个递归。</p>
+<h2 id="jQuery_u961F_u5217"><a href="#jQuery_u961F_u5217" class="headerlink" title="jQuery队列"></a>jQuery队列</h2><ul>
+<li>queue(element, [queueName])<ul>
+<li><code>element</code> 检测附加队列的DOM元素</li>
+<li><code>queueName</code> 字符串值，包含序列的名称。默认是 fx, 标准的效果序列。</li>
+<li><code>newQueue</code>:替换当前函数列队内容的数组</li>
+<li><code>callback()</code>:要添加进队列的函数</li>
+</ul>
+</li>
+<li>dequeue([queueName])<ul>
+<li><code>queueName</code> 队列名，默认为fx</li>
+</ul>
+</li>
+<li>clearQueue([queueName])<ul>
+<li><code>queueName</code> 含有队列名的字符串。默认是”Fx”，动画队列。</li>
+</ul>
+</li>
+</ul>
+<p>好，现在我们来改造进度条那个例子。</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line">* progress bar</span><br><span class="line">* <span class="keyword">by</span> tomieric</span><br><span class="line">* http://getf2e.com</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$.fn.extend(&#123;</span><br><span class="line">	<span class="string">'progressbar'</span>: function(config)&#123;</span><br><span class="line">		var opt = $.extend(&#123;</span><br><span class="line">			parent: null,</span><br><span class="line">			callback: $.noop,</span><br><span class="line">			duration: <span class="number">200</span></span><br><span class="line">		&#125;, config ||&#123;&#125;);</span><br><span class="line"></span><br><span class="line">		var <span class="variable">$body</span> = $(document.body),</span><br><span class="line">				_queue = [],</span><br><span class="line">				fnDequeue = function()&#123; <span class="variable">$body</span>.dequeue(<span class="string">'jq.progressbar'</span>) &#125;;</span><br><span class="line"></span><br><span class="line">		$(this).each(function()&#123;</span><br><span class="line">			var <span class="variable">$self</span> = $(this), data = <span class="variable">$self</span>.data();</span><br><span class="line">			if(data.queque) return;</span><br><span class="line">			_queue.push(</span><br><span class="line">				function()&#123;</span><br><span class="line">					var per = data.per;</span><br><span class="line">					(per = per  || <span class="number">0</span>) &amp;&amp; (per = per &gt; <span class="number">100</span> ? <span class="number">100</span> : per);</span><br><span class="line">					<span class="variable">$self</span>.animate(&#123; width: per+<span class="string">'%'</span>&#125;, opt.duration, function()&#123;</span><br><span class="line">						opt.callback();</span><br><span class="line">						fnDequeue();</span><br><span class="line">					&#125;)</span><br><span class="line">				&#125;</span><br><span class="line">			);</span><br><span class="line"></span><br><span class="line">			<span class="variable">$self</span>.data(<span class="string">'queque'</span>, true);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">		/*</span><br><span class="line">		* 用body唯一dom元素存放，$(this)是一个元素集合</span><br><span class="line">		*/</span><br><span class="line">		<span class="variable">$body</span>.queue(<span class="string">'jq.progressbar'</span>, _queue);</span><br><span class="line"></span><br><span class="line">		// 触发堆栈</span><br><span class="line">		fnDequeue();</span><br><span class="line"></span><br><span class="line">		return this;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$(<span class="string">'.percent-bar'</span>).progressbar(&#123;duration: <span class="number">500</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>然后我们再来看看效果<a href="http://sandbox.runjs.cn/show/o3lknjcj" target="_blank" rel="external">http://sandbox.runjs.cn/show/o3lknjcj</a></p>
+<p>fork <a href="http://runjs.cn/detail/o3lknjcj" target="_blank" rel="external">http://runjs.cn/detail/o3lknjcj</a></p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/jquery-javascript-插件/">-jquery -javascript -插件</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/13/hello-world/"  data-tooltip="Hello World">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/10/11/nodeList-foreach/" data-tooltip="nodeList-forEach">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="post-actions post-action-share" style="float: left;padding-top:15px">
+    <div class="ds-share" data-thread-key="2015/04/10/jquery-queue/" data-title="jQuery核心函数队列" data-images="" data-content="&lt;p&gt;首先先说个例子&lt;/p&gt;
+&lt;p&gt;之前在做一个多个进度条动画时写了个东西&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://sandbox.runjs.cn/show/ytyxhtib&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://sandbox.runjs.cn/show/ytyxhtib&lt;/a&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* progress bar&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* by tomieric&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* http://getf2e.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$.fn.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&#39;progressbar&#39;&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;config&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; opt = $.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			parent: &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			callback: $.noop,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			duration: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;, config ||&amp;#123;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).each(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $self = $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;), data = $self.data();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; per = data.per;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					(per = per  || &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;amp;&amp;amp; (per = per &amp;gt; &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; ? &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; : per);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					$self.animate(&amp;#123; width: per+&lt;span class=&quot;string&quot;&gt;&#39;%&#39;&lt;/span&gt;&amp;#125;, opt.duration, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						opt.callback();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						fnDequeue();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;.percent-bar&#39;&lt;/span&gt;).progressbar();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们可以看到所有进度条是一个同步的动画，那如果我们想有一个队列的效果，第一个动画执行完后再执行第二个有什么方法呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;css3动画transition-delay&lt;/li&gt;
+&lt;li&gt;js队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里不讨论css3的写法，因为老板们想兼容更多的浏览器&lt;/p&gt;
+&lt;h2 id=&quot;u961F_u5217&quot;&gt;&lt;a href=&quot;#u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;队列&quot;&gt;&lt;/a&gt;队列&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是百度百科上的解释。&lt;/p&gt;
+&lt;p&gt;我的理解是一个同步的动作，必需上一个任务者完成任务后再到当前动作，比如800米接力赛跑。&lt;/p&gt;
+&lt;p&gt;之前也写过队列的对象，在&lt;a href=&quot;http://project.tomieric.com/christmas/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;圣诞倒计时&lt;/a&gt;中。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AnimQueque = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	list: [],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	add: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj, cls, fn&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.push(&amp;#123; obj: obj, cls: cls, fn: fn&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	resolve: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cache = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.shift();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!cache) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.to(cache.obj, cache.cls, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; cache.fn === &lt;span class=&quot;string&quot;&gt;&quot;function&quot;&lt;/span&gt; &amp;amp;&amp;amp; cache.fn();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			AnimQueque.resolve();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	to: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj,cls, fn&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$(obj).addClass(cls).one(&lt;span class=&quot;string&quot;&gt;&#39;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&#39;&lt;/span&gt;, fn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;利用队列数组将要改变的css变量存放起来，然后每次从数组顶部拿出一个css变量，监听每个css3动画结束回调函数，每次动画完成再执行第二个步骤形成一个递归。&lt;/p&gt;
+&lt;h2 id=&quot;jQuery_u961F_u5217&quot;&gt;&lt;a href=&quot;#jQuery_u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;jQuery队列&quot;&gt;&lt;/a&gt;jQuery队列&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;queue(element, [queueName])&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;element&lt;/code&gt; 检测附加队列的DOM元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 字符串值，包含序列的名称。默认是 fx, 标准的效果序列。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;newQueue&lt;/code&gt;:替换当前函数列队内容的数组&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;callback()&lt;/code&gt;:要添加进队列的函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;dequeue([queueName])&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 队列名，默认为fx&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;clearQueue([queueName])&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 含有队列名的字符串。默认是”Fx”，动画队列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好，现在我们来改造进度条那个例子。&lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* progress bar&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* &lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt; tomieric&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* http://getf2e.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$.fn.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&#39;progressbar&#39;&lt;/span&gt;: function(config)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		var opt = $.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			parent: null,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			callback: $.noop,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			duration: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;, config ||&amp;#123;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		var &lt;span class=&quot;variable&quot;&gt;$body&lt;/span&gt; = $(document.body),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				_queue = [],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				fnDequeue = function()&amp;#123; &lt;span class=&quot;variable&quot;&gt;$body&lt;/span&gt;.dequeue(&lt;span class=&quot;string&quot;&gt;&#39;jq.progressbar&#39;&lt;/span&gt;) &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$(this).each(function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			var &lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt; = $(this), data = &lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt;.data();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			if(data.queque) return;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			_queue.push(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					var per = data.per;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					(per = per  || &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;amp;&amp;amp; (per = per &amp;gt; &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; ? &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; : per);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt;.animate(&amp;#123; width: per+&lt;span class=&quot;string&quot;&gt;&#39;%&#39;&lt;/span&gt;&amp;#125;, opt.duration, function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						opt.callback();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						fnDequeue();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt;.data(&lt;span class=&quot;string&quot;&gt;&#39;queque&#39;&lt;/span&gt;, true);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		/*&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		* 用body唯一dom元素存放，$(this)是一个元素集合&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		*/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable&quot;&gt;$body&lt;/span&gt;.queue(&lt;span class=&quot;string&quot;&gt;&#39;jq.progressbar&#39;&lt;/span&gt;, _queue);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		// 触发堆栈&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		fnDequeue();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return this;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;.percent-bar&#39;&lt;/span&gt;).progressbar(&amp;#123;duration: &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后我们再来看看效果&lt;a href=&quot;http://sandbox.runjs.cn/show/o3lknjcj&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://sandbox.runjs.cn/show/o3lknjcj&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;fork &lt;a href=&quot;http://runjs.cn/detail/o3lknjcj&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://runjs.cn/detail/o3lknjcj&lt;/a&gt;&lt;/p&gt;
+" data-url="http://tomieric.github.io/2015/04/10/jquery-queue/">
+        <div class="ds-share-inline">
+          <ul  class="ds-share-icons-16">
+            
+            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+            
+          </ul>
+          <div class="ds-share-icons-more">
+          </div>
+        </div>
+     </div>
+    </div> 
+</div>
+
+
+        
+            <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2015/04/10/jquery-queue/" data-title="jQuery核心函数队列" data-url="http://tomieric.github.io/2015/04/10/jquery-queue/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"getf2e"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2012 - 2015 TommyShao. All Rights Reserved. Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme by <a target="_blank" href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/">tranquilpeak</a>
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/13/hello-world/"  data-tooltip="Hello World">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2014/10/11/nodeList-foreach/" data-tooltip="nodeList-forEach">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="post-actions post-action-share" style="float: left;padding-top:15px">
+    <div class="ds-share" data-thread-key="2015/04/10/jquery-queue/" data-title="jQuery核心函数队列" data-images="" data-content="&lt;p&gt;首先先说个例子&lt;/p&gt;
+&lt;p&gt;之前在做一个多个进度条动画时写了个东西&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://sandbox.runjs.cn/show/ytyxhtib&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://sandbox.runjs.cn/show/ytyxhtib&lt;/a&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* progress bar&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* by tomieric&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* http://getf2e.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$.fn.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&#39;progressbar&#39;&lt;/span&gt;: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;config&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; opt = $.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			parent: &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			callback: $.noop,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			duration: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;, config ||&amp;#123;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).each(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; $self = $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;), data = $self.data();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; per = data.per;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					(per = per  || &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;amp;&amp;amp; (per = per &amp;gt; &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; ? &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; : per);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					$self.animate(&amp;#123; width: per+&lt;span class=&quot;string&quot;&gt;&#39;%&#39;&lt;/span&gt;&amp;#125;, opt.duration, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						opt.callback();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						fnDequeue();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;.percent-bar&#39;&lt;/span&gt;).progressbar();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们可以看到所有进度条是一个同步的动画，那如果我们想有一个队列的效果，第一个动画执行完后再执行第二个有什么方法呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;css3动画transition-delay&lt;/li&gt;
+&lt;li&gt;js队列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里不讨论css3的写法，因为老板们想兼容更多的浏览器&lt;/p&gt;
+&lt;h2 id=&quot;u961F_u5217&quot;&gt;&lt;a href=&quot;#u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;队列&quot;&gt;&lt;/a&gt;队列&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是百度百科上的解释。&lt;/p&gt;
+&lt;p&gt;我的理解是一个同步的动作，必需上一个任务者完成任务后再到当前动作，比如800米接力赛跑。&lt;/p&gt;
+&lt;p&gt;之前也写过队列的对象，在&lt;a href=&quot;http://project.tomieric.com/christmas/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;圣诞倒计时&lt;/a&gt;中。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AnimQueque = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	list: [],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	add: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj, cls, fn&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.push(&amp;#123; obj: obj, cls: cls, fn: fn&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	resolve: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cache = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.shift();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!cache) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.to(cache.obj, cache.cls, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; cache.fn === &lt;span class=&quot;string&quot;&gt;&quot;function&quot;&lt;/span&gt; &amp;amp;&amp;amp; cache.fn();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			AnimQueque.resolve();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	to: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj,cls, fn&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$(obj).addClass(cls).one(&lt;span class=&quot;string&quot;&gt;&#39;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&#39;&lt;/span&gt;, fn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;利用队列数组将要改变的css变量存放起来，然后每次从数组顶部拿出一个css变量，监听每个css3动画结束回调函数，每次动画完成再执行第二个步骤形成一个递归。&lt;/p&gt;
+&lt;h2 id=&quot;jQuery_u961F_u5217&quot;&gt;&lt;a href=&quot;#jQuery_u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;jQuery队列&quot;&gt;&lt;/a&gt;jQuery队列&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;queue(element, [queueName])&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;element&lt;/code&gt; 检测附加队列的DOM元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 字符串值，包含序列的名称。默认是 fx, 标准的效果序列。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;newQueue&lt;/code&gt;:替换当前函数列队内容的数组&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;callback()&lt;/code&gt;:要添加进队列的函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;dequeue([queueName])&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 队列名，默认为fx&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;clearQueue([queueName])&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 含有队列名的字符串。默认是”Fx”，动画队列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好，现在我们来改造进度条那个例子。&lt;/p&gt;
+&lt;figure class=&quot;highlight xquery&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* progress bar&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* &lt;span class=&quot;keyword&quot;&gt;by&lt;/span&gt; tomieric&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;* http://getf2e.com&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$.fn.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;string&quot;&gt;&#39;progressbar&#39;&lt;/span&gt;: function(config)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		var opt = $.extend(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			parent: null,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			callback: $.noop,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			duration: &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;, config ||&amp;#123;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		var &lt;span class=&quot;variable&quot;&gt;$body&lt;/span&gt; = $(document.body),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				_queue = [],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				fnDequeue = function()&amp;#123; &lt;span class=&quot;variable&quot;&gt;$body&lt;/span&gt;.dequeue(&lt;span class=&quot;string&quot;&gt;&#39;jq.progressbar&#39;&lt;/span&gt;) &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$(this).each(function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			var &lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt; = $(this), data = &lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt;.data();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			if(data.queque) return;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			_queue.push(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					var per = data.per;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					(per = per  || &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;amp;&amp;amp; (per = per &amp;gt; &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; ? &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt; : per);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt;.animate(&amp;#123; width: per+&lt;span class=&quot;string&quot;&gt;&#39;%&#39;&lt;/span&gt;&amp;#125;, opt.duration, function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						opt.callback();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;						fnDequeue();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;					&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;				&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;variable&quot;&gt;$self&lt;/span&gt;.data(&lt;span class=&quot;string&quot;&gt;&#39;queque&#39;&lt;/span&gt;, true);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		/*&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		* 用body唯一dom元素存放，$(this)是一个元素集合&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		*/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;variable&quot;&gt;$body&lt;/span&gt;.queue(&lt;span class=&quot;string&quot;&gt;&#39;jq.progressbar&#39;&lt;/span&gt;, _queue);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		// 触发堆栈&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		fnDequeue();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		return this;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;.percent-bar&#39;&lt;/span&gt;).progressbar(&amp;#123;duration: &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后我们再来看看效果&lt;a href=&quot;http://sandbox.runjs.cn/show/o3lknjcj&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://sandbox.runjs.cn/show/o3lknjcj&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;fork &lt;a href=&quot;http://runjs.cn/detail/o3lknjcj&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://runjs.cn/detail/o3lknjcj&lt;/a&gt;&lt;/p&gt;
+" data-url="http://tomieric.github.io/2015/04/10/jquery-queue/">
+        <div class="ds-share-inline">
+          <ul  class="ds-share-icons-16">
+            
+            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+            
+          </ul>
+          <div class="ds-share-icons-more">
+          </div>
+        </div>
+     </div>
+    </div> 
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://tomieric.github.io/2015/04/10/jquery-queue/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://tomieric.github.io/2015/04/10/jquery-queue/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://tomieric.github.io/2015/04/10/jquery-queue/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?appkey=583395093&amp;title=&amp;url=http://tomieric.github.io/2015/04/10/jquery-queue/&amp;source=bshare&amp;retcode=0&amp;ralateUid=1799786352">
+                <i class="fa fa-weibo"></i><span>分享到 微博</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar.jpg"/>
+        
+            <h4 id="about-card-name">TommyShao</h4>
+        
+            <h5 id="about-card-bio"><p>只想做一位安静切图的美男子</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>前端开发工程师</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                中国 广州
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<!--SCRIPTS END-->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'tomieric';
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+
+</html>

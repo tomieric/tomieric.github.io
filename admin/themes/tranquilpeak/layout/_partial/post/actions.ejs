@@ -1,0 +1,46 @@
+<div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                <% if (post.prev) { %>
+                    <a class="post-action-btn btn btn--default tooltip--top" href="<%- url_for(post.prev.path) %>"  data-tooltip="<%= post.prev.title || '(' + __('post.no_title') + ')' %>">
+                <% } else { %>
+                    <a class="post-action-btn btn btn--disabled">
+                <% } %>
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml"><%= __('pagination.previous') %></span>
+                </a>
+            </li>
+            <li class="post-action">
+                <% if (post.next) { %>
+                    <a class="post-action-btn btn btn--default tooltip--top" href="<%- url_for(post.next.path) %>" data-tooltip="<%= post.next.title || '(' + __('post.no_title') + ')' %>">
+                <% } else { %>
+                    <a class="post-action-btn btn btn--disabled">
+                <% } %>
+                    <span class="hide-xs hide-sm text-small icon-mr"><%= __('pagination.next') %></span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="post-actions post-action-share" style="float: left;padding-top:15px">
+    <div class="ds-share" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-images="<%= page.photos %>" data-content="<%= post.content %>" data-url="<%= post.permalink %>">
+        <div class="ds-share-inline">
+          <ul  class="ds-share-icons-16">
+            
+            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+            
+          </ul>
+          <div class="ds-share-icons-more">
+          </div>
+        </div>
+     </div>
+    </div> 
+</div>
+

@@ -1,8 +1,10 @@
 ##tomieric.github.io
 
-前端分享圈
+前端分享园
 
-[博客](http://getf2e.com)
+[博客](http://getf2e.com/)
+
+[旧博客](http://tomieric.github.io/old-blog)
 
 [笔记](https://github.com/tomieric/tomieric.github.io/issues)
 

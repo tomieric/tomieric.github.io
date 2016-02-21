@@ -22,7 +22,7 @@ http://sandbox.runjs.cn/show/ytyxhtib">
 <meta property="og:description" content="首先先说个例子
 之前在做一个多个进度条动画时写了个东西
 http://sandbox.runjs.cn/show/ytyxhtib">
-<meta property="og:updated_time" content="2015-12-13T10:11:44.070Z">
+<meta property="og:updated_time" content="2016-02-21T14:49:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery核心函数队列">
 <meta name="twitter:description" content="首先先说个例子
@@ -263,7 +263,7 @@ http://sandbox.runjs.cn/show/ytyxhtib">
 <li>js队列</li>
 </ul>
 <p>这里不讨论css3的写法，因为老板们想兼容更多的浏览器</p>
-<h2 id="u961F_u5217"><a href="#u961F_u5217" class="headerlink" title="队列"></a>队列</h2><blockquote>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><blockquote>
 <p>队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。</p>
 </blockquote>
 <p>这是百度百科上的解释。</p>
@@ -271,7 +271,7 @@ http://sandbox.runjs.cn/show/ytyxhtib">
 <p>之前也写过队列的对象，在<a href="http://project.tomieric.com/christmas/" target="_blank" rel="external">圣诞倒计时</a>中。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> AnimQueque = &#123;</span><br><span class="line">	list: [],</span><br><span class="line">	add: <span class="function"><span class="keyword">function</span>(<span class="params">obj, cls, fn</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.list.push(&#123; obj: obj, cls: cls, fn: fn&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	resolve: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> cache = <span class="keyword">this</span>.list.shift();</span><br><span class="line">		<span class="keyword">if</span>(!cache) <span class="keyword">return</span>;</span><br><span class="line">		<span class="keyword">this</span>.to(cache.obj, cache.cls, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="keyword">typeof</span> cache.fn === <span class="string">"function"</span> &amp;&amp; cache.fn();</span><br><span class="line">			AnimQueque.resolve();</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	to: <span class="function"><span class="keyword">function</span>(<span class="params">obj,cls, fn</span>) </span>&#123;</span><br><span class="line">		$(obj).addClass(cls).one(<span class="string">'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'</span>, fn);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>利用队列数组将要改变的css变量存放起来，然后每次从数组顶部拿出一个css变量，监听每个css3动画结束回调函数，每次动画完成再执行第二个步骤形成一个递归。</p>
-<h2 id="jQuery_u961F_u5217"><a href="#jQuery_u961F_u5217" class="headerlink" title="jQuery队列"></a>jQuery队列</h2><ul>
+<h2 id="jQuery队列"><a href="#jQuery队列" class="headerlink" title="jQuery队列"></a>jQuery队列</h2><ul>
 <li>queue(element, [queueName])<ul>
 <li><code>element</code> 检测附加队列的DOM元素</li>
 <li><code>queueName</code> 字符串值，包含序列的名称。默认是 fx, 标准的效果序列。</li>
@@ -313,7 +313,7 @@ http://sandbox.runjs.cn/show/ytyxhtib">
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/13/hello-world/"  data-tooltip="Hello World">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/20/hello-world/"  data-tooltip="Hello World">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -343,7 +343,7 @@ http://sandbox.runjs.cn/show/ytyxhtib">
 &lt;li&gt;js队列&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这里不讨论css3的写法，因为老板们想兼容更多的浏览器&lt;/p&gt;
-&lt;h2 id=&quot;u961F_u5217&quot;&gt;&lt;a href=&quot;#u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;队列&quot;&gt;&lt;/a&gt;队列&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h2 id=&quot;队列&quot;&gt;&lt;a href=&quot;#队列&quot; class=&quot;headerlink&quot; title=&quot;队列&quot;&gt;&lt;/a&gt;队列&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;这是百度百科上的解释。&lt;/p&gt;
@@ -351,7 +351,7 @@ http://sandbox.runjs.cn/show/ytyxhtib">
 &lt;p&gt;之前也写过队列的对象，在&lt;a href=&quot;http://project.tomieric.com/christmas/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;圣诞倒计时&lt;/a&gt;中。&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AnimQueque = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	list: [],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	add: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj, cls, fn&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.push(&amp;#123; obj: obj, cls: cls, fn: fn&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	resolve: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cache = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.shift();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!cache) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.to(cache.obj, cache.cls, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; cache.fn === &lt;span class=&quot;string&quot;&gt;&quot;function&quot;&lt;/span&gt; &amp;amp;&amp;amp; cache.fn();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			AnimQueque.resolve();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	to: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj,cls, fn&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$(obj).addClass(cls).one(&lt;span class=&quot;string&quot;&gt;&#39;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&#39;&lt;/span&gt;, fn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;利用队列数组将要改变的css变量存放起来，然后每次从数组顶部拿出一个css变量，监听每个css3动画结束回调函数，每次动画完成再执行第二个步骤形成一个递归。&lt;/p&gt;
-&lt;h2 id=&quot;jQuery_u961F_u5217&quot;&gt;&lt;a href=&quot;#jQuery_u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;jQuery队列&quot;&gt;&lt;/a&gt;jQuery队列&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&quot;jQuery队列&quot;&gt;&lt;a href=&quot;#jQuery队列&quot; class=&quot;headerlink&quot; title=&quot;jQuery队列&quot;&gt;&lt;/a&gt;jQuery队列&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;queue(element, [queueName])&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;element&lt;/code&gt; 检测附加队列的DOM元素&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 字符串值，包含序列的名称。默认是 fx, 标准的效果序列。&lt;/li&gt;
@@ -416,7 +416,7 @@ var duoshuoQuery = {short_name:"getf2e"};
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2012 - 2015 TommyShao. All Rights Reserved. Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme by <a target="_blank" href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/">tranquilpeak</a>
+        Copyrights &copy; 2012 - 2016 TommyShao. All Rights Reserved. Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme by <a target="_blank" href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/">tranquilpeak</a>
     </span>
 </footer>
 
@@ -428,7 +428,7 @@ var duoshuoQuery = {short_name:"getf2e"};
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/12/13/hello-world/"  data-tooltip="Hello World">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/20/hello-world/"  data-tooltip="Hello World">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -458,7 +458,7 @@ var duoshuoQuery = {short_name:"getf2e"};
 &lt;li&gt;js队列&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这里不讨论css3的写法，因为老板们想兼容更多的浏览器&lt;/p&gt;
-&lt;h2 id=&quot;u961F_u5217&quot;&gt;&lt;a href=&quot;#u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;队列&quot;&gt;&lt;/a&gt;队列&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h2 id=&quot;队列&quot;&gt;&lt;a href=&quot;#队列&quot; class=&quot;headerlink&quot; title=&quot;队列&quot;&gt;&lt;/a&gt;队列&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;队列是一种特殊的线性表，特殊之处在于它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作，和栈一样，队列是一种操作受限制的线性表。进行插入操作的端称为队尾，进行删除操作的端称为队头。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;这是百度百科上的解释。&lt;/p&gt;
@@ -466,7 +466,7 @@ var duoshuoQuery = {short_name:"getf2e"};
 &lt;p&gt;之前也写过队列的对象，在&lt;a href=&quot;http://project.tomieric.com/christmas/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;圣诞倒计时&lt;/a&gt;中。&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AnimQueque = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	list: [],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	add: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj, cls, fn&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.push(&amp;#123; obj: obj, cls: cls, fn: fn&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	resolve: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cache = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.list.shift();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(!cache) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.to(cache.obj, cache.cls, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; cache.fn === &lt;span class=&quot;string&quot;&gt;&quot;function&quot;&lt;/span&gt; &amp;amp;&amp;amp; cache.fn();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			AnimQueque.resolve();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	to: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;obj,cls, fn&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		$(obj).addClass(cls).one(&lt;span class=&quot;string&quot;&gt;&#39;webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend&#39;&lt;/span&gt;, fn);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;利用队列数组将要改变的css变量存放起来，然后每次从数组顶部拿出一个css变量，监听每个css3动画结束回调函数，每次动画完成再执行第二个步骤形成一个递归。&lt;/p&gt;
-&lt;h2 id=&quot;jQuery_u961F_u5217&quot;&gt;&lt;a href=&quot;#jQuery_u961F_u5217&quot; class=&quot;headerlink&quot; title=&quot;jQuery队列&quot;&gt;&lt;/a&gt;jQuery队列&lt;/h2&gt;&lt;ul&gt;
+&lt;h2 id=&quot;jQuery队列&quot;&gt;&lt;a href=&quot;#jQuery队列&quot; class=&quot;headerlink&quot; title=&quot;jQuery队列&quot;&gt;&lt;/a&gt;jQuery队列&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;queue(element, [queueName])&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;element&lt;/code&gt; 检测附加队列的DOM元素&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;queueName&lt;/code&gt; 字符串值，包含序列的名称。默认是 fx, 标准的效果序列。&lt;/li&gt;

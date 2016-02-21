@@ -213,13 +213,93 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/12/13/hello-world/">Hello World</a>
+                                <a class="link-unstyled" href="/2016/02/21/get-stared-use-es6/">拥抱ES6(一) - 认识babel</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Sun Dec 13 2015 18:09:18 GMT+0800">
+    <time itemprop="datePublished" content="Sun Feb 21 2016 00:00:00 GMT+0800">
 	
-		    12月 13, 2015
+		    2月 21, 2016
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/javascript/">javascript</a>
+
+
+    
+</div>
+                </div>
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/post/20160107202032_470.jpg" alt=" Lost ES6"><span class="caption"> Lost ES6</span></div><!-- content -->
+<blockquote>
+<p>Babel 是一个 JavaScript 编译器。<br>今天就来用下一代 JavaScript 语法写代码吧！</p>
+</blockquote>
+<p>EMAscript已经发布了<code>es2015</code>也就是<code>ES6</code>, 提供了丰富的API和函数编程语法，但由于各浏览器的支持性还是有限，我们需要折衷的办法——编译器。</p>
+<p>早在<code>ES6</code>发布前，<code>babel</code>已经活跃在前端开发社区中，比如facebooke的开源框架<code>react</code>就很早使用了<code>babel</code></p>
+<h2 id="安装babel"><a href="#安装babel" class="headerlink" title="安装babel"></a>安装babel</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[sudo] npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> babel</span></span><br></pre></td></tr></table></figure>
+<p>安装完成后可以在终端中使用<code>babel</code>命令</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li><code>-o</code> 编译输出文件</li>
+<li><code>-s [inline]</code> 生成<code>sourcemap</code>文件</li>
+</ul>
+<p><strong>example</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</span><br></pre></td></tr></table></figure>
+<p>用<code>*.es</code>命名文件是更好的区分es6语法源文件和编译文件</p>
+<p>babel有许多优秀的插件，利用插件我们可以将<code>es6</code>语法转化成相应的对应<code>javascript</code>版本文件</p>
+<p><strong>插件集合</strong></p>
+<p><a href="http://babeljs.io/docs/plugins/" target="_blank" rel="external">http://babeljs.io/docs/plugins/</a></p>
+<p>我们需要通过使用插件来支持最新的<code>es</code>语法，现在我们使用最新的<code>ES6</code>语法，将使用<code>ES2015 preset</code>这个插件</p>
+<p><a href="http://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external">http://babeljs.io/docs/plugins/preset-es2015/</a></p>
+<h3 id="安装-babel-preset-es2015"><a href="#安装-babel-preset-es2015" class="headerlink" title="安装 babel-preset-es2015"></a>安装 <code>babel-preset-es2015</code></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> babel-preset-es2015</span><br></pre></td></tr></table></figure>
+<h3 id="配置-babelrc"><a href="#配置-babelrc" class="headerlink" title="配置.babelrc"></a>配置<code>.babelrc</code></h3><p>babel的编译可以通过读取<code>.babelrc</code>文件配置中的<code>presets</code>插件集进行编译。</p>
+<p>为项目创建一个<code>.babelrc</code> 文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">touch</span> <span class="class">.babelrc</span></span><br></pre></td></tr></table></figure>
+<p>我们可以看到当前目录下增加了这个文件，然后编辑声明使用<code>es2015</code></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .babelrc</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">"presets"</span> : [<span class="string">"es2015"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重新编译<code>script.es</code>文件</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</span><br></pre></td></tr></table></figure>
+<p>源文件：</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// script.es</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>编译完成文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// script.js</span></span><br><span class="line"><span class="pi">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//# sourceMappingURL=script.js.map</span></span><br></pre></td></tr></table></figure>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://babeljs.io/" target="_blank" rel="external">http://babeljs.io/</a></p>
+<p><a href="http://babeljs.cn/" target="_blank" rel="external">http://babeljs.cn/ 中文</a></p>
+<p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
+
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/2016/02/21/get-stared-use-es6/#post-footer" class="postShorten-excerpt_link link">
+                                    评论&分享
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2016/02/20/hello-world/">Hello World</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sat Feb 20 2016 00:00:00 GMT+0800">
+	
+		    2月 20, 2016
     	
     </time>
     
@@ -238,7 +318,7 @@
 <p>由于旧博客用<code>airpub.io</code>，多说的账号被<code>CSRF</code>攻击造成大部分博文被注入删除</p>
 <p>说多了都是泪<del>~~(&gt;_&lt;)</del>~~</p>
 <p>已经决定了新博客用<code>hexo</code></p>
-<h3 id="u535A_u5BA2_u5386_u7A0B"><a href="#u535A_u5BA2_u5386_u7A0B" class="headerlink" title="博客历程"></a>博客历程</h3><ul>
+<h3 id="博客历程"><a href="#博客历程" class="headerlink" title="博客历程"></a>博客历程</h3><ul>
 <li>大学时期用免费asp主机，html模板</li>
 <li>上班后用博客园</li>
 <li>为了更多酷炫皮肤，用wordpress</li>
@@ -248,7 +328,7 @@
 <li>发简历给猎头，猎头说博客东西好少，看了一下原来被攻击，好多文章丢失了，也找不回了，在多说上没有备份</li>
 <li>决定还是以静态方式，选择hexo因为模板够漂酿。实在没钱买VPS，掏捣nodejs去搭建个博客。</li>
 </ul>
-<h3 id="u5173_u4E8E_u535A_u5BA2_u53D1_u5E03"><a href="#u5173_u4E8E_u535A_u5BA2_u53D1_u5E03" class="headerlink" title="关于博客发布"></a>关于博客发布</h3><p>文档看的一头雾水，发布目录只能在hexo项目目录里</p>
+<h3 id="关于博客发布"><a href="#关于博客发布" class="headerlink" title="关于博客发布"></a>关于博客发布</h3><p>文档看的一头雾水，发布目录只能在hexo项目目录里</p>
 <p>只能把项目弄到<code>admin</code>目录，<code>hexo deploy</code>生成的<code>public</code>目录，通过<code>gulpfile</code>（工作用这个比较熟）拷贝到根目录并清空<code>public</code>目录。</p>
 <p>终于搞定了，在一个周末的下午。</p>
 
@@ -258,7 +338,7 @@
                         
                         
                             <p>
-                                <a href="/2015/12/13/hello-world/#post-footer" class="postShorten-excerpt_link link">
+                                <a href="/2016/02/20/hello-world/#post-footer" class="postShorten-excerpt_link link">
                                     评论&分享
                                 </a>
                             </p>
@@ -396,59 +476,13 @@
                 
                 
                     <div class="postShorten-excerpt" itemprop="articleBody">
-                        <h1 id="FullPage-js_u5C1D_u8BD5"><a href="#FullPage-js_u5C1D_u8BD5" class="headerlink" title="FullPage.js尝试"></a>FullPage.js尝试</h1><p>我们经常会经常看到这样的产品页</p>
+                        <h1 id="FullPage-js尝试"><a href="#FullPage-js尝试" class="headerlink" title="FullPage.js尝试"></a>FullPage.js尝试</h1><p>我们经常会经常看到这样的产品页</p>
 <p><a href="http://www.mi.com/shouhuan">http://www.mi.com/shouhuan</a></p>
 <p>是不是觉得很高端大气上档次</p>
 <p>那我们这样实现呢？</p>
 <p>首先我们来做一个没有插件版的Fullscreen，使用原始的javascript,css3来实现。</p>
                         
                             <a href="/2014/09/25/fullpage/" class="postShorten-excerpt_link link">
-                                阅读全文
-                            </a>
-                            
-                        
-                    </div>
-                
-            </div>
-            
-                <div class="postShorten-thumbnailimg">
-                    <img alt="" itemprop="image" src="http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
-                </div>
-                
-            
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2014/08/20/javascript-regExp/">JavaScript正则表达式</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Wed Aug 20 2014 00:00:00 GMT+0800">
-	
-		    8月 20, 2014
-    	
-    </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-
-
-    
-</div>
-                </div>
-                
-                
-                    <div class="postShorten-excerpt" itemprop="articleBody">
-                        <p>什么是正则表达式？</p>
-<p>这个问题可以参见：“正则表达式30分钟入门教程”，很多编程语言都支持正则表达式，本文仅仅讨论JavaScript中的正则表达式。</p>
-                        
-                            <a href="/2014/08/20/javascript-regExp/" class="postShorten-excerpt_link link">
                                 阅读全文
                             </a>
                             
@@ -484,7 +518,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2012 - 2015 TommyShao. All Rights Reserved. Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme by <a target="_blank" href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/">tranquilpeak</a>
+        Copyrights &copy; 2012 - 2016 TommyShao. All Rights Reserved. Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme by <a target="_blank" href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/">tranquilpeak</a>
     </span>
 </footer>
 

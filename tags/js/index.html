@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="前端 - 分享园">
-    <title>归档: 2015 - 前端 - 分享园</title>
+    <title>标签: js - 前端 - 分享园</title>
     <meta name="author" content="TommyShao">
     
     
@@ -15,7 +15,7 @@
     <meta name="description" content="前端|css|html5|css3|jquery|javascript|nodejs|angular|angularjs|backbone|移动开发">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="前端 - 分享园">
-<meta property="og:url" content="http://tomieric.github.io/archives/2015/index.html">
+<meta property="og:url" content="http://tomieric.github.io/tags/js/index.html">
 <meta property="og:site_name" content="前端 - 分享园">
 <meta property="og:description" content="前端|css|html5|css3|jquery|javascript|nodejs|angular|angularjs|backbone|移动开发">
 <meta name="twitter:card" content="summary">
@@ -209,24 +209,24 @@
 <section class="postShorten-group main-content-wrap">
     
         
-        <article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
             <div class="postShorten-wrap">
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2015/04/10/jquery-queue/">jQuery核心函数队列</a>
+                                <a class="link-unstyled" href="/2016/02/21/get-stared-use-es6/">拥抱ES6(一) - 认识babel</a>
                         
                     </h1>
                     <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Fri Apr 10 2015 00:00:00 GMT+0800">
+    <time itemprop="datePublished" content="Sun Feb 21 2016 00:00:00 GMT+0800">
 	
-		    4月 10, 2015
+		    2月 21, 2016
     	
     </time>
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    <a class="category-link" href="/categories/javascript/">javascript</a>
 
 
     
@@ -234,24 +234,57 @@
                 </div>
                 
                 
-                    <div class="postShorten-excerpt" itemprop="articleBody">
-                        <p>首先先说个例子</p>
-<p>之前在做一个多个进度条动画时写了个东西</p>
-<p><a href="http://sandbox.runjs.cn/show/ytyxhtib">http://sandbox.runjs.cn/show/ytyxhtib</a></p>
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/post/20160107202032_470.jpg" alt=" Lost ES6"><span class="caption"> Lost ES6</span></div><!-- content -->
+<blockquote>
+<p>Babel 是一个 JavaScript 编译器。<br>今天就来用下一代 JavaScript 语法写代码吧！</p>
+</blockquote>
+<p>EMAscript已经发布了<code>es2015</code>也就是<code>ES6</code>, 提供了丰富的API和函数编程语法，但由于各浏览器的支持性还是有限，我们需要折衷的办法——编译器。</p>
+<p>早在<code>ES6</code>发布前，<code>babel</code>已经活跃在前端开发社区中，比如facebooke的开源框架<code>react</code>就很早使用了<code>babel</code></p>
+<h2 id="安装babel"><a href="#安装babel" class="headerlink" title="安装babel"></a>安装babel</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[sudo] npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> babel</span></span><br></pre></td></tr></table></figure>
+<p>安装完成后可以在终端中使用<code>babel</code>命令</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li><code>-o</code> 编译输出文件</li>
+<li><code>-s [inline]</code> 生成<code>sourcemap</code>文件</li>
+</ul>
+<p><strong>example</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</span><br></pre></td></tr></table></figure>
+<p>用<code>*.es</code>命名文件是更好的区分es6语法源文件和编译文件</p>
+<p>babel有许多优秀的插件，利用插件我们可以将<code>es6</code>语法转化成相应的对应<code>javascript</code>版本文件</p>
+<p><strong>插件集合</strong></p>
+<p><a href="http://babeljs.io/docs/plugins/" target="_blank" rel="external">http://babeljs.io/docs/plugins/</a></p>
+<p>我们需要通过使用插件来支持最新的<code>es</code>语法，现在我们使用最新的<code>ES6</code>语法，将使用<code>ES2015 preset</code>这个插件</p>
+<p><a href="http://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external">http://babeljs.io/docs/plugins/preset-es2015/</a></p>
+<h3 id="安装-babel-preset-es2015"><a href="#安装-babel-preset-es2015" class="headerlink" title="安装 babel-preset-es2015"></a>安装 <code>babel-preset-es2015</code></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> babel-preset-es2015</span><br></pre></td></tr></table></figure>
+<h3 id="配置-babelrc"><a href="#配置-babelrc" class="headerlink" title="配置.babelrc"></a>配置<code>.babelrc</code></h3><p>babel的编译可以通过读取<code>.babelrc</code>文件配置中的<code>presets</code>插件集进行编译。</p>
+<p>为项目创建一个<code>.babelrc</code> 文件</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">touch</span> <span class="class">.babelrc</span></span><br></pre></td></tr></table></figure>
+<p>我们可以看到当前目录下增加了这个文件，然后编辑声明使用<code>es2015</code></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .babelrc</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">"presets"</span> : [<span class="string">"es2015"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重新编译<code>script.es</code>文件</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</span><br></pre></td></tr></table></figure>
+<p>源文件：</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// script.es</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>编译完成文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// script.js</span></span><br><span class="line"><span class="pi">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//# sourceMappingURL=script.js.map</span></span><br></pre></td></tr></table></figure>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://babeljs.io/" target="_blank" rel="external">http://babeljs.io/</a></p>
+<p><a href="http://babeljs.cn/" target="_blank" rel="external">http://babeljs.cn/ 中文</a></p>
+<p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
+
                         
-                            <a href="/2015/04/10/jquery-queue/" class="postShorten-excerpt_link link">
-                                阅读全文
-                            </a>
                             
+
+                        
+                        
+                            <p>
+                                <a href="/2016/02/21/get-stared-use-es6/#post-footer" class="postShorten-excerpt_link link">
+                                    评论&分享
+                                </a>
+                            </p>
                         
                     </div>
                 
             </div>
-            
-                <div class="postShorten-thumbnailimg">
-                    <img alt="" itemprop="image" src="http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
-                </div>
-                
             
         </article>
     
@@ -264,7 +297,6 @@
 </div>
 
 </section>
-
 
 
                 <footer id="footer" class="main-content-wrap">

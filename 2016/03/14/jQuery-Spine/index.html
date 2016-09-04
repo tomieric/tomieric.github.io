@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="前端 - 分享园">
+    <title>基于jQuery的（m）VC 库 - 前端 - 分享园</title>
+    <meta name="author" content="TommyShao">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说
+
+以往我们做数据填充时经常搭配jquery.tmpl.js或则arttemplate.js模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。
+在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用Ba">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="基于jQuery的（m）VC 库">
+<meta property="og:url" content="http://tomieric.github.io/2016/03/14/jQuery-Spine/index.html">
+<meta property="og:site_name" content="前端 - 分享园">
+<meta property="og:description" content="此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说
+
+以往我们做数据填充时经常搭配jquery.tmpl.js或则arttemplate.js模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。
+在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用Ba">
+<meta property="og:updated_time" content="2016-09-04T07:11:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于jQuery的（m）VC 库">
+<meta name="twitter:description" content="此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说
+
+以往我们做数据填充时经常搭配jquery.tmpl.js或则arttemplate.js模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。
+在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用Ba">
+<meta name="twitter:creator" content="@tomieric">
+    
+        <meta rel="publisher" content="https://plus.google.com/+tomieric"/>
+    
+    
+    
+        <meta property="og:image" content="/assets/images/avatar.jpg"/>
+    
+    
+        <meta property="og:image" content="/2016/03/14/jQuery-Spine/http:/7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://tomieric.github.io/2016/03/14/jQuery-Spine/http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg" />
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-71323455-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">前端 - 分享园</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/avatar.jpg"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar.jpg"/>
+            </a>
+            <span class="sidebar-profile-name">TommyShao</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">首页</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">分类</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">标签</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">归档</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">搜索</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/tomieric" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://weibo.com/tomieric" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-weibo"></i>
+                    <span class="sidebar-button-desc">微博</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            基于jQuery的（m）VC 库
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Mon Mar 14 2016 00:00:00 GMT+0800">
+	
+		    3月 14, 2016
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/javascript/">javascript</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说</p>
+</blockquote>
+<p>以往我们做数据填充时经常搭配<code>jquery.tmpl.js</code>或则<code>arttemplate.js</code>模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。</p>
+<p>在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用<code>Backbone</code>这类的框架显得页面静态资源稍微臃肿。</p>
+<p>请先阅读 <a href="http://purplebamboo.github.io/2015/03/16/javascript-component/" target="_blank" rel="external">javascript组件化</a> 这篇文章，本文中的 <code>Spine</code>是基于该文章的源码进行改进</p>
+<p><code>Spine</code>提供我们 <code>oo</code> 编程语法糖，组件于组件之间通过继承扩展来开发富应用组件，同时事件通过订阅-发布的模式实现，内置了 <code>underscore</code> 的 <code>template</code> 功能。完整的实现了 <code>Mini</code> 版的 <code>Backbone</code>功能，相比之下少了 <code>router</code>功能（可以参照使用<a href="https://github.com/flatiron/director" target="_blank" rel="external">director.js</a>)</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>首先我们来看看 <code>Spine</code> 的使用语法，跟 <code>Backbone</code> 的用法相似我们使用 <code>Spine.extend</code> 函数来扩展一个组件类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>我们定义了 <code>initiliaze</code> 函数，类似于 <code>AppView</code> 的构造函数，在函数内部我们可以直接用 <code>this</code> 去获取对象的方法或配置参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> msg = <span class="keyword">this</span>.get(<span class="string">'greeting'</span>)</div><div class="line">        <span class="keyword">this</span>.sayHi(msg)</div><div class="line">    &#125;,</div><div class="line">    sayHi: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(msg)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>当我们没有去实例化 <code>AppView</code>时，并不会执行初始化里面的语句。那我们如何去调用呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    greeting: <span class="string">'Hello World'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>这时候我们在浏览器的控制台可以看到打印出来 <code>Hello World</code></p>
+<h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p>既然是组件必少不了用户点击交互等事件，在 <code>Spine</code> 里面如何去绑定事件呢？ </p>
+<p>通过 <code>EVENTS</code> 配置对象去声明，先声明 <code>选择器：{ event1:fn, event2: fn }</code>,这点有区别于 <code>Backbone</code> 中的写法 <code>选择器 event1: fn,选择器 event2: fn</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;,</div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="string">'.btn'</span>: &#123;</div><div class="line">            click: <span class="function"><span class="keyword">function</span><span class="params">(self, e)</span> </span>&#123;</div><div class="line">                e.preventDefault()</div><div class="line"></div><div class="line">                <span class="comment">// self 指向实例对象</span></div><div class="line">                <span class="keyword">self</span>.sayHi()</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>实例化 <code>AppView</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    parentNode: <span class="string">'#demo'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>注意，声明绑定事件时最好在实例化传入配置参数 <code>parentNode</code> 表示 dom 的作用域，忽略不传默认为 <code>document.body</code> 用于作为事件代理的主容器，同于 <code>Backbone</code> 当中的 <code>el</code> 参数</p>
+<p><code>Spine</code> 的事件绑定同于 <code>jQuery</code> 的绑定方法，比如第三方插件的事件</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="params">...</span></div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="string">'.datetime'</span> : &#123;</div><div class="line">            <span class="comment">// self - 实例化对象</span></div><div class="line">            <span class="comment">// e - jquery 中事件默认参数 event</span></div><div class="line">            <span class="comment">// date 第三方插件提供的event data </span></div><div class="line">            <span class="string">'choose.ui.datetimepicker'</span>: function(<span class="built_in">self</span>, e, <span class="built_in">date</span>) &#123;</div><div class="line">                <span class="built_in">self</span>.fetch(&#123; <span class="built_in">date</span>: <span class="built_in">date</span> &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="params">...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="模板视图"><a href="#模板视图" class="headerlink" title="模板视图"></a>模板视图</h3><p>既然是 （m）vc 库自然少不了 <code>view</code> 模板引擎，<code>Spine</code> 使用的是 <code>underscore</code> 的 <code>template</code>，语法相同</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="xml">...</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    ...</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"listView"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- list 模板 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/html"</span> <span class="attr">id</span>=<span class="string">"listView-tmpl"</span>&gt;</span><span class="handlebars"><span class="xml"></span></span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span>(<span class="attr">var</span> <span class="attr">i</span> = <span class="string">0;</span> <span class="attr">i</span> &lt; <span class="attr">list.length</span>; <span class="attr">i</span>++) &#123; %&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="template-tag">&#123;%= <span class="name">list</span>[i].value %&#125;</span><span class="xml"><span class="handlebars"><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>js 中声明</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    initiliaze: function() &#123;</div><div class="line">        <span class="keyword">this</span>.$view = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'view'</span>)</div><div class="line">        <span class="keyword">this</span>.template = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'template'</span>)</div><div class="line"></div><div class="line">        <span class="keyword">var</span> listData = [</div><div class="line">            &#123;text: <span class="number">1</span>, value: <span class="number">1</span>&#125;</div><div class="line">            &#123;text: <span class="number">2</span>, value: <span class="number">2</span>&#125;</div><div class="line">            &#123;text: <span class="number">3</span>, value: <span class="number">3</span>&#125;</div><div class="line">            ...</div><div class="line">        ]</div><div class="line">        <span class="keyword">this</span>.render(listData) </div><div class="line">    &#125;,</div><div class="line">    render(<span class="keyword">data</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.$view.empty().html(<span class="keyword">this</span>._parseTemplate(<span class="keyword">this</span>.template, <span class="keyword">data</span>))</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="扩展视图纯填充组件"><a href="#扩展视图纯填充组件" class="headerlink" title="扩展视图纯填充组件"></a>扩展视图纯填充组件</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通用视图对象</span></div><div class="line"><span class="comment">// 依赖Spine.js</span></div><div class="line"><span class="comment">// 扩展SpineJS</span></div><div class="line"><span class="comment">// by tommyshao</span></div><div class="line"><span class="comment">// ---------</span></div><div class="line"><span class="keyword">var</span> PartialView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initialize: function() &#123;</div><div class="line">        <span class="comment">// 实例化获取配置</span></div><div class="line">        <span class="keyword">this</span>.$el = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'parentNode'</span>);</div><div class="line">        <span class="keyword">this</span>.template = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'template'</span>).html();</div><div class="line"></div><div class="line">        </div><div class="line">        <span class="comment">// 外部定义事件</span></div><div class="line">        <span class="keyword">this</span>.EVENTS = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'EVENTS'</span>);</div><div class="line">        <span class="keyword">this</span>._delegateEvent();</div><div class="line"></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// 惰性渲染</span></div><div class="line">    <span class="comment">// data接收数据</span></div><div class="line">    render: function(<span class="keyword">data</span>) &#123;</div><div class="line">        <span class="keyword">data</span> = <span class="keyword">data</span> || &#123;&#125;;</div><div class="line">        <span class="comment">// 利用内置模板引擎编译模板获取编译后的内容</span></div><div class="line">        <span class="keyword">var</span> template = <span class="keyword">this</span>._parseTemplate(<span class="keyword">this</span>.template, <span class="keyword">data</span>);</div><div class="line">        <span class="comment">// 重新渲染数据</span></div><div class="line">        <span class="keyword">this</span>.$el.empty().append(template);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/* </span></div><div class="line">Spine.min = function(config) &#123;</div><div class="line">    return new PartialView(config)</div><div class="line">&#125; </div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>使用方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> listView = <span class="keyword">new</span> PartialView(&#123;</div><div class="line">    parentNode: $(<span class="string">'#listView'</span>),</div><div class="line">    template: $(<span class="string">'#listView-tmpl'</span>),</div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="comment">// 自定义事件</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/Backbone/">Backbone</a> <a class="tag tag--primary tag--small t-link" href="/tags/jquery/">jquery</a> <a class="tag tag--primary tag--small t-link" href="/tags/mvc/">mvc</a> <a class="tag tag--primary tag--small t-link" href="/tags/spine/">spine</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/21/get-stared-use-es6/" data-tooltip="拥抱ES6(一) - 认识babel">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="post-actions post-action-share" style="float: left;padding-top:15px">
+    <div class="ds-share" data-thread-key="2016/03/14/jQuery-Spine/" data-title="基于jQuery的（m）VC 库" data-images="" data-content="&lt;blockquote&gt;
+&lt;p&gt;此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以往我们做数据填充时经常搭配&lt;code&gt;jquery.tmpl.js&lt;/code&gt;或则&lt;code&gt;arttemplate.js&lt;/code&gt;模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。&lt;/p&gt;
+&lt;p&gt;在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用&lt;code&gt;Backbone&lt;/code&gt;这类的框架显得页面静态资源稍微臃肿。&lt;/p&gt;
+&lt;p&gt;请先阅读 &lt;a href=&quot;http://purplebamboo.github.io/2015/03/16/javascript-component/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;javascript组件化&lt;/a&gt; 这篇文章，本文中的 &lt;code&gt;Spine&lt;/code&gt;是基于该文章的源码进行改进&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Spine&lt;/code&gt;提供我们 &lt;code&gt;oo&lt;/code&gt; 编程语法糖，组件于组件之间通过继承扩展来开发富应用组件，同时事件通过订阅-发布的模式实现，内置了 &lt;code&gt;underscore&lt;/code&gt; 的 &lt;code&gt;template&lt;/code&gt; 功能。完整的实现了 &lt;code&gt;Mini&lt;/code&gt; 版的 &lt;code&gt;Backbone&lt;/code&gt;功能，相比之下少了 &lt;code&gt;router&lt;/code&gt;功能（可以参照使用&lt;a href=&quot;https://github.com/flatiron/director&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;director.js&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h2&gt;&lt;p&gt;首先我们来看看 &lt;code&gt;Spine&lt;/code&gt; 的使用语法，跟 &lt;code&gt;Backbone&lt;/code&gt; 的用法相似我们使用 &lt;code&gt;Spine.extend&lt;/code&gt; 函数来扩展一个组件类。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;初始化&quot;&gt;&lt;a href=&quot;#初始化&quot; class=&quot;headerlink&quot; title=&quot;初始化&quot;&gt;&lt;/a&gt;初始化&lt;/h3&gt;&lt;p&gt;我们定义了 &lt;code&gt;initiliaze&lt;/code&gt; 函数，类似于 &lt;code&gt;AppView&lt;/code&gt; 的构造函数，在函数内部我们可以直接用 &lt;code&gt;this&lt;/code&gt; 去获取对象的方法或配置参数&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; msg = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.get(&lt;span class=&quot;string&quot;&gt;&#39;greeting&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.sayHi(msg)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    sayHi: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;msg&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(msg)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当我们没有去实例化 &lt;code&gt;AppView&lt;/code&gt;时，并不会执行初始化里面的语句。那我们如何去调用呢？&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AppView(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    greeting: &lt;span class=&quot;string&quot;&gt;&#39;Hello World&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这时候我们在浏览器的控制台可以看到打印出来 &lt;code&gt;Hello World&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;事件绑定&quot;&gt;&lt;a href=&quot;#事件绑定&quot; class=&quot;headerlink&quot; title=&quot;事件绑定&quot;&gt;&lt;/a&gt;事件绑定&lt;/h3&gt;&lt;p&gt;既然是组件必少不了用户点击交互等事件，在 &lt;code&gt;Spine&lt;/code&gt; 里面如何去绑定事件呢？ &lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;EVENTS&lt;/code&gt; 配置对象去声明，先声明 &lt;code&gt;选择器：{ event1:fn, event2: fn }&lt;/code&gt;,这点有区别于 &lt;code&gt;Backbone&lt;/code&gt; 中的写法 &lt;code&gt;选择器 event1: fn,选择器 event2: fn&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// ...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    EVENTS: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&#39;.btn&#39;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            click: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, e)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                e.preventDefault()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// self 指向实例对象&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.sayHi()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;实例化 &lt;code&gt;AppView&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AppView(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    parentNode: &lt;span class=&quot;string&quot;&gt;&#39;#demo&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意，声明绑定事件时最好在实例化传入配置参数 &lt;code&gt;parentNode&lt;/code&gt; 表示 dom 的作用域，忽略不传默认为 &lt;code&gt;document.body&lt;/code&gt; 用于作为事件代理的主容器，同于 &lt;code&gt;Backbone&lt;/code&gt; 当中的 &lt;code&gt;el&lt;/code&gt; 参数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Spine&lt;/code&gt; 的事件绑定同于 &lt;code&gt;jQuery&lt;/code&gt; 的绑定方法，比如第三方插件的事件&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;params&quot;&gt;...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    EVENTS: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&#39;.datetime&#39;&lt;/span&gt; : &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;// self - 实例化对象&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;// e - jquery 中事件默认参数 event&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;// date 第三方插件提供的event data &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;string&quot;&gt;&#39;choose.ui.datetimepicker&#39;&lt;/span&gt;: function(&lt;span class=&quot;built_in&quot;&gt;self&lt;/span&gt;, e, &lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;self&lt;/span&gt;.fetch(&amp;#123; &lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt; &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;params&quot;&gt;...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;模板视图&quot;&gt;&lt;a href=&quot;#模板视图&quot; class=&quot;headerlink&quot; title=&quot;模板视图&quot;&gt;&lt;/a&gt;模板视图&lt;/h3&gt;&lt;p&gt;既然是 （m）vc 库自然少不了 &lt;code&gt;view&lt;/code&gt; 模板引擎，&lt;code&gt;Spine&lt;/code&gt; 使用的是 &lt;code&gt;underscore&lt;/code&gt; 的 &lt;code&gt;template&lt;/code&gt;，语法相同&lt;/p&gt;
+&lt;figure class=&quot;highlight django&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;app&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;listView&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- list 模板 --&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/html&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;listView-tmpl&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;handlebars&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;attr&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;i&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;0;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;i&lt;/span&gt; &amp;lt; &lt;span class=&quot;attr&quot;&gt;list.length&lt;/span&gt;; &lt;span class=&quot;attr&quot;&gt;i&lt;/span&gt;++) &amp;#123; %&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;%= &lt;span class=&quot;name&quot;&gt;list&lt;/span&gt;[i].value %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;handlebars&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;%&lt;/span&gt; &amp;#125; %&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;js 中声明&lt;/p&gt;
+&lt;figure class=&quot;highlight kotlin&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: function() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$view = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;view&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;template&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; listData = [&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;text: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, value: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;text: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, value: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;text: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, value: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        ]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.render(listData) &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    render(&lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$view.empty().html(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._parseTemplate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template, &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;))&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;扩展视图纯填充组件&quot;&gt;&lt;a href=&quot;#扩展视图纯填充组件&quot; class=&quot;headerlink&quot; title=&quot;扩展视图纯填充组件&quot;&gt;&lt;/a&gt;扩展视图纯填充组件&lt;/h3&gt;&lt;figure class=&quot;highlight kotlin&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 通用视图对象&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 依赖Spine.js&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 扩展SpineJS&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// by tommyshao&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// ---------&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; PartialView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initialize: function() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 实例化获取配置&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$el = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;parentNode&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;template&#39;&lt;/span&gt;).html();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 外部定义事件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.EVENTS = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;EVENTS&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._delegateEvent();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 惰性渲染&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// data接收数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    render: function(&lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt; || &amp;#123;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 利用内置模板引擎编译模板获取编译后的内容&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; template = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._parseTemplate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template, &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 重新渲染数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$el.empty().append(template);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/* &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Spine.min = function(config) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return new PartialView(config)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*/&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;使用方式&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; listView = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; PartialView(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    parentNode: $(&lt;span class=&quot;string&quot;&gt;&#39;#listView&#39;&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    template: $(&lt;span class=&quot;string&quot;&gt;&#39;#listView-tmpl&#39;&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    EVENTS: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 自定义事件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;" data-url="http://tomieric.github.io/2016/03/14/jQuery-Spine/">
+        <div class="ds-share-inline">
+          <ul  class="ds-share-icons-16">
+            
+            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+            
+          </ul>
+          <div class="ds-share-icons-more">
+          </div>
+        </div>
+     </div>
+    </div> 
+</div>
+
+
+        
+            <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/03/14/jQuery-Spine/" data-title="基于jQuery的（m）VC 库" data-url="http://tomieric.github.io/2016/03/14/jQuery-Spine/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"getf2e"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2012 - 2016 TommyShao. All Rights Reserved. Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme by <a target="_blank" href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/">tranquilpeak</a>
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/21/get-stared-use-es6/" data-tooltip="拥抱ES6(一) - 认识babel">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="post-actions post-action-share" style="float: left;padding-top:15px">
+    <div class="ds-share" data-thread-key="2016/03/14/jQuery-Spine/" data-title="基于jQuery的（m）VC 库" data-images="" data-content="&lt;blockquote&gt;
+&lt;p&gt;此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以往我们做数据填充时经常搭配&lt;code&gt;jquery.tmpl.js&lt;/code&gt;或则&lt;code&gt;arttemplate.js&lt;/code&gt;模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。&lt;/p&gt;
+&lt;p&gt;在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用&lt;code&gt;Backbone&lt;/code&gt;这类的框架显得页面静态资源稍微臃肿。&lt;/p&gt;
+&lt;p&gt;请先阅读 &lt;a href=&quot;http://purplebamboo.github.io/2015/03/16/javascript-component/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;javascript组件化&lt;/a&gt; 这篇文章，本文中的 &lt;code&gt;Spine&lt;/code&gt;是基于该文章的源码进行改进&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Spine&lt;/code&gt;提供我们 &lt;code&gt;oo&lt;/code&gt; 编程语法糖，组件于组件之间通过继承扩展来开发富应用组件，同时事件通过订阅-发布的模式实现，内置了 &lt;code&gt;underscore&lt;/code&gt; 的 &lt;code&gt;template&lt;/code&gt; 功能。完整的实现了 &lt;code&gt;Mini&lt;/code&gt; 版的 &lt;code&gt;Backbone&lt;/code&gt;功能，相比之下少了 &lt;code&gt;router&lt;/code&gt;功能（可以参照使用&lt;a href=&quot;https://github.com/flatiron/director&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;director.js&lt;/a&gt;)&lt;/p&gt;
+&lt;h2 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot; title=&quot;语法&quot;&gt;&lt;/a&gt;语法&lt;/h2&gt;&lt;p&gt;首先我们来看看 &lt;code&gt;Spine&lt;/code&gt; 的使用语法，跟 &lt;code&gt;Backbone&lt;/code&gt; 的用法相似我们使用 &lt;code&gt;Spine.extend&lt;/code&gt; 函数来扩展一个组件类。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;初始化&quot;&gt;&lt;a href=&quot;#初始化&quot; class=&quot;headerlink&quot; title=&quot;初始化&quot;&gt;&lt;/a&gt;初始化&lt;/h3&gt;&lt;p&gt;我们定义了 &lt;code&gt;initiliaze&lt;/code&gt; 函数，类似于 &lt;code&gt;AppView&lt;/code&gt; 的构造函数，在函数内部我们可以直接用 &lt;code&gt;this&lt;/code&gt; 去获取对象的方法或配置参数&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; msg = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.get(&lt;span class=&quot;string&quot;&gt;&#39;greeting&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.sayHi(msg)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    sayHi: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;msg&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(msg)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当我们没有去实例化 &lt;code&gt;AppView&lt;/code&gt;时，并不会执行初始化里面的语句。那我们如何去调用呢？&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AppView(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    greeting: &lt;span class=&quot;string&quot;&gt;&#39;Hello World&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这时候我们在浏览器的控制台可以看到打印出来 &lt;code&gt;Hello World&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;事件绑定&quot;&gt;&lt;a href=&quot;#事件绑定&quot; class=&quot;headerlink&quot; title=&quot;事件绑定&quot;&gt;&lt;/a&gt;事件绑定&lt;/h3&gt;&lt;p&gt;既然是组件必少不了用户点击交互等事件，在 &lt;code&gt;Spine&lt;/code&gt; 里面如何去绑定事件呢？ &lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;EVENTS&lt;/code&gt; 配置对象去声明，先声明 &lt;code&gt;选择器：{ event1:fn, event2: fn }&lt;/code&gt;,这点有区别于 &lt;code&gt;Backbone&lt;/code&gt; 中的写法 &lt;code&gt;选择器 event1: fn,选择器 event2: fn&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// ...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    EVENTS: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&#39;.btn&#39;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            click: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, e)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                e.preventDefault()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;// self 指向实例对象&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.sayHi()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;实例化 &lt;code&gt;AppView&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AppView(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    parentNode: &lt;span class=&quot;string&quot;&gt;&#39;#demo&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意，声明绑定事件时最好在实例化传入配置参数 &lt;code&gt;parentNode&lt;/code&gt; 表示 dom 的作用域，忽略不传默认为 &lt;code&gt;document.body&lt;/code&gt; 用于作为事件代理的主容器，同于 &lt;code&gt;Backbone&lt;/code&gt; 当中的 &lt;code&gt;el&lt;/code&gt; 参数&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Spine&lt;/code&gt; 的事件绑定同于 &lt;code&gt;jQuery&lt;/code&gt; 的绑定方法，比如第三方插件的事件&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;params&quot;&gt;...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    EVENTS: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&#39;.datetime&#39;&lt;/span&gt; : &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;// self - 实例化对象&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;// e - jquery 中事件默认参数 event&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;// date 第三方插件提供的event data &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;span class=&quot;string&quot;&gt;&#39;choose.ui.datetimepicker&#39;&lt;/span&gt;: function(&lt;span class=&quot;built_in&quot;&gt;self&lt;/span&gt;, e, &lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &lt;span class=&quot;built_in&quot;&gt;self&lt;/span&gt;.fetch(&amp;#123; &lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;date&lt;/span&gt; &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;params&quot;&gt;...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;模板视图&quot;&gt;&lt;a href=&quot;#模板视图&quot; class=&quot;headerlink&quot; title=&quot;模板视图&quot;&gt;&lt;/a&gt;模板视图&lt;/h3&gt;&lt;p&gt;既然是 （m）vc 库自然少不了 &lt;code&gt;view&lt;/code&gt; 模板引擎，&lt;code&gt;Spine&lt;/code&gt; 使用的是 &lt;code&gt;underscore&lt;/code&gt; 的 &lt;code&gt;template&lt;/code&gt;，语法相同&lt;/p&gt;
+&lt;figure class=&quot;highlight django&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;xml&quot;&gt;...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;app&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;listView&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- list 模板 --&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/html&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;listView-tmpl&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;handlebars&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;attr&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;i&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;0;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;i&lt;/span&gt; &amp;lt; &lt;span class=&quot;attr&quot;&gt;list.length&lt;/span&gt;; &lt;span class=&quot;attr&quot;&gt;i&lt;/span&gt;++) &amp;#123; %&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;template-tag&quot;&gt;&amp;#123;%= &lt;span class=&quot;name&quot;&gt;list&lt;/span&gt;[i].value %&amp;#125;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;handlebars&quot;&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;%&lt;/span&gt; &amp;#125; %&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;js 中声明&lt;/p&gt;
+&lt;figure class=&quot;highlight kotlin&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; AppView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initiliaze: function() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$view = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;view&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;template&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; listData = [&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;text: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, value: &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;text: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, value: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#123;text: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, value: &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        ]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.render(listData) &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    render(&lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$view.empty().html(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._parseTemplate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template, &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;))&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;扩展视图纯填充组件&quot;&gt;&lt;a href=&quot;#扩展视图纯填充组件&quot; class=&quot;headerlink&quot; title=&quot;扩展视图纯填充组件&quot;&gt;&lt;/a&gt;扩展视图纯填充组件&lt;/h3&gt;&lt;figure class=&quot;highlight kotlin&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 通用视图对象&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 依赖Spine.js&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 扩展SpineJS&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// by tommyshao&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// ---------&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; PartialView = Spine.extend(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 初始化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    initialize: function() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 实例化获取配置&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$el = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;parentNode&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;template&#39;&lt;/span&gt;).html();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 外部定义事件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.EVENTS = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;EVENTS&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._delegateEvent();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 惰性渲染&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// data接收数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    render: function(&lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt; || &amp;#123;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 利用内置模板引擎编译模板获取编译后的内容&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; template = &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._parseTemplate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.template, &lt;span class=&quot;keyword&quot;&gt;data&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 重新渲染数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.$el.empty().append(template);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/* &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Spine.min = function(config) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    return new PartialView(config)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*/&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;使用方式&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; listView = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; PartialView(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    parentNode: $(&lt;span class=&quot;string&quot;&gt;&#39;#listView&#39;&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    template: $(&lt;span class=&quot;string&quot;&gt;&#39;#listView-tmpl&#39;&lt;/span&gt;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    EVENTS: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 自定义事件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;" data-url="http://tomieric.github.io/2016/03/14/jQuery-Spine/">
+        <div class="ds-share-inline">
+          <ul  class="ds-share-icons-16">
+            
+            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+            
+          </ul>
+          <div class="ds-share-icons-more">
+          </div>
+        </div>
+     </div>
+    </div> 
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://tomieric.github.io/2016/03/14/jQuery-Spine/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://tomieric.github.io/2016/03/14/jQuery-Spine/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://tomieric.github.io/2016/03/14/jQuery-Spine/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?appkey=583395093&amp;title=&amp;url=http://tomieric.github.io/2016/03/14/jQuery-Spine/&amp;source=bshare&amp;retcode=0&amp;ralateUid=1799786352">
+                <i class="fa fa-weibo"></i><span>分享到 微博</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar.jpg"/>
+        
+            <h4 id="about-card-name">TommyShao</h4>
+        
+            <h5 id="about-card-bio"><p>只想做一位安静切图的美男子</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>前端开发工程师</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                中国 广州
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+</html>

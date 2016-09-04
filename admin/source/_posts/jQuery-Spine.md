@@ -1,5 +1,5 @@
 title: 基于jQuery的（m）VC 库
-date: 2016/02/14
+date: 2016/03/14
 thumbnailImage: http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg
 autoThumbnailImage: yes
 tags:

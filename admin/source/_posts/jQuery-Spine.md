@@ -16,6 +16,8 @@ categories: javascript
 
 在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用`Backbone`这类的框架显得页面静态资源稍微臃肿。
 
+<!-- more -->
+
 请先阅读 [javascript组件化](http://purplebamboo.github.io/2015/03/16/javascript-component/) 这篇文章，本文中的 `Spine`是基于该文章的源码进行改进
 
 `Spine`提供我们 `oo` 编程语法糖，组件于组件之间通过继承扩展来开发富应用组件，同时事件通过订阅-发布的模式实现，内置了 `underscore` 的 `template` 功能。完整的实现了 `Mini` 版的 `Backbone`功能，相比之下少了 `router`功能（可以参照使用[director.js](https://github.com/flatiron/director))

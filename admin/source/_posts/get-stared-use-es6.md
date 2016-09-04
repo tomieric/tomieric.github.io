@@ -17,6 +17,8 @@ EMAscript已经发布了`es2015`也就是`ES6`, 提供了丰富的API和函数�
 
 早在`ES6`发布前，`babel`已经活跃在前端开发社区中，比如facebooke的开源框架`react`就很早使用了`babel`
 
+<!-- more -->
+
 ## 安装babel
 
 ```

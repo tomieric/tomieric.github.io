@@ -12,15 +12,15 @@
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="前端|css|html5|css3|jquery|javascript|nodejs|angular|angularjs|backbone|移动开发">
+    <meta name="description" content="前端|css|html5|css3|jquery|javascript|nodejs|react|vue|angular|angularjs|backbone|移动开发">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="前端 - 分享园">
 <meta property="og:url" content="http://tomieric.github.io/archives/2016/index.html">
 <meta property="og:site_name" content="前端 - 分享园">
-<meta property="og:description" content="前端|css|html5|css3|jquery|javascript|nodejs|angular|angularjs|backbone|移动开发">
+<meta property="og:description" content="前端|css|html5|css3|jquery|javascript|nodejs|react|vue|angular|angularjs|backbone|移动开发">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端 - 分享园">
-<meta name="twitter:description" content="前端|css|html5|css3|jquery|javascript|nodejs|angular|angularjs|backbone|移动开发">
+<meta name="twitter:description" content="前端|css|html5|css3|jquery|javascript|nodejs|react|vue|angular|angularjs|backbone|移动开发">
 <meta name="twitter:creator" content="@tomieric">
     
         <meta rel="publisher" content="https://plus.google.com/+tomieric"/>
@@ -33,7 +33,7 @@
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
     <!--STYLES END-->
     
     <script type="text/javascript">
@@ -68,7 +68,7 @@
     
         
             <a  class="header-right-picture "
-                href="/#about">
+                href="#about">
         
         
             <img class="header-picture" src="/assets/images/avatar.jpg"/>
@@ -147,7 +147,7 @@
             <li class="sidebar-button">
                 
                     <a  class="sidebar-button-link st-search-show-outputs"
-                         href="/#search"
+                         href="#search"
                         
                     >
                 
@@ -235,38 +235,38 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/post/20160107202032_470.jpg" alt=" Lost ES6"><span class="caption"> Lost ES6</span></div><!-- content -->
+                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/post/20160107202032_470.jpg" alt="Lost ES6"><span class="caption">Lost ES6</span></div><!-- content -->
 <blockquote>
 <p>Babel 是一个 JavaScript 编译器。<br>今天就来用下一代 JavaScript 语法写代码吧！</p>
 </blockquote>
 <p>EMAscript已经发布了<code>es2015</code>也就是<code>ES6</code>, 提供了丰富的API和函数编程语法，但由于各浏览器的支持性还是有限，我们需要折衷的办法——编译器。</p>
 <p>早在<code>ES6</code>发布前，<code>babel</code>已经活跃在前端开发社区中，比如facebooke的开源框架<code>react</code>就很早使用了<code>babel</code></p>
-<h2 id="安装babel"><a href="#安装babel" class="headerlink" title="安装babel"></a>安装babel</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[sudo] npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> babel</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装babel"><a href="#安装babel" class="headerlink" title="安装babel"></a>安装babel</h2><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">[sudo]</span> npm install -g babel</div></pre></td></tr></table></figure>
 <p>安装完成后可以在终端中使用<code>babel</code>命令</p>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
 <li><code>-o</code> 编译输出文件</li>
 <li><code>-s [inline]</code> 生成<code>sourcemap</code>文件</li>
 </ul>
 <p><strong>example</strong></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</div></pre></td></tr></table></figure>
 <p>用<code>*.es</code>命名文件是更好的区分es6语法源文件和编译文件</p>
 <p>babel有许多优秀的插件，利用插件我们可以将<code>es6</code>语法转化成相应的对应<code>javascript</code>版本文件</p>
 <p><strong>插件集合</strong></p>
 <p><a href="http://babeljs.io/docs/plugins/" target="_blank" rel="external">http://babeljs.io/docs/plugins/</a></p>
 <p>我们需要通过使用插件来支持最新的<code>es</code>语法，现在我们使用最新的<code>ES6</code>语法，将使用<code>ES2015 preset</code>这个插件</p>
 <p><a href="http://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external">http://babeljs.io/docs/plugins/preset-es2015/</a></p>
-<h3 id="安装-babel-preset-es2015"><a href="#安装-babel-preset-es2015" class="headerlink" title="安装 babel-preset-es2015"></a>安装 <code>babel-preset-es2015</code></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> babel-preset-es2015</span><br></pre></td></tr></table></figure>
+<h3 id="安装-babel-preset-es2015"><a href="#安装-babel-preset-es2015" class="headerlink" title="安装 babel-preset-es2015"></a>安装 <code>babel-preset-es2015</code></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> babel-preset-es2015</div></pre></td></tr></table></figure>
 <h3 id="配置-babelrc"><a href="#配置-babelrc" class="headerlink" title="配置.babelrc"></a>配置<code>.babelrc</code></h3><p>babel的编译可以通过读取<code>.babelrc</code>文件配置中的<code>presets</code>插件集进行编译。</p>
 <p>为项目创建一个<code>.babelrc</code> 文件</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">touch</span> <span class="class">.babelrc</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">touch</span> <span class="selector-class">.babelrc</span></div></pre></td></tr></table></figure>
 <p>我们可以看到当前目录下增加了这个文件，然后编辑声明使用<code>es2015</code></p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .babelrc</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">"presets"</span> : [<span class="string">"es2015"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// .babelrc</span></div><div class="line">&#123;</div><div class="line">	<span class="string">"presets"</span> : [<span class="string">"es2015"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>重新编译<code>script.es</code>文件</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</div></pre></td></tr></table></figure>
 <p>源文件：</p>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// script.es</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// script.es</span></div><div class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</div></pre></td></tr></table></figure>
 <p>编译完成文件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// script.js</span></span><br><span class="line"><span class="pi">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//# sourceMappingURL=script.js.map</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// script.js</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="comment">//# sourceMappingURL=script.js.map</span></div></pre></td></tr></table></figure>
 <h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://babeljs.io/" target="_blank" rel="external">http://babeljs.io/</a></p>
 <p><a href="http://babeljs.cn/" target="_blank" rel="external">http://babeljs.cn/ 中文</a></p>
 <p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
@@ -315,7 +315,7 @@
                 
                 
                     <div class="postShorten-content" itemprop="articleBody">
-                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/background.jpg" alt=" A beautiful sunrise"><span class="caption"> A beautiful sunrise</span></div><!-- content -->
+                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/background.jpg" alt="A beautiful sunrise"><span class="caption">A beautiful sunrise</span></div><!-- content -->
 <p>由于旧博客用<code>airpub.io</code>，多说的账号被<code>CSRF</code>攻击造成大部分博文被注入删除</p>
 <p>说多了都是泪<del>~~(&gt;_&lt;)</del>~~</p>
 <p>已经决定了新博客用<code>hexo</code></p>
@@ -340,6 +340,84 @@
                         
                             <p>
                                 <a href="/2016/02/20/hello-world/#post-footer" class="postShorten-excerpt_link link">
+                                    评论&分享
+                                </a>
+                            </p>
+                        
+                    </div>
+                
+            </div>
+            
+        </article>
+    
+        
+        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+            <div class="postShorten-wrap">
+                <div class="postShorten-header">
+                    <h1 class="postShorten-title" itemprop="headline">
+                        
+                                <a class="link-unstyled" href="/2016/02/14/jQuery-Spine/">基于jQuery的（m）VC 库</a>
+                        
+                    </h1>
+                    <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sun Feb 14 2016 00:00:00 GMT+0800">
+	
+		    2月 14, 2016
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/javascript/">javascript</a>
+
+
+    
+</div>
+                </div>
+                
+                    <div class="postShorten-thumbnailimg postShorten-thumbnailimg--bottom">
+                        <img alt="" itemprop="image" src="http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
+                    </div>
+                    
+                
+                
+                    <div class="postShorten-content" itemprop="articleBody">
+                        <blockquote>
+<p>此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说</p>
+</blockquote>
+<p>以往我们做数据填充时经常搭配<code>jquery.tmpl.js</code>或则<code>arttemplate.js</code>模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。</p>
+<p>在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用<code>Backbone</code>这类的框架显得页面静态资源稍微臃肿。</p>
+<p>请先阅读 <a href="http://purplebamboo.github.io/2015/03/16/javascript-component/" target="_blank" rel="external">javascript组件化</a> 这篇文章，本文中的 <code>Spine</code>是基于该文章的源码进行改进</p>
+<p><code>Spine</code>提供我们 <code>oo</code> 编程语法糖，组件于组件之间通过继承扩展来开发富应用组件，同时事件通过订阅-发布的模式实现，内置了 <code>underscore</code> 的 <code>template</code> 功能。完整的实现了 <code>Mini</code> 版的 <code>Backbone</code>功能，相比之下少了 <code>router</code>功能（可以参照使用<a href="https://github.com/flatiron/director" target="_blank" rel="external">director.js</a>)</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>首先我们来看看 <code>Spine</code> 的使用语法，跟 <code>Backbone</code> 的用法相似我们使用 <code>Spine.extend</code> 函数来扩展一个组件类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>我们定义了 <code>initiliaze</code> 函数，类似于 <code>AppView</code> 的构造函数，在函数内部我们可以直接用 <code>this</code> 去获取对象的方法或配置参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> msg = <span class="keyword">this</span>.get(<span class="string">'greeting'</span>)</div><div class="line">        <span class="keyword">this</span>.sayHi(msg)</div><div class="line">    &#125;,</div><div class="line">    sayHi: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(msg)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>当我们没有去实例化 <code>AppView</code>时，并不会执行初始化里面的语句。那我们如何去调用呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    greeting: <span class="string">'Hello World'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>这时候我们在浏览器的控制台可以看到打印出来 <code>Hello World</code></p>
+<h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p>既然是组件必少不了用户点击交互等事件，在 <code>Spine</code> 里面如何去绑定事件呢？ </p>
+<p>通过 <code>EVENTS</code> 配置对象去声明，先声明 <code>选择器：{ event1:fn, event2: fn }</code>,这点有区别于 <code>Backbone</code> 中的写法 <code>选择器 event1: fn,选择器 event2: fn</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;,</div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="string">'.btn'</span>: &#123;</div><div class="line">            click: <span class="function"><span class="keyword">function</span><span class="params">(self, e)</span> </span>&#123;</div><div class="line">                e.preventDefault()</div><div class="line"></div><div class="line">                <span class="comment">// self 指向实例对象</span></div><div class="line">                <span class="keyword">self</span>.sayHi()</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>实例化 <code>AppView</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    parentNode: <span class="string">'#demo'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>注意，声明绑定事件时最好在实例化传入配置参数 <code>parentNode</code> 表示 dom 的作用域，忽略不传默认为 <code>document.body</code> 用于作为事件代理的主容器，同于 <code>Backbone</code> 当中的 <code>el</code> 参数</p>
+<p><code>Spine</code> 的事件绑定同于 <code>jQuery</code> 的绑定方法，比如第三方插件的事件</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="params">...</span></div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="string">'.datetime'</span> : &#123;</div><div class="line">            <span class="comment">// self - 实例化对象</span></div><div class="line">            <span class="comment">// e - jquery 中事件默认参数 event</span></div><div class="line">            <span class="comment">// date 第三方插件提供的event data </span></div><div class="line">            <span class="string">'choose.ui.datetimepicker'</span>: function(<span class="built_in">self</span>, e, <span class="built_in">date</span>) &#123;</div><div class="line">                <span class="built_in">self</span>.fetch(&#123; <span class="built_in">date</span>: <span class="built_in">date</span> &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="params">...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="模板视图"><a href="#模板视图" class="headerlink" title="模板视图"></a>模板视图</h3><p>既然是 （m）vc 库自然少不了 <code>view</code> 模板引擎，<code>Spine</code> 使用的是 <code>underscore</code> 的 <code>template</code>，语法相同</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="xml">...</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    ...</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"listView"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- list 模板 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/html"</span> <span class="attr">id</span>=<span class="string">"listView-tmpl"</span>&gt;</span><span class="handlebars"><span class="xml"></span></span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span>(<span class="attr">var</span> <span class="attr">i</span> = <span class="string">0;</span> <span class="attr">i</span> &lt; <span class="attr">list.length</span>; <span class="attr">i</span>++) &#123; %&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="template-tag">&#123;%= <span class="name">list</span>[i].value %&#125;</span><span class="xml"><span class="handlebars"><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span></div><div class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>js 中声明</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    initiliaze: function() &#123;</div><div class="line">        <span class="keyword">this</span>.$view = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'view'</span>)</div><div class="line">        <span class="keyword">this</span>.template = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'template'</span>)</div><div class="line"></div><div class="line">        <span class="keyword">var</span> listData = [</div><div class="line">            &#123;text: <span class="number">1</span>, value: <span class="number">1</span>&#125;</div><div class="line">            &#123;text: <span class="number">2</span>, value: <span class="number">2</span>&#125;</div><div class="line">            &#123;text: <span class="number">3</span>, value: <span class="number">3</span>&#125;</div><div class="line">            ...</div><div class="line">        ]</div><div class="line">        <span class="keyword">this</span>.render(listData) </div><div class="line">    &#125;,</div><div class="line">    render(<span class="keyword">data</span>) &#123;</div><div class="line">        <span class="keyword">this</span>.$view.empty().html(<span class="keyword">this</span>._parseTemplate(<span class="keyword">this</span>.template, <span class="keyword">data</span>))</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="扩展视图纯填充组件"><a href="#扩展视图纯填充组件" class="headerlink" title="扩展视图纯填充组件"></a>扩展视图纯填充组件</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通用视图对象</span></div><div class="line"><span class="comment">// 依赖Spine.js</span></div><div class="line"><span class="comment">// 扩展SpineJS</span></div><div class="line"><span class="comment">// by tommyshao</span></div><div class="line"><span class="comment">// ---------</span></div><div class="line"><span class="keyword">var</span> PartialView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initialize: function() &#123;</div><div class="line">        <span class="comment">// 实例化获取配置</span></div><div class="line">        <span class="keyword">this</span>.$el = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'parentNode'</span>);</div><div class="line">        <span class="keyword">this</span>.template = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'template'</span>).html();</div><div class="line"></div><div class="line">        </div><div class="line">        <span class="comment">// 外部定义事件</span></div><div class="line">        <span class="keyword">this</span>.EVENTS = <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'EVENTS'</span>);</div><div class="line">        <span class="keyword">this</span>._delegateEvent();</div><div class="line"></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// 惰性渲染</span></div><div class="line">    <span class="comment">// data接收数据</span></div><div class="line">    render: function(<span class="keyword">data</span>) &#123;</div><div class="line">        <span class="keyword">data</span> = <span class="keyword">data</span> || &#123;&#125;;</div><div class="line">        <span class="comment">// 利用内置模板引擎编译模板获取编译后的内容</span></div><div class="line">        <span class="keyword">var</span> template = <span class="keyword">this</span>._parseTemplate(<span class="keyword">this</span>.template, <span class="keyword">data</span>);</div><div class="line">        <span class="comment">// 重新渲染数据</span></div><div class="line">        <span class="keyword">this</span>.$el.empty().append(template);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/* </span></div><div class="line">Spine.min = function(config) &#123;</div><div class="line">    return new PartialView(config)</div><div class="line">&#125; </div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>使用方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> listView = <span class="keyword">new</span> PartialView(&#123;</div><div class="line">    parentNode: $(<span class="string">'#listView'</span>),</div><div class="line">    template: $(<span class="string">'#listView-tmpl'</span>),</div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="comment">// 自定义事件</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+                        
+                            
+
+                        
+                        
+                            <p>
+                                <a href="/2016/02/14/jQuery-Spine/#post-footer" class="postShorten-excerpt_link link">
                                     评论&分享
                                 </a>
                             </p>
@@ -413,7 +491,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<script src="/assets/js/script.min.js"></script>
 <!--SCRIPTS END-->
 
 </html>

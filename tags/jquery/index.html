@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="前端 - 分享园">
-    <title>归档: 2016/2 - 前端 - 分享园</title>
+    <title>标签: jquery - 前端 - 分享园</title>
     <meta name="author" content="TommyShao">
     
     
@@ -15,7 +15,7 @@
     <meta name="description" content="前端|css|html5|css3|jquery|javascript|nodejs|react|vue|angular|angularjs|backbone|移动开发">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="前端 - 分享园">
-<meta property="og:url" content="http://tomieric.github.io/archives/2016/02/index.html">
+<meta property="og:url" content="http://tomieric.github.io/tags/jquery/index.html">
 <meta property="og:site_name" content="前端 - 分享园">
 <meta property="og:description" content="前端|css|html5|css3|jquery|javascript|nodejs|react|vue|angular|angularjs|backbone|移动开发">
 <meta name="twitter:card" content="summary">
@@ -214,148 +214,6 @@
                 <div class="postShorten-header">
                     <h1 class="postShorten-title" itemprop="headline">
                         
-                                <a class="link-unstyled" href="/2016/02/21/get-stared-use-es6/">拥抱ES6(一) - 认识babel</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Sun Feb 21 2016 00:00:00 GMT+0800">
-	
-		    2月 21, 2016
-    	
-    </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/javascript/">javascript</a>
-
-
-    
-</div>
-                </div>
-                
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/post/20160107202032_470.jpg" alt="Lost ES6"><span class="caption">Lost ES6</span></div><!-- content -->
-<blockquote>
-<p>Babel 是一个 JavaScript 编译器。<br>今天就来用下一代 JavaScript 语法写代码吧！</p>
-</blockquote>
-<p>EMAscript已经发布了<code>es2015</code>也就是<code>ES6</code>, 提供了丰富的API和函数编程语法，但由于各浏览器的支持性还是有限，我们需要折衷的办法——编译器。</p>
-<p>早在<code>ES6</code>发布前，<code>babel</code>已经活跃在前端开发社区中，比如facebooke的开源框架<code>react</code>就很早使用了<code>babel</code></p>
-<h2 id="安装babel"><a href="#安装babel" class="headerlink" title="安装babel"></a>安装babel</h2><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">[sudo]</span> npm install -g babel</div></pre></td></tr></table></figure>
-<p>安装完成后可以在终端中使用<code>babel</code>命令</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
-<li><code>-o</code> 编译输出文件</li>
-<li><code>-s [inline]</code> 生成<code>sourcemap</code>文件</li>
-</ul>
-<p><strong>example</strong></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</div></pre></td></tr></table></figure>
-<p>用<code>*.es</code>命名文件是更好的区分es6语法源文件和编译文件</p>
-<p>babel有许多优秀的插件，利用插件我们可以将<code>es6</code>语法转化成相应的对应<code>javascript</code>版本文件</p>
-<p><strong>插件集合</strong></p>
-<p><a href="http://babeljs.io/docs/plugins/" target="_blank" rel="external">http://babeljs.io/docs/plugins/</a></p>
-<p>我们需要通过使用插件来支持最新的<code>es</code>语法，现在我们使用最新的<code>ES6</code>语法，将使用<code>ES2015 preset</code>这个插件</p>
-<p><a href="http://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external">http://babeljs.io/docs/plugins/preset-es2015/</a></p>
-<h3 id="安装-babel-preset-es2015"><a href="#安装-babel-preset-es2015" class="headerlink" title="安装 babel-preset-es2015"></a>安装 <code>babel-preset-es2015</code></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> babel-preset-es2015</div></pre></td></tr></table></figure>
-<h3 id="配置-babelrc"><a href="#配置-babelrc" class="headerlink" title="配置.babelrc"></a>配置<code>.babelrc</code></h3><p>babel的编译可以通过读取<code>.babelrc</code>文件配置中的<code>presets</code>插件集进行编译。</p>
-<p>为项目创建一个<code>.babelrc</code> 文件</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">touch</span> <span class="selector-class">.babelrc</span></div></pre></td></tr></table></figure>
-<p>我们可以看到当前目录下增加了这个文件，然后编辑声明使用<code>es2015</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// .babelrc</span></div><div class="line">&#123;</div><div class="line">	<span class="string">"presets"</span> : [<span class="string">"es2015"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>重新编译<code>script.es</code>文件</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</div></pre></td></tr></table></figure>
-<p>源文件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// script.es</span></div><div class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</div></pre></td></tr></table></figure>
-<p>编译完成文件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// script.js</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="comment">//# sourceMappingURL=script.js.map</span></div></pre></td></tr></table></figure>
-<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://babeljs.io/" target="_blank" rel="external">http://babeljs.io/</a></p>
-<p><a href="http://babeljs.cn/" target="_blank" rel="external">http://babeljs.cn/ 中文</a></p>
-<p><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6 入门</a></p>
-
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/2016/02/21/get-stared-use-es6/#post-footer" class="postShorten-excerpt_link link">
-                                    评论&分享
-                                </a>
-                            </p>
-                        
-                    </div>
-                
-            </div>
-            
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
-                                <a class="link-unstyled" href="/2016/02/20/hello-world/">Hello World</a>
-                        
-                    </h1>
-                    <div class="postShorten-meta">
-    <time itemprop="datePublished" content="Sat Feb 20 2016 00:00:00 GMT+0800">
-	
-		    2月 20, 2016
-    	
-    </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/杂谈/">杂谈</a>
-
-
-    
-</div>
-                </div>
-                
-                
-                    <div class="postShorten-content" itemprop="articleBody">
-                        <!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/background.jpg" alt="A beautiful sunrise"><span class="caption">A beautiful sunrise</span></div><!-- content -->
-<p>由于旧博客用<code>airpub.io</code>，多说的账号被<code>CSRF</code>攻击造成大部分博文被注入删除</p>
-<p>说多了都是泪<del>~~(&gt;_&lt;)</del>~~</p>
-<p>已经决定了新博客用<code>hexo</code></p>
-<h3 id="博客历程"><a href="#博客历程" class="headerlink" title="博客历程"></a>博客历程</h3><ul>
-<li>大学时期用免费asp主机，html模板</li>
-<li>上班后用博客园</li>
-<li>为了更多酷炫皮肤，用wordpress</li>
-<li>打破限制，用免费php主机跑wordpress，买过域名<code>www.fenxiangyuan.com</code></li>
-<li>累了，用gitpage，静态html，域名过期续不了，换成<code>http://www.get2e.com</code></li>
-<li>启用<code>airpub</code>,在gitpage上直接动态写文章，不用经常git操作</li>
-<li>发简历给猎头，猎头说博客东西好少，看了一下原来被攻击，好多文章丢失了，也找不回了，在多说上没有备份</li>
-<li>决定还是以静态方式，选择hexo因为模板够漂酿。实在没钱买VPS，掏捣nodejs去搭建个博客。</li>
-</ul>
-<h3 id="关于博客发布"><a href="#关于博客发布" class="headerlink" title="关于博客发布"></a>关于博客发布</h3><p>文档看的一头雾水，发布目录只能在hexo项目目录里</p>
-<p>只能把项目弄到<code>admin</code>目录，<code>hexo deploy</code>生成的<code>public</code>目录，通过<code>gulpfile</code>（工作用这个比较熟）拷贝到根目录并清空<code>public</code>目录。</p>
-<p>终于搞定了，在一个周末的下午。</p>
-
-                        
-                            
-
-                        
-                        
-                            <p>
-                                <a href="/2016/02/20/hello-world/#post-footer" class="postShorten-excerpt_link link">
-                                    评论&分享
-                                </a>
-                            </p>
-                        
-                    </div>
-                
-            </div>
-            
-        </article>
-    
-        
-        <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-            <div class="postShorten-wrap">
-                <div class="postShorten-header">
-                    <h1 class="postShorten-title" itemprop="headline">
-                        
                                 <a class="link-unstyled" href="/2016/02/14/jQuery-Spine/">基于jQuery的（m）VC 库</a>
                         
                     </h1>
@@ -437,7 +295,6 @@
 </div>
 
 </section>
-
 
 
                 <footer id="footer" class="main-content-wrap">

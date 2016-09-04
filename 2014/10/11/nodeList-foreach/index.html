@@ -32,7 +32,7 @@ callback 函数会被依次传入三个参数：
 元素值
 元素索引
 被遍历的数组对象本身">
-<meta property="og:updated_time" content="2016-02-21T14:49:24.000Z">
+<meta property="og:updated_time" content="2016-09-04T05:42:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodeList-forEach">
 <meta name="twitter:description" content="nodeList-forEach1array.forEach(callback[, thisArg])
@@ -52,13 +52,13 @@ callback 函数会被依次传入三个参数：
         <meta property="og:image" content="/assets/images/avatar.jpg"/>
     
     
-        <meta property="og:image" content="/2014/10/11/nodeList-foreach/http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
+        <meta property="og:image" content="/2014/10/11/nodeList-foreach/http:/7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
         <meta class="swiftype" name="image" data-type="enum" content="http://tomieric.github.io/2014/10/11/nodeList-foreach/http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg" />
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.min.css">
     <!--STYLES END-->
     
     <script type="text/javascript">
@@ -93,7 +93,7 @@ callback 函数会被依次传入三个参数：
     
         
             <a  class="header-right-picture "
-                href="/#about">
+                href="#about">
         
         
             <img class="header-picture" src="/assets/images/avatar.jpg"/>
@@ -172,7 +172,7 @@ callback 函数会被依次传入三个参数：
             <li class="sidebar-button">
                 
                     <a  class="sidebar-button-link st-search-show-outputs"
-                         href="/#search"
+                         href="#search"
                         
                     >
                 
@@ -256,7 +256,7 @@ callback 函数会被依次传入三个参数：
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h3 id="nodeList-forEach"><a href="#nodeList-forEach" class="headerlink" title="nodeList-forEach"></a>nodeList-forEach</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.<span class="function"><span class="title">forEach</span><span class="params">(callback[, thisArg])</span></span></span><br></pre></td></tr></table></figure>
+            <h3 id="nodeList-forEach"><a href="#nodeList-forEach" class="headerlink" title="nodeList-forEach"></a>nodeList-forEach</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">array</span><span class="selector-class">.forEach</span>(<span class="selector-tag">callback</span><span class="selector-attr">[, thisArg]</span>)</div></pre></td></tr></table></figure>
 <p><strong>描述</strong></p>
 <p>forEach 方法按升序为数组中的每个有值的元素执行一次给定的 callback<br> 函数，只有在那些有值的索引上才会调用 callback 函数，那些被删除掉的索引或者从未赋值过的索引将会被跳过。</p>
 <p>callback 函数会被依次传入三个参数：</p>
@@ -270,15 +270,15 @@ callback 函数会被依次传入三个参数：
 <p> <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach</a></p>
 <p>1.nodeList能直接使用forEach函数么？</p>
 <p>比如我们有下面这样的代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelectorAll( <span class="string">'ul.grid &gt; li &gt; figure'</span> ).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">el, i</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(el);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.querySelectorAll( <span class="string">'ul.grid &gt; li &gt; figure'</span> ).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">el, i</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(el);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>结果是出错了：</p>
-<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: Object #&lt;NodeList&gt; <span class="keyword">has</span> no <span class="function"><span class="keyword">method</span> '<span class="title">forEach</span>'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">TypeError: Object #&lt;NodeList&gt; <span class="keyword">has</span> no <span class="function"><span class="keyword">method</span> '<span class="title">forEach</span>'</span></div></pre></td></tr></table></figure>
 <p>nodeList对象是没有forEach方法的，forEach方法是数组的一个内置方法。</p>
 <p>那我们直接输出</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.<span class="function"><span class="title">querySelectorAll</span><span class="params">( <span class="string">'ul.grid &gt; li &gt; figure'</span> )</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.<span class="built_in">querySelectorAll</span>( <span class="string">'ul.grid &gt; li &gt; figure'</span> )</div></pre></td></tr></table></figure>
 <p>会得到什么，在控制台上可以看到一个数组对象。</p>
 <p>我们知道nodeList是类似数组的对象，那可以通过Array.prototype.slice将nodeList转换成数组。</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">[].slice.call<span class="list">( document.querySelectorAll<span class="list">( <span class="variable">'ul.grid</span> &gt; li &gt; figure' )</span> )</span>.forEach<span class="list">( function<span class="list">( el, i )</span> &#123;</span><br><span class="line">    console.log<span class="list">(<span class="keyword">el</span>)</span><span class="comment">;</span></span><br><span class="line">&#125;)</span><span class="comment">;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[]</span><span class="selector-class">.slice</span><span class="selector-class">.call</span>( document.querySelectorAll( <span class="string">'ul.grid &gt; li &gt; figure'</span> ) )<span class="selector-class">.forEach</span>( function( el, i ) &#123;</div><div class="line">    console<span class="selector-class">.log</span>(el);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
             
                 
@@ -319,7 +319,7 @@ callback 函数会被依次传入三个参数：
 
 
     <div class="post-actions post-action-share" style="float: left;padding-top:15px">
-    <div class="ds-share" data-thread-key="2014/10/11/nodeList-foreach/" data-title="nodeList-forEach" data-images="" data-content="&lt;h3 id=&quot;nodeList-forEach&quot;&gt;&lt;a href=&quot;#nodeList-forEach&quot; class=&quot;headerlink&quot; title=&quot;nodeList-forEach&quot;&gt;&lt;/a&gt;nodeList-forEach&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;array.&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(callback[, thisArg])&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <div class="ds-share" data-thread-key="2014/10/11/nodeList-foreach/" data-title="nodeList-forEach" data-images="" data-content="&lt;h3 id=&quot;nodeList-forEach&quot;&gt;&lt;a href=&quot;#nodeList-forEach&quot; class=&quot;headerlink&quot; title=&quot;nodeList-forEach&quot;&gt;&lt;/a&gt;nodeList-forEach&lt;/h3&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.forEach&lt;/span&gt;(&lt;span class=&quot;selector-tag&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;selector-attr&quot;&gt;[, thisArg]&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;forEach 方法按升序为数组中的每个有值的元素执行一次给定的 callback&lt;br&gt; 函数，只有在那些有值的索引上才会调用 callback 函数，那些被删除掉的索引或者从未赋值过的索引将会被跳过。&lt;/p&gt;
 &lt;p&gt;callback 函数会被依次传入三个参数：&lt;/p&gt;
@@ -333,15 +333,15 @@ callback 函数会被依次传入三个参数：
 &lt;p&gt; &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;1.nodeList能直接使用forEach函数么？&lt;/p&gt;
 &lt;p&gt;比如我们有下面这样的代码&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelectorAll( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; ).forEach(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;el, i&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(el);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelectorAll( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; ).forEach(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;el, i&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(el);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;结果是出错了：&lt;/p&gt;
-&lt;figure class=&quot;highlight oxygene&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;TypeError: Object #&amp;lt;NodeList&amp;gt; &lt;span class=&quot;keyword&quot;&gt;has&lt;/span&gt; no &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;method&lt;/span&gt; &#39;&lt;span class=&quot;title&quot;&gt;forEach&lt;/span&gt;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight oxygene&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;TypeError: Object #&amp;lt;NodeList&amp;gt; &lt;span class=&quot;keyword&quot;&gt;has&lt;/span&gt; no &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;method&lt;/span&gt; &#39;&lt;span class=&quot;title&quot;&gt;forEach&lt;/span&gt;&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;nodeList对象是没有forEach方法的，forEach方法是数组的一个内置方法。&lt;/p&gt;
 &lt;p&gt;那我们直接输出&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;document.&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;querySelectorAll&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; )&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;built_in&quot;&gt;querySelectorAll&lt;/span&gt;( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; )&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;会得到什么，在控制台上可以看到一个数组对象。&lt;/p&gt;
 &lt;p&gt;我们知道nodeList是类似数组的对象，那可以通过Array.prototype.slice将nodeList转换成数组。&lt;/p&gt;
-&lt;figure class=&quot;highlight scheme&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;list&quot;&gt;[].slice.call&lt;span class=&quot;list&quot;&gt;( document.querySelectorAll&lt;span class=&quot;list&quot;&gt;( &lt;span class=&quot;variable&quot;&gt;&#39;ul.grid&lt;/span&gt; &amp;gt; li &amp;gt; figure&#39; )&lt;/span&gt; )&lt;/span&gt;.forEach&lt;span class=&quot;list&quot;&gt;( function&lt;span class=&quot;list&quot;&gt;( el, i )&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;el&lt;/span&gt;)&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-attr&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.slice&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.call&lt;/span&gt;( document.querySelectorAll( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; ) )&lt;span class=&quot;selector-class&quot;&gt;.forEach&lt;/span&gt;( function( el, i ) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    console&lt;span class=&quot;selector-class&quot;&gt;.log&lt;/span&gt;(el);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 " data-url="http://tomieric.github.io/2014/10/11/nodeList-foreach/">
         <div class="ds-share-inline">
           <ul  class="ds-share-icons-16">
@@ -417,7 +417,7 @@ var duoshuoQuery = {short_name:"getf2e"};
 
 
     <div class="post-actions post-action-share" style="float: left;padding-top:15px">
-    <div class="ds-share" data-thread-key="2014/10/11/nodeList-foreach/" data-title="nodeList-forEach" data-images="" data-content="&lt;h3 id=&quot;nodeList-forEach&quot;&gt;&lt;a href=&quot;#nodeList-forEach&quot; class=&quot;headerlink&quot; title=&quot;nodeList-forEach&quot;&gt;&lt;/a&gt;nodeList-forEach&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;array.&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(callback[, thisArg])&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <div class="ds-share" data-thread-key="2014/10/11/nodeList-foreach/" data-title="nodeList-forEach" data-images="" data-content="&lt;h3 id=&quot;nodeList-forEach&quot;&gt;&lt;a href=&quot;#nodeList-forEach&quot; class=&quot;headerlink&quot; title=&quot;nodeList-forEach&quot;&gt;&lt;/a&gt;nodeList-forEach&lt;/h3&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.forEach&lt;/span&gt;(&lt;span class=&quot;selector-tag&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;selector-attr&quot;&gt;[, thisArg]&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;描述&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;forEach 方法按升序为数组中的每个有值的元素执行一次给定的 callback&lt;br&gt; 函数，只有在那些有值的索引上才会调用 callback 函数，那些被删除掉的索引或者从未赋值过的索引将会被跳过。&lt;/p&gt;
 &lt;p&gt;callback 函数会被依次传入三个参数：&lt;/p&gt;
@@ -431,15 +431,15 @@ var duoshuoQuery = {short_name:"getf2e"};
 &lt;p&gt; &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;1.nodeList能直接使用forEach函数么？&lt;/p&gt;
 &lt;p&gt;比如我们有下面这样的代码&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelectorAll( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; ).forEach(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;el, i&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(el);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.querySelectorAll( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; ).forEach(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;el, i&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(el);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;结果是出错了：&lt;/p&gt;
-&lt;figure class=&quot;highlight oxygene&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;TypeError: Object #&amp;lt;NodeList&amp;gt; &lt;span class=&quot;keyword&quot;&gt;has&lt;/span&gt; no &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;method&lt;/span&gt; &#39;&lt;span class=&quot;title&quot;&gt;forEach&lt;/span&gt;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight oxygene&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;TypeError: Object #&amp;lt;NodeList&amp;gt; &lt;span class=&quot;keyword&quot;&gt;has&lt;/span&gt; no &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;method&lt;/span&gt; &#39;&lt;span class=&quot;title&quot;&gt;forEach&lt;/span&gt;&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;nodeList对象是没有forEach方法的，forEach方法是数组的一个内置方法。&lt;/p&gt;
 &lt;p&gt;那我们直接输出&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;document.&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;querySelectorAll&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; )&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight dart&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.&lt;span class=&quot;built_in&quot;&gt;querySelectorAll&lt;/span&gt;( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; )&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;会得到什么，在控制台上可以看到一个数组对象。&lt;/p&gt;
 &lt;p&gt;我们知道nodeList是类似数组的对象，那可以通过Array.prototype.slice将nodeList转换成数组。&lt;/p&gt;
-&lt;figure class=&quot;highlight scheme&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;list&quot;&gt;[].slice.call&lt;span class=&quot;list&quot;&gt;( document.querySelectorAll&lt;span class=&quot;list&quot;&gt;( &lt;span class=&quot;variable&quot;&gt;&#39;ul.grid&lt;/span&gt; &amp;gt; li &amp;gt; figure&#39; )&lt;/span&gt; )&lt;/span&gt;.forEach&lt;span class=&quot;list&quot;&gt;( function&lt;span class=&quot;list&quot;&gt;( el, i )&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    console.log&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;el&lt;/span&gt;)&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight less&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-attr&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.slice&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.call&lt;/span&gt;( document.querySelectorAll( &lt;span class=&quot;string&quot;&gt;&#39;ul.grid &amp;gt; li &amp;gt; figure&#39;&lt;/span&gt; ) )&lt;span class=&quot;selector-class&quot;&gt;.forEach&lt;/span&gt;( function( el, i ) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    console&lt;span class=&quot;selector-class&quot;&gt;.log&lt;/span&gt;(el);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 " data-url="http://tomieric.github.io/2014/10/11/nodeList-foreach/">
         <div class="ds-share-inline">
           <ul  class="ds-share-icons-16">
@@ -529,7 +529,7 @@ var duoshuoQuery = {short_name:"getf2e"};
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/assets/js/script.min.js" type="text/javascript"></script>
+<script src="/assets/js/script.min.js"></script>
 <!--SCRIPTS END-->
 
 </html>

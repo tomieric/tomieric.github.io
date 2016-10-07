@@ -1,7 +1,7 @@
 {
-  "name": "airpub.io",
+  "name": "tomieric.github.io",
   "private": true,
-  "author": "turing <o.u.turing@gmail.com>",
+  "author": "tommyshao <tomieric@gmail.com>",
   "license": "MIT",
   "scripts": {
     "serve": "node_modules/.bin/serve --no-less .",
@@ -9,12 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airpub/airpub.io.git"
+    "url": "https://github.com/tomieric/tomieric.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/airpub/airpub.io/issues"
+    "url": "https://github.com/tomieric/tomieric.github.io/issues"
   },
   "devDependencies": {
-    "serve": "~1.4.0"
   }
 }

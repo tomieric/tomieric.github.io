@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="前端 - 分享园">
+    <title>配置5小时开发2分钟系列（1） - 前端 - 分享园</title>
+    <meta name="author" content="TommyShao">
+    
+    
+        <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="日暮羊城
+即时刷新的前端环境browser-sync在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。
+为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。
+在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="配置5小时开发2分钟系列（1）">
+<meta property="og:url" content="http://tomieric.github.io/2016/09/01/startkit-1/index.html">
+<meta property="og:site_name" content="前端 - 分享园">
+<meta property="og:description" content="日暮羊城
+即时刷新的前端环境browser-sync在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。
+为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。
+在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才">
+<meta property="og:image" content="http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60">
+<meta property="og:updated_time" content="2016-10-07T06:43:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配置5小时开发2分钟系列（1）">
+<meta name="twitter:description" content="日暮羊城
+即时刷新的前端环境browser-sync在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。
+为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。
+在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才">
+<meta name="twitter:image" content="http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60">
+<meta name="twitter:creator" content="@tomieric">
+    
+        <meta rel="publisher" content="https://plus.google.com/+tomieric"/>
+    
+    
+    
+        <meta property="og:image" content="/assets/images/avatar.jpg"/>
+    
+    
+        <meta property="og:image" content="/2016/09/01/startkit-1/http:/7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://tomieric.github.io/2016/09/01/startkit-1/http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg" />
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-71323455-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">前端 - 分享园</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/avatar.jpg"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar.jpg"/>
+            </a>
+            <span class="sidebar-profile-name">TommyShao</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">首页</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">分类</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">标签</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">归档</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">搜索</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/tomieric" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://weibo.com/tomieric" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-weibo"></i>
+                    <span class="sidebar-button-desc">微博</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            配置5小时开发2分钟系列（1）
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Thu Sep 01 2016 00:00:00 GMT+0800">
+	
+		    9月 01, 2016
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/前端构建/">前端构建</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            </div><div class="figure figure--fullWidth"><img class="figure-img" src="http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60" alt="日暮羊城"><span class="caption">日暮羊城</span></div><div class="main-content-wrap">
+<h2 id="即时刷新的前端环境browser-sync"><a href="#即时刷新的前端环境browser-sync" class="headerlink" title="即时刷新的前端环境browser-sync"></a>即时刷新的前端环境browser-sync</h2><p>在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。</p>
+<p>为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。</p>
+<p>在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。</p>
+<p>在本篇文章将介绍更能提供的 http 环境的强大工具 <code>browser-sync</code>，开始我们的 <code>配置5小时开发两分钟</code> 介绍。</p>
+<a id="more"></a>
+<blockquote>
+<p><code>browser-sync</code> 是一款 <code>省时的浏览器同步测试工具</code></p>
+</blockquote>
+<p><a href="https://browsersync.io/" target="_blank" rel="external">browser-sync官网</a><br><a href="http://www.browsersync.cn/" target="_blank" rel="external">中文网站</a></p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="安装browser-sync"><a href="#安装browser-sync" class="headerlink" title="安装browser-sync"></a>安装browser-sync</h3><p><code>browser-sync</code> 是基于 <code>Node</code> 环境，因此我们首先安装了 node。</p>
+<p>我们使用 <code>npm</code> 来安装  <code>browser-sync</code>，打开终端或者命令提示符</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g browser-<span class="keyword">sync</span></div></pre></td></tr></table></figure>
+<p>全局安装完毕，可以在然后目录的终端或者命令是提示符下直接使用 <code>browser-sync</code> 命令</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>即时监听文件刷新页面</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">browser-sync </span><span class="string">start </span><span class="built_in">--server</span> <span class="built_in">--files</span> <span class="string">"css/*.css, **/*.html"</span></div></pre></td></tr></table></figure>
+<p>命令行（<a href="http://www.browsersync.cn/docs/command-line/" target="_blank" rel="external">http://www.browsersync.cn/docs/command-line/</a>）太多怎么办？我们可以使用配置文件 <code>bs-config.js</code></p>
+<p>在终端（命令提示符）中输入</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">browser-sync </span>init</div></pre></td></tr></table></figure>
+<p>当前目录下自动生成了<code>bs-config.js</code>文件，可以参考<a href="http://www.browsersync.cn/docs/options/" target="_blank" rel="external">配置文档</a>进行设置</p>
+<p>怎样启动自定义的配置，在终端输入</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">browser-sync start --<span class="built_in">config</span> bs-<span class="built_in">config</span>.js</div></pre></td></tr></table></figure>
+<p>我们可不想每次都输入这个命令，而且太长不好记，有没有简单的好的办法~</p>
+<p>答案是：有！！！</p>
+<p>只需要在当前目录初始化 npm 包</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">npm</span> init -<span class="literal">yes</span></div></pre></td></tr></table></figure>
+<p>Ok!当前目录下又多了一个 <code>package.json</code> 文件，如果你接触到 node 就不会陌生了 </p>
+<p>我们修改<code>package.json</code> 中的  <code>scripts</code> 字段，增加 <code>start</code>字段</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        <span class="string">"start"</span>: <span class="string">"browser-sync start --config bs-config.js"</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>好了我们每次启动项目使用</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">npm</span> start</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="built_in">run</span> start</div></pre></td></tr></table></figure>
+<p>渐渐的项目配置文件越来越多了，怎么办下次新项目又要重新配置？因此才有了 <code>配置5小时开发两分钟系列</code>，^_^</p>
+<p>这里作者整理一个完整的 <code>browser-sync</code> 环境的构建项目模板 <a href="https://github.com/tomieric/browsersync-pure-boilerplate" target="_blank" rel="external">https://github.com/tomieric/browsersync-pure-boilerplate</a>，欢迎 star！</p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>关于 <code>browser-sync</code> 还有很多可以挖掘的，比如它的 UI界面 ，这个在调试移动端很是强大。</p>
+<p>本人之前一直在用的是 <code>livereload</code>，但相比 <code>browser-sync</code> 功能还是差一大截。</p>
+<p><code>browser-sync</code> 还可以搭载其他构建工具，比如 <code>gulp</code>, <code>grunt</code>等，将在系列的下一篇详细介绍。</p>
+<ul>
+<li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
+<li><a href="/2016/09/03/startkit-2/">配置5小时开发2分钟系列（2）</a></li>
+<li><a href="/2016/09/05/startkit-3/">配置5小时开发2分钟系列（3）</a></li>
+<li><a href="/2016/09/08/startkit-4/">配置5小时开发2分钟系列（4）</a></li>
+</ul>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/browser-sync/">browser-sync</a> <a class="tag tag--primary tag--small t-link" href="/tags/gulp/">gulp</a> <a class="tag tag--primary tag--small t-link" href="/tags/webpack/">webpack</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/03/startkit-2/"  data-tooltip="配置5小时开发2分钟系列（2）">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/03/14/jQuery-Spine/" data-tooltip="基于jQuery的（m）VC 库">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="post-actions post-action-share" style="float: left;padding-top:15px">
+    <div class="ds-share" data-thread-key="2016/09/01/startkit-1/" data-title="配置5小时开发2分钟系列（1）" data-images="" data-content="&lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60&quot; alt=&quot;日暮羊城&quot;&gt;&lt;span class=&quot;caption&quot;&gt;日暮羊城&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
+&lt;h2 id=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;a href=&quot;#即时刷新的前端环境browser-sync&quot; class=&quot;headerlink&quot; title=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;/a&gt;即时刷新的前端环境browser-sync&lt;/h2&gt;&lt;p&gt;在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。&lt;/p&gt;
+&lt;p&gt;为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。&lt;/p&gt;
+&lt;p&gt;在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。&lt;/p&gt;
+&lt;p&gt;在本篇文章将介绍更能提供的 http 环境的强大工具 &lt;code&gt;browser-sync&lt;/code&gt;，开始我们的 &lt;code&gt;配置5小时开发两分钟&lt;/code&gt; 介绍。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;browser-sync&lt;/code&gt; 是一款 &lt;code&gt;省时的浏览器同步测试工具&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://browsersync.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;browser-sync官网&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.browsersync.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中文网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;快速入门&quot;&gt;&lt;a href=&quot;#快速入门&quot; class=&quot;headerlink&quot; title=&quot;快速入门&quot;&gt;&lt;/a&gt;快速入门&lt;/h2&gt;&lt;h3 id=&quot;安装browser-sync&quot;&gt;&lt;a href=&quot;#安装browser-sync&quot; class=&quot;headerlink&quot; title=&quot;安装browser-sync&quot;&gt;&lt;/a&gt;安装browser-sync&lt;/h3&gt;&lt;p&gt;&lt;code&gt;browser-sync&lt;/code&gt; 是基于 &lt;code&gt;Node&lt;/code&gt; 环境，因此我们首先安装了 node。&lt;/p&gt;
+&lt;p&gt;我们使用 &lt;code&gt;npm&lt;/code&gt; 来安装  &lt;code&gt;browser-sync&lt;/code&gt;，打开终端或者命令提示符&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; -g browser-&lt;span class=&quot;keyword&quot;&gt;sync&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;全局安装完毕，可以在然后目录的终端或者命令是提示符下直接使用 &lt;code&gt;browser-sync&lt;/code&gt; 命令&lt;/p&gt;
+&lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;p&gt;即时监听文件刷新页面&lt;/p&gt;
+&lt;figure class=&quot;highlight dsconfig&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;browser-sync &lt;/span&gt;&lt;span class=&quot;string&quot;&gt;start &lt;/span&gt;&lt;span class=&quot;built_in&quot;&gt;--server&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;--files&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;css/*.css, **/*.html&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;命令行（&lt;a href=&quot;http://www.browsersync.cn/docs/command-line/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.browsersync.cn/docs/command-line/&lt;/a&gt;）太多怎么办？我们可以使用配置文件 &lt;code&gt;bs-config.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在终端（命令提示符）中输入&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;browser-sync &lt;/span&gt;init&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当前目录下自动生成了&lt;code&gt;bs-config.js&lt;/code&gt;文件，可以参考&lt;a href=&quot;http://www.browsersync.cn/docs/options/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;配置文档&lt;/a&gt;进行设置&lt;/p&gt;
+&lt;p&gt;怎样启动自定义的配置，在终端输入&lt;/p&gt;
+&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;browser-sync start --&lt;span class=&quot;built_in&quot;&gt;config&lt;/span&gt; bs-&lt;span class=&quot;built_in&quot;&gt;config&lt;/span&gt;.js&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们可不想每次都输入这个命令，而且太长不好记，有没有简单的好的办法~&lt;/p&gt;
+&lt;p&gt;答案是：有！！！&lt;/p&gt;
+&lt;p&gt;只需要在当前目录初始化 npm 包&lt;/p&gt;
+&lt;figure class=&quot;highlight coffeescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; init -&lt;span class=&quot;literal&quot;&gt;yes&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Ok!当前目录下又多了一个 &lt;code&gt;package.json&lt;/code&gt; 文件，如果你接触到 node 就不会陌生了 &lt;/p&gt;
+&lt;p&gt;我们修改&lt;code&gt;package.json&lt;/code&gt; 中的  &lt;code&gt;scripts&lt;/code&gt; 字段，增加 &lt;code&gt;start&lt;/code&gt;字段&lt;/p&gt;
+&lt;figure class=&quot;highlight clojure&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;browser-sync start --config bs-config.js&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;好了我们每次启动项目使用&lt;/p&gt;
+&lt;figure class=&quot;highlight coffeescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; start&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm &lt;span class=&quot;built_in&quot;&gt;run&lt;/span&gt; start&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;渐渐的项目配置文件越来越多了，怎么办下次新项目又要重新配置？因此才有了 &lt;code&gt;配置5小时开发两分钟系列&lt;/code&gt;，^_^&lt;/p&gt;
+&lt;p&gt;这里作者整理一个完整的 &lt;code&gt;browser-sync&lt;/code&gt; 环境的构建项目模板 &lt;a href=&quot;https://github.com/tomieric/browsersync-pure-boilerplate&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/tomieric/browsersync-pure-boilerplate&lt;/a&gt;，欢迎 star！&lt;/p&gt;
+&lt;h2 id=&quot;进阶&quot;&gt;&lt;a href=&quot;#进阶&quot; class=&quot;headerlink&quot; title=&quot;进阶&quot;&gt;&lt;/a&gt;进阶&lt;/h2&gt;&lt;p&gt;关于 &lt;code&gt;browser-sync&lt;/code&gt; 还有很多可以挖掘的，比如它的 UI界面 ，这个在调试移动端很是强大。&lt;/p&gt;
+&lt;p&gt;本人之前一直在用的是 &lt;code&gt;livereload&lt;/code&gt;，但相比 &lt;code&gt;browser-sync&lt;/code&gt; 功能还是差一大截。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;browser-sync&lt;/code&gt; 还可以搭载其他构建工具，比如 &lt;code&gt;gulp&lt;/code&gt;, &lt;code&gt;grunt&lt;/code&gt;等，将在系列的下一篇详细介绍。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/01/startkit-1/&quot;&gt;配置5小时开发2分钟系列（1）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/03/startkit-2/&quot;&gt;配置5小时开发2分钟系列（2）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/05/startkit-3/&quot;&gt;配置5小时开发2分钟系列（3）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/08/startkit-4/&quot;&gt;配置5小时开发2分钟系列（4）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+" data-url="http://tomieric.github.io/2016/09/01/startkit-1/">
+        <div class="ds-share-inline">
+          <ul  class="ds-share-icons-16">
+            
+            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+            
+          </ul>
+          <div class="ds-share-icons-more">
+          </div>
+        </div>
+     </div>
+    </div> 
+</div>
+
+
+        
+            <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2016/09/01/startkit-1/" data-title="配置5小时开发2分钟系列（1）" data-url="http://tomieric.github.io/2016/09/01/startkit-1/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"getf2e"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2012 - 2016 TommyShao. All Rights Reserved. Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme by <a target="_blank" href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/">tranquilpeak</a>
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/03/startkit-2/"  data-tooltip="配置5小时开发2分钟系列（2）">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/03/14/jQuery-Spine/" data-tooltip="基于jQuery的（m）VC 库">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="post-actions post-action-share" style="float: left;padding-top:15px">
+    <div class="ds-share" data-thread-key="2016/09/01/startkit-1/" data-title="配置5小时开发2分钟系列（1）" data-images="" data-content="&lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60&quot; alt=&quot;日暮羊城&quot;&gt;&lt;span class=&quot;caption&quot;&gt;日暮羊城&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
+&lt;h2 id=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;a href=&quot;#即时刷新的前端环境browser-sync&quot; class=&quot;headerlink&quot; title=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;/a&gt;即时刷新的前端环境browser-sync&lt;/h2&gt;&lt;p&gt;在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。&lt;/p&gt;
+&lt;p&gt;为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。&lt;/p&gt;
+&lt;p&gt;在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。&lt;/p&gt;
+&lt;p&gt;在本篇文章将介绍更能提供的 http 环境的强大工具 &lt;code&gt;browser-sync&lt;/code&gt;，开始我们的 &lt;code&gt;配置5小时开发两分钟&lt;/code&gt; 介绍。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;browser-sync&lt;/code&gt; 是一款 &lt;code&gt;省时的浏览器同步测试工具&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://browsersync.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;browser-sync官网&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.browsersync.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中文网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;快速入门&quot;&gt;&lt;a href=&quot;#快速入门&quot; class=&quot;headerlink&quot; title=&quot;快速入门&quot;&gt;&lt;/a&gt;快速入门&lt;/h2&gt;&lt;h3 id=&quot;安装browser-sync&quot;&gt;&lt;a href=&quot;#安装browser-sync&quot; class=&quot;headerlink&quot; title=&quot;安装browser-sync&quot;&gt;&lt;/a&gt;安装browser-sync&lt;/h3&gt;&lt;p&gt;&lt;code&gt;browser-sync&lt;/code&gt; 是基于 &lt;code&gt;Node&lt;/code&gt; 环境，因此我们首先安装了 node。&lt;/p&gt;
+&lt;p&gt;我们使用 &lt;code&gt;npm&lt;/code&gt; 来安装  &lt;code&gt;browser-sync&lt;/code&gt;，打开终端或者命令提示符&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; -g browser-&lt;span class=&quot;keyword&quot;&gt;sync&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;全局安装完毕，可以在然后目录的终端或者命令是提示符下直接使用 &lt;code&gt;browser-sync&lt;/code&gt; 命令&lt;/p&gt;
+&lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;p&gt;即时监听文件刷新页面&lt;/p&gt;
+&lt;figure class=&quot;highlight dsconfig&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;browser-sync &lt;/span&gt;&lt;span class=&quot;string&quot;&gt;start &lt;/span&gt;&lt;span class=&quot;built_in&quot;&gt;--server&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;--files&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;css/*.css, **/*.html&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;命令行（&lt;a href=&quot;http://www.browsersync.cn/docs/command-line/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.browsersync.cn/docs/command-line/&lt;/a&gt;）太多怎么办？我们可以使用配置文件 &lt;code&gt;bs-config.js&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在终端（命令提示符）中输入&lt;/p&gt;
+&lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;browser-sync &lt;/span&gt;init&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当前目录下自动生成了&lt;code&gt;bs-config.js&lt;/code&gt;文件，可以参考&lt;a href=&quot;http://www.browsersync.cn/docs/options/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;配置文档&lt;/a&gt;进行设置&lt;/p&gt;
+&lt;p&gt;怎样启动自定义的配置，在终端输入&lt;/p&gt;
+&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;browser-sync start --&lt;span class=&quot;built_in&quot;&gt;config&lt;/span&gt; bs-&lt;span class=&quot;built_in&quot;&gt;config&lt;/span&gt;.js&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们可不想每次都输入这个命令，而且太长不好记，有没有简单的好的办法~&lt;/p&gt;
+&lt;p&gt;答案是：有！！！&lt;/p&gt;
+&lt;p&gt;只需要在当前目录初始化 npm 包&lt;/p&gt;
+&lt;figure class=&quot;highlight coffeescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; init -&lt;span class=&quot;literal&quot;&gt;yes&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Ok!当前目录下又多了一个 &lt;code&gt;package.json&lt;/code&gt; 文件，如果你接触到 node 就不会陌生了 &lt;/p&gt;
+&lt;p&gt;我们修改&lt;code&gt;package.json&lt;/code&gt; 中的  &lt;code&gt;scripts&lt;/code&gt; 字段，增加 &lt;code&gt;start&lt;/code&gt;字段&lt;/p&gt;
+&lt;figure class=&quot;highlight clojure&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;browser-sync start --config bs-config.js&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;好了我们每次启动项目使用&lt;/p&gt;
+&lt;figure class=&quot;highlight coffeescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;npm&lt;/span&gt; start&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm &lt;span class=&quot;built_in&quot;&gt;run&lt;/span&gt; start&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;渐渐的项目配置文件越来越多了，怎么办下次新项目又要重新配置？因此才有了 &lt;code&gt;配置5小时开发两分钟系列&lt;/code&gt;，^_^&lt;/p&gt;
+&lt;p&gt;这里作者整理一个完整的 &lt;code&gt;browser-sync&lt;/code&gt; 环境的构建项目模板 &lt;a href=&quot;https://github.com/tomieric/browsersync-pure-boilerplate&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/tomieric/browsersync-pure-boilerplate&lt;/a&gt;，欢迎 star！&lt;/p&gt;
+&lt;h2 id=&quot;进阶&quot;&gt;&lt;a href=&quot;#进阶&quot; class=&quot;headerlink&quot; title=&quot;进阶&quot;&gt;&lt;/a&gt;进阶&lt;/h2&gt;&lt;p&gt;关于 &lt;code&gt;browser-sync&lt;/code&gt; 还有很多可以挖掘的，比如它的 UI界面 ，这个在调试移动端很是强大。&lt;/p&gt;
+&lt;p&gt;本人之前一直在用的是 &lt;code&gt;livereload&lt;/code&gt;，但相比 &lt;code&gt;browser-sync&lt;/code&gt; 功能还是差一大截。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;browser-sync&lt;/code&gt; 还可以搭载其他构建工具，比如 &lt;code&gt;gulp&lt;/code&gt;, &lt;code&gt;grunt&lt;/code&gt;等，将在系列的下一篇详细介绍。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/01/startkit-1/&quot;&gt;配置5小时开发2分钟系列（1）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/03/startkit-2/&quot;&gt;配置5小时开发2分钟系列（2）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/05/startkit-3/&quot;&gt;配置5小时开发2分钟系列（3）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/09/08/startkit-4/&quot;&gt;配置5小时开发2分钟系列（4）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+" data-url="http://tomieric.github.io/2016/09/01/startkit-1/">
+        <div class="ds-share-inline">
+          <ul  class="ds-share-icons-16">
+            
+            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+            <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+            <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+            <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+            <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+            
+          </ul>
+          <div class="ds-share-icons-more">
+          </div>
+        </div>
+     </div>
+    </div> 
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://tomieric.github.io/2016/09/01/startkit-1/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://tomieric.github.io/2016/09/01/startkit-1/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://tomieric.github.io/2016/09/01/startkit-1/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?appkey=583395093&amp;title=&amp;url=http://tomieric.github.io/2016/09/01/startkit-1/&amp;source=bshare&amp;retcode=0&amp;ralateUid=1799786352">
+                <i class="fa fa-weibo"></i><span>分享到 微博</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        <!-- Define author's picture -->
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar.jpg"/>
+        
+            <h4 id="about-card-name">TommyShao</h4>
+        
+            <h5 id="about-card-bio"><p>只想做一位安静的切图仔</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>前端开发工程师</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                中国 广州
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script.min.js"></script>
+<!--SCRIPTS END-->
+
+</html>

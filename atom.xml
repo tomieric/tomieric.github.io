@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tomieric.github.io/"/>
-  <updated>2016-09-04T07:11:21.000Z</updated>
+  <updated>2016-10-07T06:52:03.000Z</updated>
   <id>http://tomieric.github.io/</id>
   
   <author>
@@ -16,31 +16,214 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>配置5小时开发2分钟系列（4）</title>
+    <link href="http://tomieric.github.io/2016/09/08/startkit-4/"/>
+    <id>http://tomieric.github.io/2016/09/08/startkit-4/</id>
+    <published>2016-09-07T16:00:00.000Z</published>
+    <updated>2016-10-07T06:52:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="react-ie8-开发环境"><a href="#react-ie8-开发环境" class="headerlink" title="react ie8 开发环境"></a>react ie8 开发环境</h2><p><a href="https://github.com/tomieric/react-ie8-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-ie8-boilerplate</a></p>
+<a id="more"></a>
+<ul>
+<li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
+<li><a href="/2016/09/03/startkit-2/">配置5小时开发2分钟系列（2）</a></li>
+<li><a href="/2016/09/05/startkit-3/">配置5小时开发2分钟系列（3）</a></li>
+<li><a href="/2016/09/08/startkit-4/">配置5小时开发2分钟系列（4）</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;react-ie8-开发环境&quot;&gt;&lt;a href=&quot;#react-ie8-开发环境&quot; class=&quot;headerlink&quot; title=&quot;react ie8 开发环境&quot;&gt;&lt;/a&gt;react ie8 开发环境&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/tomieric/react-ie8-boilerplate&quot;&gt;https://github.com/tomieric/react-ie8-boilerplate&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端构建" scheme="http://tomieric.github.io/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+    
+    
+      <category term="gulp" scheme="http://tomieric.github.io/tags/gulp/"/>
+    
+      <category term="browser-sync" scheme="http://tomieric.github.io/tags/browser-sync/"/>
+    
+      <category term="webpack" scheme="http://tomieric.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>配置5小时开发2分钟系列（3）</title>
+    <link href="http://tomieric.github.io/2016/09/05/startkit-3/"/>
+    <id>http://tomieric.github.io/2016/09/05/startkit-3/</id>
+    <published>2016-09-04T16:00:00.000Z</published>
+    <updated>2016-10-07T06:51:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="webpack-搭配-react"><a href="#webpack-搭配-react" class="headerlink" title="webpack 搭配 react"></a>webpack 搭配 react</h2><p><a href="https://github.com/tomieric/react-webpack-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-webpack-boilerplate</a></p>
+<a id="more"></a>
+<ul>
+<li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
+<li><a href="/2016/09/03/startkit-2/">配置5小时开发2分钟系列（2）</a></li>
+<li><a href="/2016/09/05/startkit-3/">配置5小时开发2分钟系列（3）</a></li>
+<li><a href="/2016/09/08/startkit-4/">配置5小时开发2分钟系列（4）</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;webpack-搭配-react&quot;&gt;&lt;a href=&quot;#webpack-搭配-react&quot; class=&quot;headerlink&quot; title=&quot;webpack 搭配 react&quot;&gt;&lt;/a&gt;webpack 搭配 react&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/tomieric/react-webpack-boilerplate&quot;&gt;https://github.com/tomieric/react-webpack-boilerplate&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端构建" scheme="http://tomieric.github.io/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+    
+    
+      <category term="gulp" scheme="http://tomieric.github.io/tags/gulp/"/>
+    
+      <category term="browser-sync" scheme="http://tomieric.github.io/tags/browser-sync/"/>
+    
+      <category term="webpack" scheme="http://tomieric.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>配置5小时开发2分钟系列（2）</title>
+    <link href="http://tomieric.github.io/2016/09/03/startkit-2/"/>
+    <id>http://tomieric.github.io/2016/09/03/startkit-2/</id>
+    <published>2016-09-02T16:00:00.000Z</published>
+    <updated>2016-10-07T06:55:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="http://oenwuky9h.bkt.clouddn.com/WechatIMG9.jpeg?imageView2/0/interlace/1/q/60" alt="雨后羊城"><span class="caption">雨后羊城</span></div><!-- content -->
+<h2 id="gulp搭配browser-sync"><a href="#gulp搭配browser-sync" class="headerlink" title="gulp搭配browser-sync"></a>gulp搭配browser-sync</h2><p>在<a href="/2016/09/01/startkit-1/">上一篇</a> 介绍了 <code>browser-sync</code>，本篇将介绍 <code>browser-sync</code> 搭载 <code>gulp</code> 实现构建环境。</p>
+<p>grunt 在很久以前用过，配置方式不太喜欢，所以一直使用 gulp，gulp的入门介绍就不详细介绍，可以看两年前的介绍,<a href="http://tomieric.com/2014/08/20/gulp/" target="_blank" rel="external">Gulp.js构建工具入门</a></p>
+<p><a href="https://github.com/tomieric/gulp-browsersync-boilerplate" target="_blank" rel="external">https://github.com/tomieric/gulp-browsersync-boilerplate</a></p>
+<a id="more"></a>
+<ul>
+<li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
+<li><a href="/2016/09/03/startkit-2/">配置5小时开发2分钟系列（2）</a></li>
+<li><a href="/2016/09/05/startkit-3/">配置5小时开发2分钟系列（3）</a></li>
+<li><a href="/2016/09/08/startkit-4/">配置5小时开发2分钟系列（4）</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;http://oenwuky9h.bkt.clouddn.com/WechatIMG9.jpeg?imageView2/0/interlace/1/q/60&quot; alt=&quot;雨后羊城&quot;&gt;&lt;span class=&quot;caption&quot;&gt;雨后羊城&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
+&lt;h2 id=&quot;gulp搭配browser-sync&quot;&gt;&lt;a href=&quot;#gulp搭配browser-sync&quot; class=&quot;headerlink&quot; title=&quot;gulp搭配browser-sync&quot;&gt;&lt;/a&gt;gulp搭配browser-sync&lt;/h2&gt;&lt;p&gt;在&lt;a href=&quot;/2016/09/01/startkit-1/&quot;&gt;上一篇&lt;/a&gt; 介绍了 &lt;code&gt;browser-sync&lt;/code&gt;，本篇将介绍 &lt;code&gt;browser-sync&lt;/code&gt; 搭载 &lt;code&gt;gulp&lt;/code&gt; 实现构建环境。&lt;/p&gt;
+&lt;p&gt;grunt 在很久以前用过，配置方式不太喜欢，所以一直使用 gulp，gulp的入门介绍就不详细介绍，可以看两年前的介绍,&lt;a href=&quot;http://tomieric.com/2014/08/20/gulp/&quot;&gt;Gulp.js构建工具入门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/tomieric/gulp-browsersync-boilerplate&quot;&gt;https://github.com/tomieric/gulp-browsersync-boilerplate&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端构建" scheme="http://tomieric.github.io/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+    
+    
+      <category term="gulp" scheme="http://tomieric.github.io/tags/gulp/"/>
+    
+      <category term="browser-sync" scheme="http://tomieric.github.io/tags/browser-sync/"/>
+    
+      <category term="webpack" scheme="http://tomieric.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>配置5小时开发2分钟系列（1）</title>
+    <link href="http://tomieric.github.io/2016/09/01/startkit-1/"/>
+    <id>http://tomieric.github.io/2016/09/01/startkit-1/</id>
+    <published>2016-08-31T16:00:00.000Z</published>
+    <updated>2016-10-07T06:43:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60" alt="日暮羊城"><span class="caption">日暮羊城</span></div><!-- content -->
+<h2 id="即时刷新的前端环境browser-sync"><a href="#即时刷新的前端环境browser-sync" class="headerlink" title="即时刷新的前端环境browser-sync"></a>即时刷新的前端环境browser-sync</h2><p>在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。</p>
+<p>为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。</p>
+<p>在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。</p>
+<p>在本篇文章将介绍更能提供的 http 环境的强大工具 <code>browser-sync</code>，开始我们的 <code>配置5小时开发两分钟</code> 介绍。</p>
+<a id="more"></a>
+<blockquote>
+<p><code>browser-sync</code> 是一款 <code>省时的浏览器同步测试工具</code></p>
+</blockquote>
+<p><a href="https://browsersync.io/" target="_blank" rel="external">browser-sync官网</a><br><a href="http://www.browsersync.cn/" target="_blank" rel="external">中文网站</a></p>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="安装browser-sync"><a href="#安装browser-sync" class="headerlink" title="安装browser-sync"></a>安装browser-sync</h3><p><code>browser-sync</code> 是基于 <code>Node</code> 环境，因此我们首先安装了 node。</p>
+<p>我们使用 <code>npm</code> 来安装  <code>browser-sync</code>，打开终端或者命令提示符</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g browser-<span class="keyword">sync</span></div></pre></td></tr></table></figure>
+<p>全局安装完毕，可以在然后目录的终端或者命令是提示符下直接使用 <code>browser-sync</code> 命令</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>即时监听文件刷新页面</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">browser-sync </span><span class="string">start </span><span class="built_in">--server</span> <span class="built_in">--files</span> <span class="string">"css/*.css, **/*.html"</span></div></pre></td></tr></table></figure>
+<p>命令行（<a href="http://www.browsersync.cn/docs/command-line/" target="_blank" rel="external">http://www.browsersync.cn/docs/command-line/</a>）太多怎么办？我们可以使用配置文件 <code>bs-config.js</code></p>
+<p>在终端（命令提示符）中输入</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">browser-sync </span>init</div></pre></td></tr></table></figure>
+<p>当前目录下自动生成了<code>bs-config.js</code>文件，可以参考<a href="http://www.browsersync.cn/docs/options/" target="_blank" rel="external">配置文档</a>进行设置</p>
+<p>怎样启动自定义的配置，在终端输入</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">browser-sync start --<span class="built_in">config</span> bs-<span class="built_in">config</span>.js</div></pre></td></tr></table></figure>
+<p>我们可不想每次都输入这个命令，而且太长不好记，有没有简单的好的办法~</p>
+<p>答案是：有！！！</p>
+<p>只需要在当前目录初始化 npm 包</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">npm</span> init -<span class="literal">yes</span></div></pre></td></tr></table></figure>
+<p>Ok!当前目录下又多了一个 <code>package.json</code> 文件，如果你接触到 node 就不会陌生了 </p>
+<p>我们修改<code>package.json</code> 中的  <code>scripts</code> 字段，增加 <code>start</code>字段</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="string">"scripts"</span>: &#123;</div><div class="line">        <span class="string">"start"</span>: <span class="string">"browser-sync start --config bs-config.js"</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>好了我们每次启动项目使用</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">npm</span> start</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="built_in">run</span> start</div></pre></td></tr></table></figure>
+<p>渐渐的项目配置文件越来越多了，怎么办下次新项目又要重新配置？因此才有了 <code>配置5小时开发两分钟系列</code>，^_^</p>
+<p>这里作者整理一个完整的 <code>browser-sync</code> 环境的构建项目模板 <a href="https://github.com/tomieric/browsersync-pure-boilerplate" target="_blank" rel="external">https://github.com/tomieric/browsersync-pure-boilerplate</a>，欢迎 star！</p>
+<h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>关于 <code>browser-sync</code> 还有很多可以挖掘的，比如它的 UI界面 ，这个在调试移动端很是强大。</p>
+<p>本人之前一直在用的是 <code>livereload</code>，但相比 <code>browser-sync</code> 功能还是差一大截。</p>
+<p><code>browser-sync</code> 还可以搭载其他构建工具，比如 <code>gulp</code>, <code>grunt</code>等，将在系列的下一篇详细介绍。</p>
+<ul>
+<li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
+<li><a href="/2016/09/03/startkit-2/">配置5小时开发2分钟系列（2）</a></li>
+<li><a href="/2016/09/05/startkit-3/">配置5小时开发2分钟系列（3）</a></li>
+<li><a href="/2016/09/08/startkit-4/">配置5小时开发2分钟系列（4）</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60&quot; alt=&quot;日暮羊城&quot;&gt;&lt;span class=&quot;caption&quot;&gt;日暮羊城&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
+&lt;h2 id=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;a href=&quot;#即时刷新的前端环境browser-sync&quot; class=&quot;headerlink&quot; title=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;/a&gt;即时刷新的前端环境browser-sync&lt;/h2&gt;&lt;p&gt;在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。&lt;/p&gt;
+&lt;p&gt;为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。&lt;/p&gt;
+&lt;p&gt;在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。&lt;/p&gt;
+&lt;p&gt;在本篇文章将介绍更能提供的 http 环境的强大工具 &lt;code&gt;browser-sync&lt;/code&gt;，开始我们的 &lt;code&gt;配置5小时开发两分钟&lt;/code&gt; 介绍。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端构建" scheme="http://tomieric.github.io/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+    
+    
+      <category term="gulp" scheme="http://tomieric.github.io/tags/gulp/"/>
+    
+      <category term="browser-sync" scheme="http://tomieric.github.io/tags/browser-sync/"/>
+    
+      <category term="webpack" scheme="http://tomieric.github.io/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于jQuery的（m）VC 库</title>
     <link href="http://tomieric.github.io/2016/03/14/jQuery-Spine/"/>
     <id>http://tomieric.github.io/2016/03/14/jQuery-Spine/</id>
     <published>2016-03-13T16:00:00.000Z</published>
-    <updated>2016-09-04T07:11:21.000Z</updated>
+    <updated>2016-09-04T07:19:50.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说</p>
 </blockquote>
 <p>以往我们做数据填充时经常搭配<code>jquery.tmpl.js</code>或则<code>arttemplate.js</code>模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。</p>
 <p>在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用<code>Backbone</code>这类的框架显得页面静态资源稍微臃肿。</p>
+<a id="more"></a>
 <p>请先阅读 <a href="http://purplebamboo.github.io/2015/03/16/javascript-component/" target="_blank" rel="external">javascript组件化</a> 这篇文章，本文中的 <code>Spine</code>是基于该文章的源码进行改进</p>
 <p><code>Spine</code>提供我们 <code>oo</code> 编程语法糖，组件于组件之间通过继承扩展来开发富应用组件，同时事件通过订阅-发布的模式实现，内置了 <code>underscore</code> 的 <code>template</code> 功能。完整的实现了 <code>Mini</code> 版的 <code>Backbone</code>功能，相比之下少了 <code>router</code>功能（可以参照使用<a href="https://github.com/flatiron/director" target="_blank" rel="external">director.js</a>)</p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>首先我们来看看 <code>Spine</code> 的使用语法，跟 <code>Backbone</code> 的用法相似我们使用 <code>Spine.extend</code> 函数来扩展一个组件类。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>我们定义了 <code>initiliaze</code> 函数，类似于 <code>AppView</code> 的构造函数，在函数内部我们可以直接用 <code>this</code> 去获取对象的方法或配置参数</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="comment">// 初始化</span></div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> msg = <span class="keyword">this</span>.get(<span class="string">'greeting'</span>)</div><div class="line">        <span class="keyword">this</span>.sayHi(msg)</div><div class="line">    &#125;,</div><div class="line">    sayHi: <span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(msg)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>当我们没有去实例化 <code>AppView</code>时，并不会执行初始化里面的语句。那我们如何去调用呢？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    greeting: <span class="string">'Hello World'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    greeting: <span class="string">'Hello World'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>这时候我们在浏览器的控制台可以看到打印出来 <code>Hello World</code></p>
 <h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><p>既然是组件必少不了用户点击交互等事件，在 <code>Spine</code> 里面如何去绑定事件呢？ </p>
 <p>通过 <code>EVENTS</code> 配置对象去声明，先声明 <code>选择器：{ event1:fn, event2: fn }</code>,这点有区别于 <code>Backbone</code> 中的写法 <code>选择器 event1: fn,选择器 event2: fn</code></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> AppView = Spine.extend(&#123;</div><div class="line">    initiliaze: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;,</div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="string">'.btn'</span>: &#123;</div><div class="line">            click: <span class="function"><span class="keyword">function</span><span class="params">(self, e)</span> </span>&#123;</div><div class="line">                e.preventDefault()</div><div class="line"></div><div class="line">                <span class="comment">// self 指向实例对象</span></div><div class="line">                <span class="keyword">self</span>.sayHi()</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>实例化 <code>AppView</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    parentNode: <span class="string">'#demo'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> AppView(&#123;</div><div class="line">    parentNode: <span class="string">'#demo'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>注意，声明绑定事件时最好在实例化传入配置参数 <code>parentNode</code> 表示 dom 的作用域，忽略不传默认为 <code>document.body</code> 用于作为事件代理的主容器，同于 <code>Backbone</code> 当中的 <code>el</code> 参数</p>
 <p><code>Spine</code> 的事件绑定同于 <code>jQuery</code> 的绑定方法，比如第三方插件的事件</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> AppView = Spine.extend(&#123;</div><div class="line">    <span class="params">...</span></div><div class="line">    EVENTS: &#123;</div><div class="line">        <span class="string">'.datetime'</span> : &#123;</div><div class="line">            <span class="comment">// self - 实例化对象</span></div><div class="line">            <span class="comment">// e - jquery 中事件默认参数 event</span></div><div class="line">            <span class="comment">// date 第三方插件提供的event data </span></div><div class="line">            <span class="string">'choose.ui.datetimepicker'</span>: function(<span class="built_in">self</span>, e, <span class="built_in">date</span>) &#123;</div><div class="line">                <span class="built_in">self</span>.fetch(&#123; <span class="built_in">date</span>: <span class="built_in">date</span> &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="params">...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -57,7 +240,8 @@
       &lt;blockquote&gt;
 &lt;p&gt;此处文章只针对比如 jquery 无其他相关框架的页面进行改造，至于其他框架暂时不说&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;以往我们做数据填充时经常搭配&lt;code&gt;jquery.tmpl.js&lt;/code&gt;或则&lt;code&gt;arttemplate
+&lt;p&gt;以往我们做数据填充时经常搭配&lt;code&gt;jquery.tmpl.js&lt;/code&gt;或则&lt;code&gt;arttemplate.js&lt;/code&gt;模板等，在数据填充后往往需要重新绑定里面的元素的交互事件。对此重复去写这样的代码效率且显得不那么高。&lt;/p&gt;
+&lt;p&gt;在视图-模型-控制器（mvc）里面提供给我们很方便的语法结构，更简便的编写这类相关的业务，但在小的功能页面上如果使用&lt;code&gt;Backbone&lt;/code&gt;这类的框架显得页面静态资源稍微臃肿。&lt;/p&gt;
     
     </summary>
     
@@ -79,7 +263,7 @@
     <link href="http://tomieric.github.io/2016/02/21/get-stared-use-es6/"/>
     <id>http://tomieric.github.io/2016/02/21/get-stared-use-es6/</id>
     <published>2016-02-20T16:00:00.000Z</published>
-    <updated>2016-09-04T05:42:36.000Z</updated>
+    <updated>2016-09-04T07:20:10.000Z</updated>
     
     <content type="html"><![CDATA[<!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/post/20160107202032_470.jpg" alt="Lost ES6"><span class="caption">Lost ES6</span></div><!-- content -->
 <blockquote>
@@ -87,6 +271,7 @@
 </blockquote>
 <p>EMAscript已经发布了<code>es2015</code>也就是<code>ES6</code>, 提供了丰富的API和函数编程语法，但由于各浏览器的支持性还是有限，我们需要折衷的办法——编译器。</p>
 <p>早在<code>ES6</code>发布前，<code>babel</code>已经活跃在前端开发社区中，比如facebooke的开源框架<code>react</code>就很早使用了<code>babel</code></p>
+<a id="more"></a>
 <h2 id="安装babel"><a href="#安装babel" class="headerlink" title="安装babel"></a>安装babel</h2><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">[sudo]</span> npm install -g babel</div></pre></td></tr></table></figure>
 <p>安装完成后可以在终端中使用<code>babel</code>命令</p>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
@@ -106,11 +291,11 @@
 <p>为项目创建一个<code>.babelrc</code> 文件</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">touch</span> <span class="selector-class">.babelrc</span></div></pre></td></tr></table></figure>
 <p>我们可以看到当前目录下增加了这个文件，然后编辑声明使用<code>es2015</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// .babelrc</span></div><div class="line">&#123;</div><div class="line">	<span class="string">"presets"</span> : [<span class="string">"es2015"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// .babelrc</span></div><div class="line">&#123;</div><div class="line">	<span class="string">"presets"</span> : [<span class="string">"es2015"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>重新编译<code>script.es</code>文件</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel <span class="keyword">script</span>.es -o <span class="keyword">script</span>.js</div></pre></td></tr></table></figure>
 <p>源文件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// script.es</span></div><div class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// script.es</span></div><div class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</div></pre></td></tr></table></figure>
 <p>编译完成文件：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// script.js</span></div><div class="line"><span class="meta">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="comment">//# sourceMappingURL=script.js.map</span></div></pre></td></tr></table></figure>
 <h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://babeljs.io/" target="_blank" rel="external">http://babeljs.io/</a></p>
@@ -120,7 +305,12 @@
     
     <summary type="html">
     
-      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;/assets/images/post/20160107202032_470.jpg&quot; alt=&quot;Lost 
+      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;/assets/images/post/20160107202032_470.jpg&quot; alt=&quot;Lost ES6&quot;&gt;&lt;span class=&quot;caption&quot;&gt;Lost ES6&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Babel 是一个 JavaScript 编译器。&lt;br&gt;今天就来用下一代 JavaScript 语法写代码吧！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;EMAscript已经发布了&lt;code&gt;es2015&lt;/code&gt;也就是&lt;code&gt;ES6&lt;/code&gt;, 提供了丰富的API和函数编程语法，但由于各浏览器的支持性还是有限，我们需要折衷的办法——编译器。&lt;/p&gt;
+&lt;p&gt;早在&lt;code&gt;ES6&lt;/code&gt;发布前，&lt;code&gt;babel&lt;/code&gt;已经活跃在前端开发社区中，比如facebooke的开源框架&lt;code&gt;react&lt;/code&gt;就很早使用了&lt;code&gt;babel&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
@@ -142,12 +332,13 @@
     <link href="http://tomieric.github.io/2016/02/20/hello-world/"/>
     <id>http://tomieric.github.io/2016/02/20/hello-world/</id>
     <published>2016-02-19T16:00:00.000Z</published>
-    <updated>2016-09-04T05:42:36.000Z</updated>
+    <updated>2016-09-04T07:20:30.000Z</updated>
     
     <content type="html"><![CDATA[<!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/background.jpg" alt="A beautiful sunrise"><span class="caption">A beautiful sunrise</span></div><!-- content -->
 <p>由于旧博客用<code>airpub.io</code>，多说的账号被<code>CSRF</code>攻击造成大部分博文被注入删除</p>
 <p>说多了都是泪<del>~~(&gt;_&lt;)</del>~~</p>
 <p>已经决定了新博客用<code>hexo</code></p>
+<a id="more"></a>
 <h3 id="博客历程"><a href="#博客历程" class="headerlink" title="博客历程"></a>博客历程</h3><ul>
 <li>大学时期用免费asp主机，html模板</li>
 <li>上班后用博客园</li>
@@ -165,7 +356,10 @@
     
     <summary type="html">
     
-      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;/assets/images/background.jpg&quot; alt=&quot;A beautiful sunris
+      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;/assets/images/background.jpg&quot; alt=&quot;A beautiful sunrise&quot;&gt;&lt;span class=&quot;caption&quot;&gt;A beautiful sunrise&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
+&lt;p&gt;由于旧博客用&lt;code&gt;airpub.io&lt;/code&gt;，多说的账号被&lt;code&gt;CSRF&lt;/code&gt;攻击造成大部分博文被注入删除&lt;/p&gt;
+&lt;p&gt;说多了都是泪&lt;del&gt;~~(&amp;gt;_&amp;lt;)&lt;/del&gt;~~&lt;/p&gt;
+&lt;p&gt;已经决定了新博客用&lt;code&gt;hexo&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
@@ -372,236 +566,6 @@
     
     
       <category term="-jquery -javascript -插件" scheme="http://tomieric.github.io/tags/jquery-javascript-%E6%8F%92%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gulp.js构建工具入门</title>
-    <link href="http://tomieric.github.io/2014/08/20/gulp/"/>
-    <id>http://tomieric.github.io/2014/08/20/gulp/</id>
-    <published>2014-08-19T16:00:00.000Z</published>
-    <updated>2016-09-04T05:42:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p><a href="http://gulpjs.com/" target="_blank" rel="external">gulp官网</a></p>
-</blockquote>
-<p><strong>基本入门</strong></p>
-<ol>
-<li>全局安装<code>gulp.js</code></li>
-</ol>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g gulp</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<ol>
-<li>为项目目录安装<code>gulp.js</code>库文件</li>
-</ol>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#cd c:<span class="comment">//myproject/demo1</span></span></div><div class="line">npm install --<span class="keyword">save</span>-dev gulp</div></pre></td></tr></table></figure>
-<ol>
-<li>在项目根目录创建<code>gulpfile.js</code>文件并写入以下模板。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">// code</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<ol>
-<li>运行<code>gulp</code>任务。</li>
-</ol>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">		gulp</div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">基本入门就<span class="number">4</span>步可以完成，比起`grunt`各种配置简单许多。</div><div class="line"></div><div class="line">##Gulp.js进阶 ##</div></pre></td></tr></table></figure>
-<pre><code>var gulp = require(&apos;gulp&apos;);
-
-/**
-# 依赖插件可以在package.json中配置
-# npm install安装插件
-**/
-var contact = require(&apos;gulp-concat&apos;);
-var uglify = require(&apos;gulp-uglify&apos;);
-var sourcemaps = require(&apos;gulp-sourcemaps&apos;);
-var imagemin = require(&apos;gulp-imagemin&apos;)
-//var del = require(&apos;del&apos;);
-
-var paths = {
-    scripts: &apos;static/js/**/*.js&apos;,
-    images: &apos;static/images/**/*&apos;
-};
-
-// 清空build目录文件
-//# npm install --save-dev gulp-clean
-gulp.task(&apos;clean&apos;, function(cb){
-    //del([&apos;build&apos;], cb); #del不存在该模块，官方api居然有这句具体不知道怎么来
-    cb();
-});
-
-// 处理js文件
-//# npm install --save-dev gulp-sourcemaps
-//# npm install --save-dev gulp-uglify
-gulp.task(&apos;scripts&apos;, [&apos;clean&apos;], function(){
-    return gulp.src(paths.scripts)
-                .pipe(sourcemaps.init())
-                .pipe(uglify())
-                .pipe(sourcemaps.write(&apos;build/maps&apos;))
-                .pipe(gulp.dest(&apos;build/js&apos;));
-});
-
-// 复制图片
-//# npm install --save-dev gulp-images
-gulp.task(&apos;images&apos;, [&apos;clean&apos;], function(){
-    return gulp.src(paths.images)
-                .pipe(imagemin({optimizationLevel: 5}))
-                .pipe(gulp.dest(&apos;build/images&apos;));
-});
-
-// 文件监听
-gulp.task(&apos;watch&apos;, function(){
-    gulp.watch(paths.scripts, [&apos;scripts&apos;]);
-    gulp.watch(paths.images, [&apos;images&apos;]);
-});
-
-// 配置默认任务，执行[&apos;watch&apos;, &apos;scripts&apos;, &apos;images&apos;]
-gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;scripts&apos;, &apos;images&apos;]);
-</code></pre><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="vala"><span class="meta">##模板一</span></span></div></pre></td></tr></table></figure>
-<pre><code>/**
- * 构建环境
- */
-
-var gulp = require(&apos;gulp&apos;)
-
-var concat = require(&apos;gulp-concat&apos;),
-    uglify = require(&apos;gulp-uglify&apos;),
-    imagemin = require(&apos;gulp-imagemin&apos;),
-    less = require(&apos;gulp-less&apos;),
-    minifycss = require(&apos;gulp-minify-css&apos;),
-    rename = require(&apos;gulp-rename&apos;),
-    livereload = require(&apos;gulp-livereload&apos;),
-    autoprefixer = require(&apos;gulp-autoprefixer&apos;),
-    cache = require(&apos;gulp-cache&apos;),
-    notify = require(&apos;gulp-notify&apos;),
-    connect = require(&apos;gulp-connect&apos;),
-    del = require(&apos;del&apos;);
-
-var paths = {
-    styles: &apos;src/css/**/*.css&apos;,
-    less: &apos;src/less/**/*.less&apos;,
-    scripts: [&apos;src/js/jquery.js&apos;,&apos;src/js/common/**/*.js&apos;],
-    images: &apos;src/images/**/*&apos;,
-    gallery: &apos;src/gallery/**/*&apos;,
-    index: [&apos;src/gallery/jquery.bxslider/jquery.bxslider.min.js&apos;, &apos;src/js/app/index.js&apos;]
-};
-
-gulp.task(&apos;scripts&apos;, function(){
-    return gulp.src(paths.scripts)
-                .pipe(concat(&apos;main.js&apos;))
-                .pipe(gulp.dest(&apos;dist/js&apos;))
-                //.pipe(rename({suffix: &apos;.min&apos;}))
-                .pipe(uglify())
-                .pipe(gulp.dest(&apos;dist/js&apos;))
-                .pipe(notify(&apos;js任务运行完成&apos;))
-});
-
-gulp.task(&apos;images&apos;, function(){
-    return gulp.src(paths.images)
-                .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-                .pipe(gulp.dest(&apos;dist/images&apos;))
-                //.pipe(notify(&apos;图片压缩完成&apos;))
-})
-
-gulp.task(&apos;styles&apos;, function(cb){
-    return gulp.src(&apos;src/less/main.less&apos;)
-                .pipe(less())
-                .pipe(autoprefixer(&apos;last 2 version&apos;, &apos;safari 5&apos;, &apos;ie 8&apos;, &apos;ie 9&apos;, &apos;opera 12.1&apos;, &apos;ios 6&apos;, &apos;android 4&apos;))
-                .pipe(gulp.dest(&apos;src/css&apos;))
-                .pipe(notify(&apos;less样式文件完成&apos;));
-})
-
-gulp.task(&apos;concat&apos;, [&apos;styles&apos;], function(){
-    return gulp.src(paths.styles)
-                .pipe(concat(&apos;main.css&apos;))
-                .pipe(gulp.dest(&apos;dist/css&apos;))
-                //.pipe(rename({suffix: &apos;.min&apos;}))
-                .pipe(minifycss())
-                .pipe(gulp.dest(&apos;dist/css&apos;))
-                .pipe(notify(&apos;样式文件完成&apos;))
-})
-
-// gallery 插件
-/*gulp.task(&apos;copy&apos;, function(){
-    return gulp.src(paths.gallery)
-                .pipe(gulp.dest(&apos;dist/gallery&apos;));
-});*/
-
-gulp.task(&apos;clean&apos;, function(cb){
-    del([&apos;dist/js&apos;, &apos;dist/images&apos;, &apos;dist/css&apos;], cb);
-})
-
-gulp.task(&apos;html&apos;, function(){
-    return gulp.src(&apos;*.html&apos;)
-                .pipe(connect.reload());
-})
-
-gulp.task(&apos;connect&apos;, function(){
-    connect.server({
-        root: &apos;../ghlaw&apos;,
-        livereload: true
-    });
-})
-
-/*
-* 首页
- */
-gulp.task(&apos;index&apos;, function(){
-    return gulp.src(paths.index)
-                .pipe(concat(&apos;index.js&apos;))
-                .pipe(gulp.dest(&apos;dist/js&apos;))
-                //.pipe(rename({suffix: &apos;.min&apos;}))
-                .pipe(uglify())
-                .pipe(gulp.dest(&apos;dist/js&apos;))
-                .pipe(notify(&apos;首页js任务运行完成&apos;))
-});
-
-gulp.task(&apos;watch&apos;, function(){
-
-    gulp.watch(paths.scripts, [&apos;scripts&apos;])
-    gulp.watch(paths.images, [&apos;images&apos;])
-    gulp.watch(paths.less, [&apos;concat&apos;])
-    //gulp.watch(paths.gallery, [&apos;copy&apos;])
-    gulp.watch(paths.index, [&apos;index&apos;])
-
-    livereload.listen()
-    gulp.watch([&apos;/dist/**&apos;]).on(&apos;change&apos;, livereload.changed)
-    gulp.watch([&apos;**/*.html&apos;], [&apos;html&apos;])
-})
-
-gulp.task(&apos;default&apos;, [&apos;clean&apos;], function(){
-    gulp.start([&apos;connect&apos;,&apos;watch&apos;, &apos;scripts&apos;, &apos;images&apos;, &apos;concat&apos;, &apos;index&apos;]);
-});
-</code></pre><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">##模板二</span></div><div class="line"></div><div class="line">`<span class="javascript"></span>``<span class="javascript"> javascript</span></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 构建环境</div><div class="line">	 * by tomieric</div><div class="line">	 * gulpfile.js</div><div class="line">	 */</div><div class="line"></div><div class="line">	<span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</div><div class="line"></div><div class="line">	<span class="keyword">var</span> useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>)</div><div class="line">	<span class="keyword">var</span> gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>)</div><div class="line">	<span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>)</div><div class="line">	<span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>)</div><div class="line">	<span class="keyword">var</span> notify = <span class="built_in">require</span>(<span class="string">'gulp-notify'</span>)</div><div class="line">	<span class="keyword">var</span> imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>)</div><div class="line">	<span class="keyword">var</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cache'</span>)</div><div class="line">	<span class="keyword">var</span> rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>)</div><div class="line">	<span class="keyword">var</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>)</div><div class="line"></div><div class="line">	gulp.task(<span class="string">'copyimage'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</div><div class="line">		<span class="comment">//return</span></div><div class="line">		gulp.src(<span class="string">'./images/**/*'</span>)</div><div class="line">					.pipe(cache(imagemin(&#123; optimizationLevel: <span class="number">5</span>, progressive: <span class="literal">true</span>, interlaced: <span class="literal">true</span> &#125;)))</div><div class="line">					.pipe(gulp.dest(<span class="string">'./dist/images'</span>))</div><div class="line">		cb()</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	gulp.task(<span class="string">'app'</span>, [<span class="string">'clean'</span>, <span class="string">'copyimage'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> assets = useref.assets()</div><div class="line"></div><div class="line">		<span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">				.pipe(assets)</div><div class="line">				.pipe(gulpif(<span class="string">'*.js'</span>, uglify()))</div><div class="line">				.pipe(gulpif(<span class="string">'*.css'</span>, minifycss()))</div><div class="line">				.pipe(assets.restore())</div><div class="line">				.pipe(useref())</div><div class="line">				.pipe(gulp.dest(<span class="string">'dist'</span>))</div><div class="line">				.pipe(notify(<span class="string">'构建完成'</span>))</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</div><div class="line">		del([<span class="string">'./dist'</span>], cb)</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	<span class="comment">/* watch */</span></div><div class="line">	gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		gulp.watch(<span class="string">'./js/*.js'</span>, [<span class="string">'app'</span>])</div><div class="line">		gulp.watch(<span class="string">'./css/style.css'</span>, [<span class="string">'app'</span>])</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	<span class="comment">/* task */</span></div><div class="line">	gulp.task(<span class="string">'default'</span>, [<span class="string">'clean'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		gulp.start([<span class="string">'watch'</span>, <span class="string">'app'</span>]);</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
-<p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">	<span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- build:css css/combined.css --&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/one.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/two.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- endbuild --&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- build:js scripts/combined.js --&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"scripts/one.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"scripts/two.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- endbuild --&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">result</div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/combined.css"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"scripts/combined.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="https://github.com/nimojs/gulp-book" target="_blank" rel="external">gulp-book中文</a></p>
-<p><a href="https://github.com/yeol/blog/blob/master/20140828_building_with_gulp.md" target="_blank" rel="external">Building With Gulp中文版</a></p>
-<p><a href="http://rookieone.gitbooks.io/learning-gulp/index.html" target="_blank" rel="external">Learning Gulp</a></p>
-<p><a href="http://davinov.gitbooks.io/gulp-book/" target="_blank" rel="external">gulp-book</a></p>
-<p><a href="http://blog.segmentfault.com/nightire/1190000000435599" target="_blank" rel="external">“流式”前端构建工具——gulp.js 简介</a></p>
-<p><a href="http://v.youku.com/v_show/id_XNzUyNzc5Nzky.html" target="_blank" rel="external">gulp视频教程之一：gulp是什么gulp能做什么</a></p>
-<p><a href="http://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Gulp入门教程</a></p>
-<p><a href="http://colobu.com/2014/11/17/gulp-plugins-introduction/#gulp-usemin" target="_blank" rel="external">gulp plugins 插件介绍</a></p>
-<p><a href="http://csspod.com/advanced-tips-for-using-gulp-js/" target="_blank" rel="external">gulp高级进阶</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;gulp官网&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;基本入门&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;全局安装&lt;code&gt;gulp.js&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight cmake&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; -g gulp&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="前端构建" scheme="http://tomieric.github.io/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
-    
-    
-      <category term="-前端构建 -gulp" scheme="http://tomieric.github.io/tags/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA-gulp/"/>
     
   </entry>
   
@@ -1195,6 +1159,236 @@ http,,,www,baidu,com,
     
     
       <category term="-javascript" scheme="http://tomieric.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gulp.js构建工具入门</title>
+    <link href="http://tomieric.github.io/2014/08/20/gulp/"/>
+    <id>http://tomieric.github.io/2014/08/20/gulp/</id>
+    <published>2014-08-19T16:00:00.000Z</published>
+    <updated>2016-09-04T05:42:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p><a href="http://gulpjs.com/" target="_blank" rel="external">gulp官网</a></p>
+</blockquote>
+<p><strong>基本入门</strong></p>
+<ol>
+<li>全局安装<code>gulp.js</code></li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g gulp</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ol>
+<li>为项目目录安装<code>gulp.js</code>库文件</li>
+</ol>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#cd c:<span class="comment">//myproject/demo1</span></span></div><div class="line">npm install --<span class="keyword">save</span>-dev gulp</div></pre></td></tr></table></figure>
+<ol>
+<li>在项目根目录创建<code>gulpfile.js</code>文件并写入以下模板。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">// code</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>运行<code>gulp</code>任务。</li>
+</ol>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">		gulp</div><div class="line"></div><div class="line">```    </div><div class="line"></div><div class="line">基本入门就<span class="number">4</span>步可以完成，比起`grunt`各种配置简单许多。</div><div class="line"></div><div class="line">##Gulp.js进阶 ##</div></pre></td></tr></table></figure>
+<pre><code>var gulp = require(&apos;gulp&apos;);
+
+/**
+# 依赖插件可以在package.json中配置
+# npm install安装插件
+**/
+var contact = require(&apos;gulp-concat&apos;);
+var uglify = require(&apos;gulp-uglify&apos;);
+var sourcemaps = require(&apos;gulp-sourcemaps&apos;);
+var imagemin = require(&apos;gulp-imagemin&apos;)
+//var del = require(&apos;del&apos;);
+
+var paths = {
+    scripts: &apos;static/js/**/*.js&apos;,
+    images: &apos;static/images/**/*&apos;
+};
+
+// 清空build目录文件
+//# npm install --save-dev gulp-clean
+gulp.task(&apos;clean&apos;, function(cb){
+    //del([&apos;build&apos;], cb); #del不存在该模块，官方api居然有这句具体不知道怎么来
+    cb();
+});
+
+// 处理js文件
+//# npm install --save-dev gulp-sourcemaps
+//# npm install --save-dev gulp-uglify
+gulp.task(&apos;scripts&apos;, [&apos;clean&apos;], function(){
+    return gulp.src(paths.scripts)
+                .pipe(sourcemaps.init())
+                .pipe(uglify())
+                .pipe(sourcemaps.write(&apos;build/maps&apos;))
+                .pipe(gulp.dest(&apos;build/js&apos;));
+});
+
+// 复制图片
+//# npm install --save-dev gulp-images
+gulp.task(&apos;images&apos;, [&apos;clean&apos;], function(){
+    return gulp.src(paths.images)
+                .pipe(imagemin({optimizationLevel: 5}))
+                .pipe(gulp.dest(&apos;build/images&apos;));
+});
+
+// 文件监听
+gulp.task(&apos;watch&apos;, function(){
+    gulp.watch(paths.scripts, [&apos;scripts&apos;]);
+    gulp.watch(paths.images, [&apos;images&apos;]);
+});
+
+// 配置默认任务，执行[&apos;watch&apos;, &apos;scripts&apos;, &apos;images&apos;]
+gulp.task(&apos;default&apos;, [&apos;watch&apos;, &apos;scripts&apos;, &apos;images&apos;]);
+</code></pre><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="vala"><span class="meta">##模板一</span></span></div></pre></td></tr></table></figure>
+<pre><code>/**
+ * 构建环境
+ */
+
+var gulp = require(&apos;gulp&apos;)
+
+var concat = require(&apos;gulp-concat&apos;),
+    uglify = require(&apos;gulp-uglify&apos;),
+    imagemin = require(&apos;gulp-imagemin&apos;),
+    less = require(&apos;gulp-less&apos;),
+    minifycss = require(&apos;gulp-minify-css&apos;),
+    rename = require(&apos;gulp-rename&apos;),
+    livereload = require(&apos;gulp-livereload&apos;),
+    autoprefixer = require(&apos;gulp-autoprefixer&apos;),
+    cache = require(&apos;gulp-cache&apos;),
+    notify = require(&apos;gulp-notify&apos;),
+    connect = require(&apos;gulp-connect&apos;),
+    del = require(&apos;del&apos;);
+
+var paths = {
+    styles: &apos;src/css/**/*.css&apos;,
+    less: &apos;src/less/**/*.less&apos;,
+    scripts: [&apos;src/js/jquery.js&apos;,&apos;src/js/common/**/*.js&apos;],
+    images: &apos;src/images/**/*&apos;,
+    gallery: &apos;src/gallery/**/*&apos;,
+    index: [&apos;src/gallery/jquery.bxslider/jquery.bxslider.min.js&apos;, &apos;src/js/app/index.js&apos;]
+};
+
+gulp.task(&apos;scripts&apos;, function(){
+    return gulp.src(paths.scripts)
+                .pipe(concat(&apos;main.js&apos;))
+                .pipe(gulp.dest(&apos;dist/js&apos;))
+                //.pipe(rename({suffix: &apos;.min&apos;}))
+                .pipe(uglify())
+                .pipe(gulp.dest(&apos;dist/js&apos;))
+                .pipe(notify(&apos;js任务运行完成&apos;))
+});
+
+gulp.task(&apos;images&apos;, function(){
+    return gulp.src(paths.images)
+                .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
+                .pipe(gulp.dest(&apos;dist/images&apos;))
+                //.pipe(notify(&apos;图片压缩完成&apos;))
+})
+
+gulp.task(&apos;styles&apos;, function(cb){
+    return gulp.src(&apos;src/less/main.less&apos;)
+                .pipe(less())
+                .pipe(autoprefixer(&apos;last 2 version&apos;, &apos;safari 5&apos;, &apos;ie 8&apos;, &apos;ie 9&apos;, &apos;opera 12.1&apos;, &apos;ios 6&apos;, &apos;android 4&apos;))
+                .pipe(gulp.dest(&apos;src/css&apos;))
+                .pipe(notify(&apos;less样式文件完成&apos;));
+})
+
+gulp.task(&apos;concat&apos;, [&apos;styles&apos;], function(){
+    return gulp.src(paths.styles)
+                .pipe(concat(&apos;main.css&apos;))
+                .pipe(gulp.dest(&apos;dist/css&apos;))
+                //.pipe(rename({suffix: &apos;.min&apos;}))
+                .pipe(minifycss())
+                .pipe(gulp.dest(&apos;dist/css&apos;))
+                .pipe(notify(&apos;样式文件完成&apos;))
+})
+
+// gallery 插件
+/*gulp.task(&apos;copy&apos;, function(){
+    return gulp.src(paths.gallery)
+                .pipe(gulp.dest(&apos;dist/gallery&apos;));
+});*/
+
+gulp.task(&apos;clean&apos;, function(cb){
+    del([&apos;dist/js&apos;, &apos;dist/images&apos;, &apos;dist/css&apos;], cb);
+})
+
+gulp.task(&apos;html&apos;, function(){
+    return gulp.src(&apos;*.html&apos;)
+                .pipe(connect.reload());
+})
+
+gulp.task(&apos;connect&apos;, function(){
+    connect.server({
+        root: &apos;../ghlaw&apos;,
+        livereload: true
+    });
+})
+
+/*
+* 首页
+ */
+gulp.task(&apos;index&apos;, function(){
+    return gulp.src(paths.index)
+                .pipe(concat(&apos;index.js&apos;))
+                .pipe(gulp.dest(&apos;dist/js&apos;))
+                //.pipe(rename({suffix: &apos;.min&apos;}))
+                .pipe(uglify())
+                .pipe(gulp.dest(&apos;dist/js&apos;))
+                .pipe(notify(&apos;首页js任务运行完成&apos;))
+});
+
+gulp.task(&apos;watch&apos;, function(){
+
+    gulp.watch(paths.scripts, [&apos;scripts&apos;])
+    gulp.watch(paths.images, [&apos;images&apos;])
+    gulp.watch(paths.less, [&apos;concat&apos;])
+    //gulp.watch(paths.gallery, [&apos;copy&apos;])
+    gulp.watch(paths.index, [&apos;index&apos;])
+
+    livereload.listen()
+    gulp.watch([&apos;/dist/**&apos;]).on(&apos;change&apos;, livereload.changed)
+    gulp.watch([&apos;**/*.html&apos;], [&apos;html&apos;])
+})
+
+gulp.task(&apos;default&apos;, [&apos;clean&apos;], function(){
+    gulp.start([&apos;connect&apos;,&apos;watch&apos;, &apos;scripts&apos;, &apos;images&apos;, &apos;concat&apos;, &apos;index&apos;]);
+});
+</code></pre><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">##模板二</span></div><div class="line"></div><div class="line">`<span class="javascript"></span>``<span class="javascript"> javascript</span></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 构建环境</div><div class="line">	 * by tomieric</div><div class="line">	 * gulpfile.js</div><div class="line">	 */</div><div class="line"></div><div class="line">	<span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</div><div class="line"></div><div class="line">	<span class="keyword">var</span> useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>)</div><div class="line">	<span class="keyword">var</span> gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>)</div><div class="line">	<span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>)</div><div class="line">	<span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>)</div><div class="line">	<span class="keyword">var</span> notify = <span class="built_in">require</span>(<span class="string">'gulp-notify'</span>)</div><div class="line">	<span class="keyword">var</span> imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>)</div><div class="line">	<span class="keyword">var</span> cache = <span class="built_in">require</span>(<span class="string">'gulp-cache'</span>)</div><div class="line">	<span class="keyword">var</span> rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>)</div><div class="line">	<span class="keyword">var</span> del = <span class="built_in">require</span>(<span class="string">'del'</span>)</div><div class="line"></div><div class="line">	gulp.task(<span class="string">'copyimage'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</div><div class="line">		<span class="comment">//return</span></div><div class="line">		gulp.src(<span class="string">'./images/**/*'</span>)</div><div class="line">					.pipe(cache(imagemin(&#123; optimizationLevel: <span class="number">5</span>, progressive: <span class="literal">true</span>, interlaced: <span class="literal">true</span> &#125;)))</div><div class="line">					.pipe(gulp.dest(<span class="string">'./dist/images'</span>))</div><div class="line">		cb()</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	gulp.task(<span class="string">'app'</span>, [<span class="string">'clean'</span>, <span class="string">'copyimage'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> assets = useref.assets()</div><div class="line"></div><div class="line">		<span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">				.pipe(assets)</div><div class="line">				.pipe(gulpif(<span class="string">'*.js'</span>, uglify()))</div><div class="line">				.pipe(gulpif(<span class="string">'*.css'</span>, minifycss()))</div><div class="line">				.pipe(assets.restore())</div><div class="line">				.pipe(useref())</div><div class="line">				.pipe(gulp.dest(<span class="string">'dist'</span>))</div><div class="line">				.pipe(notify(<span class="string">'构建完成'</span>))</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</div><div class="line">		del([<span class="string">'./dist'</span>], cb)</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	<span class="comment">/* watch */</span></div><div class="line">	gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		gulp.watch(<span class="string">'./js/*.js'</span>, [<span class="string">'app'</span>])</div><div class="line">		gulp.watch(<span class="string">'./css/style.css'</span>, [<span class="string">'app'</span>])</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">	<span class="comment">/* task */</span></div><div class="line">	gulp.task(<span class="string">'default'</span>, [<span class="string">'clean'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		gulp.start([<span class="string">'watch'</span>, <span class="string">'app'</span>]);</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+<p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">	<span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- build:css css/combined.css --&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/one.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/two.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- endbuild --&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- build:js scripts/combined.js --&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"scripts/one.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"scripts/two.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	    <span class="comment">&lt;!-- endbuild --&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">result</div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/combined.css"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"scripts/combined.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/nimojs/gulp-book" target="_blank" rel="external">gulp-book中文</a></p>
+<p><a href="https://github.com/yeol/blog/blob/master/20140828_building_with_gulp.md" target="_blank" rel="external">Building With Gulp中文版</a></p>
+<p><a href="http://rookieone.gitbooks.io/learning-gulp/index.html" target="_blank" rel="external">Learning Gulp</a></p>
+<p><a href="http://davinov.gitbooks.io/gulp-book/" target="_blank" rel="external">gulp-book</a></p>
+<p><a href="http://blog.segmentfault.com/nightire/1190000000435599" target="_blank" rel="external">“流式”前端构建工具——gulp.js 简介</a></p>
+<p><a href="http://v.youku.com/v_show/id_XNzUyNzc5Nzky.html" target="_blank" rel="external">gulp视频教程之一：gulp是什么gulp能做什么</a></p>
+<p><a href="http://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Gulp入门教程</a></p>
+<p><a href="http://colobu.com/2014/11/17/gulp-plugins-introduction/#gulp-usemin" target="_blank" rel="external">gulp plugins 插件介绍</a></p>
+<p><a href="http://csspod.com/advanced-tips-for-using-gulp-js/" target="_blank" rel="external">gulp高级进阶</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://gulpjs.com/&quot;&gt;gulp官网&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;基本入门&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全局安装&lt;code&gt;gulp.js&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight cmake&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; -g gulp&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="前端构建" scheme="http://tomieric.github.io/categories/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+    
+    
+      <category term="-前端构建 -gulp" scheme="http://tomieric.github.io/tags/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA-gulp/"/>
     
   </entry>
   

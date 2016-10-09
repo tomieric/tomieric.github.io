@@ -12,6 +12,12 @@ categories: 前端构建
 
 ## react ie8 开发环境
 
+### 关于 ES5
+
+### 关于 react 0.14.x
+
+### 关于 react-router 1.x.x 
+
 [https://github.com/tomieric/react-ie8-boilerplate](https://github.com/tomieric/react-ie8-boilerplate)
 
 <!-- more -->

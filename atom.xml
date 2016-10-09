@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tomieric.github.io/"/>
-  <updated>2016-10-07T11:50:25.000Z</updated>
+  <updated>2016-10-09T10:28:28.000Z</updated>
   <id>http://tomieric.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://tomieric.github.io/2016/09/08/startkit-4/"/>
     <id>http://tomieric.github.io/2016/09/08/startkit-4/</id>
     <published>2016-09-07T16:00:00.000Z</published>
-    <updated>2016-10-07T11:50:25.000Z</updated>
+    <updated>2016-10-09T10:28:28.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="react-ie8-开发环境"><a href="#react-ie8-开发环境" class="headerlink" title="react ie8 开发环境"></a>react ie8 开发环境</h2><p><a href="https://github.com/tomieric/react-ie8-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-ie8-boilerplate</a></p>
+    <content type="html"><![CDATA[<h2 id="react-ie8-开发环境"><a href="#react-ie8-开发环境" class="headerlink" title="react ie8 开发环境"></a>react ie8 开发环境</h2><h3 id="关于-ES5"><a href="#关于-ES5" class="headerlink" title="关于 ES5"></a>关于 ES5</h3><h3 id="关于-react-0-14-x"><a href="#关于-react-0-14-x" class="headerlink" title="关于 react 0.14.x"></a>关于 react 0.14.x</h3><h3 id="关于-react-router-1-x-x"><a href="#关于-react-router-1-x-x" class="headerlink" title="关于 react-router 1.x.x"></a>关于 react-router 1.x.x</h3><p><a href="https://github.com/tomieric/react-ie8-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-ie8-boilerplate</a></p>
 <a id="more"></a>
 <ul>
 <li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
@@ -34,7 +34,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;react-ie8-开发环境&quot;&gt;&lt;a href=&quot;#react-ie8-开发环境&quot; class=&quot;headerlink&quot; title=&quot;react ie8 开发环境&quot;&gt;&lt;/a&gt;react ie8 开发环境&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/tomieric/react-ie8-boilerplate&quot;&gt;https://github.com/tomieric/react-ie8-boilerplate&lt;/a&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;react-ie8-开发环境&quot;&gt;&lt;a href=&quot;#react-ie8-开发环境&quot; class=&quot;headerlink&quot; title=&quot;react ie8 开发环境&quot;&gt;&lt;/a&gt;react ie8 开发环境&lt;/h2&gt;&lt;h3 id=&quot;关于-ES5&quot;&gt;&lt;a href=&quot;#关于-ES5&quot; class=&quot;headerlink&quot; title=&quot;关于 ES5&quot;&gt;&lt;/a&gt;关于 ES5&lt;/h3&gt;&lt;h3 id=&quot;关于-react-0-14-x&quot;&gt;&lt;a href=&quot;#关于-react-0-14-x&quot; class=&quot;headerlink&quot; title=&quot;关于 react 0.14.x&quot;&gt;&lt;/a&gt;关于 react 0.14.x&lt;/h3&gt;&lt;h3 id=&quot;关于-react-router-1-x-x&quot;&gt;&lt;a href=&quot;#关于-react-router-1-x-x&quot; class=&quot;headerlink&quot; title=&quot;关于 react-router 1.x.x&quot;&gt;&lt;/a&gt;关于 react-router 1.x.x&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/tomieric/react-ie8-boilerplate&quot;&gt;https://github.com/tomieric/react-ie8-boilerplate&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -54,10 +54,120 @@
     <link href="http://tomieric.github.io/2016/09/05/startkit-3/"/>
     <id>http://tomieric.github.io/2016/09/05/startkit-3/</id>
     <published>2016-09-04T16:00:00.000Z</published>
-    <updated>2016-10-07T11:49:53.000Z</updated>
+    <updated>2016-10-09T10:29:01.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="webpack-搭配-react"><a href="#webpack-搭配-react" class="headerlink" title="webpack 搭配 react"></a>webpack 搭配 react</h2><p><a href="https://github.com/tomieric/react-webpack-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-webpack-boilerplate</a></p>
+    <content type="html"><![CDATA[<blockquote>
+<p>最近火遍朋友圈的 <a href="https://www.v2ex.com/t/310767" target="_blank" rel="external">在 2016 年学 JavaScript 是一种什么样的体验？</a>，如果有一天选择做了前端，请把我埋在，深深的配置里…</p>
+</blockquote>
+<p>在前两年觉得前端是最容易入门上手的，而近两年感觉门槛高了，各种眼花缭乱的构建工具，各种配置。 </p>
+<p>本篇带来的是 <code>webpack 搭配 react</code></p>
 <a id="more"></a>
+<h3 id="webpack-介绍"><a href="#webpack-介绍" class="headerlink" title="webpack 介绍"></a>webpack 介绍</h3><p><code>wepback</code> 是模块化构建工具，同类的用<code>browserify</code>,<code>FIS3</code>。<code>webpack</code>是支持<code>common.js</code>和<code>es6</code>模块化加载方式的系统，能根据模块化资源优化加载，抽取，合并等功能。非常适合单页面应用的 webapp 项目，同样的也支持多页面模块化管理，内置异步加载模块功能。主要组成部分：</p>
+<ul>
+<li>代码分割</li>
+<li>loader加载</li>
+<li>智能转换编译</li>
+<li>插件系统</li>
+</ul>
+<h4 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">npm</span> init -<span class="literal">yes</span> </div><div class="line"><span class="built_in">npm</span> install webpack --save-dev</div></pre></td></tr></table></figure>
+<p>安装完成后使用<code>webpack</code> 命令编译 js 文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack <span class="tag">&lt;<span class="name">entry</span>&gt;</span> <span class="tag">&lt;<span class="name">output</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>或者使用默认配置文件<code>webpack.config.js</code>，编译时直接使用<code>webpack</code>即可。</p>
+<p><code>webpack</code>的配置大致以下几点：</p>
+<ul>
+<li>context 上下文环境，一般不怎么使用, 默认是配置文件当前目录</li>
+<li>entry   入口文件，字符串为单入口，数组为多入口，字面量对象声明{ 生成文件名: [入口文件]}</li>
+<li>output  输出文件，声明输出文件名，目录，cdn 等</li>
+<li>module  模块分割处理<ul>
+<li>loaders 加载器，根据模块的后缀名分别配置不同的加载器处理</li>
+<li>preLoaders, postLoaders 预加载后或编译后处理</li>
+<li>noParse 忽略模块声明</li>
+</ul>
+</li>
+<li>resolve   模块路径声明，同node寻找模块方式</li>
+<li>devServer 搭载<code>webpack-dev-server</code>使用的配置</li>
+<li>plugins   声明使用插件，比如 css，js 的压缩</li>
+<li>etc.</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    entry: &#123;</div><div class="line">        bundle: <span class="string">'./src/entry.js'</span></div><div class="line">    &#125;,</div><div class="line">    outpu<span class="variable">t:</span> &#123;</div><div class="line">        path: <span class="string">'./dist'</span>,</div><div class="line">        filename: <span class="string">'[name][hash].js'</span></div><div class="line">    &#125;,</div><div class="line">    module: &#123;</div><div class="line">        loader<span class="variable">s:</span> [</div><div class="line">            &#123;</div><div class="line">                tes<span class="variable">t:</span> /\.css$/,</div><div class="line">                loader: <span class="string">'style-loader!css-loader'</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                tes<span class="variable">t:</span> /\.jsx?$/,</div><div class="line">                loader: <span class="string">'babel'</span>,</div><div class="line">                query: &#123;</div><div class="line">                    preset<span class="variable">s:</span> [<span class="string">'react'</span>, <span class="string">'es2015'</span>, <span class="string">'stage-2'</span>]</div><div class="line">                &#125;</div><div class="line">            &#125;,</div><div class="line">            // ...</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">    <span class="built_in">resolve</span>: &#123;</div><div class="line">        extension<span class="variable">s:</span> [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>, <span class="string">'.css'</span>, <span class="string">'.less'</span>]</div><div class="line">        roo<span class="variable">t:</span> [path.<span class="built_in">resolve</span>(<span class="string">'.src'</span>)]</div><div class="line">    &#125;,</div><div class="line">    plugin<span class="variable">s:</span> [</div><div class="line">        <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</div><div class="line">            template: <span class="string">'./src/index.html'</span>,</div><div class="line">            filename: <span class="string">'index.html'</span>,</div><div class="line">            injec<span class="variable">t:</span> <span class="string">'body'</span></div><div class="line">        &#125;)</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用<code>webpack-dev-server</code>搭配启动项目，在配置文件中增加</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">    <span class="selector-tag">devServer</span>: &#123;</div><div class="line">        <span class="attribute">hot</span>: true,</div><div class="line">        host: <span class="string">'127.0.0.1'</span>,</div><div class="line">        port: <span class="number">3000</span>,</div><div class="line">        proxy: &#123;</div><div class="line">            <span class="string">'/Api/*'</span>: &#123;</div><div class="line">                target: <span class="string">'http://192.168.0.2:3000'</span>,</div><div class="line">                rewrite: <span class="built_in">function</span>(req) &#123;</div><div class="line">                    req.url = req.url.<span class="built_in">replace</span>(/^\/Api/, <span class="string">''</span>)</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><a href="http://webpack.github.io/" target="_blank" rel="external">http://webpack.github.io/</a></p>
+<h3 id="react-介绍"><a href="#react-介绍" class="headerlink" title="react 介绍"></a>react 介绍</h3><p><code>react</code> 是 facebook 开源的用户交互js 库，是单向的数据流模式，有区别于 mvvm 框架的<code>vue</code>, <code>angular</code>。 <code>react</code> 推出了自己的语法解析器 <code>jsx</code>，同样的支持 es6的写法， <code>react</code>是基于虚拟 dom（virtual Dom）因此具有良好的性能，包括最近比较火的微信小程序底层也是使用了<code>react</code>。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  constructor(props) &#123;</div><div class="line">      <span class="keyword">super</span>(props)</div><div class="line">      <span class="keyword">this</span>.state = &#123;&#125;</div><div class="line">  &#125;  </div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;<span class="type">Hello</span> &#123;<span class="keyword">this</span>.props.name&#125;&lt;/div&gt;;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="type">ReactDOM</span>.render(&lt;<span class="type">HelloMessage</span> name=<span class="string">"John"</span> /&gt;, mountNode);</div></pre></td></tr></table></figure>
+<p>初学者建议在这里学习 <a href="http://babeljs.io/repl/" target="_blank" rel="external">http://babeljs.io/repl/</a></p>
+<p><code>react</code> 主要涉及内容：</p>
+<ul>
+<li>require 包导入</li>
+<li>react </li>
+<li>react-dom </li>
+<li>react.component </li>
+<li>react-router</li>
+<li>构造函数constructor</li>
+<li>生命周期</li>
+<li>父子组件值传递props</li>
+<li>组件状态管理 state</li>
+<li>jsx 语法标签</li>
+<li>react 事件绑定</li>
+</ul>
+<p><strong>标准的组件写法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 组件规范</div><div class="line"> * by tommyshao</div><div class="line"> * 2016-08-03</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">// 引入React</span></div><div class="line"><span class="keyword">import</span> React,&#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"></div><div class="line"><span class="comment">// 导入默认 组件类</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> propTypes = &#123;</div><div class="line">        name: React.PropTypes.string</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造函数</span></div><div class="line">    <span class="keyword">constructor</span> (props) &#123;</div><div class="line">        <span class="comment">// 继承react组件</span></div><div class="line">        <span class="keyword">super</span>(props)</div><div class="line"></div><div class="line">        <span class="comment">// 定义state</span></div><div class="line">        <span class="keyword">this</span>.state = &#123; smilling: <span class="literal">false</span> &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 生命周期</span></div><div class="line">    componentWillMount() &#123;&#125;</div><div class="line">    componentDidMount() &#123;&#125;</div><div class="line">    componentWillUnmount()&#123;&#125;</div><div class="line"></div><div class="line">    <span class="comment">// getters and setters</span></div><div class="line">    <span class="comment">// es6</span></div><div class="line">    get attr() &#123;&#125;</div><div class="line"></div><div class="line">    <span class="comment">// 事件函数</span></div><div class="line">    <span class="comment">// band(this)</span></div><div class="line">    handleClick = () =&gt; &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 渲染</span></div><div class="line">    renderChild() &#123;&#125;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"component"</span>&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;</span> <span class="attr">this.handleClick</span> &#125;&gt;</span>Click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于 <code>react-router</code> 的介绍，参照<a href="https://github.com/ReactTraining/react-router" target="_blank" rel="external">https://github.com/ReactTraining/react-router</a></p>
+<p>这里使用的是<code>webpack</code>中的<code>require.ensure([])</code> 特性做 react 程序的文件根据路由按需加载优化，并非 <code>all-in-one</code> 模式, 由于 react 本身体积不小加上其他依赖组件影响我们的首屏加载，比如你打开支付宝的<a href="http://ant.design/" target="_blank" rel="external">ant.design</a>官网会感觉好痛苦。</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 路由配置</div><div class="line"> * </div><div class="line"> * by tommyshao</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> &#123; Router, hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> routes = &#123;</div><div class="line">    component: <span class="built_in">require</span>(<span class="string">'../containers/common/layout'</span>).<span class="keyword">default</span>,</div><div class="line">    childRoutes: [</div><div class="line">        &#123;</div><div class="line">            path: <span class="string">'/'</span>,</div><div class="line">            indexRoute: &#123;</div><div class="line">                onEnter: (nextState, replace) =&gt; replace(<span class="string">'Home'</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            path: <span class="string">'Home'</span>,</div><div class="line">            getComponent(nextState, cb) &#123;</div><div class="line">                <span class="built_in">require</span>.ensure([], <span class="built_in">require</span> =&gt; &#123;</div><div class="line">                    cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'../containers/index'</span>).<span class="keyword">default</span>)</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &lt;Router history=&#123; hashHistory &#125; routes=&#123; routes &#125; /&gt;</div></pre></td></tr></table></figure>
+<h3 id="ES6介绍"><a href="#ES6介绍" class="headerlink" title="ES6介绍"></a>ES6介绍</h3><p><code>ES6</code> 是<code>EMCAscript 6</code> 的简写，之前有介绍过<a href="/2016/02/21/get-stared-use-es6/">拥抱 ES6</a>， <a href="http://babeljs.io/repl/" target="_blank" rel="external">http://babeljs.io/repl/</a>可以在线学习语法<a href="http://babeljs.io/docs/learn-es2015/" target="_blank" rel="external">http://babeljs.io/docs/learn-es2015/</a>。</p>
+<p>通过<code>webpack</code>等工具编译后，<code>ES6</code>大部分语法转换成<code>ES5</code>, 大多数浏览器都支持<code>ES5</code>特性，个别浏览器需引入<code>es5-shime</code>等polyfill库。</p>
+<p>ES6常用语法:</p>
+<ul>
+<li>export,import</li>
+<li>=&gt; 箭头函数</li>
+<li>extends 继承</li>
+<li>static 常量定义</li>
+<li>class 类定义</li>
+<li>字符串模板<code>`${name}</code> `</li>
+<li>default, let, const 关键字</li>
+<li>Promise</li>
+<li>fetch api</li>
+</ul>
+<h3 id="react构建模板"><a href="#react构建模板" class="headerlink" title="react构建模板"></a>react构建模板</h3><p>react 构建模板我们需要分开 webpack 的配置文件和 react 的源文件，因此我们这样设计</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">├── README<span class="selector-class">.MD</span></div><div class="line">├── package<span class="selector-class">.json</span>      包信息</div><div class="line">├── build              webpack配置</div><div class="line">│   ├── ...</div><div class="line">├── src               react源文件</div><div class="line">    ├── ...</div></pre></td></tr></table></figure>
+<p>根据不同开发阶段将 <code>webpack</code> 的配置文件拆成3部分。</p>
+<ul>
+<li>webpack.base.config.js</li>
+<li>webpack.dev.config.js</li>
+<li>webpack.prod.config.js</li>
+</ul>
+<h4 id="webpack-base-config-js"><a href="#webpack-base-config-js" class="headerlink" title="webpack.base.config.js"></a>webpack.base.config.js</h4><p>主要声明入口文件，输出目录，模块别名，加载器处理， less 编译，autoprefixer，px2rem 等</p>
+<p><a href="https://github.com/tomieric/react-webpack-boilerplate/blob/master/build/webpack.base.config.js" target="_blank" rel="external">https://github.com/tomieric/react-webpack-boilerplate/blob/master/build/webpack.base.config.js</a></p>
+<h4 id="webpack-dev-config-js"><a href="#webpack-dev-config-js" class="headerlink" title="webpack.dev.config.js"></a>webpack.dev.config.js</h4><p>主要启用<code>webpack-dev-server</code>，使用热插件局部刷新，http 服务器，http 接口代理，自动浏览器预览。</p>
+<p><a href="https://github.com/tomieric/react-webpack-boilerplate/blob/master/build/webpack.dev.config.js" target="_blank" rel="external">https://github.com/tomieric/react-webpack-boilerplate/blob/master/build/webpack.dev.config.js</a></p>
+<h4 id="webpack-prod-config-js"><a href="#webpack-prod-config-js" class="headerlink" title="webpack.prod.config.js"></a>webpack.prod.config.js</h4><p>生产构建发布主要做模块优化，去除 wepback 冗余文件，按体积分块拆分文件，清空生产目录，js 压缩，添加版权信息，公共模块抽取等。</p>
+<p><a href="https://github.com/tomieric/react-webpack-boilerplate/blob/master/build/webpack.prod.config.js" target="_blank" rel="external">https://github.com/tomieric/react-webpack-boilerplate/blob/master/build/webpack.prod.config.js</a></p>
+<p>我们在<code>package.json</code>中声明命令分别使用不同的配置文件</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"> <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"start"</span>: <span class="string">"node node_modules/webpack-dev-server/bin/webpack-dev-server --config build/webpack.dev.config.js --inline"</span>,</div><div class="line">    <span class="string">"build"</span>: <span class="string">"node node_modules/webpack/bin/webpack --config build/webpack.prod.config.js --progress --profile --colors"</span></div><div class="line">  &#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>开发阶段启动命令: <code>npm start</code> 自动打开浏览器进行预览。</p>
+<p>生成发布命令: <code>npm run build</code> 生成了<code>assets</code>目录。</p>
+<h3 id="react-使用"><a href="#react-使用" class="headerlink" title="react 使用"></a>react 使用</h3><p>当我们搭建好<code>webpack</code> 环境可以动手写 <code>react</code> 了， 首先看看入口文件 <code>entry.js</code>。</p>
+<pre><code class="JavaScript">
+<span class="comment">// 导入字体</span>
+<span class="comment">//import './public/fonts/frontui-icon/fonticon/style.css'</span>
+
+<span class="comment">// 导入公共样式</span>
+<span class="keyword">import</span> <span class="string">'./public/less/common.less'</span>
+
+<span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>
+<span class="keyword">import</span> { render } <span class="keyword">from</span> <span class="string">'react-dom'</span>
+
+<span class="comment">// 路由配置</span>
+<span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">'./routes'</span>
+
+<span class="comment">// 渲染模板</span>
+render(
+    routes,
+    <span class="built_in">document</span>.getElementById(<span class="string">'app'</span>)
+)
+</code></pre>
+<p>模板传送门：<a href="https://github.com/tomieric/react-webpack-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-webpack-boilerplate</a></p>
 <ul>
 <li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
 <li><a href="/2016/09/03/startkit-2/">配置5小时开发2分钟系列（2）</a></li>
@@ -68,7 +178,11 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;webpack-搭配-react&quot;&gt;&lt;a href=&quot;#webpack-搭配-react&quot; class=&quot;headerlink&quot; title=&quot;webpack 搭配 react&quot;&gt;&lt;/a&gt;webpack 搭配 react&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/tomieric/react-webpack-boilerplate&quot;&gt;https://github.com/tomieric/react-webpack-boilerplate&lt;/a&gt;&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;最近火遍朋友圈的 &lt;a href=&quot;https://www.v2ex.com/t/310767&quot;&gt;在 2016 年学 JavaScript 是一种什么样的体验？&lt;/a&gt;，如果有一天选择做了前端，请把我埋在，深深的配置里…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在前两年觉得前端是最容易入门上手的，而近两年感觉门槛高了，各种眼花缭乱的构建工具，各种配置。 &lt;/p&gt;
+&lt;p&gt;本篇带来的是 &lt;code&gt;webpack 搭配 react&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     

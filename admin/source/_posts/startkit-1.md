@@ -1,7 +1,8 @@
-title: 配置5小时开发2分钟系列（1）
+title: 配置5小时开发2分钟系列（1）—— 即时刷新的browser-sync
 date: 2016/09/01
-thumbnailImage: http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg
+thumbnailImage: http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/1/w/280/h/280/interlace/1/q/60
 autoThumbnailImage: yes
+coverImage: http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60
 tags:
     - gulp
     - browser-sync
@@ -9,10 +10,19 @@ tags:
 categories: 前端构建
 ---
 
-{% wide_image http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60  "日暮羊城" %}
+
+> 最近火遍朋友圈的 [在 2016 年学 JavaScript 是一种什么样的体验？](https://www.v2ex.com/t/310767)，如果有一天选择做了前端，请把我埋在，深深的配置里...
+
+在前两年觉得前端是最容易入门上手的，而近两年感觉门槛高了，各种眼花缭乱的构建工具，各种配置。 
+
+在这里不用怕，本人带你一步步实现自己的配置模板。
+
+本篇带来的是 `即时刷新的browser-sync`
+
+<!-- more -->
 
 
-## 即时刷新的前端环境browser-sync
+## 即时刷新的browser-sync
 
 在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。
 
@@ -21,8 +31,6 @@ categories: 前端构建
 在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。
 
 在本篇文章将介绍更能提供的 http 环境的强大工具 `browser-sync`，开始我们的 `配置5小时开发两分钟` 介绍。
-
-<!-- more -->
 
 > `browser-sync` 是一款 `省时的浏览器同步测试工具`
 
@@ -106,7 +114,7 @@ npm run start
 
 渐渐的项目配置文件越来越多了，怎么办下次新项目又要重新配置？因此才有了 `配置5小时开发两分钟系列`，^_^
 
-这里作者整理一个完整的 `browser-sync` 环境的构建项目模板 [https://github.com/tomieric/browsersync-pure-boilerplate](https://github.com/tomieric/browsersync-pure-boilerplate)，欢迎 star！
+这里作者整理一个完整的 `browser-sync` 环境的构建项目模板 [https://github.com/tomieric/browsersync-pure-boilerplate](https://github.com/tomieric/browsersync-pure-boilerplate)，欢迎 star，实现剧情反转，配置只需2分钟！
 
 ## 进阶
 

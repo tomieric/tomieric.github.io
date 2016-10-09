@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tomieric.github.io/"/>
-  <updated>2016-10-07T06:52:03.000Z</updated>
+  <updated>2016-10-07T11:50:25.000Z</updated>
   <id>http://tomieric.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>配置5小时开发2分钟系列（4）</title>
+    <title>配置5小时开发2分钟系列（4）—— react ie8 开发环境</title>
     <link href="http://tomieric.github.io/2016/09/08/startkit-4/"/>
     <id>http://tomieric.github.io/2016/09/08/startkit-4/</id>
     <published>2016-09-07T16:00:00.000Z</published>
-    <updated>2016-10-07T06:52:03.000Z</updated>
+    <updated>2016-10-07T11:50:25.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="react-ie8-开发环境"><a href="#react-ie8-开发环境" class="headerlink" title="react ie8 开发环境"></a>react ie8 开发环境</h2><p><a href="https://github.com/tomieric/react-ie8-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-ie8-boilerplate</a></p>
 <a id="more"></a>
@@ -50,11 +50,11 @@
   </entry>
   
   <entry>
-    <title>配置5小时开发2分钟系列（3）</title>
+    <title>配置5小时开发2分钟系列（3）—— webpack 搭配 react</title>
     <link href="http://tomieric.github.io/2016/09/05/startkit-3/"/>
     <id>http://tomieric.github.io/2016/09/05/startkit-3/</id>
     <published>2016-09-04T16:00:00.000Z</published>
-    <updated>2016-10-07T06:51:31.000Z</updated>
+    <updated>2016-10-07T11:49:53.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="webpack-搭配-react"><a href="#webpack-搭配-react" class="headerlink" title="webpack 搭配 react"></a>webpack 搭配 react</h2><p><a href="https://github.com/tomieric/react-webpack-boilerplate" target="_blank" rel="external">https://github.com/tomieric/react-webpack-boilerplate</a></p>
 <a id="more"></a>
@@ -84,31 +84,115 @@
   </entry>
   
   <entry>
-    <title>配置5小时开发2分钟系列（2）</title>
+    <title>配置5小时开发2分钟系列（2）—— gulp搭配browser-sync</title>
     <link href="http://tomieric.github.io/2016/09/03/startkit-2/"/>
     <id>http://tomieric.github.io/2016/09/03/startkit-2/</id>
     <published>2016-09-02T16:00:00.000Z</published>
-    <updated>2016-10-07T06:55:47.000Z</updated>
+    <updated>2016-10-09T05:20:58.000Z</updated>
     
-    <content type="html"><![CDATA[<!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="http://oenwuky9h.bkt.clouddn.com/WechatIMG9.jpeg?imageView2/0/interlace/1/q/60" alt="雨后羊城"><span class="caption">雨后羊城</span></div><!-- content -->
+    <content type="html"><![CDATA[<blockquote>
+<p>最近火遍朋友圈的 <a href="https://www.v2ex.com/t/310767" target="_blank" rel="external">在 2016 年学 JavaScript 是一种什么样的体验？</a>，如果有一天选择做了前端，请把我埋在，深深的配置里…</p>
+</blockquote>
+<p>在前两年觉得前端是最容易入门上手的，而近两年感觉门槛高了，各种眼花缭乱的构建工具，各种配置。 </p>
+<p>本篇带来的是 <code>gulp搭配browser-sync</code></p>
+<a id="more"></a>
 <h2 id="gulp搭配browser-sync"><a href="#gulp搭配browser-sync" class="headerlink" title="gulp搭配browser-sync"></a>gulp搭配browser-sync</h2><p>在<a href="/2016/09/01/startkit-1/">上一篇</a> 介绍了 <code>browser-sync</code>，本篇将介绍 <code>browser-sync</code> 搭载 <code>gulp</code> 实现构建环境。</p>
 <p>grunt 在很久以前用过，配置方式不太喜欢，所以一直使用 gulp，gulp的入门介绍就不详细介绍，可以看两年前的介绍,<a href="http://tomieric.com/2014/08/20/gulp/" target="_blank" rel="external">Gulp.js构建工具入门</a></p>
-<p><a href="https://github.com/tomieric/gulp-browsersync-boilerplate" target="_blank" rel="external">https://github.com/tomieric/gulp-browsersync-boilerplate</a></p>
-<a id="more"></a>
+<h3 id="gulp-配置开发"><a href="#gulp-配置开发" class="headerlink" title="gulp 配置开发"></a>gulp 配置开发</h3><p>在根目录下新建<code>gulpfile.js</code> 文件，此文件为 <code>gulp</code> 的入口文件，在终端直接输入 <code>gulp</code>命令即可以执行配置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">touch</span> <span class="selector-tag">gulpfile</span><span class="selector-class">.js</span></div></pre></td></tr></table></figure>
+<p>使用 gulp 为我们管理 <code>less编译</code>, <code>图片压缩</code>, <code>js压缩</code>, <code>模板编译</code>, <code>http 服务</code> 等，此时 gulpfile.js 文件将越来越臃肿。我们将 gulpfile.js 逐渐按业务逻辑拆分不同的文件。</p>
+<p>模板项目整体结构如下</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── README.MD</div><div class="line">├── config.json      配置文件</div><div class="line">├── gulp             gulp 任务配置</div><div class="line">│   ├── <span class="class"><span class="keyword">lib</span>          工具函数</span></div><div class="line">│   └── task         gulp task 配置</div><div class="line">│        ├── defaultTask         默认任务，包括 ejs，less，编译及 server</div><div class="line">│        ├── spriteTask          sprite 合并任务，单独运行</div><div class="line">│        └── buildTask         构建</div><div class="line">├── gulpfile.js</div><div class="line">├── static</div><div class="line">│   ├── css</div><div class="line">│   ├── fonts</div><div class="line">│   ├── images</div><div class="line">│   ├── js</div><div class="line">│   └── less</div><div class="line">├── template           ejs模板</div><div class="line">│   ├── _common</div><div class="line">│   ├── upgrade.html</div><div class="line">│   └── 首页.html</div></pre></td></tr></table></figure>
+<p>从结构中可以看到，将于 gulp相关的文件都放在 <code>gulp</code> 文件夹下，而且按业务逻辑分成 <code>defaultTask</code>默认的开发环境，<code>buildTask</code> 构建发布的生产环境。</p>
+<p>此外static主要存放静态文件，template 存放 js 模板（使用 ejs 模板引擎管理静态页面，推荐更好的模板<a href="https://mozilla.github.io/nunjucks/cn/api.html" target="_blank" rel="external">Nunjucks</a>）</p>
+<h3 id="1-入口文件"><a href="#1-入口文件" class="headerlink" title="1. 入口文件"></a>1. 入口文件</h3><p>入口文件为 gulp 构建工具默认的 <code>gulpfile.js</code>文件，只需将拆分的 task 任务导入</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*-------------</span></div><div class="line">*  默认任务</div><div class="line">-------------*/</div><div class="line"><span class="function"><span class="title">require</span><span class="params">(<span class="string">'./gulp/task/defaultTask'</span>)</span><span class="params">()</span></span></div><div class="line"></div><div class="line"><span class="comment">// code</span></div><div class="line">...</div></pre></td></tr></table></figure>
+<p>因此我们需要在<code>./gulp/task/</code>目录下新建<code>defaultTask.js</code>文件，里面声明各自 task 执行的任务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// defaultTask.js </span></div><div class="line"><span class="keyword">var</span> gulp   = <span class="built_in">require</span>(<span class="string">'gulp'</span>)</div><div class="line"><span class="comment">// 配置文件</span></div><div class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'../../config.json'</span>)</div><div class="line"><span class="comment">// 项目信息</span></div><div class="line"><span class="keyword">var</span> pkg    = <span class="built_in">require</span>(<span class="string">'../../package.json'</span>)</div><div class="line"><span class="comment">// node 内置模块</span></div><div class="line"><span class="keyword">var</span> path   = <span class="built_in">require</span>(<span class="string">'path'</span>)</div><div class="line"><span class="keyword">var</span> fs     = <span class="built_in">require</span>(<span class="string">'fs'</span>)</div><div class="line"><span class="comment">// gulp 加载插件</span></div><div class="line"><span class="keyword">var</span> $      = <span class="built_in">require</span>(<span class="string">'gulp-load-plugins'</span>)()</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">defaultTask</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里使用的是<code>gulp-load-plugins</code>, 减少声明太多变量</p>
+<p>插件：</p>
+<ul>
+<li><a href="https://github.com/jackfranklin/gulp-load-plugins" target="_blank" rel="external">https://github.com/jackfranklin/gulp-load-plugins</a></li>
+</ul>
+<h3 id="2-模板编译"><a href="#2-模板编译" class="headerlink" title="2. 模板编译"></a>2. 模板编译</h3><p>模板使用的是 <code>ejs</code>(<a href="http://ejs.co/" target="_blank" rel="external">http://ejs.co/</a>)，比较简单上手（前公司用的是nujucks,感觉更好用), <code>ejs</code> 支持变量的定义，js 语法，及<code>include</code>标签，方便我们对静态页面进行公共部分拆分,仿佛回到3，4年前写smarty，tp 模板的赶脚~</p>
+<figure class="highlight erb"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">%-</span></span></span><span class="ruby"> <span class="keyword">include</span>(<span class="string">'_common/header.html'</span>, config) </span><span class="xml"><span class="tag">%&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">%</span></span><span class="ruby"> users.forEach(function(user)&#123; </span><span class="xml"><span class="tag">%&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span></span><span class="ruby"> user.name </span><span class="xml"><span class="tag">%&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">            <span class="tag">&lt;<span class="name">%</span></span><span class="ruby"> &#125; </span><span class="xml"><span class="tag">%&gt;</span></span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">%-</span></span><span class="ruby"> <span class="keyword">include</span>(<span class="string">'_common/list.html'</span>, [&#123;<span class="symbol">name:</span> <span class="string">'tommyshao'</span>&#125;, &#123;<span class="symbol">name:</span> <span class="string">'ray'</span>&#125;]) </span><span class="xml"><span class="tag">%&gt;</span></span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%-</span></span><span class="ruby"> <span class="keyword">include</span>(<span class="string">'_common/footer.html'</span>) </span><span class="xml"><span class="tag">%&gt;</span></span></div></pre></td></tr></table></figure>
+<p>在 gulp 使用只需要 <code>$.ejs({ config: config})</code>,其中 config 传入的是配置文件中的变量。模板中的公共模板(定义<code>_</code>开头的文件或者文件夹)不需要编译因此需要过滤。完整的代码：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 模板编译</span></div><div class="line">gulp.task(<span class="string">'template'</span>, function() &#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([config.template+<span class="string">'/**/**.html'</span>, <span class="string">'!'</span>+config.template+<span class="string">'/**/_**.html'</span>, <span class="string">'!'</span>+config.template+<span class="string">'/_**/**.html'</span>])</div><div class="line">                .pipe($.ejs(&#123; config: config&#125;))</div><div class="line">                .pipe($.prettify(&#123; indent_size: 2&#125;))</div><div class="line">                .pipe($.plumber(&#123; errorHandler: $.notify.onError('错误: &lt;%= <span class="keyword">error</span>.message%&gt;')&#125;))</div><div class="line">                .pipe(gulp.dest(config.destPath))</div><div class="line">                .pipe(reload(&#123; stream: <span class="keyword">true</span> &#125;))</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>config.template</code> 配置文件中模板的目录</li>
+<li><code>config.destPath</code> 配置文件中模板编译后的目录，也是 http server 的根目录</li>
+<li><code>$.prettify({ indent_size: 2})</code> 输出 html 以2个空格格式化</li>
+</ul>
+<p>插件：</p>
+<ul>
+<li><a href="https://github.com/rogeriopvl/gulp-ejs" target="_blank" rel="external">https://github.com/rogeriopvl/gulp-ejs</a></li>
+<li><a href="https://github.com/jonschlinkert/gulp-prettify" target="_blank" rel="external">https://github.com/jonschlinkert/gulp-prettify</a></li>
+<li><a href="https://github.com/floatdrop/gulp-plumber" target="_blank" rel="external">https://github.com/floatdrop/gulp-plumber</a></li>
+</ul>
+<h3 id="3-less-样式编译"><a href="#3-less-样式编译" class="headerlink" title="3. less 样式编译"></a>3. less 样式编译</h3><p>less(<a href="http://lesscss.org/" target="_blank" rel="external">http://lesscss.org/</a>)是 css 的预编译器，可以定义变量，mixin，函数等，功能比较齐全和轻便。</p>
+<p>为了减少写更多的 mixin，这里推荐一个比较好用的插件<code>autoprefixer</code>,它是属于现在比较火的预编译器<code>postcss</code>内置组件。</p>
+<p>less 最终编译成 css，在调试的时候如何快速定位到 less 源文件的语句呢，需要使用到 <code>sourcemaps</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// less 编译</span></div><div class="line">gulp.task(<span class="string">'less'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([config.staticPath+<span class="string">'/less/**/**.less'</span>, <span class="string">'!'</span>+ config.staticPath+<span class="string">'/less/**/_**.less'</span>, <span class="string">'!'</span>+ config.staticPath+<span class="string">'/less/_**/**.less'</span>])</div><div class="line">            .pipe($.sourcemaps.init())</div><div class="line">            .pipe($.plumber(&#123; errorHandler: $.notify.onError(<span class="string">'错误: &lt;%= error.message %&gt;'</span>)&#125;))</div><div class="line">            .pipe($.less())</div><div class="line">            .pipe($.autoprefixer(<span class="string">'last 2 version'</span>, <span class="string">'not ie &lt;= 8'</span>))</div><div class="line">            .pipe($.sourcemaps.write(<span class="string">'./maps'</span>))</div><div class="line">            .pipe(gulp.dest(config.staticPath+<span class="string">'/css'</span>))</div><div class="line">            .pipe(reload(&#123; stream: <span class="literal">true</span> &#125;))</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li><code>$.sourcemaps.init()</code>, <code>$.sourcemaps.write(&#39;./maps&#39;)</code> sourcemaps声明</li>
+<li><code>$.less()</code> less 文件编译</li>
+<li><code>$.autoprefixer(&#39;last 2 version&#39;, &#39;not ie &lt;= 8&#39;)</code> 浏览器css 语法自动增加前缀（-webkit，-moz），最新两款浏览器，IE8以上</li>
+</ul>
+<p>插件：</p>
+<ul>
+<li><a href="https://github.com/floridoo/gulp-sourcemaps" target="_blank" rel="external">https://github.com/floridoo/gulp-sourcemaps</a></li>
+<li><a href="https://github.com/plus3network/gulp-less" target="_blank" rel="external">https://github.com/plus3network/gulp-less</a></li>
+<li><a href="https://github.com/sindresorhus/gulp-autoprefixer" target="_blank" rel="external">https://github.com/sindresorhus/gulp-autoprefixer</a></li>
+</ul>
+<h3 id="4-即时刷新-watch"><a href="#4-即时刷新-watch" class="headerlink" title="4. 即时刷新 watch"></a>4. 即时刷新 watch</h3><p>即时刷新主要是监听静态资源和 html 页面文件的内容变更，浏览器第一时间刷新页面。 使用 <code>gulp.watch</code>搭配<code>browser-sync</code> 的 <code>reload</code> 函数</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 监听及时刷新</span></div><div class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">'watch'</span>, function() &#123;</div><div class="line">    gulp<span class="selector-class">.watch</span>(config.template + <span class="string">'/**/**.html'</span>, [<span class="string">'template'</span>])</div><div class="line">    <span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(config.staticPath + <span class="string">'/less/**/**'</span>, [<span class="string">'less'</span>])</div><div class="line">    <span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(config.staticPath + <span class="string">'/js/**/**'</span>)<span class="selector-class">.on</span>(<span class="string">'change'</span>, reload)</div><div class="line">    <span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(config.staticPath + <span class="string">'/images/**/**'</span>)<span class="selector-class">.on</span>(<span class="string">'change'</span>, reload)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><code>reload</code>在文件头部的声明使用</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// http server</span></div><div class="line"><span class="selector-tag">var</span> browserSync = require(<span class="string">'browser-sync'</span>).create()</div><div class="line"><span class="selector-tag">var</span> reload      = browserSync<span class="selector-class">.reload</span></div><div class="line"></div><div class="line"></div><div class="line">...</div><div class="line">    .pipe(reload(&#123; stream: true &#125;))</div></pre></td></tr></table></figure>
+<p>插件：</p>
+<ul>
+<li><a href="https://browsersync.io/" target="_blank" rel="external">https://browsersync.io/</a></li>
+</ul>
+<h3 id="5-sprite-雪碧图合并"><a href="#5-sprite-雪碧图合并" class="headerlink" title="5. sprite 雪碧图合并"></a>5. sprite 雪碧图合并</h3><p>sprite雪碧图合并可以将多张图片生成一张图片并生成 css 样式文件</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var spritesmith = require(<span class="string">'gulp.spritesmith'</span>)</div><div class="line"></div><div class="line">spritesmith(&#123;</div><div class="line">    imgPath: <span class="string">'../images/sprite/icon-home.png?v='</span>+ <span class="built_in">config</span>.version,</div><div class="line">    imgName: folder+<span class="string">'.png'</span>,</div><div class="line">    cssName: <span class="string">'_'</span>+ folder+<span class="string">'.css'</span>,</div><div class="line">    padding: <span class="built_in">config</span>.sprite_padding</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>因此可以设计出多张 sprite 并发处理。详看：<a href="https://github.com/tomieric/gulp-browsersync-boilerplate/blob/master/gulp/task/spriteTask.js" target="_blank" rel="external">https://github.com/tomieric/gulp-browsersync-boilerplate/blob/master/gulp/task/spriteTask.js</a> </p>
+<h3 id="6-browser-sync-配置"><a href="#6-browser-sync-配置" class="headerlink" title="6. browser-sync 配置"></a>6. browser-sync 配置</h3><p>在上一篇就介绍了<code>browser-sync</code> 作为 http server 服务的优点。这里我们就使用 <code>browser-sync</code>的 api 搭载 gulp 来使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// http server</span></div><div class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create()</div><div class="line"></div><div class="line"><span class="comment">// 启动服务</span></div><div class="line">gulp.task(<span class="string">'server'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">    browserSync.init(&#123;</div><div class="line">        <span class="comment">// 界面管理工具</span></div><div class="line">        ui: &#123;</div><div class="line">            port: <span class="number">8080</span>,</div><div class="line">            weinre: &#123; <span class="comment">// weinre工具移动设备代理端口</span></div><div class="line">                port: <span class="number">9090</span></div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        server: &#123;</div><div class="line">            <span class="comment">// 目录都作为根目录访问</span></div><div class="line">            baseDir: [<span class="string">'./'</span>+ config.destPath, <span class="string">'./static'</span>],</div><div class="line">            directory: <span class="literal">true</span>,</div><div class="line">            routes: &#123;</div><div class="line">                <span class="string">'/bower_components'</span>: <span class="string">'./bower_components'</span></div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        host: Lib.getIPAddress(),</div><div class="line">        port: config.port,</div><div class="line">        <span class="comment">// 使用浏览器打开</span></div><div class="line">        <span class="comment">// 可以自定义配置</span></div><div class="line">        <span class="comment">//   browser: ['chrome', 'firefox', 'Internet Explore']</span></div><div class="line">        <span class="comment">// 只启动 chrome 开发</span></div><div class="line">        browser: [<span class="string">'google chrome'</span>,<span class="string">'chrome'</span>],</div><div class="line">        <span class="comment">// 管理代理</span></div><div class="line">        <span class="comment">// middleware: [jsonProxy]</span></div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>具体的<code>browser-sync</code> 配置和介绍请看系列一的介绍。传送门： <a href="/2016/09/01/startkit-1/">即时刷新的browser-sync</a></p>
+<h3 id="7-接口代理"><a href="#7-接口代理" class="headerlink" title="7. 接口代理"></a>7. 接口代理</h3><p>在前端开发中比如需要ajax请求数据，做 js 模板的渲染等，我们如何请求另一台服务器的数据呢？很明显存在着跨域问题，很多同学说还不简单使用 jsonp 啊。</p>
+<p>但是不是还有比 jsonp 更简单的呢，就是将另一台服务器的接口代理到本地服务器，这样就作为同域处理了，比如我们代理了测试服务器上的数据，前后端的开发彼此不受影响，前端发布到测试服务器后可以上线对接。</p>
+<p>这里使用http 代理中间件<code>http-proxy-middleware</code>, 支持 <code>connect</code>,<code>express</code>,<code>browser-sync</code></p>
+<p>导入<code>http-proxy-middleware</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// http proxy</span></div><div class="line"><span class="keyword">var</span> httpProxy = <span class="built_in">require</span>(<span class="string">'http-proxy-middleware'</span>)</div><div class="line"></div><div class="line"><span class="comment">// 代理本地 http 请求以`/api/`开头的</span></div><div class="line"><span class="comment">// 统一返回 代理到测试服务器上接口数据</span></div><div class="line"><span class="comment">// 比如本地请求 /api/getUserInfo 返回的是测试服务器上的/getUserInfo接口数据</span></div><div class="line"><span class="keyword">var</span> jsonProxy = httpProxy(<span class="string">'/api/'</span>, &#123;</div><div class="line">    target: <span class="string">'http://xxx.xxx.xxx.xxx:2016'</span>,</div><div class="line">    changeOrigin: <span class="literal">true</span>,</div><div class="line">    pathRewrite: &#123;</div><div class="line">        <span class="string">'/api'</span>: <span class="string">''</span></div><div class="line">    &#125;,</div><div class="line">    logLevel: <span class="string">'debug'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在<code>browser-sync</code>中启用代理</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">browserSync</span><span class="selector-class">.init</span>(&#123;</div><div class="line">    ...</div><div class="line">    <span class="comment">// http proxy </span></div><div class="line">    <span class="selector-tag">middleware</span>: <span class="selector-attr">[jsonProxy]</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>插件：</p>
+<ul>
+<li><a href="https://github.com/chimurai/http-proxy-middleware" target="_blank" rel="external">https://github.com/chimurai/http-proxy-middleware</a></li>
+</ul>
+<h3 id="8-默认任务"><a href="#8-默认任务" class="headerlink" title="8. 默认任务"></a>8. 默认任务</h3><p><code>gulp</code> 命令默认执行 <code>gulp.task(&#39;default&#39;, fn)</code> 定义的任务。 如何将我们以上的任务组合在一起，使用<code>gulp.start([task1, task2])</code>, 由于<code>gulp.start</code>是并发式执行任务，这里推荐更好的队列方式插件来组合执行任务，按照声明的先后执行 task。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">'default'</span>, function(cb)&#123;</div><div class="line">    $<span class="selector-class">.sequence</span>(<span class="string">'template:clean'</span>, [<span class="string">'template'</span>, <span class="string">'less'</span>], <span class="string">'server'</span>, <span class="string">'watch'</span>)(cb)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>插件：</p>
+<ul>
+<li><a href="https://github.com/teambition/gulp-sequence" target="_blank" rel="external">https://github.com/teambition/gulp-sequence</a></li>
+</ul>
+<h2 id="构建发布生产及配置文件"><a href="#构建发布生产及配置文件" class="headerlink" title="构建发布生产及配置文件"></a>构建发布生产及配置文件</h2><p>构建发布生产环境主要做静态文件压缩，增加版权信息，拷贝。这里不详细阐述，具体查看 github。</p>
+<p>配置文件 <code>config.json</code>，自定义分离出弹性可配置项，只有开发者自行修改 json 的字段，比如开发环境端口，生产环境预览端口等。生成发布的目录，在前公司直接生成到 svn 的目录上，再同步到公司项目。</p>
+<p>Git项目地址：<br><a href="https://github.com/tomieric/gulp-browsersync-boilerplate" target="_blank" rel="external">https://github.com/tomieric/gulp-browsersync-boilerplate</a>， 欢迎 star！</p>
 <ul>
 <li><a href="/2016/09/01/startkit-1/">配置5小时开发2分钟系列（1）</a></li>
 <li><a href="/2016/09/03/startkit-2/">配置5小时开发2分钟系列（2）</a></li>
 <li><a href="/2016/09/05/startkit-3/">配置5小时开发2分钟系列（3）</a></li>
-<li><a href="/2016/09/08/startkit-4/">配置5小时开发2分钟系列（4）</a></li>
+<li><a href="/2016/09/08/startkit-4/">配置5小时开发2分钟系列（4）</a>·</li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;http://oenwuky9h.bkt.clouddn.com/WechatIMG9.jpeg?imageView2/0/interlace/1/q/60&quot; alt=&quot;雨后羊城&quot;&gt;&lt;span class=&quot;caption&quot;&gt;雨后羊城&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
-&lt;h2 id=&quot;gulp搭配browser-sync&quot;&gt;&lt;a href=&quot;#gulp搭配browser-sync&quot; class=&quot;headerlink&quot; title=&quot;gulp搭配browser-sync&quot;&gt;&lt;/a&gt;gulp搭配browser-sync&lt;/h2&gt;&lt;p&gt;在&lt;a href=&quot;/2016/09/01/startkit-1/&quot;&gt;上一篇&lt;/a&gt; 介绍了 &lt;code&gt;browser-sync&lt;/code&gt;，本篇将介绍 &lt;code&gt;browser-sync&lt;/code&gt; 搭载 &lt;code&gt;gulp&lt;/code&gt; 实现构建环境。&lt;/p&gt;
-&lt;p&gt;grunt 在很久以前用过，配置方式不太喜欢，所以一直使用 gulp，gulp的入门介绍就不详细介绍，可以看两年前的介绍,&lt;a href=&quot;http://tomieric.com/2014/08/20/gulp/&quot;&gt;Gulp.js构建工具入门&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/tomieric/gulp-browsersync-boilerplate&quot;&gt;https://github.com/tomieric/gulp-browsersync-boilerplate&lt;/a&gt;&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;最近火遍朋友圈的 &lt;a href=&quot;https://www.v2ex.com/t/310767&quot;&gt;在 2016 年学 JavaScript 是一种什么样的体验？&lt;/a&gt;，如果有一天选择做了前端，请把我埋在，深深的配置里…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在前两年觉得前端是最容易入门上手的，而近两年感觉门槛高了，各种眼花缭乱的构建工具，各种配置。 &lt;/p&gt;
+&lt;p&gt;本篇带来的是 &lt;code&gt;gulp搭配browser-sync&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
@@ -124,18 +208,23 @@
   </entry>
   
   <entry>
-    <title>配置5小时开发2分钟系列（1）</title>
+    <title>配置5小时开发2分钟系列（1）—— 即时刷新的browser-sync</title>
     <link href="http://tomieric.github.io/2016/09/01/startkit-1/"/>
     <id>http://tomieric.github.io/2016/09/01/startkit-1/</id>
     <published>2016-08-31T16:00:00.000Z</published>
-    <updated>2016-10-07T06:43:45.000Z</updated>
+    <updated>2016-10-07T11:37:00.000Z</updated>
     
-    <content type="html"><![CDATA[<!-- endcontent --><div class="figure figure--fullWidth"><img class="figure-img" src="http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60" alt="日暮羊城"><span class="caption">日暮羊城</span></div><!-- content -->
-<h2 id="即时刷新的前端环境browser-sync"><a href="#即时刷新的前端环境browser-sync" class="headerlink" title="即时刷新的前端环境browser-sync"></a>即时刷新的前端环境browser-sync</h2><p>在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>最近火遍朋友圈的 <a href="https://www.v2ex.com/t/310767" target="_blank" rel="external">在 2016 年学 JavaScript 是一种什么样的体验？</a>，如果有一天选择做了前端，请把我埋在，深深的配置里…</p>
+</blockquote>
+<p>在前两年觉得前端是最容易入门上手的，而近两年感觉门槛高了，各种眼花缭乱的构建工具，各种配置。 </p>
+<p>在这里不用怕，本人带你一步步实现自己的配置模板。</p>
+<p>本篇带来的是 <code>即时刷新的browser-sync</code></p>
+<a id="more"></a>
+<h2 id="即时刷新的browser-sync"><a href="#即时刷新的browser-sync" class="headerlink" title="即时刷新的browser-sync"></a>即时刷新的browser-sync</h2><p>在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。</p>
 <p>为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。</p>
 <p>在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。</p>
 <p>在本篇文章将介绍更能提供的 http 环境的强大工具 <code>browser-sync</code>，开始我们的 <code>配置5小时开发两分钟</code> 介绍。</p>
-<a id="more"></a>
 <blockquote>
 <p><code>browser-sync</code> 是一款 <code>省时的浏览器同步测试工具</code></p>
 </blockquote>
@@ -164,7 +253,7 @@
 <p>或者</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="built_in">run</span> start</div></pre></td></tr></table></figure>
 <p>渐渐的项目配置文件越来越多了，怎么办下次新项目又要重新配置？因此才有了 <code>配置5小时开发两分钟系列</code>，^_^</p>
-<p>这里作者整理一个完整的 <code>browser-sync</code> 环境的构建项目模板 <a href="https://github.com/tomieric/browsersync-pure-boilerplate" target="_blank" rel="external">https://github.com/tomieric/browsersync-pure-boilerplate</a>，欢迎 star！</p>
+<p>这里作者整理一个完整的 <code>browser-sync</code> 环境的构建项目模板 <a href="https://github.com/tomieric/browsersync-pure-boilerplate" target="_blank" rel="external">https://github.com/tomieric/browsersync-pure-boilerplate</a>，欢迎 star，实现剧情反转，配置只需2分钟！</p>
 <h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p>关于 <code>browser-sync</code> 还有很多可以挖掘的，比如它的 UI界面 ，这个在调试移动端很是强大。</p>
 <p>本人之前一直在用的是 <code>livereload</code>，但相比 <code>browser-sync</code> 功能还是差一大截。</p>
 <p><code>browser-sync</code> 还可以搭载其他构建工具，比如 <code>gulp</code>, <code>grunt</code>等，将在系列的下一篇详细介绍。</p>
@@ -178,11 +267,12 @@
     
     <summary type="html">
     
-      &lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;http://oenwuky9h.bkt.clouddn.com/WechatIMG7.jpeg?imageView2/0/interlace/1/q/60&quot; alt=&quot;日暮羊城&quot;&gt;&lt;span class=&quot;caption&quot;&gt;日暮羊城&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
-&lt;h2 id=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;a href=&quot;#即时刷新的前端环境browser-sync&quot; class=&quot;headerlink&quot; title=&quot;即时刷新的前端环境browser-sync&quot;&gt;&lt;/a&gt;即时刷新的前端环境browser-sync&lt;/h2&gt;&lt;p&gt;在很久以前我们可能用过曾经很火的工作 F5，F5顾名思义就是不停的按下 F5键刷新页面，F5工具则替代了人工手动刷新。&lt;/p&gt;
-&lt;p&gt;为什么需要不停的刷新页面呢，在前端开发中，我们修改了文件的源码或者静态资源比如 javascript，image，css 文件，都是需要通过刷新页面才能更新预览。&lt;/p&gt;
-&lt;p&gt;在开发中，通常直接用浏览器打开 html 文件进行预览，但如何才能让在手机端能够预览，或者局域网的另一台机器可以实时访问到页面。这是需要引入 http 服务，比如基于 php ,.net, jsp或者 node的环境。&lt;/p&gt;
-&lt;p&gt;在本篇文章将介绍更能提供的 http 环境的强大工具 &lt;code&gt;browser-sync&lt;/code&gt;，开始我们的 &lt;code&gt;配置5小时开发两分钟&lt;/code&gt; 介绍。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;最近火遍朋友圈的 &lt;a href=&quot;https://www.v2ex.com/t/310767&quot;&gt;在 2016 年学 JavaScript 是一种什么样的体验？&lt;/a&gt;，如果有一天选择做了前端，请把我埋在，深深的配置里…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在前两年觉得前端是最容易入门上手的，而近两年感觉门槛高了，各种眼花缭乱的构建工具，各种配置。 &lt;/p&gt;
+&lt;p&gt;在这里不用怕，本人带你一步步实现自己的配置模板。&lt;/p&gt;
+&lt;p&gt;本篇带来的是 &lt;code&gt;即时刷新的browser-sync&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     

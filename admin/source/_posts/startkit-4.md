@@ -1,7 +1,8 @@
-title: 配置5小时开发2分钟系列（4）
+title: 配置5小时开发2分钟系列（4）—— react ie8 开发环境
 date: 2016/09/08
-thumbnailImage: http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg
+thumbnailImage: http://oenwuky9h.bkt.clouddn.com/DSC_0049.jpg?imageView2/1/w/280/h/280/interlace/1/q/60
 autoThumbnailImage: yes
+coverImage: http://oenwuky9h.bkt.clouddn.com/DSC_0049.jpg?imageView2/0/interlace/1/q/60
 tags:
     - gulp
     - browser-sync

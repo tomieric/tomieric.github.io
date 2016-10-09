@@ -1,7 +1,8 @@
-title: 配置5小时开发2分钟系列（3）
+title: 配置5小时开发2分钟系列（3）—— webpack 搭配 react
 date: 2016/09/05
-thumbnailImage: http://7xp5hh.com1.z0.glb.clouddn.com/vintage-140.jpg
+thumbnailImage: http://oenwuky9h.bkt.clouddn.com/DSC_1275.jpg?imageView2/1/w/280/h/280/interlace/1/q/60
 autoThumbnailImage: yes
+coverImage: http://oenwuky9h.bkt.clouddn.com/DSC_1275.jpg?imageView2/0/interlace/1/q/60
 tags:
     - gulp
     - browser-sync

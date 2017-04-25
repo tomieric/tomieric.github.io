@@ -246,7 +246,7 @@ export default <Router history={ hashHistory } routes={ routes } />
 
 `ES6` 是`EMCAscript 6` 的简写，之前有介绍过[拥抱 ES6](/2016/02/21/get-stared-use-es6/)， [http://babeljs.io/repl/](http://babeljs.io/repl/)可以在线学习语法[http://babeljs.io/docs/learn-es2015/](http://babeljs.io/docs/learn-es2015/)。
 
-通过`webpack`等工具编译后，`ES6`大部分语法转换成`ES5`, 大多数浏览器都支持`ES5`特性，个别浏览器需引入`es5-shime`等polyfill库,比如用 es6写的 jQuery 组件 [BrickPlus](http://frontui.github.io/BrickPlus/BP-JavaScriptComponents-Pagination.html)。
+通过`webpack`等工具编译后，`ES6`大部分语法转换成`ES5`, 大多数浏览器都支持`ES5`特性，个别浏览器需引入`es5-shim`等polyfill库,比如用 es6写的 jQuery 组件 [BrickPlus](http://frontui.github.io/BrickPlus/BP-JavaScriptComponents-Pagination.html)。
 
 ES6常用语法:
 

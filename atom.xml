@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tomieric.github.io/"/>
-  <updated>2016-10-09T11:29:25.000Z</updated>
+  <updated>2017-04-25T15:41:09.000Z</updated>
   <id>http://tomieric.github.io/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rnder 函数及动态组件</title>
+    <link href="http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/"/>
+    <id>http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/</id>
+    <published>2017-04-24T16:00:00.000Z</published>
+    <updated>2017-04-25T15:41:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>公司前端每周值日分享的主题 ppt</p>
+</blockquote>
+<p>关于 <code>Vue</code> 框架的 <code>Render</code> 函数及动态组件使用</p>
+<a id="more"></a>
+<iframe src="//slides.com/tomieric/vue-render-dynamic-component/embed?style=light" width="1024" height="680" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;公司前端每周值日分享的主题 ppt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;关于 &lt;code&gt;Vue&lt;/code&gt; 框架的 &lt;code&gt;Render&lt;/code&gt; 函数及动态组件使用&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="框架" scheme="http://tomieric.github.io/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="Vue" scheme="http://tomieric.github.io/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>配置5小时开发2分钟系列（4）—— react ie8 开发环境</title>
@@ -77,7 +107,7 @@
     <link href="http://tomieric.github.io/2016/09/05/startkit-3/"/>
     <id>http://tomieric.github.io/2016/09/05/startkit-3/</id>
     <published>2016-09-04T16:00:00.000Z</published>
-    <updated>2016-10-09T11:30:35.000Z</updated>
+    <updated>2016-10-09T11:33:29.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>最近火遍朋友圈的 <a href="https://www.v2ex.com/t/310767" target="_blank" rel="external">在 2016 年学 JavaScript 是一种什么样的体验？</a>，如果有一天选择做了前端，请把我埋在，深深的配置里…</p>
@@ -139,7 +169,7 @@
 <p>这里使用的是<code>webpack</code>中的<code>require.ensure([])</code> 特性做 react 程序的文件根据路由按需加载优化，并非 <code>all-in-one</code> 模式, 由于 react 本身体积不小加上其他依赖组件影响我们的首屏加载，比如你打开支付宝的<a href="http://ant.design/" target="_blank" rel="external">ant.design</a>官网会感觉好痛苦。</p>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 路由配置</div><div class="line"> * </div><div class="line"> * by tommyshao</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> &#123; Router, hashHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> routes = &#123;</div><div class="line">    component: <span class="built_in">require</span>(<span class="string">'../containers/common/layout'</span>).<span class="keyword">default</span>,</div><div class="line">    childRoutes: [</div><div class="line">        &#123;</div><div class="line">            path: <span class="string">'/'</span>,</div><div class="line">            indexRoute: &#123;</div><div class="line">                onEnter: (nextState, replace) =&gt; replace(<span class="string">'Home'</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            path: <span class="string">'Home'</span>,</div><div class="line">            getComponent(nextState, cb) &#123;</div><div class="line">                <span class="built_in">require</span>.ensure([], <span class="built_in">require</span> =&gt; &#123;</div><div class="line">                    cb(<span class="literal">null</span>, <span class="built_in">require</span>(<span class="string">'../containers/index'</span>).<span class="keyword">default</span>)</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &lt;Router history=&#123; hashHistory &#125; routes=&#123; routes &#125; /&gt;</div></pre></td></tr></table></figure>
 <h3 id="ES6介绍"><a href="#ES6介绍" class="headerlink" title="ES6介绍"></a>ES6介绍</h3><p><code>ES6</code> 是<code>EMCAscript 6</code> 的简写，之前有介绍过<a href="/2016/02/21/get-stared-use-es6/">拥抱 ES6</a>， <a href="http://babeljs.io/repl/" target="_blank" rel="external">http://babeljs.io/repl/</a>可以在线学习语法<a href="http://babeljs.io/docs/learn-es2015/" target="_blank" rel="external">http://babeljs.io/docs/learn-es2015/</a>。</p>
-<p>通过<code>webpack</code>等工具编译后，<code>ES6</code>大部分语法转换成<code>ES5</code>, 大多数浏览器都支持<code>ES5</code>特性，个别浏览器需引入<code>es5-shime</code>等polyfill库,比如用 es6写的 jQuery 组件 <a href="http://frontui.github.io/BrickPlus/BP-JavaScriptComponents-Pagination.html" target="_blank" rel="external">BrickPlus</a>。</p>
+<p>通过<code>webpack</code>等工具编译后，<code>ES6</code>大部分语法转换成<code>ES5</code>, 大多数浏览器都支持<code>ES5</code>特性，个别浏览器需引入<code>es5-shim</code>等polyfill库,比如用 es6写的 jQuery 组件 <a href="http://frontui.github.io/BrickPlus/BP-JavaScriptComponents-Pagination.html" target="_blank" rel="external">BrickPlus</a>。</p>
 <p>ES6常用语法:</p>
 <ul>
 <li>export,import</li>

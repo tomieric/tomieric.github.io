@@ -6,33 +6,28 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="前端 - 分享园">
-    <title>Hello World - 前端 - 分享园</title>
+    <title>Rnder 函数及动态组件 - 前端 - 分享园</title>
     <meta name="author" content="TommyShao">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="A beautiful sunrise
-由于旧博客用airpub.io，多说的账号被CSRF攻击造成大部分博文被注入删除
-说多了都是泪~~(&amp;gt;_&amp;lt;)~~
-已经决定了新博客用hexo">
+    <meta name="description" content="公司前端每周值日分享的主题 ppt
+
+关于 Vue 框架的 Render 函数及动态组件使用">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://tomieric.github.io/2016/02/20/hello-world/index.html">
+<meta property="og:title" content="Rnder 函数及动态组件">
+<meta property="og:url" content="http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/index.html">
 <meta property="og:site_name" content="前端 - 分享园">
-<meta property="og:description" content="A beautiful sunrise
-由于旧博客用airpub.io，多说的账号被CSRF攻击造成大部分博文被注入删除
-说多了都是泪~~(&amp;gt;_&amp;lt;)~~
-已经决定了新博客用hexo">
-<meta property="og:image" content="http://tomieric.github.io/assets/images/background.jpg">
-<meta property="og:updated_time" content="2016-09-04T07:20:30.000Z">
+<meta property="og:description" content="公司前端每周值日分享的主题 ppt
+
+关于 Vue 框架的 Render 函数及动态组件使用">
+<meta property="og:updated_time" content="2017-04-25T15:41:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="A beautiful sunrise
-由于旧博客用airpub.io，多说的账号被CSRF攻击造成大部分博文被注入删除
-说多了都是泪~~(&amp;gt;_&amp;lt;)~~
-已经决定了新博客用hexo">
-<meta name="twitter:image" content="http://tomieric.github.io/assets/images/background.jpg">
+<meta name="twitter:title" content="Rnder 函数及动态组件">
+<meta name="twitter:description" content="公司前端每周值日分享的主题 ppt
+
+关于 Vue 框架的 Render 函数及动态组件使用">
 <meta name="twitter:creator" content="@tomieric">
     
         <meta rel="publisher" content="https://plus.google.com/+tomieric"/>
@@ -42,6 +37,12 @@
         <meta property="og:image" content="/assets/images/avatar.jpg"/>
     
     
+        <meta property="og:image" content="/2017/04/25/vue-render-dynamic-component/https:/s3.amazonaws.com/media-p.slid.es/uploads/699855/images/3728534/logo.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/https://s3.amazonaws.com/media-p.slid.es/uploads/699855/images/3728534/logo.png" />
+    
+    
+        <meta property="og:image" content="/2017/04/25/vue-render-dynamic-component/https:/s3.amazonaws.com/media-p.slid.es/uploads/699855/images/3728534/logo.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/https://s3.amazonaws.com/media-p.slid.es/uploads/699855/images/3728534/logo.png" />
     
     
     <!--STYLES-->
@@ -211,57 +212,52 @@
 </nav>
 
             
+        <div class="post-header-cover
+                    text-left
+                    "
+             style="background-image:url('https://s3.amazonaws.com/media-p.slid.es/uploads/699855/images/3728534/logo.png');"
+             data-behavior="3">
+            
+                <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Rnder 函数及动态组件
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Tue Apr 25 2017 00:00:00 GMT+0800">
+	
+		    4月 25, 2017
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/框架/">框架</a>
+
+
+    
+</div>
+</div>
+            
+        </div>
+
             <div id="main" data-behavior="3"
-                 class="
+                 class="hasCover
                         hasCoverMetaIn
                         ">
                 
 <article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title" itemprop="headline">
-            Hello World
-        </h1>
-    
-    <div class="post-meta">
-    <time itemprop="datePublished" content="Sat Feb 20 2016 00:00:00 GMT+0800">
-	
-		    2月 20, 2016
-    	
-    </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/杂谈/">杂谈</a>
-
-
-    
-</div>
-</div>
-    
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            </div><div class="figure figure--fullWidth"><img class="figure-img" src="/assets/images/background.jpg" alt="A beautiful sunrise"><span class="caption">A beautiful sunrise</span></div><div class="main-content-wrap">
-<p>由于旧博客用<code>airpub.io</code>，多说的账号被<code>CSRF</code>攻击造成大部分博文被注入删除</p>
-<p>说多了都是泪<del>~~(&gt;_&lt;)</del>~~</p>
-<p>已经决定了新博客用<code>hexo</code></p>
+            <blockquote>
+<p>公司前端每周值日分享的主题 ppt</p>
+</blockquote>
+<p>关于 <code>Vue</code> 框架的 <code>Render</code> 函数及动态组件使用</p>
 <a id="more"></a>
-<h3 id="博客历程"><a href="#博客历程" class="headerlink" title="博客历程"></a>博客历程</h3><ul>
-<li>大学时期用免费asp主机，html模板</li>
-<li>上班后用博客园</li>
-<li>为了更多酷炫皮肤，用wordpress</li>
-<li>打破限制，用免费php主机跑wordpress，买过域名<code>www.fenxiangyuan.com</code></li>
-<li>累了，用gitpage，静态html，域名过期续不了，换成<code>http://www.get2e.com</code></li>
-<li>启用<code>airpub</code>,在gitpage上直接动态写文章，不用经常git操作</li>
-<li>发简历给猎头，猎头说博客东西好少，看了一下原来被攻击，好多文章丢失了，也找不回了，在多说上没有备份</li>
-<li>决定还是以静态方式，选择hexo因为模板够漂酿。实在没钱买VPS，掏捣nodejs去搭建个博客。</li>
-</ul>
-<h3 id="关于博客发布"><a href="#关于博客发布" class="headerlink" title="关于博客发布"></a>关于博客发布</h3><p>文档看的一头雾水，发布目录只能在hexo项目目录里</p>
-<p>只能把项目弄到<code>admin</code>目录，<code>hexo deploy</code>生成的<code>public</code>目录，通过<code>gulpfile</code>（工作用这个比较熟）拷贝到根目录并清空<code>public</code>目录。</p>
-<p>终于搞定了，在一个周末的下午。</p>
-
+<iframe src="//slides.com/tomieric/vue-render-dynamic-component/embed?style=light" width="1024" height="680" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen></iframe>
             
                 
 
@@ -273,7 +269,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/杂谈/">杂谈</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Vue/">Vue</a>
 
             </div>
         
@@ -282,7 +278,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/21/get-stared-use-es6/"  data-tooltip="拥抱ES6(一) - 认识babel">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -290,7 +286,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/04/10/jquery-queue/" data-tooltip="jQuery核心函数队列">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/08/startkit-4/" data-tooltip="配置5小时开发2分钟系列（4）—— react ie8 开发环境">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -301,25 +297,12 @@
 
 
     <div class="post-actions post-action-share" style="float: left;padding-top:15px">
-    <div class="ds-share" data-thread-key="2016/02/20/hello-world/" data-title="Hello World" data-images="" data-content="&lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;/assets/images/background.jpg&quot; alt=&quot;A beautiful sunrise&quot;&gt;&lt;span class=&quot;caption&quot;&gt;A beautiful sunrise&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
-&lt;p&gt;由于旧博客用&lt;code&gt;airpub.io&lt;/code&gt;，多说的账号被&lt;code&gt;CSRF&lt;/code&gt;攻击造成大部分博文被注入删除&lt;/p&gt;
-&lt;p&gt;说多了都是泪&lt;del&gt;~~(&amp;gt;_&amp;lt;)&lt;/del&gt;~~&lt;/p&gt;
-&lt;p&gt;已经决定了新博客用&lt;code&gt;hexo&lt;/code&gt;&lt;/p&gt;
+    <div class="ds-share" data-thread-key="2017/04/25/vue-render-dynamic-component/" data-title="Rnder 函数及动态组件" data-images="" data-content="&lt;blockquote&gt;
+&lt;p&gt;公司前端每周值日分享的主题 ppt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;关于 &lt;code&gt;Vue&lt;/code&gt; 框架的 &lt;code&gt;Render&lt;/code&gt; 函数及动态组件使用&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;博客历程&quot;&gt;&lt;a href=&quot;#博客历程&quot; class=&quot;headerlink&quot; title=&quot;博客历程&quot;&gt;&lt;/a&gt;博客历程&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;大学时期用免费asp主机，html模板&lt;/li&gt;
-&lt;li&gt;上班后用博客园&lt;/li&gt;
-&lt;li&gt;为了更多酷炫皮肤，用wordpress&lt;/li&gt;
-&lt;li&gt;打破限制，用免费php主机跑wordpress，买过域名&lt;code&gt;www.fenxiangyuan.com&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;累了，用gitpage，静态html，域名过期续不了，换成&lt;code&gt;http://www.get2e.com&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;启用&lt;code&gt;airpub&lt;/code&gt;,在gitpage上直接动态写文章，不用经常git操作&lt;/li&gt;
-&lt;li&gt;发简历给猎头，猎头说博客东西好少，看了一下原来被攻击，好多文章丢失了，也找不回了，在多说上没有备份&lt;/li&gt;
-&lt;li&gt;决定还是以静态方式，选择hexo因为模板够漂酿。实在没钱买VPS，掏捣nodejs去搭建个博客。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;关于博客发布&quot;&gt;&lt;a href=&quot;#关于博客发布&quot; class=&quot;headerlink&quot; title=&quot;关于博客发布&quot;&gt;&lt;/a&gt;关于博客发布&lt;/h3&gt;&lt;p&gt;文档看的一头雾水，发布目录只能在hexo项目目录里&lt;/p&gt;
-&lt;p&gt;只能把项目弄到&lt;code&gt;admin&lt;/code&gt;目录，&lt;code&gt;hexo deploy&lt;/code&gt;生成的&lt;code&gt;public&lt;/code&gt;目录，通过&lt;code&gt;gulpfile&lt;/code&gt;（工作用这个比较熟）拷贝到根目录并清空&lt;code&gt;public&lt;/code&gt;目录。&lt;/p&gt;
-&lt;p&gt;终于搞定了，在一个周末的下午。&lt;/p&gt;
-" data-url="http://tomieric.github.io/2016/02/20/hello-world/">
+&lt;iframe src=&quot;//slides.com/tomieric/vue-render-dynamic-component/embed?style=light&quot; width=&quot;1024&quot; height=&quot;680&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen&gt;&lt;/iframe&gt;" data-url="http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/">
         <div class="ds-share-inline">
           <ul  class="ds-share-icons-16">
             
@@ -340,7 +323,7 @@
 
         
             <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/02/20/hello-world/" data-title="Hello World" data-url="http://tomieric.github.io/2016/02/20/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="2017/04/25/vue-render-dynamic-component/" data-title="Rnder 函数及动态组件" data-url="http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -375,7 +358,7 @@ var duoshuoQuery = {short_name:"getf2e"};
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/21/get-stared-use-es6/"  data-tooltip="拥抱ES6(一) - 认识babel">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -383,7 +366,7 @@ var duoshuoQuery = {short_name:"getf2e"};
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/04/10/jquery-queue/" data-tooltip="jQuery核心函数队列">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/08/startkit-4/" data-tooltip="配置5小时开发2分钟系列（4）—— react ie8 开发环境">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -394,25 +377,12 @@ var duoshuoQuery = {short_name:"getf2e"};
 
 
     <div class="post-actions post-action-share" style="float: left;padding-top:15px">
-    <div class="ds-share" data-thread-key="2016/02/20/hello-world/" data-title="Hello World" data-images="" data-content="&lt;!-- endcontent --&gt;&lt;div class=&quot;figure figure--fullWidth&quot;&gt;&lt;img class=&quot;figure-img&quot; src=&quot;/assets/images/background.jpg&quot; alt=&quot;A beautiful sunrise&quot;&gt;&lt;span class=&quot;caption&quot;&gt;A beautiful sunrise&lt;/span&gt;&lt;/div&gt;&lt;!-- content --&gt;
-&lt;p&gt;由于旧博客用&lt;code&gt;airpub.io&lt;/code&gt;，多说的账号被&lt;code&gt;CSRF&lt;/code&gt;攻击造成大部分博文被注入删除&lt;/p&gt;
-&lt;p&gt;说多了都是泪&lt;del&gt;~~(&amp;gt;_&amp;lt;)&lt;/del&gt;~~&lt;/p&gt;
-&lt;p&gt;已经决定了新博客用&lt;code&gt;hexo&lt;/code&gt;&lt;/p&gt;
+    <div class="ds-share" data-thread-key="2017/04/25/vue-render-dynamic-component/" data-title="Rnder 函数及动态组件" data-images="" data-content="&lt;blockquote&gt;
+&lt;p&gt;公司前端每周值日分享的主题 ppt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;关于 &lt;code&gt;Vue&lt;/code&gt; 框架的 &lt;code&gt;Render&lt;/code&gt; 函数及动态组件使用&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;博客历程&quot;&gt;&lt;a href=&quot;#博客历程&quot; class=&quot;headerlink&quot; title=&quot;博客历程&quot;&gt;&lt;/a&gt;博客历程&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;大学时期用免费asp主机，html模板&lt;/li&gt;
-&lt;li&gt;上班后用博客园&lt;/li&gt;
-&lt;li&gt;为了更多酷炫皮肤，用wordpress&lt;/li&gt;
-&lt;li&gt;打破限制，用免费php主机跑wordpress，买过域名&lt;code&gt;www.fenxiangyuan.com&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;累了，用gitpage，静态html，域名过期续不了，换成&lt;code&gt;http://www.get2e.com&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;启用&lt;code&gt;airpub&lt;/code&gt;,在gitpage上直接动态写文章，不用经常git操作&lt;/li&gt;
-&lt;li&gt;发简历给猎头，猎头说博客东西好少，看了一下原来被攻击，好多文章丢失了，也找不回了，在多说上没有备份&lt;/li&gt;
-&lt;li&gt;决定还是以静态方式，选择hexo因为模板够漂酿。实在没钱买VPS，掏捣nodejs去搭建个博客。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;关于博客发布&quot;&gt;&lt;a href=&quot;#关于博客发布&quot; class=&quot;headerlink&quot; title=&quot;关于博客发布&quot;&gt;&lt;/a&gt;关于博客发布&lt;/h3&gt;&lt;p&gt;文档看的一头雾水，发布目录只能在hexo项目目录里&lt;/p&gt;
-&lt;p&gt;只能把项目弄到&lt;code&gt;admin&lt;/code&gt;目录，&lt;code&gt;hexo deploy&lt;/code&gt;生成的&lt;code&gt;public&lt;/code&gt;目录，通过&lt;code&gt;gulpfile&lt;/code&gt;（工作用这个比较熟）拷贝到根目录并清空&lt;code&gt;public&lt;/code&gt;目录。&lt;/p&gt;
-&lt;p&gt;终于搞定了，在一个周末的下午。&lt;/p&gt;
-" data-url="http://tomieric.github.io/2016/02/20/hello-world/">
+&lt;iframe src=&quot;//slides.com/tomieric/vue-render-dynamic-component/embed?style=light&quot; width=&quot;1024&quot; height=&quot;680&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen&gt;&lt;/iframe&gt;" data-url="http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/">
         <div class="ds-share-inline">
           <ul  class="ds-share-icons-16">
             
@@ -435,22 +405,22 @@ var duoshuoQuery = {short_name:"getf2e"};
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://tomieric.github.io/2016/02/20/hello-world/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://tomieric.github.io/2016/02/20/hello-world/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://tomieric.github.io/2016/02/20/hello-world/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?appkey=583395093&amp;title=&amp;url=http://tomieric.github.io/2016/02/20/hello-world/&amp;source=bshare&amp;retcode=0&amp;ralateUid=1799786352">
+            <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?appkey=583395093&amp;title=&amp;url=http://tomieric.github.io/2017/04/25/vue-render-dynamic-component/&amp;source=bshare&amp;retcode=0&amp;ralateUid=1799786352">
                 <i class="fa fa-weibo"></i><span>分享到 微博</span>
             </a>
         </li>

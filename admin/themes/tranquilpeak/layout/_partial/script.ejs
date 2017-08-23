@@ -1,3 +1,20 @@
 <!--SCRIPTS-->
 <%- js('assets/js/script.min.js') %>
+<script>
+  var disqus_config = function () {
+      this.page.url = '<%= post.permalink %>';
+      <% if (post.disqusIdentifier) { %>
+        this.page.identifier = '<%= post.disqusIdentifier %>';
+      <% } else { %>
+        this.page.identifier = '<%= post.path %>';
+      <% } %>
+  };
+(function() {
+    var d = document, s = d.createElement('script');
+    var disqus_shortname = '<%= theme.disqus_shortname %>';
+    s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
 <!--SCRIPTS END-->

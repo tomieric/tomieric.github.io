@@ -715,22 +715,9 @@ gulp.task(&amp;apos;default&amp;apos;, [&amp;apos;clean&amp;apos;], function(){
 
 
         
-            <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2014/08/20/gulp/" data-title="Gulp.js构建工具入门" data-url="http://tomieric.github.io/2014/08/20/gulp/"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"getf2e"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
         
     </div>
 </article>
@@ -1061,6 +1048,21 @@ gulp.task(&amp;apos;default&amp;apos;, [&amp;apos;clean&amp;apos;], function(){
     </body>
     <!--SCRIPTS-->
 <script src="/assets/js/script.min.js"></script>
+<script>
+  var disqus_config = function () {
+      this.page.url = 'http://tomieric.github.io/2014/08/20/gulp/';
+      
+        this.page.identifier = '2014/08/20/gulp/';
+      
+  };
+(function() {
+    var d = document, s = d.createElement('script');
+    var disqus_shortname = 'tomieric';
+    s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
 <!--SCRIPTS END-->
 
 </html>

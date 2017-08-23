@@ -381,22 +381,9 @@ EMAscript已经发布了es2015也就是ES6, 提供了丰富的API和函数编程
 
 
         
-            <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="2016/02/21/get-stared-use-es6/" data-title="拥抱ES6(一) - 认识babel" data-url="http://tomieric.github.io/2016/02/21/get-stared-use-es6/"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"getf2e"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-<!-- 多说公共JS代码 end -->
+            <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
         
     </div>
 </article>
@@ -562,6 +549,21 @@ var duoshuoQuery = {short_name:"getf2e"};
     </body>
     <!--SCRIPTS-->
 <script src="/assets/js/script.min.js"></script>
+<script>
+  var disqus_config = function () {
+      this.page.url = 'http://tomieric.github.io/2016/02/21/get-stared-use-es6/';
+      
+        this.page.identifier = '2016/02/21/get-stared-use-es6/';
+      
+  };
+(function() {
+    var d = document, s = d.createElement('script');
+    var disqus_shortname = 'tomieric';
+    s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
 <!--SCRIPTS END-->
 
 </html>

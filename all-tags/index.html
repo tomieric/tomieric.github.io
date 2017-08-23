@@ -243,6 +243,10 @@
                 browser-sync
             </a>
         
+            <a class="tag tag--primary tag--small" href="#docker-list" data-tag="docker">
+                docker
+            </a>
+        
             <a class="tag tag--primary tag--small" href="#es6-list" data-tag="es6">
                 es6
             </a>
@@ -263,6 +267,10 @@
                 js
             </a>
         
+            <a class="tag tag--primary tag--small" href="#linux-list" data-tag="linux">
+                linux
+            </a>
+        
             <a class="tag tag--primary tag--small" href="#mvc-list" data-tag="mvc">
                 mvc
             </a>
@@ -277,6 +285,10 @@
         
             <a class="tag tag--primary tag--small" href="#杂谈-list" data-tag="杂谈">
                 杂谈
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#运维-list" data-tag="运维">
+                运维
             </a>
         
     </section>
@@ -414,6 +426,20 @@
                 </ul>
             </div>
         
+            <div id="docker-list" class="archive box" data-tag="docker">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/docker">docker (1)</a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                    <li class="archive-post">
+                        <a class="archive-post-title" href="/2017/08/23/server-base-1/">Linux运维 - 用户操作篇</a>
+                        <span class="archive-post-date"> - 8月 23, 2017</span>
+                    </li>
+                    
+                </ul>
+            </div>
+        
             <div id="es6-list" class="archive box" data-tag="es6">
                 <h4 class="archive-title">
                     <a class="link-unstyled" href="/tags/es6">es6 (1)</a>
@@ -499,6 +525,20 @@
                 </ul>
             </div>
         
+            <div id="linux-list" class="archive box" data-tag="linux">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/linux">linux (1)</a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                    <li class="archive-post">
+                        <a class="archive-post-title" href="/2017/08/23/server-base-1/">Linux运维 - 用户操作篇</a>
+                        <span class="archive-post-date"> - 8月 23, 2017</span>
+                    </li>
+                    
+                </ul>
+            </div>
+        
             <div id="mvc-list" class="archive box" data-tag="mvc">
                 <h4 class="archive-title">
                     <a class="link-unstyled" href="/tags/mvc">mvc (1)</a>
@@ -570,6 +610,20 @@
                 </ul>
             </div>
         
+            <div id="运维-list" class="archive box" data-tag="运维">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/运维">运维 (1)</a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                    <li class="archive-post">
+                        <a class="archive-post-title" href="/2017/08/23/server-base-1/">Linux运维 - 用户操作篇</a>
+                        <span class="archive-post-date"> - 8月 23, 2017</span>
+                    </li>
+                    
+                </ul>
+            </div>
+        
     </section>
 </div>
 
@@ -625,6 +679,21 @@
     </body>
     <!--SCRIPTS-->
 <script src="/assets/js/script.min.js"></script>
+<script>
+  var disqus_config = function () {
+      this.page.url = 'http://tomieric.github.io/all-tags/index.html';
+      
+        this.page.identifier = 'all-tags/index.html';
+      
+  };
+(function() {
+    var d = document, s = d.createElement('script');
+    var disqus_shortname = 'tomieric';
+    s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
 <!--SCRIPTS END-->
 
 </html>

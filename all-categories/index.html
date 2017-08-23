@@ -231,6 +231,10 @@
                 框架
             </a>
         
+            <a class="category category--small category--primary" href="#posts-list-运维" data-category="运维">
+                运维
+            </a>
+        
     </section>
     <section class="boxes">
         
@@ -359,6 +363,23 @@
                 </div>
             
         
+            
+                <div id="posts-list-运维" class="archive box" data-category="运维">
+                    <h4 class="archive-title">
+                        <a class="link-unstyled" href="/categories/运维">运维 (1)</a>
+                    </h4>
+                    <ul class="archive-posts">
+                        
+                            <li class="archive-post">
+                                <a class="archive-post-title" href="/2017/08/23/server-base-1/">Linux运维 - 用户操作篇</a>
+                                <span class="archive-post-date"> - 8月 23, 2017</span>
+                            </li>
+                        
+                        
+                    </ul>
+                </div>
+            
+        
     </section>
 </div>
 
@@ -414,6 +435,21 @@
     </body>
     <!--SCRIPTS-->
 <script src="/assets/js/script.min.js"></script>
+<script>
+  var disqus_config = function () {
+      this.page.url = 'http://tomieric.github.io/all-categories/index.html';
+      
+        this.page.identifier = 'all-categories/index.html';
+      
+  };
+(function() {
+    var d = document, s = d.createElement('script');
+    var disqus_shortname = 'tomieric';
+    s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
 <!--SCRIPTS END-->
 
 </html>

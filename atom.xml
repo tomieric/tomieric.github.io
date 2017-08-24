@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tomieric.github.io/"/>
-  <updated>2017-08-23T14:46:39.000Z</updated>
+  <updated>2017-08-24T16:40:06.000Z</updated>
   <id>http://tomieric.github.io/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux运维 - Mac用户免密码登录</title>
+    <link href="http://tomieric.github.io/2017/08/25/server-base-2/"/>
+    <id>http://tomieric.github.io/2017/08/25/server-base-2/</id>
+    <published>2017-08-24T16:00:00.000Z</published>
+    <updated>2017-08-24T16:40:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>使用无密码登录服务器</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 生成新密钥</span></div><div class="line">&gt; ssh-keygen</div><div class="line"></div><div class="line"><span class="meta"># 一路回车</span></div><div class="line"></div><div class="line"><span class="meta"># 查看生成密钥</span></div><div class="line">&gt; ls ~/.ssh</div><div class="line"></div><div class="line"><span class="meta"># id_rsa.pub id_rsa</span></div><div class="line"></div><div class="line"><span class="meta"># 将id_rsa.pub 复制到服务器主目录</span></div><div class="line"><span class="meta"># 使用ssh-copy-id工具代劳</span></div><div class="line">&gt; brew install ssh-copy-id</div><div class="line"></div><div class="line"><span class="meta"># 安装后使用工具</span></div><div class="line">&gt; ssh-copy-id 用户名@服务器 IP</div><div class="line"><span class="meta"># 输入密码</span></div><div class="line">&gt; ...</div><div class="line"></div><div class="line"><span class="meta"># 成功后直接 ssh 登录不需要输入密码</span></div><div class="line">&gt; ssh 用户名@服务器 IP</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;使用无密码登录服务器&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="运维" scheme="http://tomieric.github.io/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+      <category term="运维" scheme="http://tomieric.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+      <category term="linux" scheme="http://tomieric.github.io/tags/linux/"/>
+    
+      <category term="docker" scheme="http://tomieric.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux运维 - 用户操作篇</title>

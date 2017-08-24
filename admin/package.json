@@ -2,6 +2,11 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "deploy": "hexo deploy",
+    "dist": "gulp",
+    "build": "npm run deploy && npm run dist"
+  },
   "hexo": {
     "version": "3.2.2"
   },
